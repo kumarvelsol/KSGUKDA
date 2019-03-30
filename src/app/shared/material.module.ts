@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatToolbarModule,MatButtonModule,MatSidenavModule,MatIconModule,
-  MatListModule,MatInputModule,MatCardModule,MatChipsModule,MatTabsModule,
-  MatSnackBarModule,MatExpansionModule} from '@angular/material';
-  import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
+  MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,
+  MatExpansionModule} from '@angular/material';
+  import {FlexLayoutModule} from '@angular/flex-layout';
+  import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatToolbarModule,MatButtonModule,MatSidenavModule,MatIconModule,
-  MatListModule,MatInputModule,MatCardModule,MatChipsModule,MatTabsModule,
-  MatSnackBarModule,MatExpansionModule,FlexLayoutModule
+    MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
+  MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,
+  MatExpansionModule,FlexLayoutModule,LayoutModule
   ],
-  exports:[MatToolbarModule,MatButtonModule,MatSidenavModule,MatIconModule,
-    MatListModule,MatInputModule,MatCardModule,MatChipsModule,MatTabsModule,
-    MatSnackBarModule,MatExpansionModule,FlexLayoutModule]
+  exports:[ MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
+    MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,
+    MatExpansionModule,FlexLayoutModule,LayoutModule]
 })
 export class MaterialModule { }

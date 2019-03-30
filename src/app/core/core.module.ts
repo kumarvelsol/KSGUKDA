@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../shared/material.module';
 import { ToolbarComponent } from '../ui/toolbar/toolbar.component';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [ToolbarComponent],
@@ -13,6 +11,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     CommonModule,
     SharedModule,
     MaterialModule,
+    RouterModule
   ],
   exports:[ToolbarComponent]
 })
