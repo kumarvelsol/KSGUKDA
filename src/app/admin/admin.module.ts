@@ -9,8 +9,13 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 
+import { MaterialModule } from '../shared/material.module';
+import { AdminServiceService } from './admin-service.service';
+import { DepartmentComponent } from './department/department.component';
+
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, CastDetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent],
+
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -19,8 +24,10 @@ import { CastDetailsComponent } from './cast-details/cast-details.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MaterialModule
   ],
-  exports:[DashboardComponent,AdminToolbarComponent]
+  exports:[DashboardComponent,AdminToolbarComponent],
+  providers:[AdminServiceService]
 })
 export class AdminModule { }

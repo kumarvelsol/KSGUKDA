@@ -9,10 +9,9 @@ import {MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
-  MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,
-  MatExpansionModule,FlexLayoutModule,LayoutModule
+    CommonModule, MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
+    MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,
+    MatExpansionModule,FlexLayoutModule,LayoutModule
   ],
   exports:[ MatButtonModule, MatCheckboxModule,MatToolbarModule,MatSidenavModule,
     MatIconModule,MatListModule,MatInputModule,MatCardModule,MatTabsModule,MatSnackBarModule,

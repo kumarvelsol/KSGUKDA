@@ -1,3 +1,121 @@
-<p>
-  institutedetails works!
-</p>
+<div class="container">
+  <mat-card class="row example-card">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="main">
+                <p style="margin-top: 20px;">Institution Details</p>
+              </div>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Institute Name</mat-label>
+                <input style="color: gray;" [(ngModel)]="In_name" type="text" name="In_name" matInput >
+                <mat-icon style="color: gray;" matSuffix>business</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Code</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="In_code" type="text" name="In_code">
+                <mat-icon style="color: gray;" matSuffix>code</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Email</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="In_email" type="text" name="In_email">
+                <mat-icon style="color: gray;" matSuffix>email</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Phone</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="In_phone" type="text" name="In_phone">
+                <mat-icon style="color: gray;" matSuffix>local_phone</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Mobile</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="In_mobile" type="text" name="In_mobile">
+                <mat-icon style="color: gray;" matSuffix>local_phone</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Address</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="In_address" type="text" name="In_address">
+                <mat-icon style="color: gray;" matSuffix>add_location</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <div class="row">
+            <div class="col-xl-12 img-style">
+                <p style="margin-bottom: 20px;">Upload Image</p>
+                <div style="width: 320px;height: 235px;border: 1px solid #DEDEDE;border-radius: 5px;">
+                  <img width="318" height="235" [src]="imageUrl" > <!--*ngIf="imgURL" class="img-fluid z-depth-1 rounded-circle"-->
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <span style="color:red;width: 100%;" *ngIf="message">{{message}}</span>
+                <div class="button_shape">
+                  Choose File
+                  <input type="file" class="hide_file" #Image accept='image/*' (change) = "handleFileInput($event.target.files)">  <!--(change)="preview(file.files)"-->
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-8">
+          <p style="margin-top: 20px;">Admin Contact Details</p>
+          <div class="row">
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Name</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="ad_name" type="text" name="ad_name">
+                <mat-icon style="color: gray;" matSuffix>account_circle</mat-icon>
+                <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 mat-form-wrap">
+              <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-label style="color: gray;">Mobile</mat-label>
+                <input style="color: gray;" matInput [(ngModel)]="ad_mobile" type="text" name="ad_mobile">
+                <mat-icon style="color: gray;" matSuffix>call</mat-icon>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <button mat-raised-button class="btn-style" (click)="onaddclick()">{{buttoncontent}}</button>
+              <button mat-button class="btn-style2" (click)="onmodifyclick()">Modify</button>
+            </div>
+          </div>
+          <!-- <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button> -->
+        </div>
+        <!-- <div class="row col-sm-12">
+            <div class="col-sm-4">
+              <button mat-raised-button class="btn-style" (click)="onmodifyclick()">Modify</button>
+            </div>
+            <div class="col-sm-4">
+              <button mat-raised-button class="btn-style" (click)="onaddclick()">{{buttoncontent}}</button>
+            </div>
+            <div class="col-sm-4">
+              <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>
+            </div>
+          </div> -->
+      </div>
+    </div>
+  </mat-card>
+</div>
