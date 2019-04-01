@@ -9,9 +9,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
+import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
