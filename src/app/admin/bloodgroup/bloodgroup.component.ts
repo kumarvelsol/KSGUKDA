@@ -10,7 +10,7 @@ export interface Bloodgroupdetails {
   blood_group_name: string;
   academic_id : 1;
 }
-export interface PassingInstitute{
+export interface PassInstituteID{
   institution_id : number;
 }
 export interface BloodgroupData {
@@ -45,7 +45,7 @@ export class BloodgroupComponent implements OnInit {
   constructor(private service1Service: AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute: PassingInstitute = 
+    let passing_institute: PassInstituteID = 
     {
         institution_id :1
     }
