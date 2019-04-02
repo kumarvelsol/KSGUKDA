@@ -17,13 +17,14 @@ import { CastDetailsComponent } from './cast-details/cast-details.component';
 
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
-
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { from } from 'rxjs';
+import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent,
-    ClassesRelatedComponent,DepartmentComponent],
+    ClassesRelatedComponent,DepartmentComponent, TimeperiodsComponent],
 
 
 
@@ -35,7 +36,7 @@ import { from } from 'rxjs';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-
+    AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
 
@@ -45,7 +46,7 @@ import { from } from 'rxjs';
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent],
   providers:[AdminServiceService]
 })
 export class AdminModule { }
