@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
-
+import {Department} from 'src/app/shared/department';
+import {DepartmentList} from 'src/app/admin/department/department.component';
 export interface Designationdetails {
   designation_id : number ;
     designation_code :string;
@@ -17,6 +18,7 @@ export interface DesignationData {
   designation_code :string;
   designation_name :string;
   designation_description :string;
+  departmant_name :string;
 }
 
 export interface DesignationList {
@@ -34,8 +36,10 @@ export class DesignationComponent implements OnInit {
   ab:Designation[];
   abDatasource;
   designationlist:DesignationList;
+  deptlist : DepartmentList;
   designationdata :DesignationData[]
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
+  //departmant_name : this.departmant_name;
   constructor(private designationservice: AdminServiceService) { }
 
   ngOnInit() {
@@ -45,11 +49,19 @@ export class DesignationComponent implements OnInit {
      console.log(this.designationlist);
      this.abDatasource = new MatTableDataSource(this.designationlist.Data);
     });
+    this.designationservice.getdepartment().subscribe((dataa : DepartmentList) => 
+    {
+      this.deptlist = dataa;
+      console.log(this.deptlist);
+      this.abDatasource = new MatTableDataSource(this.deptlist.Data);
+    });
   }
+
   buttoncontent:string = 'Save';
   designation_id : number ;
   designation_code :string =''
   designation_name :string = ''
+  department_name : string = ''
   designation_description :string = ''
   institution_id : 1
   academic_id : 1
@@ -71,7 +83,8 @@ public onsubmitclick()
           designation_description :this.designation_description,
           institution_id : 1,
           academic_id : 1,
-          departmant_id :1
+          departmant_id :1,
+          department_name : this.department_name
          }
         this.designationservice.updatedesignation(a).subscribe((res)=>{
           console.log("Updated");
@@ -94,7 +107,8 @@ public onsubmitclick()
           designation_description :this.designation_description,
           institution_id : 1,
           academic_id : 1,
-          departmant_id :1
+          departmant_id :1,
+          department_name : this.department_name
          }
         this.designationservice.createdesignation(a).subscribe((res)=>{
           console.log("Created");

@@ -6,4 +6,5 @@ export interface Designation {
     institution_id : 1
     academic_id : 1
     departmant_id :1
+    department_name : string
 }
