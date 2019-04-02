@@ -43,7 +43,6 @@ export class UsertypeComponent implements OnInit {
   buttoncontent:string="Add";
   public onclick()
   {
-    debugger;
     if(this.user_code == null || this.user_name == "")
     {alert("Please fill all fields");}
     else

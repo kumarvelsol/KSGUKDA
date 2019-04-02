@@ -8,7 +8,6 @@ import { AdminServiceService } from '../admin-service.service';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 export interface ParseInstituteId {
   institution_id : number;
-  institution_mobile_no : number;
 }
 @Component({
   selector: 'app-institutedetails',
@@ -34,7 +33,7 @@ export class InstitutedetailsComponent implements OnInit {
   buttoncontent:string = "Add";
   public imagePath;
   imgURL: string;
-  imageUrl : string = "/assets/Img/uploadIcon.png";
+  imageUrl : string = "/assets/images/uploadIcon.png";
   FileToUpload : File = null;
   public message: string;
 
@@ -71,13 +70,13 @@ export class InstitutedetailsComponent implements OnInit {
           institution_address : this.In_address,
           institution_email : this.In_email,
           institution_phone_no : this.In_phone, 
-          institution_mobile_no : 8179893241,
+          institution_mobile_no : this.In_mobile,
           contact_person_name : this.ad_name,
           contact_person_mobile_no : this.ad_mobile,
           institution_image : 'defaultimage.png',
           institution_code : this.In_code,
           institution_password : '',
-          institution_id : 6,
+          institution_id : 8,
         }
         this.service.updateinstitute(insti_up).subscribe((data : JsResponse) => {
           //this.respons=data;
@@ -96,24 +95,20 @@ export class InstitutedetailsComponent implements OnInit {
   public onmodifyclick(){
     this.buttoncontent = "Update";
     let inst_Id : ParseInstituteId = {
-      institution_id : 5,
-      institution_mobile_no : 8179893241,
+      institution_id : 8,
     }
     this.service.getinstitute(inst_Id).subscribe((data : Response) =>{
       this.Res = data;
       if(this.Res.code == 200)
       {
-        this.institute = this.Res.Data;
-        console.log(this.institute);
         this.In_name = this.Res.Data[0].institution_name;
         this.In_code = this.Res.Data[0].institution_code;
         this.In_address = this.Res.Data[0].institution_address;
         this.In_email = this.Res.Data[0].institution_email;
         this.In_mobile = this.Res.Data[0].institution_mobile_no;
-        // this.In_phone = this.Res.Data[0].institution_phone_no;
-        // this.ad_name = this.Res.Data[0].contact_person_name;
-        // this.ad_mobile = this.Res.Data[0].contact_person_mobile_no;
-        // this.In_name = this.Res.Data.institution_name;
+        this.In_phone = this.Res.Data[0].institution_phone_no;
+        this.ad_name = this.Res.Data[0].contact_person_name;
+        this.ad_mobile = this.Res.Data[0].contact_person_mobile_no;
       }else{
         alert("failed");
       }
