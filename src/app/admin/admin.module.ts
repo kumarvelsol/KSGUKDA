@@ -8,12 +8,15 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
+import { CastDetailsComponent } from './cast-details/cast-details.component';
+
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
 import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent],
+
   imports: [
     CommonModule,
     AdminRoutingModule,
