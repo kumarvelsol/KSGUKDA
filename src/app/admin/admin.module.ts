@@ -16,12 +16,15 @@ import { AcademicdetailsComponent } from './academicdetails/academicdetails.comp
 import { DesignationComponent } from './designation/designation.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { from } from 'rxjs';
+import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent],
-  imports: [
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
+
+ imports: [
+
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
