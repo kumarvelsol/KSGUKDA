@@ -9,6 +9,9 @@ import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
 import { Designation } from '../shared/designation';
 import { DesignationList } from './designation/designation.component';
+import {Bloodgroup} from '../shared/bloodgroup';
+import { PassingInstitute } from './bloodgroup/bloodgroup.component';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,5 +52,15 @@ export class AdminServiceService {
   }
   public updatedesignation(desig_up: Designation){
     return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
+  }
+  getbloodgroup(blood_get : PassingInstitute)
+  {
+    return this.http.post(`${this.Baseurl+"getbloodGroupdetails"}`, blood_get);
+  }
+  public createbloodgroup(blood_in:Bloodgroup){
+      return this.http.post(`${this.Baseurl+"addingBloodGroup"}`,blood_in);
+  }
+  public updatebloodgroup(blood_up: Bloodgroup){
+    return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
 }
 }

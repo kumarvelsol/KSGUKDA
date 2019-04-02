@@ -20,8 +20,9 @@ import { AdminServiceService } from './admin-service.service';
 import { DesignationComponent } from './designation/designation.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { from } from 'rxjs';
+import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, DesignationComponent,ClassesRelatedComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, DesignationComponent,ClassesRelatedComponent, BloodgroupComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
