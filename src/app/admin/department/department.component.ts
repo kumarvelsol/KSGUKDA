@@ -20,6 +20,7 @@ export interface DepartmentData {
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
+  providers: [AdminServiceService],
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
