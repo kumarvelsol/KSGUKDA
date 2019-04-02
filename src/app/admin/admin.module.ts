@@ -10,6 +10,17 @@ import { InstitutedetailsComponent } from './institutedetails/institutedetails.c
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
+<<<<<<< HEAD
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
+import { from } from 'rxjs';
+import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
+
+@NgModule({
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent,
+    ClassesRelatedComponent,DepartmentComponent, TimeperiodsComponent],
+
+=======
 import { DepartmentComponent } from './department/department.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
@@ -22,6 +33,7 @@ import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
+>>>>>>> 7ff424b9ca77e9536c74bdbb31997f264757d408
 
  imports: [
 
@@ -32,7 +44,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-
+    AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
 
@@ -42,7 +54,7 @@ import { SettingsComponent } from './settings/settings.component';
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent],
   providers:[AdminServiceService]
 })
 export class AdminModule { }
