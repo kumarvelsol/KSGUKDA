@@ -8,7 +8,7 @@ import { AcademicdetailsComponent } from './academicdetails/academicdetails.comp
 import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
-import { SettingsComponent } from './settings/settings.component';
+
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
