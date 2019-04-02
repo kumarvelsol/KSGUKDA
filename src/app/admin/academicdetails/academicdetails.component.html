@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="row example-card parent">
+        <div class="block child">
+          <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Academic Details</p>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color :gray" matSuffix>calendar_today</mat-icon>
+            <mat-label style="color :gray">Start Year</mat-label>
+            <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" [(ngModel)]="academic_start_year" name="academic_start_year" matInput>
+            <!-- <mat-hint color="primary">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color:gray;" matSuffix>calendar_today</mat-icon>
+            <mat-label style="color :gray">Start Month</mat-label>
+            <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" [(ngModel)]="academic_start_month" name="academic_start_month" matInput>
+            <!-- <mat-hint color="primary">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color:gray;" matSuffix>calendar_today</mat-icon>
+            <mat-label style="color :gray">End Year</mat-label>
+            <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="4" [(ngModel)]="academic_end_year" name="academic_end_year" matInput>
+            <!-- <mat-hint color="primary">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color:gray;" matSuffix>calendar_today</mat-icon>
+            <mat-label style="color :gray">End Month</mat-label>
+            <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" [(ngModel)]="academic_end_month" name="academic_end_month" matInput>
+            <!-- <mat-hint color="primary">Hint</mat-hint> -->
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-label style="color :gray">Status</mat-label>
+              <mat-select style="color :gray" [(ngModel)]="academic_status" disableRipple name="academic_status">
+                <mat-option style="color :gray" value="Active">Active</mat-option>
+                <mat-option style="color :gray" value="DeActive">DeActive</mat-option>
+              </mat-select>
+          </mat-form-field>
+          <button mat-raised-button class="btn-style" (click)="saveclick()">{{buttoncontent}}</button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <!--S.No Column-->
+          <ng-container matColumnDef="academic_id">
+            <th mat-header-cell *matHeaderCellDef> S.No </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_id}} </td>
+          </ng-container>
+          <!-- Code Column -->
+          <ng-container matColumnDef="academic_start_year">
+            <th mat-header-cell *matHeaderCellDef> Start Year </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_start_year}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="academic_start_month">
+            <th mat-header-cell *matHeaderCellDef> Start Month </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_start_month}} </td>
+          </ng-container>
+          <ng-container matColumnDef="academic_end_year">
+            <th mat-header-cell *matHeaderCellDef> End Year </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_end_year}} </td>
+          </ng-container>
+          <ng-container matColumnDef="academic_end_month">
+            <th mat-header-cell *matHeaderCellDef> End Month </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_end_month}} </td>
+          </ng-container>
+          <ng-container matColumnDef="academic_status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.academic_status}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row (click)="RowSelected(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,155 @@
+<div class="row">
+  <div class="col-md-5">
+    
+
+    <form #addingClass="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingClass)" class="pagess">
+<div class="container">
+    <mat-card class="row example-card parent">
+      <div class="block child">
+          <div class="col-xl-8">
+            <div class="row">
+           
+                    <label > Adding Class</label>
+                 
+
+                  
+
+                        <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                          <mat-label style="color: gray;">Class Name</mat-label>
+                          <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
+                          <input matInput    name="class_name" #class_name="ngModel" [ngModel]="servs.refer.class_name" required>
+                          <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                        </mat-form-field>
+                        <div *ngIf="class_name.invalid && (class_name.dirty || class_name.touched)"
+                        class="alert alert-danger">
+                    
+                      <div *ngIf="class_name.errors.required">
+                          className is required.
+                      </div>
+                    </div>
+                     
+                 
+                  
+                  
+
+
+
+
+
+                  
+                      <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                        <mat-label style="color: gray;">Class Code</mat-label>
+                        <mat-icon style="color :gray" matSuffix>code</mat-icon>          
+                        <input matInput   name="class_code" #class_code="ngModel" [ngModel]="servs.refer.class_code" required>
+                        <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                      </mat-form-field>
+                      <div *ngIf="class_code.invalid && (class_code.dirty || class_code.touched)"
+                      class="alert alert-danger">
+                  
+                    <div *ngIf="class_code.errors.required">
+                        className is required.
+                    </div>
+                  </div>
+                   
+
+
+
+
+                    
+                      <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                        <mat-label style="color: gray;">Class Description</mat-label>
+                        <mat-icon style="color :gray" matSuffix>code</mat-icon>          
+                        <input matInput   name="class_description" #class_description="ngModel" [ngModel]="servs.refer.class_description" >
+                        <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                      </mat-form-field>                      
+                    
+                    
+
+
+
+                    <div class="col-md-7 offset-md-2">
+                      <div class="form-group">
+                        
+                        <input type="hidden"  class="form-control" name="class_id" #class_id="ngModel" [ngModel]="servs.refer.class_id">                        
+                        </div>
+                        </div>  
+                                        
+                  <div class="col-sm-12">
+                      <div class="form-group">
+                          <div>
+                              <button type="submit" [disabled]="!addingClass.form.valid" [ngClass] = "{'my-color': !addingClass.valid} "     class="btn btn-lg btn-block btn-info"> submit</button>
+                                </div>                          
+                        </div>
+                        </div>
+
+
+
+
+
+                  </div>
+                
+                </div>
+              </div>
+                  </mat-card>
+                  
+  
+  </div>
+    </form>
+
+
+
+
+  </div>
+
+  <div class="col-md-6">
+
+    
+      <label > Class Details : </label>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <!-- <ng-container matColumnDef="class_id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element" (click)="populateForm(element)"> {{element.class_id}} </td>
+          </ng-container> -->
+        
+          <!-- Name Column -->
+          
+          <ng-container matColumnDef="class_name">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> ClassName </th>
+            <td mat-cell *matCellDef="let element" > {{element.class_name}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="class_code">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> ClassCode </th>
+            <td mat-cell *matCellDef="let element" > {{element.class_code}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="class_description">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> ClassDescription </th>
+            <td mat-cell *matCellDef="let element" > {{element.class_description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="textSizes">Actions</th>
+            <td mat-cell *matCellDef="let element; let i=index;"> 
+              <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="populateForm(element)">
+                <mat-icon aria-label="Edit">edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+           
+        </table>     
+                                 
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/department';
 import { DepartmentList } from '../admin/department/department.component';
+import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
@@ -11,6 +12,12 @@ import { Cast } from 'src/app/shared/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/religion';
 import {PassInstitute} from './religion/religion.component';
+
+import { User } from '../shared/user';
+import { Academicdetails} from '../shared/academicdetails';
+import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
+import { Designation } from '../shared/designation';
+import { DesignationList } from './designation/designation.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -75,4 +82,29 @@ religionurlupdate='http://veledu.edujinni.in/updateReligion';
   
 
 
+  getusers(){
+    return this.http.get<Userlist>(this.Baseurl+"usertypelist");
+  }
+  createuser (user : User){
+    return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
+  }
+  updateuser (user_details : User){
+    return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
+  }
+  getacademic (academic : PassingInstituteid){
+    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
+  }
+  createacademic (academici : Academicdetails){
+    return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
+  }
+  public getdesignation()
+  {
+    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+  }
+  public createdesignation(desig_in:Designation){
+      return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
+  }
+  public updatedesignation(desig_up: Designation){
+    return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
+}
 }
