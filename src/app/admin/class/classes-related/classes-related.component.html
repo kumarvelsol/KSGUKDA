@@ -2,40 +2,41 @@
   <div class="col-md-5">
     
 
-    <form #addingClass="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingClass)" class="example-form">
+    <form #addingClass="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingClass)" class="pagess">
 <div class="container">
-    <mat-card class="row example-card">
-      <div class="container">
-        <div class="row">
+    <mat-card class="row example-card parent">
+      <div class="block child">
           <div class="col-xl-8">
             <div class="row">
-              <div class="col-md-12">
-                <div class="main">
+           
                     <label > Adding Class</label>
-                  </div>
-                  </div>
+                 
 
-                  <div class="col-md-12 mat-form-wrap">
-                      <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
-                        <mat-label style="color: gray;">Class Name</mat-label>
-                        <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-                        <input matInput    name="class_name" #class_name="ngModel" [ngModel]="servs.refer.class_name" required>
-                        <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-                      </mat-form-field>
-                      <div *ngIf="class_name.invalid && (class_name.dirty || class_name.touched)"
-                      class="alert alert-danger">
                   
-                    <div *ngIf="class_name.errors.required">
-                        className is required.
+
+                        <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
+                          <mat-label style="color: gray;">Class Name</mat-label>
+                          <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
+                          <input matInput    name="class_name" #class_name="ngModel" [ngModel]="servs.refer.class_name" required>
+                          <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                        </mat-form-field>
+                        <div *ngIf="class_name.invalid && (class_name.dirty || class_name.touched)"
+                        class="alert alert-danger">
+                    
+                      <div *ngIf="class_name.errors.required">
+                          className is required.
+                      </div>
                     </div>
-                  </div>
-                    </div>
+                     
+                 
+                  
+                  
 
 
 
 
 
-                    <div class="col-md-12 mat-form-wrap">
+                  
                       <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                         <mat-label style="color: gray;">Class Code</mat-label>
                         <mat-icon style="color :gray" matSuffix>code</mat-icon>          
@@ -49,19 +50,19 @@
                         className is required.
                     </div>
                   </div>
-                    </div>
+                   
 
 
 
 
-                    <div class="col-md-12 mat-form-wrap">
+                    
                       <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                         <mat-label style="color: gray;">Class Description</mat-label>
                         <mat-icon style="color :gray" matSuffix>code</mat-icon>          
                         <input matInput   name="class_description" #class_description="ngModel" [ngModel]="servs.refer.class_description" >
                         <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                       </mat-form-field>                      
-                    </div>
+                    
                     
 
 
@@ -86,7 +87,7 @@
 
 
                   </div>
-                  </div>
+                
                 </div>
               </div>
                   </mat-card>
