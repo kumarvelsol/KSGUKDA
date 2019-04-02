@@ -11,6 +11,8 @@ import { ParseInstituteId } from '../admin/institutedetails/institutedetails.com
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
+import { Designation } from '../shared/designation';
+import { DesignationList } from './designation/designation.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -57,4 +59,14 @@ export class AdminServiceService {
   createacademic (academici : Academicdetails){
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
+  public getdesignation()
+  {
+    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+  }
+  public createdesignation(desig_in:Designation){
+      return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
+  }
+  public updatedesignation(desig_up: Designation){
+    return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
+}
 }
