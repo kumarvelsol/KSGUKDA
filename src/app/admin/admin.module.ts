@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { MaterialModule } from '../shared/material.module';
@@ -22,7 +23,9 @@ import { DepartmentComponent } from './department/department.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[DashboardComponent,AdminToolbarComponent],
   providers:[AdminServiceService]
