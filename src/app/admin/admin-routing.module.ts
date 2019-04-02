@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:'usertype',component:UsertypeComponent},
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'designationDetails',component:DesignationComponent},
+  
 ];
 
 @NgModule({
