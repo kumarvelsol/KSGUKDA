@@ -7,6 +7,8 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
+import { Designation } from '../shared/designation';
+import { DesignationList } from './designation/designation.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,4 +40,14 @@ export class AdminServiceService {
   updateinstitute (insti_up : InstituteUpdate){
     return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
   }
+  public getdesignation()
+  {
+    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+  }
+  public createdesignation(desig_in:Designation){
+      return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
+  }
+  public updatedesignation(desig_up: Designation){
+    return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
+}
 }

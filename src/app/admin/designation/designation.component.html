@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="row example-card parent">
+        <div class="block child">
+          <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Designation Details</p>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+            <mat-label style="color :gray">Designation Code</mat-label>
+            <input style="color :gray" [(ngModel)]="designation_code" type="text" name="designation_code"  matInput>
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-label style="color :gray">Department Id</mat-label>
+            <mat-select style="color:gray;" matInput [(ngModel)]="departmant_id" type="text" name="departmant_id">
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+            <mat-icon style="color:gray;" matSuffix>code</mat-icon>
+            <mat-label style="color :gray">Designation Name</mat-label>
+            <input style="color:gray;" matInput [(ngModel)]="designation_name" type="text" name="designation_name">
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap"  style="color:gray;">
+            <mat-icon style="color:gray;" matSuffix>description</mat-icon>
+            <mat-label style="color:gray;">Description</mat-label>
+            <input style="color:gray;" matInput [(ngModel)]="designation_description" type="text" name="designation_description">
+          </mat-form-field>
+          <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="abDatasource">
+          <ng-container matColumnDef="designation_id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let i"> {{i.designation_id}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="designation_code">
+            <th mat-header-cell *matHeaderCellDef> Code </th>
+            <td mat-cell *matCellDef="let i"> {{i.designation_code}} </td>
+          </ng-container>
+          <!-- Code Column -->
+          <ng-container matColumnDef="designation_name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.designation_name}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row (click)="RowSelected(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

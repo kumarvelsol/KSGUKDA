@@ -12,9 +12,10 @@ import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
 import { DepartmentComponent } from './department/department.component';
+import { DesignationComponent } from './designation/designation.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, DesignationComponent],
 
   imports: [
     CommonModule,
