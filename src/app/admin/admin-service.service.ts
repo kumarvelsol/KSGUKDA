@@ -3,10 +3,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/department';
 import { DepartmentList } from '../admin/department/department.component';
+import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
+import { User } from '../shared/user';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,5 +39,14 @@ export class AdminServiceService {
   }
   updateinstitute (insti_up : InstituteUpdate){
     return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
+  }
+  getusers(){
+    return this.http.get<Userlist>(this.Baseurl+"userslist");
+  }
+  createuser (user : User){
+    return this.http.post(`${this.Baseurl+"department"}`,user);
+  }
+  updateuser (user_details : User){
+    return this.http.post(`${this.Baseurl+"departmentupdate"}`,user_details);
   }
 }
