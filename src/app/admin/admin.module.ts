@@ -18,11 +18,13 @@ import { ClassesRelatedComponent } from './class/classes-related/classes-related
 import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, DesignationComponent,ClassesRelatedComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
 
  imports: [
+
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
