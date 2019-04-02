@@ -93,6 +93,11 @@ export class UsertypeComponent implements OnInit {
         }
     }
   }
+  public onclear()
+  {
+    this.user_code=null;this.user_name=null;
+    this.buttoncontent="Add";
+  }
   public RowSelected(row)
   {
       this.buttoncontent="Modify";

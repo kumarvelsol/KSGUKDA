@@ -9,6 +9,8 @@ import { DepartmentDetails } from 'src/app/shared/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
 import { User } from '../shared/user';
+import { Academicdetails} from '../shared/academicdetails';
+import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -41,12 +43,18 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
   }
   getusers(){
-    return this.http.get<Userlist>(this.Baseurl+"userslist");
+    return this.http.get<Userlist>(this.Baseurl+"usertypelist");
   }
   createuser (user : User){
-    return this.http.post(`${this.Baseurl+"department"}`,user);
+    return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
   }
   updateuser (user_details : User){
-    return this.http.post(`${this.Baseurl+"departmentupdate"}`,user_details);
+    return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
+  }
+  getacademic (academic : PassingInstituteid){
+    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
+  }
+  createacademic (academici : Academicdetails){
+    return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
 }

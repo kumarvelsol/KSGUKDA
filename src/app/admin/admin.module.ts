@@ -14,9 +14,10 @@ import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
 import { DepartmentComponent } from './department/department.component';
 import { UsertypeComponent } from './usertype/usertype.component';
+import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, UsertypeComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, UsertypeComponent, AcademicdetailsComponent],
 
   imports: [
     CommonModule,
