@@ -10,6 +10,9 @@ import { InstitutedetailsComponent } from './institutedetails/institutedetails.c
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
+
+import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { DepartmentComponent } from './department/department.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
@@ -21,7 +24,9 @@ import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+  TimeperiodsComponent],
+
 
  imports: [
 
@@ -32,7 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-
+    AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
 
@@ -42,7 +47,7 @@ import { SettingsComponent } from './settings/settings.component';
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent],
   providers:[AdminServiceService]
 })
 export class AdminModule { }
