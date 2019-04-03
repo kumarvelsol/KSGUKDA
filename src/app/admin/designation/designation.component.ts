@@ -41,7 +41,7 @@ export class DesignationComponent implements OnInit {
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   //departmant_name : this.departmant_name;
   constructor(private designationservice: AdminServiceService) { }
-  public deptnames: Department[];
+  public deptnames; //: Department[];
   ngOnInit() {
    this.designationservice.getdesignation().subscribe((data: DesignationList) => 
    {
@@ -51,7 +51,7 @@ export class DesignationComponent implements OnInit {
     });
     this.designationservice.getdepartment().subscribe((dataa : DepartmentList ) =>
     {
-     // this.deptnames = dataa;
+      this.deptnames = dataa as DepartmentList;
       // this.deptlist = dataa;
       // console.log(this.deptlist);
       // this.abDatasource = new MatTableDataSource(this.deptlist.Data);
