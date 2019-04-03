@@ -10,7 +10,7 @@ import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
-
+import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent},
+  {path:'TimePeriod',component:TimeperiodsComponent}
 ];
 
 @NgModule({

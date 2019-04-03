@@ -5,11 +5,12 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatTableModule,MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSelectModule,MatSidenavModule, MatIconModule, MatListModule,MatTableModule,MatInputModule } from '@angular/material';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
+import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { DepartmentComponent } from './department/department.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
@@ -24,7 +25,8 @@ import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent,TimeperiodsComponent],
+
 
  imports: [
 
@@ -35,17 +37,17 @@ import { SubjectAllocationComponent } from './subject/subject-allocation/subject
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-
+    MaterialModule,FormsModule,
+    MatInputModule,ReactiveFormsModule,
+    MatSelectModule,
     MatListModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent],
   providers:[AdminServiceService]
 })
 export class AdminModule { }

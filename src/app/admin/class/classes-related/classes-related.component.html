@@ -1,10 +1,11 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">
           <form #addingClass="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingClass)">
-              <p style="margin-top: 20px;">Institution Details</p>
+              <p style="margin-top: 20px;">Class Details</p>
               <mat-form-field class="mat-form-wrap" style="color: gray;">
                 <mat-label style="color: gray;">Class Name</mat-label>
                 <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
@@ -14,6 +15,7 @@
               <div *ngIf="class_name.invalid && (class_name.dirty || class_name.touched)"class="alert alert-danger">
                 <div *ngIf="class_name.errors.required">
                     className is required.
+
                 </div>
               </div>
               <mat-form-field class="mat-form-wrap" style="color: gray;">
