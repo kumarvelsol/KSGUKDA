@@ -11,8 +11,8 @@
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Department Id</mat-label>
-            <mat-select style="color:gray;" matInput [(ngModel)]="departmant_name" type="text" name="departmant_name">
-              <option *ngFor="let dname of dataa" value="{{dname.departmant_id}}">{{dname.departmant_name}}</option> 
+            <mat-select style="color:gray;" matInput [(ngModel)]="selected" type="text" name="departmant_name">
+              <option *ngFor="let dname of deptlist" value="{{dname.departmant_id}}">{{dname.departmant_name}}</option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
