@@ -1,0 +1,220 @@
+
+<div class="col-md-12">
+  <div class="main">
+    <p style="margin-top: 15px;">Add Employee</p>
+  </div>
+</div>
+<div class="container">
+<mat-card class="row example-card">
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Basic Details</ng-template>
+      <div class="container">
+        <div class="row col-md-12">
+          <div class="col-md-4 ">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>code</mat-icon>
+              <mat-label style="color :gray">Institute Emp Id</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>person</mat-icon>
+              <mat-label style="color :gray">Employee First Name</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>person</mat-icon>
+              <mat-label style="color :gray">Employee Last Name</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-4 ">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Employee DOB</mat-label>
+              <input style="color :gray" [matDatepicker]="picker" formControlName="firstCtrl" matInput required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <!-- <mat-icon style="color :gray" matSuffix>code</mat-icon> -->
+              <mat-label style="color :gray">Employee BloodGroup</mat-label>
+              <mat-select style="color :gray" disableRipple>
+                  <mat-option style="color :gray" *ngFor="let bg of bloodgroup" [value]="bg.blood_group_name" >{{ bg.blood_group_name }}></mat-option>
+                </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>code</mat-icon>
+              <mat-label style="color :gray">Employee Qualification</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-4 ">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>code</mat-icon>
+              <mat-label style="color :gray">Employee Experience in Years</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>phone</mat-icon>
+              <mat-label style="color :gray">Employee Mobile Number</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>phone</mat-icon>
+              <mat-label style="color :gray">Employee Alternative Number</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-4 ">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-icon style="color :gray" matSuffix>email</mat-icon>
+              <mat-label style="color :gray">Employee Email Id</mat-label>
+              <input style="color :gray" type="text" formControlName="firstCtrl" matInput required>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <!-- <mat-icon style="color :gray" matSuffix>code</mat-icon> -->
+              <mat-label style="color :gray">Employee Joining Date</mat-label>
+              <input style="color :gray" [matDatepicker]="pickerr" formControlName="firstCtrl" matInput required>
+              <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+              <mat-datepicker #pickerr></mat-datepicker>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+              <!-- <mat-label style="color :gray">Employee Gender</mat-label> -->
+              <mat-radio-group style="border-style: groove;text-align: center;height: 190px;" aria-label="Select an option">
+                  <mat-radio-button value="1">Male</mat-radio-button>
+                  <mat-radio-button value="2">Female</mat-radio-button>
+                  <mat-radio-button value="3">Others</mat-radio-button>
+                </mat-radio-group>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-style" mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Academic and Access Type Details</ng-template>
+      <div class="container">
+        <div class="row col-md-12">
+            <div class="col-md-8">
+              <div class="col-md-12">
+                <mat-form-field class="col-md-12" style="color :gray" appearance="outline">
+                  <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                  <mat-label style="color :gray">Present Address</mat-label>
+                  <textarea style="color :gray;height: 75px;" type="text" formControlName="secondCtrl" matInput required></textarea>
+                  <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                <mat-form-field class="col-md-12" style="color :gray" appearance="outline">
+                  <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                  <mat-label style="color :gray">Permanent Address</mat-label>
+                  <textarea style="color :gray;height: 75px;" type="text" formControlName="secondCtrl" matInput required></textarea>
+                  <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                </mat-form-field>
+              </div>
+            </div>
+          <div class="col-md-4">
+            <div class="col-md-12">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>location_city</mat-icon>
+                <mat-label style="color :gray">City</mat-label>
+                <input style="color :gray" type="text" formControlName="secondCtrl" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
+                  <mat-icon style="color :gray" matSuffix>location_city</mat-icon>
+                  <mat-label style="color :gray">State</mat-label>
+                  <input style="color :gray" type="text" formControlName="secondCtrl" matInput required>
+                  <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+            <div class="col-md-12">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
+                  <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                  <mat-label style="color :gray">PinCode</mat-label>
+                  <input style="color :gray" type="text" formControlName="secondCtrl" matInput required>
+                  <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-4 ">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Employee Department</mat-label>
+              <mat-select style="color :gray"  disableRipple>
+                  <mat-option style="color :gray" value="hostel">Hostel</mat-option>
+                  <mat-option style="color :gray" value="fee">Fee</mat-option>
+                </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Employee Designation</mat-label>
+              <mat-select style="color :gray"  disableRipple>
+                  <mat-option style="color :gray" value="teacher">Teacher</mat-option>
+                  <mat-option style="color :gray" value="student">Student</mat-option>
+                </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Employee AccessType</mat-label>
+              <mat-select style="color :gray"  disableRipple>
+                  <mat-option style="color :gray" value="admin">Admin</mat-option>
+                  <mat-option style="color :gray" value="user">User</mat-option>
+                </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+        <button class="btn-style" style="width: 210px" mat-button matStepperPrevious>Save Employee Details</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>
+</mat-card>
+</div>

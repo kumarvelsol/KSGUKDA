@@ -22,10 +22,12 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
+import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
-  TimeperiodsComponent],
+  TimeperiodsComponent,
+  EmployeedetailsComponent],
 
 
  imports: [
@@ -40,7 +42,6 @@ import { SettingsComponent } from './settings/settings.component';
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-
     MatListModule,
     MaterialModule,
     FormsModule,
