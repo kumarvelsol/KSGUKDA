@@ -37,6 +37,7 @@ table {
     height: 500px;
     overflow: auto; 
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 p{
     text-align: center;
