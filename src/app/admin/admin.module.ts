@@ -5,7 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule,MatTableModule,MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSelectModule,MatSidenavModule, MatIconModule, MatListModule,MatTableModule,MatInputModule } from '@angular/material';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
@@ -37,7 +37,7 @@ import { SettingsComponent } from './settings/settings.component';
     MatIconModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-
+MatSelectModule,
     MatListModule,
     MaterialModule,
     FormsModule,

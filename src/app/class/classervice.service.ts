@@ -55,7 +55,7 @@ data:Data[];
   {    
     emp.institution_id=1;
     emp.academic_id=1;
-    emp.class_id=1;
+    //emp.class_id=1;
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/addingTimePeriods',emp)
   }
 
@@ -66,7 +66,6 @@ data:Data[];
   {
     this.tperiods.institution_id=1;
     this.tperiods.academic_id=1;
-    //emp.class_id=1;
  
     //console.log(emp);
     return this.http.post<Classresponse>('http://veledu.edujinni.in/getTimeperiods',JSON.stringify(this.tperiods), this.httpOptions);
@@ -82,7 +81,6 @@ data:Data[];
   {
     ssp.institution_id=1;
     ssp.academic_id=1;
-    ssp.class_id=1;
     return this.http.post<Classresponse>('http://veledu.edujinni.in/updateTimePeriods',ssp);
   }
 
