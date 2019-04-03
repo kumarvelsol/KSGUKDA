@@ -16,6 +16,7 @@ export class TimeperiodsComponent implements OnInit {
  
   rss:Timeperiodmodel;
   dataSource
+  cis_id:number;
   constructor(private service:ClasserviceService) { }
 
   buttoncontent:string = "Add";
@@ -26,9 +27,11 @@ export class TimeperiodsComponent implements OnInit {
   ngOnInit()
   { 
     this.resetForm();
-
     this.callingGetPeriods();
+    this.service.get_products().subscribe(res=>{          
+    this.data=res.Data;      
     
+  });
   }
   callingGetPeriods()
   {
@@ -56,6 +59,8 @@ export class TimeperiodsComponent implements OnInit {
 
   onSubmit(addingTperiod:NgForm)
   {
+    //console.log(addingTperiod.value);
+
     if(addingTperiod.value.time_period_id==null)
     {
       this.service.addTperiods(addingTperiod.value).subscribe(data=>{
@@ -90,14 +95,13 @@ export class TimeperiodsComponent implements OnInit {
   updateClasses(addingClass : NgForm)
   {
 
-    addingClass.value.class_id=1;
+    
     this.service.updateTPeriods(addingClass.value).subscribe(data=>{
       this.serRes=data;
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        
-        
+        this.callingGetPeriods();        
       }
       else{
         alert(this.serRes.message);
@@ -125,5 +129,16 @@ export class TimeperiodsComponent implements OnInit {
       }
   })
   }
+
+
+
+  // selectOption(value) {
+  //   //getted from event
+  //   this.cis_id=value;
+  //   console.log(value);
+  //   //getted from binding
+    
+  // }
+
 
 }
