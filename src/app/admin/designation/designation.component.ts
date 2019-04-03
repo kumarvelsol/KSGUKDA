@@ -36,25 +36,16 @@ export class DesignationComponent implements OnInit {
   ab:Designation[];
   abDatasource;
   designationlist:DesignationList;
-  deptlist : DepartmentList;
+  deptlist : DesignationData[];
   designationdata :DesignationData[]
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
-  //departmant_name : this.departmant_name;
   constructor(private designationservice: AdminServiceService) { }
-  public deptnames; //: Department[];
   ngOnInit() {
    this.designationservice.getdesignation().subscribe((data: DesignationList) => 
    {
-     this.designationlist = data;
+     this.deptlist = data.Data;
      console.log(this.designationlist);
      this.abDatasource = new MatTableDataSource(this.designationlist.Data);
-    });
-    this.designationservice.getdepartment().subscribe((dataa : DepartmentList ) =>
-    {
-      this.deptnames = dataa as DepartmentList;
-      // this.deptlist = dataa;
-      // console.log(this.deptlist);
-      // this.abDatasource = new MatTableDataSource(this.deptlist.Data);
     });
   }
   selected = null;
