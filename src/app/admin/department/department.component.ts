@@ -49,7 +49,7 @@ export class DepartmentComponent implements OnInit {
   buttoncontent:string = "Add";
   public ondepartmentclick()
   {
-    if(this.name == '' || this.description == '' || this.code == '')
+    if(this.name == '' || this.code == '')
     {
       alert("Please fill all fields");
     }
