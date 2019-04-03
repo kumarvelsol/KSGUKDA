@@ -23,6 +23,7 @@ institution_id : number;
 @Component({
   selector: 'app-religion',
   templateUrl: './religion.component.html',
+  providers: [ AdminServiceService ],
   styleUrls: ['./religion.component.css']
 })
 export class ReligionComponent implements OnInit {

@@ -8,9 +8,9 @@ import { AcademicdetailsComponent } from './academicdetails/academicdetails.comp
 import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
+import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
-import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},

@@ -12,7 +12,6 @@ import { Cast } from 'src/app/shared/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/religion';
 import {PassInstitute} from './religion/religion.component';
-
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
