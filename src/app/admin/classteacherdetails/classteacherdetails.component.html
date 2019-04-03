@@ -6,20 +6,20 @@
           <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Class Teacher Details</p>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Class Name</mat-label>
-            <mat-select style="color:gray;" matInput [(ngModel)]="selected" type="text" name="departmant_name">
-              <option *ngFor="let dname of deptnames" value="{{dname.departmant_id}}">{{dname.departmant_name}}</option> 
+            <mat-select style="color:gray;" matInput  type="text" name="class_name">
+              <option *ngFor="let cname of classnames" value="{{dname.class_id}}">{{cname.class_name}}</option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Select Department</mat-label>
-            <mat-select style="color:gray;" matInput [(ngModel)]="selected" type="text" name="departmant_name">
+            <mat-select style="color:gray;" matInput  type="text" name="departmant_name">
               <option *ngFor="let dname of deptnames" value="{{dname.departmant_id}}">{{dname.departmant_name}}</option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Teacher name</mat-label>
-            <mat-select style="color:gray;" matInput [(ngModel)]="selected" type="text" name="departmant_name">
-              <option *ngFor="let dname of deptnames" value="{{dname.departmant_id}}">{{dname.departmant_name}}</option> 
+            <mat-select style="color:gray;" matInput  type="text" name="employee_name">
+              <option *ngFor="let ename of empnames" value="{{ename.employee_id}}">{{dname.employee_name}}</option> 
             </mat-select>
           </mat-form-field>
           <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
@@ -29,19 +29,19 @@
     <div class="col-md-6">
       <div class="mat-elevation-z8">
         <table mat-table [dataSource]="abDatasource">
-          <ng-container matColumnDef="designation_id">
-            <th mat-header-cell *matHeaderCellDef> Id </th>
-            <td mat-cell *matCellDef="let i"> {{i.designation_id}} </td>
+          <ng-container matColumnDef="class_name">
+            <th mat-header-cell *matHeaderCellDef> Class Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.class_name}} </td>
           </ng-container>
           <!-- Name Column -->
-          <ng-container matColumnDef="designation_code">
-            <th mat-header-cell *matHeaderCellDef> Code </th>
-            <td mat-cell *matCellDef="let i"> {{i.designation_code}} </td>
+          <ng-container matColumnDef="employee_name">
+            <th mat-header-cell *matHeaderCellDef> Department Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.employee_name}} </td>
           </ng-container>
           <!-- Code Column -->
-          <ng-container matColumnDef="designation_name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let i"> {{i.designation_name}} </td>
+          <ng-container matColumnDef="department_name">
+            <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.department_name}} </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row (click)="RowSelected(row)" *matRowDef="let row; columns: displayedColumns;"></tr>

@@ -20,6 +20,7 @@ import { Designation } from '../shared/designation';
 import { DesignationList } from './designation/designation.component';
 import {Bloodgroup} from '../shared/bloodgroup';
 import { PassInstituteID } from './bloodgroup/bloodgroup.component';
+import {Classteacherdetails} from '../shared/classteacherdetails';
 
 @Injectable({
   providedIn: 'root'
@@ -119,5 +120,9 @@ religionurlupdate='http://veledu.edujinni.in/updateReligion';
   }
   public updatebloodgroup(blood_up: Bloodgroup){
     return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
-}
+  }
+  getclassallocation(class_all : Classteacherdetails)
+  {
+    return this.http.post(`${this.Baseurl+"classallocation"}`, class_all);
+  }
 }
