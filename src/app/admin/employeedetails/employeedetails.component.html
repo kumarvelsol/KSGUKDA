@@ -112,11 +112,13 @@
           </div>
           <div class="col-md-4">
               <!-- <mat-label style="color :gray">Employee Gender</mat-label> -->
-              <mat-radio-group style="border-style: groove;text-align: center;height: 190px;" [(ngModel)]="gender" name="gender" aria-label="Select an option">
-                  <mat-radio-button value="Male">Male</mat-radio-button>
-                  <mat-radio-button value="Female">Female</mat-radio-button>
+              <div class="col-md-12 box_border">
+                <mat-radio-group [(ngModel)]="gender" name="gender" style="margin-bottom: 60px;margin-top: 60px;" aria-label="Select an option"><!--style="border-style: groove;text-align: center;height: 190px;"-->
+                  <mat-radio-button value="Male">Male</mat-radio-button>&nbsp;
+                  <mat-radio-button value="Female">Female</mat-radio-button>&nbsp;
                   <mat-radio-button value="Others">Others</mat-radio-button>
                 </mat-radio-group>
+              </div>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
           </div>
         </div>
