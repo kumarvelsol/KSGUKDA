@@ -10,6 +10,9 @@ import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
+import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
+ import { TimetableComponent } from '../timetable/timetable.component';
+
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -20,7 +23,9 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent}
+  {path:'TimePeriod',component:TimeandPeriodComponent},  
+  {path:'TimePeriod/time',component:TimeperiodsComponent},
+  {path:'TimePeriod/ttable',component:TimetableComponent}
 ];
 
 @NgModule({

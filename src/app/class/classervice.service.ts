@@ -5,6 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Classresponse } from './classresponse';
 import { Timeperiodmodel } from '../timeperiods/timeperiodmodel';
+import { Ttablemodel } from '../ttablemodel';
+import { Tupdate } from '../tupdate';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,10 @@ export class ClasserviceService {
   tperiods:Timeperiodmodel;
   refer:Classmodel
 data:Data[];
+
+ttable:Ttablemodel;
+tupdates:Tupdate
+
   constructor(private http:HttpClient) { }
 
 
@@ -96,4 +102,24 @@ data:Data[];
   }
 
 
+  getTimetables(emp:Ttablemodel):Observable<Classresponse>
+  {    
+    emp.institution_id=1;
+    emp.academic_id=1;
+    return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp)
+  }
+
+  getTimeTables(ss:Ttablemodel) :Observable<Classresponse>
+  {    
+    ss.academic_id=1;
+    ss.institution_id=1;
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/timetableallocation',ss)
+  }
+
+
+
+ 
+
+
+  
 }
