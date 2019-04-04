@@ -2,6 +2,14 @@
   <div class="row">
 
 
+
+    <mat-select name="subject_id" #subject_id="ngModel" [ngModel]="service.subject_id">
+      <mat-option>Subject</mat-option>
+      <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
+    </mat-select>
+
+
+
     
 
 
@@ -65,6 +73,9 @@
     <input  type="hidden"    name="class_id" #class_id="ngModel" [ngModel]="service.ttable.class_id">
 
     <input  type="hidden"    name="time_period_id" #time_period_id="ngModel" [ngModel]="service.ttable.time_period_id">
+
+
+    <input  type="hidden"    name="time_table_id" #time_table_id="ngModel" [ngModel]="service.ttable.time_table_id">
 
     
     <button mat-raised-button  class="btn btn-lg btn-block btn-info"> Assign </button> 

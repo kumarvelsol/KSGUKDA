@@ -2,6 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Data } from '../class/data';
 import { ClasserviceService } from '../class/classervice.service';
 import { NgForm } from '@angular/forms';
+import { SubjectList } from '../shared/SubjectModels/subjectList';
+import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
+import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
+import { AdminServiceService } from '../admin/admin-service.service';
 
 @Component({
   selector: 'app-timetableupdate',
@@ -10,12 +14,20 @@ import { NgForm } from '@angular/forms';
 })
 export class TimetableupdateComponent implements OnInit {
 
- 
+  subjects : SubjectList[];
     
-  constructor(private service:ClasserviceService) { }
+  constructor(private service:ClasserviceService,public srs:AdminServiceService) { }
 
   ngOnInit() {
     this.resetForm();
+    
+    let sub_parsing : SubjectParsing ={
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.srs.subjectlist(sub_parsing).subscribe((data : SubjectData) =>{
+      this.subjects = data.Data;
+    });
   }
 
   resetForm(form? : NgForm)
@@ -36,7 +48,13 @@ export class TimetableupdateComponent implements OnInit {
 
   onSubmit(updateTperiod:NgForm)
   {
-
     console.log(updateTperiod.value);
+
+    
   }
+
+
+
+
+
 }
