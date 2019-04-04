@@ -11,8 +11,7 @@
                 
                   <div class="form-group">
                       <mat-form-field>
-                          <mat-label>select class</mat-label>
-                                                                      
+                          <mat-label>select class</mat-label>                                                                      
                           <mat-select matNativeControl required #clientValue  (selectionChange)="selectOption($event.value)" name="class_id" #class_id="ngModel" [ngModel]="service.tperiods.class_id">
                               <mat-option [value]="country.class_id" *ngFor="let country of data">{{country.class_name}}</mat-option>                                                                       
                           </mat-select>

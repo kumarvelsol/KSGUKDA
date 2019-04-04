@@ -20,10 +20,12 @@ import { Bloodgroup} from '../shared/bloodgroup';
 import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
-import { SubjectData } from '../shared/SubjectModels/subjectdata';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
 import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
 import { Employeemodel } from '../shared/employeemodel';
+import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
+import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
+import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,7 @@ import { Employeemodel } from '../shared/employeemodel';
 export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
   constructor(private http:HttpClient) { }
+
 
   //Start of Department related Service Methods
     getdepartment(){
@@ -55,6 +58,7 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
     }
   //End of Institute related Service Methods
+
 
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
@@ -141,4 +145,17 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
+
+  //Start of Subject Allocation ServiceMethods.
+    public getDepEmpList(depemp : DepEmpParsing){
+      return this.http.post(`${this.Baseurl+"Employeeparticular"}`,depemp);
+    }
+    public CreateSubjectAllocaion(sub_allo_insert : SubjectAllocationInsert){
+      return this.http.post(`${this.Baseurl+"subjectallocationinsert"}`,sub_allo_insert);
+    }
+    public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
+      return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    }
+  //public UpdateSubjectAllocation()
+  //End of Subject Allocation ServiceMethods.
 }

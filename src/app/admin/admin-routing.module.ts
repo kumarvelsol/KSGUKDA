@@ -13,6 +13,11 @@ import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-ba
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 
+import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
+ import { TimetableComponent } from '../timetable/timetable.component';
+
+
+
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
@@ -25,6 +30,7 @@ const routes: Routes = [
   {path:'TimePeriod',component:TimeperiodsComponent},
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent}
+
 ];
 
 @NgModule({
