@@ -10,9 +10,7 @@ import { InstitutedetailsComponent } from './institutedetails/institutedetails.c
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
 import { AdminServiceService } from './admin-service.service';
-
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
-import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { DepartmentComponent } from './department/department.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
@@ -22,6 +20,7 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker'
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
@@ -32,6 +31,14 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
   TimeandPeriodComponent,
   TimetableComponent,
   TimetableupdateComponent],
+// =======
+// import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
+// import { SubjectsComponent } from './subject/subjects/subjects.component';
+// import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
+
+// @NgModule({
+//   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent,TimeperiodsComponent],
+// >>>>>>> f8e47ba7f850076841c514fc9551119a3b0c8c56
 
 
  imports: [
@@ -42,11 +49,13 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+
     MatIconModule,MatDialogModule,
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
 MatSelectModule,MatTabsModule,
+
     MatListModule,
     MaterialModule,
     FormsModule,

@@ -40,7 +40,7 @@ tupdates:Tupdate
 
 //displaying the classes details
   get_products()
-    {
+  {
       return this.http.get<Classresponse>('http://veledu.edujinni.in/Classlist');
   }
 

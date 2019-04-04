@@ -9,9 +9,12 @@ import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
+import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
+
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
  import { TimetableComponent } from '../timetable/timetable.component';
+
 
 
 const routes: Routes = [
@@ -23,9 +26,14 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
-  {path:'TimePeriod',component:TimeandPeriodComponent},  
-  {path:'TimePeriod/time',component:TimeperiodsComponent},
-  {path:'TimePeriod/ttable',component:TimetableComponent}
+// <<<<<<< HEAD
+//   {path:'TimePeriod',component:TimeandPeriodComponent},  
+//   {path:'TimePeriod/time',component:TimeperiodsComponent},
+//   {path:'TimePeriod/ttable',component:TimetableComponent}
+// =======
+  {path:'subjectdetails',component:SubjectTabBarComponent},
+  {path:'TimePeriod',component:TimeperiodsComponent}
+
 ];
 
 @NgModule({
