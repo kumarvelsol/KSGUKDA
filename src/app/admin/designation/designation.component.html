@@ -11,8 +11,10 @@
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Department Id</mat-label>
-            <mat-select style="color:gray;" matInput matNativeControl required #clientValue (selectionChange)="selectOption($event.value)" [(ngModel)]="departmant_name" #departmant_id="ngModel" type="text" name="departmant_name">
-              <option *ngFor="let dname of dlist" value="dname.departmant_id">{{dname.departmant_name}}</option> 
+             <mat-select> 
+                <mat-option>Department</mat-option>
+                <!-- style="color:gray;" matInput matNativeControl required #clientValue (selectionChange)="selectOption($event.value)" [(ngModel)]="departmant_name" #departmant_id="ngModel" type="text" name="departmant_name"> -->
+              <mat-option *ngFor="let dname of delist" value="dname.departmant_id">{{dname.departmant_name}}</mat-option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">

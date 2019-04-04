@@ -2,13 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { Classteacherdetails } from 'src/app/shared/classteacherdetails';
+import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
+import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
+import { Data } from 'src/app/class/data';
+import { Classresponse } from 'src/app/class/classresponse';
+import { ClasserviceService } from 'src/app/class/classervice.service';
+// import {} from 'src/app/shared/
+
 
 export interface TeacherData {
-  designation_id : number ;
-  designation_code :string;
-  designation_name :string;
-  designation_description :string;
-  departmant_name :string;
+  institution_id :1;
+    academic_id : 1;
+    class_id : string;
+    employee_id : string;
+    department_id : string;
+    class_name : string;
+    employee_name : string;
+    department_name : string;
 }
 
 export interface TeacherList {
@@ -28,15 +38,29 @@ export class ClassteacherdetailsComponent implements OnInit {
   abDatasource;
   teacherdata :TeacherData[];
   teacherlist : TeacherList;
+  deptdata : DepartmentData[]; deptlist : DepartmentList;
+  clsdata :  Data[]; clslist : Classresponse;
   displayedColumns: string[] = ['class_name','employee_name','department_name'];
-  constructor(private designationservice: AdminServiceService) { }
+  constructor(private designationservice: AdminServiceService,public cservice : ClasserviceService) { }
 
   ngOnInit() {
-    this.designationservice.getdesignation().subscribe(() => 
+    let a : Classteacherdetails
+    {
+      institution_id:1;
+      class_id : this.class_id;
+    }
+    this.designationservice.getdepartment().subscribe((data : DepartmentList) => 
      {
-      
+          this.deptdata = data.Data;
       });
-      
+      this.cservice.get_products().subscribe(res =>{          
+        this.clsdata = res.Data;   
+      });
+      this.designationservice.getclassallocation(a).subscribe((res : TeacherList) =>
+        {
+              this.teacherlist = res;
+              this.abDatasource = new MatTableDataSource(this.teacherlist.Data);
+        });
      }
     selected = null;
     buttoncontent:string = 'Save';
@@ -61,14 +85,15 @@ export class ClassteacherdetailsComponent implements OnInit {
             employee_name : this.employee_name,
             department_name : this.department_name
            }
-          this.designationservice.getclassallocation(a).subscribe((res)=>{
+          this.designationservice.insertclassallocation(a).subscribe((res)=>{
             console.log("Created");
-            this.designationservice.getdesignation().subscribe((data: TeacherList) => 
+            this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
             {
               this.teacherlist = data;
               console.log(this.teacherlist);
               this.abDatasource = new MatTableDataSource(this.teacherlist.Data);
             });
+            
             this.buttoncontent = 'Save';
         });
   }

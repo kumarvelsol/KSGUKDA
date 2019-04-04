@@ -128,9 +128,12 @@ export class AdminServiceService {
   }
   getclassallocation(class_all : Classteacherdetails)
   {
-    return this.http.post(`${this.Baseurl+"classallocation"}`, class_all);
+    return this.http.get(`${this.Baseurl+"Classlist"}`);
   }
-
+  insertclassallocation(class_in : Classteacherdetails)
+  {
+    return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
+  }
 
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){

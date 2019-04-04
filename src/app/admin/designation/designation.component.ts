@@ -3,6 +3,8 @@ import { AdminServiceService } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
 import { Department } from 'src/app/shared/DepartmentModels/department';
+import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
+import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 
 export interface Designationdetails {
   designation_id : number ;
@@ -43,28 +45,21 @@ export interface DesignationList {
 export class DesignationComponent implements OnInit {
   ab:Designation[];
   abDatasource;
-  designationlist:DesignationList;
-  deptlist : DesignationData[];
-  dlist : DeptData[];
-  delist : Department[];
+  delist : DepartmentData[];
+  desiglist : DesignationList;
+  designationlist : DesignationData[];
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
-   this.designationservice.getdesignation().subscribe(data => 
-   {
-     this.deptlist = data.Data;
-     console.log(this.designationlist);
-     this.abDatasource = new MatTableDataSource(this.designationlist.Data);
-    });
-    this.designationservice.getdepartment().subscribe(data =>
+    this.designationservice.getdepartment().subscribe((data : DepartmentList )=>
       {
-       // this.delist = data.Data
+        this.delist = data.Data;
       });
-      // {
-      //   this.dlist = data.Data;
-      //   console.log(this.delist);
-      //   this.abDatasource = new MatTableDataSource(this.delist.Data);
-      //  });
+      this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+          {
+            this.desiglist = data;
+            this.abDatasource = new MatTableDataSource(this.desiglist.Data);
+          })
   }
   selected = null;
   buttoncontent:string = 'Save';
@@ -98,12 +93,16 @@ public onsubmitclick()
          }
         this.designationservice.updatedesignation(a).subscribe((res)=>{
           console.log("Updated");
-          this.designationservice.getdesignation().subscribe((data: DesignationList) => 
+          this.designationservice.getdepartment().subscribe((data: DepartmentList) => 
           {
-            this.designationlist = data;
-            console.log(this.designationlist);
-            this.abDatasource = new MatTableDataSource(this.designationlist.Data);
+            this.delist = data.Data;
+            
           });
+          this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+          {
+            this.desiglist = data;
+            this.abDatasource = new MatTableDataSource(this.desiglist.Data);
+          })
           this.designation_code =''; this.designation_name = ''; this.designation_description = '';
         });
         this.buttoncontent = 'Save';
@@ -122,12 +121,15 @@ public onsubmitclick()
          }
         this.designationservice.createdesignation(a).subscribe((res)=>{
           console.log("Created");
-          this.designationservice.getdesignation().subscribe((data: DesignationList) => 
+          this.designationservice.getdepartment().subscribe((data: DepartmentList) => 
           {
-            this.designationlist = data;
-            console.log(this.designationlist);
-            this.abDatasource = new MatTableDataSource(this.designationlist.Data);
+            this.delist = data.Data;
           });
+          this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+          {
+            this.desiglist = data;
+            this.abDatasource = new MatTableDataSource(this.desiglist.Data);
+          })
           this.designation_code =''; this.designation_name = ''; this.designation_description = '';
 
         console.log(this.designation_id);
@@ -145,6 +147,7 @@ public RowSelected(row)
    this.designation_id = row.designation_id;
    this.departmant_id = row.departmant_id;
    this.designation_code = row.designation_code;
+   this.department_name = row.departmant_name;
    this.designation_name = row.designation_name;
    this.designation_description = row.designation_description;
    console.log("row clicked",row);
