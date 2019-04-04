@@ -52,11 +52,11 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
   }
   casturllist='http://veledu.edujinni.in/getCastDetails';
-casturlinsert='  http://veledu.edujinni.in/addingCast';
-casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
-religionurllist='http://veledu.edujinni.in/getReligionDetails';
-religionurlinsert='http://veledu.edujinni.in/addingReligion';
-religionurlupdate='http://veledu.edujinni.in/updateReligion';
+  casturlinsert='  http://veledu.edujinni.in/addingCast';
+  casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
+  religionurllist='http://veledu.edujinni.in/getReligionDetails';
+  religionurlinsert='http://veledu.edujinni.in/addingReligion';
+  religionurlupdate='http://veledu.edujinni.in/updateReligion';
 
   refer:Cast
   
