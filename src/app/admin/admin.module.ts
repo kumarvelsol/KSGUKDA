@@ -24,14 +24,19 @@ import { EmployeedetailsComponent } from './employeedetails/employeedetails.comp
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
-import { AmazingTimePickerModule } from 'amazing-time-picker'
+import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
+    DepartmentComponent,
+    CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
+     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
@@ -61,7 +66,7 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,TimetableupdateComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
 })

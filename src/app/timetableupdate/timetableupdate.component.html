@@ -2,6 +2,14 @@
   <div class="row">
 
 
+
+    <mat-select name="sub_allocation_id" #sub_allocation_id="ngModel" [ngModel]="service.subject_id">
+      <mat-option>Subject</mat-option>
+      <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
+    </mat-select>
+
+
+
     
 
 
@@ -40,12 +48,7 @@
 
 
 
-    <mat-form-field class="col-md-12" style="color: gray;" >
-      <mat-label style="color: gray;">Subject Name</mat-label>
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="subject_name" #subject_name="ngModel" [ngModel]="service.ttable.subject_name" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
+    
 
 
     <mat-form-field class="col-md-12" style="color: gray;" >
@@ -66,7 +69,10 @@
 
     <input  type="hidden"    name="time_period_id" #time_period_id="ngModel" [ngModel]="service.ttable.time_period_id">
 
-    
+
+    <input  type="hidden"    name="time_table_id" #time_table_id="ngModel" [ngModel]="service.ttable.time_table_id">
+
+
     <button mat-raised-button  class="btn btn-lg btn-block btn-info"> Assign </button> 
   </div>
 </form>
