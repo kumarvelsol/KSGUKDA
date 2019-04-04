@@ -49,7 +49,7 @@
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <!-- <mat-icon style="color :gray" matSuffix>code</mat-icon> -->
               <mat-label>Employee Blood Group</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="blood_group_id">
                   <mat-option>Blood Group</mat-option>
                   <mat-option *ngFor="let bg of blood" [value]="bg.blood_group_id">{{bg.blood_group_name}}</mat-option>
                 </mat-select>
@@ -178,7 +178,7 @@
           <div class="col-md-4 ">
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label>Employee Department</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="departmant_id">
                   <mat-option>Department</mat-option>
                   <mat-option *ngFor="let dept of department" [value]="dept.departmant_id">{{dept.departmant_name}}</mat-option>
                 </mat-select>
@@ -188,7 +188,7 @@
           <div class="col-md-4">
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label>Employee Designation</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="designation_id">
                   <mat-option>Designation</mat-option>
                   <mat-option *ngFor="let desig of designation" [value]="desig.designation_id">{{desig.designation_name}}</mat-option>
                 </mat-select>
@@ -198,9 +198,9 @@
           <div class="col-md-4">
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label>Employee Access Type</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="user_type">
                   <mat-option>Access Type</mat-option>
-                  <mat-option *ngFor="let user of users" [value]="user.user_type_id">{{user.user_name}}</mat-option>
+                  <mat-option *ngFor="let user of users" [value]="user.user_name">{{user.user_name}}</mat-option>
                 </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>

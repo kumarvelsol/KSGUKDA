@@ -31,7 +31,7 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
 
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
