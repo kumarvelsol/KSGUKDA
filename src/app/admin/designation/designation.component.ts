@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
+import { Department } from 'src/app/shared/DepartmentModels/department';
 
 export interface Designationdetails {
   designation_id : number ;
@@ -45,7 +46,7 @@ export class DesignationComponent implements OnInit {
   designationlist:DesignationList;
   deptlist : DesignationData[];
   dlist : DeptData[];
-  delist : DeptList;
+  delist : Department[];
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
@@ -55,7 +56,10 @@ export class DesignationComponent implements OnInit {
      console.log(this.designationlist);
      this.abDatasource = new MatTableDataSource(this.designationlist.Data);
     });
-    this.designationservice.getdepartment().subscribe(data => this.dlist = data.Data)
+    this.designationservice.getdepartment().subscribe(data =>
+      {
+       // this.delist = data.Data
+      });
       // {
       //   this.dlist = data.Data;
       //   console.log(this.delist);
