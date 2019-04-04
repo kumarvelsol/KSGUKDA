@@ -5,6 +5,7 @@ import { JsResponse } from 'src/app/shared/jsresponse';
 import { User} from 'src/app/shared/user';
 import { MatTableDataSource} from '@angular/material';
 import { Bloodgroup } from 'src/app/shared/bloodgroup';
+import { BloodgroupList,BloodgroupData,PassInstituteID } from '../bloodgroup/bloodgroup.component';
 
 @Component({
   selector: 'app-employeedetails',
@@ -16,9 +17,7 @@ export class EmployeedetailsComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  data:any=[];
-  institute_id=1;
-  bloodgroup_name:string;
+  blood:BloodgroupData[];
   constructor(private _formBuilder: FormBuilder,private service:AdminServiceService) {}
 
   ngOnInit() {
@@ -28,12 +27,23 @@ export class EmployeedetailsComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    this.gettingbloodgroup();
   }
-  bloodgroup(bg_name){
-    let passing_institute = 
-    {
-      institution_id:1
-    };
-    this.service.getbloodgroup(passing_institute).subscribe((dataa: any) => dataa.data == bg_name);
+  gettingbloodgroup()
+  {
+    let institute : PassInstituteID= {
+      institution_id : 1
+    }
+    this.service.getbloodgroup(institute).subscribe((data : BloodgroupList) =>{
+      this.blood = data.Data;
+    });
+  }
+  gettingdepartments()
+  {
+    
+  }
+  gettingdesignation()
+  {
+
   }
 }
