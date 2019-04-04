@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { debug } from 'util';
-//import { InstituteInsert } from 'app/';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Response} from 'src/app/shared/response';
 import { AdminServiceService } from '../admin-service.service';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
+
 export interface ParseInstituteId {
   institution_id : number;
 }
@@ -15,20 +15,19 @@ export interface ParseInstituteId {
   styleUrls: ['./institutedetails.component.css']
 })
 export class InstitutedetailsComponent implements OnInit {
-  jsRes : JsResponse;
   Res : Response;
   institute : InstituteInsert[];
   constructor(public service:AdminServiceService) { }
   ngOnInit() {
   }
-  In_name:string='';
-  In_code:string='';
-  In_email:string='';
-  In_phone:number;
-  In_mobile:number;
-  In_address:string='';
-  ad_name:string='';
-  ad_mobile:number;
+  In_name : string='';
+  In_code : string='';
+  In_email : string='';
+  In_phone : number;
+  In_mobile : number;
+  In_address : string='';
+  ad_name : string='';
+  ad_mobile : number;
 
   buttoncontent:string = "Add";
   public imagePath;
@@ -57,8 +56,12 @@ export class InstitutedetailsComponent implements OnInit {
           institution_image : 'srikar.png',
           institution_code : this.In_code
         }
-        this.service.createinstitute(insti).subscribe((res)=>{
-          alert("Created institute successfully");
+        this.service.createinstitute(insti).subscribe((res : JsResponse)=>{
+          if(res.code == 200){
+            alert("Created institute successfully");
+          }else{
+            alert(""+res.message);
+          }
         });
         // this.service.getdepartment().subscribe((data: DepartmentData[]) => {this.departData = data;});
         this.In_name = null;this.In_code = null;this.In_address = null;this.In_email = null;
@@ -80,13 +83,13 @@ export class InstitutedetailsComponent implements OnInit {
         }
         this.service.updateinstitute(insti_up).subscribe((data : JsResponse) => {
           //this.respons=data;
-          this.jsRes = data;
-          if(this.jsRes.code==200)
+          //this.jsRes = data;
+          if(data.code==200)
           {
             alert("Institute Updated Succesfully.!");
           }else
           {
-            alert(""+this.jsRes.message);
+            alert(""+data.message);
           }
         });
       }

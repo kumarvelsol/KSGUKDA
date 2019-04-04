@@ -21,13 +21,14 @@ import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
+import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
+import { SubjectsComponent } from './subject/subjects/subjects.component';
+import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
+
+
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
-  TimeperiodsComponent,
-  ClassteacherdetailsComponent],
-
-
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent,TimeperiodsComponent,ClassteacherdetailsComponent],
  imports: [
 
     CommonModule,
@@ -38,8 +39,9 @@ import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/class
     MatSidenavModule,
     MatIconModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-MatSelectModule,
+    MaterialModule,FormsModule,
+    MatInputModule,ReactiveFormsModule,
+    MatSelectModule,
     MatListModule,
     MaterialModule,
     FormsModule,

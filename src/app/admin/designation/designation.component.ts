@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
-import {Department} from 'src/app/shared/department';
-import {DepartmentList} from 'src/app/admin/department/department.component';
+
 export interface Designationdetails {
   designation_id : number ;
     designation_code :string;

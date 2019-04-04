@@ -8,9 +8,10 @@ import { AcademicdetailsComponent } from './academicdetails/academicdetails.comp
 import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
-import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
+import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
+import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -22,7 +23,9 @@ const routes: Routes = [
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
   {path:'TimePeriod',component:TimeperiodsComponent},
-  {path:'classallocation',component:ClassteacherdetailsComponent}
+  {path:'classallocation',component:ClassteacherdetailsComponent},
+  {path:'subjectdetails',component:SubjectTabBarComponent},
+
 ];
 
 @NgModule({
