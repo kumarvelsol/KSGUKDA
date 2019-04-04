@@ -33,6 +33,7 @@ export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
   constructor(private http:HttpClient) { }
 
+
   //Start of Department related Service Methods
     getdepartment(){
       return this.http.get<DepartmentList>(this.Baseurl+"departmentlist");
@@ -56,6 +57,7 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
     }
   //End of Institute related Service Methods
+
 
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';

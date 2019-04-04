@@ -5,7 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminToolbarComponent } from './admin-toolbar/admin-toolbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSelectModule,MatSidenavModule, MatIconModule, MatListModule,MatTableModule,MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatDialogModule,MatButtonModule, MatSelectModule,MatSidenavModule, MatIconModule, MatTabsModule,MatListModule,MatTableModule,MatInputModule } from '@angular/material';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { CastDetailsComponent } from './cast-details/cast-details.component';
 import { MaterialModule } from '../shared/material.module';
@@ -20,12 +20,18 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
-import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
-import { SubjectsComponent } from './subject/subjects/subjects.component';
-import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
+import { AmazingTimePickerModule } from 'amazing-time-picker'
+import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
+import { TimetableComponent } from '../timetable/timetable.component';
+import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent,TimeperiodsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+  TimeperiodsComponent,
+  TimeandPeriodComponent,
+  TimetableComponent,
+  TimetableupdateComponent],
+
 
 
  imports: [
@@ -36,18 +42,21 @@ import { SubjectAllocationComponent } from './subject/subject-allocation/subject
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatIconModule,
+
+    MatIconModule,MatDialogModule,
+    AmazingTimePickerModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,
-    MatInputModule,ReactiveFormsModule,
-    MatSelectModule,
+    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
+MatSelectModule,MatTabsModule,
+
     MatListModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
 
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent],
-  providers:[AdminServiceService]
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,TimetableupdateComponent],
+  providers:[AdminServiceService],
+  entryComponents: [TimetableupdateComponent]
 })
 export class AdminModule { }
