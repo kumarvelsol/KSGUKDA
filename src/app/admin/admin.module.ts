@@ -31,14 +31,7 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
   TimeandPeriodComponent,
   TimetableComponent,
   TimetableupdateComponent],
-// =======
-// import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
-// import { SubjectsComponent } from './subject/subjects/subjects.component';
-// import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 
-// @NgModule({
-//   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, SubjectTabBarComponent, SubjectsComponent, SubjectAllocationComponent,TimeperiodsComponent],
-// >>>>>>> f8e47ba7f850076841c514fc9551119a3b0c8c56
 
 
  imports: [
