@@ -20,9 +20,11 @@ import { Bloodgroup} from '../shared/bloodgroup';
 import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
-import { SubjectData } from '../shared/SubjectModels/subjectdata';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
 import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
+import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
+import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
+import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
 
 @Injectable({
   providedIn: 'root'
@@ -136,4 +138,17 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
     }
   //End of Subject Related ServiceMethods.
+
+  //Start of Subject Allocation ServiceMethods.
+    public getDepEmpList(depemp : DepEmpParsing){
+      return this.http.post(`${this.Baseurl+"Employeeparticular"}`,depemp);
+    }
+    public CreateSubjectAllocaion(sub_allo_insert : SubjectAllocationInsert){
+      return this.http.post(`${this.Baseurl+"subjectallocationinsert"}`,sub_allo_insert);
+    }
+    public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
+      return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    }
+  //public UpdateSubjectAllocation()
+  //End of Subject Allocation ServiceMethods.
 }
