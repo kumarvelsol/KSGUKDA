@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Department } from 'src/app/shared/department';
-import { DepartmentList } from '../admin/department/department.component';
+import { Department } from 'src/app/shared/DepartmentModels/department';
 import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
-import { DepartmentDetails } from 'src/app/shared/departmentdetails';
+import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
 import { Cast } from 'src/app/shared/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/religion';
-import {PassInstitute} from './religion/religion.component';
+import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
 import { Designation } from '../shared/designation';
 import { DesignationList } from './designation/designation.component';
-import {Bloodgroup} from '../shared/bloodgroup';
+import { Bloodgroup} from '../shared/bloodgroup';
 import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { SubjectData } from '../shared/SubjectModels/subjectdata';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
+import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
 
 @Injectable({
   providedIn: 'root'
