@@ -18,7 +18,6 @@ import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 export class DepartmentComponent implements OnInit {
   jsRes : JsResponse;
   department : Department[];
-  departlist : DepartmentList;
   departData : DepartmentData[];
   
   displayedColumns = ['departmant_id', 'departmant_name', 'department_code', 'department_description','actions'];
@@ -27,11 +26,9 @@ export class DepartmentComponent implements OnInit {
   //@ViewChild(MatPaginator) paginator: MatPaginator;
   // constructor() { }
   ngOnInit() {
-    this.service.getdepartment().subscribe((data : DepartmentList) => 
+    this.service.getdepartment().subscribe(data => 
     {
-      this.departlist = data;
-      //console.log(this.departlist.Data);
-      this.dataSource = new MatTableDataSource(this.departlist.Data);
+      this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   name : string='';
