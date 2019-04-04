@@ -19,9 +19,12 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
+import { StudentComponent } from './student/student.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { AddStudentComponent } from './add-student/add-student.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent],
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, StudentComponent, StudentListComponent, AddStudentComponent],
 
  imports: [
 
@@ -32,15 +35,12 @@ import { SettingsComponent } from './settings/settings.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-
     MatListModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent],
   providers:[AdminServiceService]

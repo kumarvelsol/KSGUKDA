@@ -9,6 +9,7 @@ import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
+import { StudentComponent } from './student/student.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'designationDetails',component:DesignationComponent},
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
-  {path:'classdetails',component:ClassesRelatedComponent}
+  {path:'classdetails',component:ClassesRelatedComponent},
+  {path:'studentDetails',component:StudentComponent}
 ];
 
 @NgModule({
