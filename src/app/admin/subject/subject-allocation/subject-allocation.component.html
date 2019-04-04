@@ -15,7 +15,7 @@
             <mat-label>Subject</mat-label>
             <mat-select>
               <mat-option>Subject</mat-option>
-              <mat-option *ngFor="let subject of subjects" [value]="subject.id">{{subject.name}}</mat-option>
+              <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap">
