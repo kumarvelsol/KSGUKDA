@@ -20,7 +20,15 @@ export interface DesignationData {
   designation_description :string;
   departmant_name :string;
 }
-
+export interface DeptData {
+  departmant_id : number;
+  departmant_name :string;
+}
+export interface DeptList {
+  code: number;
+  message: string;
+  Data: DeptData[];
+}
 export interface DesignationList {
   code: number;
   message: string;
@@ -37,16 +45,23 @@ export class DesignationComponent implements OnInit {
   abDatasource;
   designationlist:DesignationList;
   deptlist : DesignationData[];
-  designationdata :DesignationData[]
+  dlist : DeptData[];
+  delist : DeptList;
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
-   this.designationservice.getdesignation().subscribe((data: DesignationList) => 
+   this.designationservice.getdesignation().subscribe(data => 
    {
      this.deptlist = data.Data;
      console.log(this.designationlist);
      this.abDatasource = new MatTableDataSource(this.designationlist.Data);
     });
+    this.designationservice.getdepartment().subscribe(data => this.dlist = data.Data)
+      // {
+      //   this.dlist = data.Data;
+      //   console.log(this.delist);
+      //   this.abDatasource = new MatTableDataSource(this.delist.Data);
+      //  });
   }
   selected = null;
   buttoncontent:string = 'Save';
