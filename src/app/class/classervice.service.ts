@@ -117,6 +117,14 @@ tupdates:Tupdate
   }
 
 
+  updateTimeTables(ss:Ttablemodel) :Observable<Classresponse>
+  {    
+    ss.academic_id=1;
+    ss.institution_id=1;
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/updateTimeTables',ss)
+  }
+
+
 
  
 

@@ -6,6 +6,8 @@ import { SubjectList } from '../shared/SubjectModels/subjectList';
 import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
 import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
 import { AdminServiceService } from '../admin/admin-service.service';
+import { Classresponse } from '../class/classresponse';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-timetableupdate',
@@ -15,8 +17,12 @@ import { AdminServiceService } from '../admin/admin-service.service';
 export class TimetableupdateComponent implements OnInit {
 
   subjects : SubjectList[];
-    
-  constructor(private service:ClasserviceService,public srs:AdminServiceService) { }
+  serRes:Classresponse;
+
+  buttoncontent:string="";
+
+  constructor(private service:ClasserviceService,public srs:AdminServiceService,
+    public dialogRef: MatDialogRef<TimetableupdateComponent>) { }
 
   ngOnInit() {
     this.resetForm();
@@ -48,9 +54,20 @@ export class TimetableupdateComponent implements OnInit {
 
   onSubmit(updateTperiod:NgForm)
   {
-    console.log(updateTperiod.value);
-
     
+    this.service.updateTimeTables(updateTperiod.value).subscribe(data=>{
+      this.serRes=data;
+      if(this.serRes.code==200)
+      {
+        alert(this.serRes.message);   
+        this.dialogRef.close();      
+        this.buttoncontent="assigned"  ;
+      }
+      else{
+        alert(this.serRes.message);
+        
+      }
+  })    
   }
 
 
