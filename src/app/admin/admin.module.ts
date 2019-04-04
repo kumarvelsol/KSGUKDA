@@ -26,7 +26,7 @@ import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,SubjectsComponent, SubjectAllocationComponent,
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,SubjectsComponent, SubjectAllocationComponent,SubjectTabBarComponent,
   TimeperiodsComponent,
   EmployeedetailsComponent],
 

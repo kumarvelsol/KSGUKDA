@@ -49,9 +49,9 @@
           <div class="col-md-4">
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <!-- <mat-icon style="color :gray" matSuffix>code</mat-icon> -->
-              <mat-label style="color :gray">Employee BloodGroup</mat-label>
-              <mat-select style="color :gray" disableRipple>
-                  <mat-option style="color :gray" *ngFor="let bg of bloodgroup" [value]="bg.blood_group_name" >{{ bg.blood_group_name }}></mat-option>
+              <mat-label>Employee Blood Group</mat-label>
+                <mat-select matNativeControl required #clientValue  (selectionChange)="bloodgroup(bg_name)" name="bg_name" [(ngModel)]="bg_name">
+                    <mat-option [value]="bg.blood_group_id" *ngFor="let bg of data">{{bg.blood_group_name}}</mat-option>                                                                       
                 </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>
