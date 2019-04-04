@@ -1,22 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
-import { Department } from 'src/app/shared/department';
+import { Department } from 'src/app/shared/DepartmentModels/department';
 import { DataSource} from '@angular/cdk/collections';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { DepartmentDetails} from 'src/app/shared/departmentdetails';
+import { DepartmentDetails} from 'src/app/shared/DepartmentModels/departmentdetails';
 import { AdminServiceService } from '../admin-service.service';
-export interface DepartmentList {
-  code: number;
-  message: string;
-  Data: DepartmentData[];
-}
-export interface DepartmentData {
-  departmant_id: number;
-  departmant_name: string;
-  department_code: string;
-  department_description: string;
-}
+import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
+import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
+
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
