@@ -8,13 +8,9 @@ import { AcademicdetailsComponent } from './academicdetails/academicdetails.comp
 import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
-<<<<<<< HEAD
-
-=======
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
+import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
->>>>>>> 8646ee70babe22cdd435883efea98b46f4774e34
-
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
@@ -24,6 +20,7 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
+  {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'TimePeriod',component:TimeperiodsComponent}
 ];
 
