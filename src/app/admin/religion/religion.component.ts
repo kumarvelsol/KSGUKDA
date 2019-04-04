@@ -1,20 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import { AdminServiceService } from '../admin-service.service';
-import { Religion } from 'src/app/shared/religion';
+import { Religion } from 'src/app/shared/Religion/religion';
 import { JsResponse } from 'src/app/shared/JsResponse';
+import { ReligionData } from 'src/app/shared/Religion/religiondata';
+import { ReligionList } from 'src/app/shared/Religion/religionlist';
 
 
-export interface ReligionData {
-  institution_id: number;
-  religion_id: number;
-  religion_name: string;
-}
-export interface ReligionList {
-  code: number;
-  message: string;
-  Data:ReligionList [];
-}
+
 export interface PassInstitute {
 institution_id : number;
 }

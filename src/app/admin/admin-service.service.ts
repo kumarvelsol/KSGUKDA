@@ -7,9 +7,9 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/cast';
+import { Cast } from 'src/app/shared/Cast/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/religion';
+import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
@@ -31,32 +31,7 @@ export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
   constructor(private http:HttpClient) { }
 
-<<<<<<< HEAD
-  getdepartment(){
-    return this.http.get<DepartmentList>(this.Baseurl+"departmentlist");
-  }
-  createdepartment (department : Department){
-    return this.http.post(`${this.Baseurl+"department"}`,department);
-  }
-  updatedepartment (depart_details : DepartmentDetails){
-    return this.http.post(`${this.Baseurl+"departmentupdate"}`,depart_details);
-  }
-  getinstitute (inst_Id : ParseInstituteId){
-    return this.http.post(`${this.Baseurl+"Institutionlist"}`,inst_Id);
-  }
-  createinstitute (institute : InstituteInsert){
-    return this.http.post(`${this.Baseurl+"Institution"}`,institute);
-  }
-  updateinstitute (insti_up : InstituteUpdate){
-    return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
-  }
-  casturllist='http://veledu.edujinni.in/getCastDetails';
-  casturlinsert='  http://veledu.edujinni.in/addingCast';
-  casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
-  religionurllist='http://veledu.edujinni.in/getReligionDetails';
-  religionurlinsert='http://veledu.edujinni.in/addingReligion';
-  religionurlupdate='http://veledu.edujinni.in/updateReligion';
-=======
+
   //Start of Department related Service Methods
     getdepartment(){
       return this.http.get<DepartmentList>(this.Baseurl+"departmentlist");
@@ -80,7 +55,6 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
     }
   //End of Institute related Service Methods
->>>>>>> f8e47ba7f850076841c514fc9551119a3b0c8c56
 
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
