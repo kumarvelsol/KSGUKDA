@@ -23,6 +23,7 @@ import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { SubjectData } from '../shared/SubjectModels/subjectdata';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
 import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
+import { Employeemodel } from '../shared/employeemodel';
 
 @Injectable({
   providedIn: 'root'
@@ -136,4 +137,8 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
     }
   //End of Subject Related ServiceMethods.
+   public createemployee(emp:Employeemodel)
+   {
+      return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
+   }
 }
