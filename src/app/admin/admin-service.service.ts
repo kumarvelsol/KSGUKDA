@@ -114,7 +114,7 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
 
-  public getdesignation(desig_get : Designation)
+  public getdesignation(desig_get : Parsing)
   {
     return this.http.post(this.Baseurl+"desiginationlist",desig_get);
   }

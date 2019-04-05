@@ -41,12 +41,6 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
     TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent],
 
 imports: [
-
-    TimeperiodsComponent,
-    TimeandPeriodComponent,
-    TimetableComponent,
-    TimetableupdateComponent,
-    EmployeedetailsComponent,
     CommonModule,
     AdminRoutingModule,
     LayoutModule,

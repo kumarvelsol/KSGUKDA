@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
 import { Department } from 'src/app/shared/DepartmentModels/department';
@@ -51,17 +51,17 @@ export class DesignationComponent implements OnInit {
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
-    let a : Designation = {
-      institution_id :1,
-      academic_id : 1,
-      designation_id : this.designation_id,
+    let a:Designation = {
+      designation_id : this.designation_id ,
       designation_code :this.designation_code,
       designation_name :this.designation_name,
       designation_description :this.designation_description,
+      institution_id : 1,
+      academic_id : 1,
       departmant_id :1,
       departmant_name : this.departmant_name
-    }
-    this.designationservice.getdepartment().subscribe((data : DepartmentList )=>
+     }
+     this.designationservice.getdepartment(a).subscribe((data : DepartmentList )=>
       {
         this.delist = data.Data;
       });
@@ -103,7 +103,7 @@ public onsubmitclick()
          }
         this.designationservice.updatedesignation(a).subscribe((res)=>{
           console.log("Updated");
-          this.designationservice.getdepartment().subscribe((data: DepartmentList) => 
+          this.designationservice.getdepartment(a).subscribe((data: DepartmentList) => 
           {
             this.delist = data.Data;
             
@@ -131,7 +131,7 @@ public onsubmitclick()
          }
         this.designationservice.createdesignation(a).subscribe((res)=>{
           console.log("Created");
-          this.designationservice.getdepartment().subscribe((data: DepartmentList) => 
+          this.designationservice.getdepartment(a).subscribe((data: DepartmentList) => 
           {
             this.delist = data.Data;
           });

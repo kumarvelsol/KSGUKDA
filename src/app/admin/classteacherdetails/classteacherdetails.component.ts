@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { Classteacherdetails } from 'src/app/shared/classteacherdetails';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
@@ -8,8 +8,10 @@ import { Data } from 'src/app/class/data';
 import { Classresponse } from 'src/app/class/classresponse';
 import { ClasserviceService } from 'src/app/class/classervice.service';
 import { Employeemodel } from 'src/app/shared/employeemodel';
-// import {} from 'src/app/shared/
-
+import {DepartmentComponent} from 'src/app/admin/department/department.component';
+import { DepEmpParsing } from 'src/app/shared/SubjectAllocationModels/depemparsing';
+import { DepEmpList } from 'src/app/shared/SubjectAllocationModels/depemplist';
+import { DepEmpData } from 'src/app/shared/SubjectAllocationModels/depempdata';
 
 export interface TeacherData {
   institution_id :1;
@@ -38,21 +40,40 @@ export interface TeacherList {
 export class ClassteacherdetailsComponent implements OnInit {
   ab:Classteacherdetails[];
   abDatasource;
-  classSelected : number;
+  cnameSelected : number;
   deptSelected : number;
   empSelected : number;
   teacherdata :TeacherData[];
   teacherlist : TeacherList;
   deptdata : DepartmentData[]; deptlist : DepartmentList;
   clsdata :  Data[]; clslist : Classresponse;
+  empdata : DepEmpData[];
   displayedColumns: string[] = ['class_name','first_name','departmant_name','actions'];
   constructor(private designationservice: AdminServiceService,public cservice : ClasserviceService) { }
-
+  public ondepartmentchanged(val){
+     this.GetDepEmplist(val);
+  }
+  public GetDepEmplist(id : number){
+    //Start of Getting Employess based on Department Id
+    let depemp_parsing : DepEmpParsing = {
+      institution_id : 1,
+      academic_id : 1,
+      departmant_id : id,
+    }
+    this.designationservice.getDepEmpList(depemp_parsing).subscribe((data : DepEmpList) =>{
+      this.empdata = data.Data;
+    })
+    //End of Getting Employess based on Department Id
+  }
   ngOnInit() {
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    } 
     let a : TeacherData =
     {
       departmant_id : this.deptSelected,
-      class_id : this.classSelected,
+      class_id : this.cnameSelected,
       employee_id : this.empSelected,
       institution_id : 1,
       academic_id : 1,
@@ -61,7 +82,7 @@ export class ClassteacherdetailsComponent implements OnInit {
       departmant_name : this.departmant_name,
       id : this.id      
     }
-    this.designationservice.getdepartment().subscribe((data : DepartmentList) => 
+    this.designationservice.getdepartment(parsing).subscribe((data : DepartmentList) => 
      {
           this.deptdata = data.Data;
       });
@@ -92,7 +113,7 @@ export class ClassteacherdetailsComponent implements OnInit {
      {
           let a:TeacherData = {
             departmant_id : this.deptSelected,
-            class_id : this.classSelected,
+            class_id : this.cnameSelected,
             employee_id : this.empSelected,
             institution_id : 1,
             academic_id : 1,
@@ -101,7 +122,7 @@ export class ClassteacherdetailsComponent implements OnInit {
             departmant_name : this.departmant_name,
             id : this.id
            }
-          this.designationservice.insertclassallocation(a).subscribe((res)=>{
+          this.designationservice.insertclassallocation(a).subscribe((res : TeacherList)=>{
             console.log(res);
             console.log("Created");
             this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
@@ -115,7 +136,7 @@ export class ClassteacherdetailsComponent implements OnInit {
         else {
         let a:TeacherData = {
           departmant_id : this.deptSelected,
-          class_id : this.classSelected,
+          class_id : this.cnameSelected,
           employee_id : this.empSelected,
           institution_id : 1,
           academic_id : 1,
@@ -124,8 +145,9 @@ export class ClassteacherdetailsComponent implements OnInit {
           departmant_name : this.departmant_name,
           id : this.id
          }
-        this.designationservice.insertclassallocation(a).subscribe((res)=>{
+        this.designationservice.insertclassallocation(a).subscribe((res : TeacherList)=>{
           console.log("Updated");
+          console.log(res);
           this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
           {
             this.teacherlist = data;
@@ -137,15 +159,18 @@ export class ClassteacherdetailsComponent implements OnInit {
     }
   }
   no : number;
-  public RowSelected(ii: number,id,class_id : number, departmant_id: number, employee_id: number)
+  public RowSelected(ii: number,id : number,class_id : number, departmant_id: number, employee_id: number)
    {
      this.buttoncontent = 'Modify';
      this.no = id;
-     this.classSelected = class_id;
+     this.cnameSelected = class_id;
      this.deptSelected = departmant_id;
      this.empSelected = employee_id;
      console.log("row clicked",ii);
-     console.log(this.classSelected);
+     console.log(this.cnameSelected);
+     console.log(this.empSelected);
+     console.log(this.deptSelected);
+     console.log(id);
    }
   }
 
