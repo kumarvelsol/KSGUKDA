@@ -70,7 +70,15 @@ export class AcademicdetailsComponent implements OnInit {
         academic_status:this.academic_status,
         institution_id:1
       }
-      this.service.createacademic(acd).subscribe((res)=>{
+      this.service.createacademic(acd).subscribe((res:JsResponse)=>{
+        if(res.code == 200)
+        {
+          alert("Created Academic Details successfully");
+        }
+        else
+        {
+          alert(""+res.message);
+        }
         console.log(res);
         this.service.getacademic(acd).subscribe((data : Academiclist) =>
         {
