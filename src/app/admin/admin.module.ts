@@ -24,16 +24,19 @@ import { AmazingTimePickerModule } from 'amazing-time-picker'
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
+import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
+import { SubjectsComponent } from './subject/subjects/subjects.component';
+import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  TimetableupdateComponent],
-
-
-
+  TimetableupdateComponent,
+  SubjectTabBarComponent,
+  SubjectsComponent,
+  SubjectAllocationComponent],
  imports: [
 
     CommonModule,
@@ -42,18 +45,15 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-
     MatIconModule,MatDialogModule,
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-MatSelectModule,MatTabsModule,
-
+    MatSelectModule,MatTabsModule,
     MatListModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],

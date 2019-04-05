@@ -14,11 +14,12 @@ import { JsResponse } from 'src/app/shared/jsresponse';
 import { SubjectAllocationParsing } from 'src/app/shared/SubjectAllocationModels/subjectallocation_parsing';
 import { SubjectAllocationList } from 'src/app/shared/SubjectAllocationModels/subjectallocationlist';
 import { MatTableDataSource } from '@angular/material';
+import { SubjectAllocationUpdate } from 'src/app/shared/SubjectAllocationModels/subjectallocation_update';
 
 @Component({
   selector: 'app-subject-allocation',
   templateUrl: './subject-allocation.component.html',
-  providers: [AdminServiceService,ClasserviceService],
+  providers: [ AdminServiceService,ClasserviceService ],
   styleUrls: ['./subject-allocation.component.css']
 })
 export class SubjectAllocationComponent implements OnInit {
@@ -33,27 +34,19 @@ export class SubjectAllocationComponent implements OnInit {
   displayedColumns = ['sub_allocation_id', 'class_name', 'subject_name', 'departmant_name','first_name','actions'];
   dataSource;
   buttoncontent : string = "Add";
-  constructor(public service:AdminServiceService, public cservice : ClasserviceService) { }
-
+  constructor(public service : AdminServiceService, public cservice : ClasserviceService) { }
   ngOnInit() {
     this.gettingDetails();
     this.GettingSubjectAllocationList();
   }
-
   public ondepartmentchanged(val){
-    console.log(val);
-    //Start of Getting Employess based on Department Id
-    let depemp_parsing : DepEmpParsing = {
-      institution_id : 1,
-      academic_id : 1,
-      departmant_id : val,
-    }
-    this.service.getDepEmpList(depemp_parsing).subscribe((data : DepEmpList) =>{
-      this.teachers = data.Data;
-    })
-    //End of Getting Employess based on Department Id
+    // console.log("class : " +this.classSelected);
+    // console.log("subject : " +this.subjectSelected);
+    // console.log("department : " +this.departmentSelected);
+    // console.log("teacher : " +this.teacherSelected);
+    this.teacherSelected = 0;
+    this.GetDepEmplist(val);
   }
-
   //Start of Getting all Data For Drop Downs
   public gettingDetails(){
     // Start of Getting Classes
@@ -77,7 +70,6 @@ export class SubjectAllocationComponent implements OnInit {
       this.departments = data.Data;
     });
     // End of Getting Department 
-    
   }
   //End of Getting all Data For Drop Downs
 
@@ -92,7 +84,6 @@ export class SubjectAllocationComponent implements OnInit {
     });
   }
   //End of Getting Subject Allocation List
-
   public onsaveclick(){
     if(this.buttoncontent == "Add"){
       let suballocation_insert : SubjectAllocationInsert = {
@@ -112,16 +103,44 @@ export class SubjectAllocationComponent implements OnInit {
       });
     }
     else if(this.buttoncontent == "Update"){
+      let suballocation_update : SubjectAllocationUpdate = {
+        sub_allocation_id : this.id,
+        class_id : this.classSelected,
+        institution_id : 1,
+        employee_id : this.teacherSelected,
+        academic_id : 1,
+        departmant_id : this.departmentSelected,
+        subject_id : this.subjectSelected,
+      }
+      this.service.CreateSubjectAllocaion(suballocation_update).subscribe((data : JsResponse) =>{
+        if(data.code == 200){
+          alert("Succefully Updated");
+        }else{
+          alert("Failed to update");
+        }
+      });
     }
   }
   id : number;
   public startEdit(i: number,sub_allocation_id : number, class_id: number, subject_id: number, departmant_id: number, employee_id: number) {
-    // index row is used just for debugging proposes and can be removed
     this.id = sub_allocation_id;
     this.classSelected = class_id;
     this.subjectSelected = subject_id;
     this.departmentSelected = departmant_id;
+    this.GetDepEmplist(departmant_id);
     this.teacherSelected = employee_id;
     this.buttoncontent = "Update";
+  }
+  public GetDepEmplist(id : number){
+    //Start of Getting Employess based on Department Id
+    let depemp_parsing : DepEmpParsing = {
+      institution_id : 1,
+      academic_id : 1,
+      departmant_id : id,
+    }
+    this.service.getDepEmpList(depemp_parsing).subscribe((data : DepEmpList) =>{
+      this.teachers = data.Data;
+    })
+    //End of Getting Employess based on Department Id
   }
 }
