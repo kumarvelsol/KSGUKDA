@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { Userlist,PassInstituteAcademicid } from '../admin/usertype/usertype.component';
+import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
@@ -96,7 +96,7 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(userinstacad:PassInstituteAcademicid){
+  getusers(userinstacad:Parsing){
     return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
   }
   createuser (user : User){

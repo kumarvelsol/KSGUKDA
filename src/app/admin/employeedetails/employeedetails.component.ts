@@ -56,10 +56,10 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingaccesstype()
   {
-    let passing_institute = 
+    let passing_institute:Parsing=
     {
       institution_id:1,
-      Academic_id:1
+      academic_id:1
     }
     this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
       this.users = data.Data;

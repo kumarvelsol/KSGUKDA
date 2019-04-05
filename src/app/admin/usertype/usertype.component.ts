@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService,Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { User} from 'src/app/shared/user';
 import { MatTableDataSource} from '@angular/material';
 
-export interface PassInstituteAcademicid {
-  institution_id:number;
-  Academic_id:number;
-}
+
 export interface Userdata {
   user_code: string;
   user_name: string;
@@ -33,10 +30,10 @@ export class UsertypeComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:PassInstituteAcademicid = 
+    let passing_institute:Parsing = 
     {
       institution_id:1,
-      Academic_id:1
+      academic_id:1
     }
     this.service.getusers(passing_institute).subscribe((data : Userlist) =>
     {
@@ -63,7 +60,7 @@ export class UsertypeComponent implements OnInit {
             user_code:this.user_code,
             user_name:this.user_name,
             institution_id:1,
-            Academic_id:1
+            academic_id:1
           }
           this.service.createuser(user).subscribe((res:JsResponse)=>{
             if(res.code == 200)
@@ -92,7 +89,7 @@ export class UsertypeComponent implements OnInit {
             user_code:this.user_code,
             user_name:this.user_name,
             institution_id:1,
-            Academic_id:1
+            academic_id:1
           }
             this.service.updateuser(user).subscribe((res:JsResponse)=>{
               if(res.code == 200)
