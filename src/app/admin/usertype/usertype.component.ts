@@ -4,6 +4,10 @@ import { JsResponse } from 'src/app/shared/jsresponse';
 import { User} from 'src/app/shared/user';
 import { MatTableDataSource} from '@angular/material';
 
+export interface PassInstituteAcademicid {
+  institution_id:number;
+  Academic_id:number;
+}
 export interface Userdata {
   user_code: string;
   user_name: string;
@@ -29,7 +33,12 @@ export class UsertypeComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    this.service.getusers().subscribe((data : Userlist) =>
+    let passing_institute:PassInstituteAcademicid = 
+    {
+      institution_id:1,
+      Academic_id:1
+    }
+    this.service.getusers(passing_institute).subscribe((data : Userlist) =>
     {
       this.userlist=data;
       console.log(this.userlist.Data);
@@ -66,7 +75,7 @@ export class UsertypeComponent implements OnInit {
               alert(""+res.message);
             }
             console.log("Created a user successfully");
-            this.service.getusers().subscribe((data : Userlist) =>
+            this.service.getusers(user).subscribe((data : Userlist) =>
             {
               this.userlist=data;
               console.log(this.userlist.Data);
@@ -95,7 +104,7 @@ export class UsertypeComponent implements OnInit {
                 alert(""+res.message);
               }
               console.log(res);
-              this.service.getusers().subscribe((data : Userlist) =>
+              this.service.getusers(user).subscribe((data : Userlist) =>
               {
                 this.userlist=data;
                 console.log(this.userlist.Data);

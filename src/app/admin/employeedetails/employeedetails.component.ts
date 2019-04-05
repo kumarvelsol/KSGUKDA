@@ -52,7 +52,12 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingaccesstype()
   {
-    this.service.getusers().subscribe((data : Userlist) =>{
+    let passing_institute = 
+    {
+      institution_id:1,
+      Academic_id:1
+    }
+    this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
       this.users = data.Data;
     });
   }
