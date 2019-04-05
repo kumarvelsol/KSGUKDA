@@ -7,6 +7,7 @@ import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { Data } from 'src/app/class/data';
 import { Classresponse } from 'src/app/class/classresponse';
 import { ClasserviceService } from 'src/app/class/classervice.service';
+import { Employeemodel } from 'src/app/shared/employeemodel';
 // import {} from 'src/app/shared/
 
 
@@ -15,7 +16,7 @@ export interface TeacherData {
     academic_id : 1;
     class_id : string;
     employee_id : string;
-    department_id : string;
+    departmant_id : string;
     class_name : string;
     employee_name : string;
     departmant_name : string;
@@ -47,11 +48,6 @@ export class ClassteacherdetailsComponent implements OnInit {
   constructor(private designationservice: AdminServiceService,public cservice : ClasserviceService) { }
 
   ngOnInit() {
-    let a : Classteacherdetails
-    {
-      institution_id:1;
-      class_id : this.class_id;
-    }
     this.designationservice.getdepartment().subscribe((data : DepartmentList) => 
      {
           this.deptdata = data.Data;
@@ -59,14 +55,15 @@ export class ClassteacherdetailsComponent implements OnInit {
       this.cservice.get_products().subscribe(res =>{          
         this.clsdata = res.Data;   
       });
-      this.designationservice.getclassallocation(a).subscribe((res : TeacherList) =>
+      this.designationservice.getclassallocation().subscribe((res : TeacherList) =>
         {
+              console.log(res);
               this.teacherlist = res;
               this.abDatasource = new MatTableDataSource(res.Data);
         });
      }
     buttoncontent:string = 'Save';
-    department_id : number ;
+    departmant_id : number ;
     class_id : number;
     employee_id : number;
     institution_id : 1;
@@ -74,6 +71,7 @@ export class ClassteacherdetailsComponent implements OnInit {
     class_name : string;
     employee_name : string;
     departmant_name : string;
+    id : number;
   
   public onsubmitclick()
    {
@@ -85,11 +83,12 @@ export class ClassteacherdetailsComponent implements OnInit {
             academic_id : 1,
             class_name : this.class_name,
             employee_name : this.employee_name,
-            departmant_name : this.departmant_name
+            departmant_name : this.departmant_name,
+            id : this.id
            }
           this.designationservice.insertclassallocation(a).subscribe((res)=>{
             console.log("Created");
-            this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
+            this.designationservice.getclassallocation().subscribe((data: TeacherList) => 
             {
               this.teacherlist = data;
               console.log(this.teacherlist);
@@ -99,9 +98,11 @@ export class ClassteacherdetailsComponent implements OnInit {
             this.buttoncontent = 'Save';
         });
   }
-  public RowSelected(ii: number,class_id : number, departmant_id: number, employee_id: number)
+  no : number;
+  public RowSelected(ii: number,id,class_id : number, departmant_id: number, employee_id: number)
    {
      this.buttoncontent = 'Modify';
+     this.no = id;
      this.classSelected = class_id;
      this.deptSelected = departmant_id;
      this.empSelected = employee_id;

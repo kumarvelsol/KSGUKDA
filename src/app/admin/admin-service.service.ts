@@ -130,9 +130,9 @@ export class AdminServiceService {
   public updatebloodgroup(blood_up: Bloodgroup){
     return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
   }
-  getclassallocation(class_all : Classteacherdetails)
+  getclassallocation()
   {
-    return this.http.get(`${this.Baseurl+"Classlist"}`);
+    return this.http.get(`${this.Baseurl+"Classallocationlist"}`);
   }
   insertclassallocation(class_in : Classteacherdetails)
   {
@@ -153,6 +153,10 @@ export class AdminServiceService {
    public createemployee(emp:Employeemodel)
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
+   }
+   public getemployee(emp_list:Employeemodel)
+   {
+     return this.http.get(`${this.Baseurl+"Employeelist"}`);
    }
 
   //Start of Subject Allocation ServiceMethods.

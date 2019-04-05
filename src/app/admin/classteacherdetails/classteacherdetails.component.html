@@ -6,7 +6,7 @@
           <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Class Teacher Details</p>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Class Name</mat-label>
-            <mat-select style="color:gray;" matInput [(ngModel)] = "classSelected">
+            <mat-select style="color:gray;" [(ngModel)] = "classSelected">
                 <mat-option>Class</mat-option>
               <mat-option *ngFor="let cname of clsdata" value="{{cname.class_id}}">{{cname.class_name}}</mat-option> 
             </mat-select>
@@ -15,7 +15,7 @@
             <mat-label style="color :gray">Select Department</mat-label>
             <mat-select style="color:gray;" [(ngModel)] = "deptSelected">
                 <mat-option>Department</mat-option>
-              <mat-option *ngFor="let dname of deptdata" value="{{dname.departmant_id}}">{{dname.departmant_name}}</mat-option> 
+              <mat-option *ngFor="let dname of deptdata" value="{{dname}}">{{dname.departmant_name}}</mat-option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
@@ -44,7 +44,7 @@
           <!-- Code Column -->
           <ng-container matColumnDef="employee_name">
             <th mat-header-cell *matHeaderCellDef> Employee Name </th>
-            <td mat-cell *matCellDef="let i"> {{i.employee_name}} </td>
+            <td mat-cell *matCellDef="let i"> {{i.employee_id}} </td>
           </ng-container>
           <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>Edit</th>
