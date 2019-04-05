@@ -29,34 +29,29 @@ import { TimeandPeriodComponent } from '../timeand-period/timeand-period.compone
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 
-
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
-     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent],
-
-
+    TimeperiodsComponent,
+    TimeandPeriodComponent,
+    TimetableComponent,
+    TimetableupdateComponent,
+    EmployeedetailsComponent],
 
  imports: [
-
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-
     MatIconModule,MatDialogModule,
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
     MaterialModule,FormsModule,
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
@@ -64,7 +59,6 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],

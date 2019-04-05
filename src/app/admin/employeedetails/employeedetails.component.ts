@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing} from '../admin-service.service';
 import { DesignationList,DesignationData } from '../designation/designation.component';
 import { BloodgroupList,BloodgroupData,PassInstituteID } from '../bloodgroup/bloodgroup.component';
 import { Userlist,Userdata } from '../usertype/usertype.component';
@@ -40,7 +40,11 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingdepartments()
   {
-    this.service.getdepartment().subscribe((data : DepartmentList) =>{
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.service.getdepartment(parsing).subscribe((data : DepartmentList) =>{
       this.department = data.Data;
     });
   }
