@@ -20,9 +20,10 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
+import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
-import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
@@ -30,12 +31,15 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 
 @NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
+    DepartmentComponent,
+    CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
+     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
-  TimetableComponent,
-  TimetableupdateComponent,SubjectAllocationComponent,SubjectTabBarComponent,SubjectsComponent,ClassteacherdetailsComponent],
-
+  TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent,EmployeedetailsComponent],
 
 imports: [
 
@@ -50,8 +54,9 @@ imports: [
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-MatSelectModule,MatTabsModule,
-
+    MaterialModule,FormsModule,
+    MatInputModule,ReactiveFormsModule,
+    MatSelectModule,MatTabsModule,
     MatListModule,
     MaterialModule,
     FormsModule,

@@ -22,6 +22,7 @@ import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
 import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
+import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
@@ -149,6 +150,10 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
     }
   //End of Subject Related ServiceMethods.
+   public createemployee(emp:Employeemodel)
+   {
+      return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
+   }
 
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(depemp : DepEmpParsing){
