@@ -2,6 +2,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Data } from '../class/data';
 import { ClasserviceService } from '../class/classervice.service';
 import { NgForm } from '@angular/forms';
+import { SubjectList } from '../shared/SubjectModels/subjectList';
+import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
+import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
+import { AdminServiceService } from '../admin/admin-service.service';
+import { Classresponse } from '../class/classresponse';
+import { MatDialogRef } from '@angular/material';
+import { TimetableComponent } from '../timetable/timetable.component';
 
 @Component({
   selector: 'app-timetableupdate',
@@ -10,12 +17,23 @@ import { NgForm } from '@angular/forms';
 })
 export class TimetableupdateComponent implements OnInit {
 
- 
-    
-  constructor(private service:ClasserviceService) { }
+  subjects : SubjectList[];
+  serRes:Classresponse;
 
-  ngOnInit() {
+  constructor(private service:ClasserviceService,public srs:AdminServiceService,
+    public dialogRef: MatDialogRef<TimetableupdateComponent> ) { }
+
+  ngOnInit() 
+  {
     this.resetForm();
+    
+    let sub_parsing : SubjectParsing ={
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.srs.subjectlist(sub_parsing).subscribe((data : SubjectData) =>{
+      this.subjects = data.Data;
+    });
   }
 
   resetForm(form? : NgForm)
@@ -36,7 +54,25 @@ export class TimetableupdateComponent implements OnInit {
 
   onSubmit(updateTperiod:NgForm)
   {
+    
+    this.service.updateTimeTables(updateTperiod.value).subscribe(data=>{
+      this.serRes=data;
+      if(this.serRes.code==200)
+      {
+        alert(this.serRes.message);   
+        this.dialogRef.close();    
+        //this.ttablecmp.resetForm();        
+      }
+      else{
+        alert(this.serRes.message);
+        
+      }
+  }) 
 
-    console.log(updateTperiod.value);
   }
+  close()
+  {
+    this.dialogRef.close();
+  }
+
 }

@@ -48,27 +48,19 @@ export class TimetableComponent implements OnInit {
 
   onSubmit(addingTtables:NgForm)
   {
-   
-    //this.tt.class_id=addingTtables.value.class_id;
-
   this.service.getTimeTables(addingTtables.value).subscribe(data=>{
     this.serRes=data;
     this.dataSource=this.serRes.Data;  
-    
   });
   }
 
         
 
-  selectOption(value) 
-  {     
-           this.class_id=value;
-      console.log( this.class_id);
-      //getted from binding
-      
-    }
-
-
+  // selectOption(value) 
+  // {     
+  //     console.log(value);
+  //     //getted from binding      
+  // }
 
     populateForm(ff:Ttablemodel)
     {

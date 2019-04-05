@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { Userlist } from '../admin/usertype/usertype.component';
+import { Userlist,PassInstituteAcademicid } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
@@ -22,6 +22,7 @@ import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { SubjectParsing } from '../shared/SubjectModels/subparsing';
 import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
+import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
@@ -90,8 +91,8 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(){
-    return this.http.get<Userlist>(this.Baseurl+"usertypelist");
+  getusers(userinstacad:PassInstituteAcademicid){
+    return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
   }
   createuser (user : User){
     return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
@@ -140,6 +141,10 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
     }
   //End of Subject Related ServiceMethods.
+   public createemployee(emp:Employeemodel)
+   {
+      return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
+   }
 
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(depemp : DepEmpParsing){
