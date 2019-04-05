@@ -29,7 +29,7 @@ export class UsertypeComponent implements OnInit {
   userdata : Userdata[];
   users:User;
   dataSource;
-  displayedColumns: string[] = ["user_type_id", "user_code", "user_name"];
+  displayedColumns: string[] = ["user_type_id", "user_code", "user_name","actions"];
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
@@ -122,12 +122,11 @@ export class UsertypeComponent implements OnInit {
     this.user_code=null;this.user_name=null;
     this.buttoncontent="Add";
   }
-  public RowSelected(row)
+  public RowSelected(i:number,user_type_id:number,user_code:string,user_name:string)
   {
       this.buttoncontent="Modify";
-      this.user_type_id = row.user_type_id;
-      this.user_code =  row.user_code;
-      this.user_name = row.user_name;
-      console.log(row);
+      this.user_type_id = user_type_id;
+      this.user_code =  user_code;
+      this.user_name = user_name;
   }
 }
