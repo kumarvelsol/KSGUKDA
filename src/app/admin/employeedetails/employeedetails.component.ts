@@ -52,16 +52,21 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingaccesstype()
   {
-    this.service.getusers().subscribe((data : Userlist) =>{
+    let passing_institute = 
+    {
+      institution_id:1,
+      Academic_id:1
+    }
+    this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
       this.users = data.Data;
     });
   }
-  employee_code:string=""; first_name:string=""; last_name:string=""; date_of_birth:Date;
-  gender:string=""; phone_no:string=""; alternate_phone_no:string=""; email:string="";
-  user_type:string="";academic_id:1; institution_id:1; designation_id :Number;
-  joining_date:Date; qualification:string=""; experience:string=""; departmant_id:Number;
-  blood_group_id:Number; present_address :string=""; perminent_address:string=""; state:string="";
-  city :string=""; pin_code:string="";
+  employee_code:string=""; first_name:string="";      last_name:string="";          date_of_birth:Date;
+  gender:string="";        phone_no:string="";        alternate_phone_no:string=""; email:string="";
+  user_type:string="";     academic_id:1;             institution_id:1;             designation_id :Number;
+  joining_date:Date;       qualification:string="";   experience:string="";         departmant_id:Number;
+  blood_group_id:Number;   present_address :string="";perminent_address:string="";  state:string="";
+  city :string="";         pin_code:string="";
 
   
   public OnSaveclick()

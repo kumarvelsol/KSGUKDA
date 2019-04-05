@@ -56,13 +56,12 @@ export class TimetableComponent implements OnInit {
 
         
 
-  selectOption(value) 
-  {     
-      console.log( this.class_id);
-      //getted from binding
-      
-    }
-    
+  // selectOption(value) 
+  // {     
+  //     console.log(value);
+  //     //getted from binding      
+  // }
+
     populateForm(ff:Ttablemodel)
     {
       console.log(ff);    

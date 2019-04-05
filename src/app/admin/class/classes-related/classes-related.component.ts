@@ -16,6 +16,7 @@ export class ClassesRelatedComponent implements OnInit {
   data:Data[];
   dataSource
   serRes:Classresponse;
+  
   constructor(private servs:ClasserviceService,private http:HttpClient) { }
   displayedColumns: string[] = ['class_name', 'class_code', 'class_description','actions'];
   ngOnInit()
