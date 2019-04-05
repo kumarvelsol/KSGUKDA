@@ -51,11 +51,21 @@ export class DesignationComponent implements OnInit {
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
+    let a : Designation = {
+      institution_id :1,
+      academic_id : 1,
+      designation_id : this.designation_id,
+      designation_code :this.designation_code,
+      designation_name :this.designation_name,
+      designation_description :this.designation_description,
+      departmant_id :1,
+      departmant_name : this.departmant_name
+    }
     this.designationservice.getdepartment().subscribe((data : DepartmentList )=>
       {
         this.delist = data.Data;
       });
-      this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+      this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
@@ -98,7 +108,7 @@ public onsubmitclick()
             this.delist = data.Data;
             
           });
-          this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+          this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
@@ -125,7 +135,7 @@ public onsubmitclick()
           {
             this.delist = data.Data;
           });
-          this.designationservice.getdesignation().subscribe((data : DesignationList) =>
+          this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);

@@ -15,14 +15,14 @@
             <mat-label style="color :gray">Select Department</mat-label>
             <mat-select style="color:gray;" [(ngModel)] = "deptSelected">
                 <mat-option>Department</mat-option>
-              <mat-option *ngFor="let dname of deptdata" value="{{dname}}">{{dname.departmant_name}}</mat-option> 
+              <mat-option *ngFor="let dname of deptdata" value="{{dname.departmant_id}}">{{dname.departmant_name}}</mat-option> 
             </mat-select>
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Teacher name</mat-label>
-            <mat-select style="color:gray;" matInput  type="text" name="employee_name" [(ngModel)] = "empSelected">
+            <mat-select style="color:gray;" matInput  type="text" name="first_name" [(ngModel)] = "empSelected">
                 <mat-option>Employee</mat-option>
-              <mat-option *ngFor="let ename of empnames" value="{{ename.employee_id}}">{{ename.employee_name}}</mat-option> 
+              <mat-option *ngFor="let ename of empnames" value="{{ename.employee_id}}">{{ename.first_name}}</mat-option> 
             </mat-select>
           </mat-form-field>
           <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
@@ -42,14 +42,14 @@
             <td mat-cell *matCellDef="let i"> {{i.departmant_name}} </td>
           </ng-container>
           <!-- Code Column -->
-          <ng-container matColumnDef="employee_name">
+          <ng-container matColumnDef="first_name">
             <th mat-header-cell *matHeaderCellDef> Employee Name </th>
-            <td mat-cell *matCellDef="let i"> {{i.employee_id}} </td>
+            <td mat-cell *matCellDef="let i"> {{i.first_name}} </td>
           </ng-container>
           <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef>Edit</th>
               <td mat-cell *matCellDef="let i; let ii=index;">
-                <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelected(ii,i.class_id,i.departmant_id,i.employee_id)">
+                <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelected(ii,i.id,i.class_id,i.departmant_id,i.employee_id)">
                   <mat-icon aria-label="Edit">edit</mat-icon>
                 </button>
               </td>

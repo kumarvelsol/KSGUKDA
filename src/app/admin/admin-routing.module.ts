@@ -14,7 +14,8 @@ import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
-import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
+import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+// import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
@@ -24,17 +25,14 @@ const routes: Routes = [
   {path:'designationDetails',component:DesignationComponent},
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
-  {path:'classdetails',component:ClassesRelatedComponent},
+  {path:'classdetails',component:ClassTabBarComponent},
   {path:'TimePeriod',component:TimeperiodsComponent},
-  {path:'classallocation',component:ClassteacherdetailsComponent},
-  {path:'subjectdetails',component:SubjectTabBarComponent},
+  // {path:'classallocation',component:ClassteacherdetailsComponent},
   {path:'TimePeriod',component:TimeandPeriodComponent},  
   {path:'TimePeriod/time',component:TimeperiodsComponent},
   {path:'TimePeriod/ttable',component:TimetableComponent},
-  {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'TimePeriod',component:TimeperiodsComponent},
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
-  {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'TimePeriod/time',component:TimeperiodsComponent},
   {path:'TimePeriod/ttable',component:TimetableComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent}

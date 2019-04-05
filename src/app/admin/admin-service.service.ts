@@ -27,6 +27,7 @@ import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
 import {Classteacherdetails} from '../shared/classteacherdetails';
+import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 
 @Injectable({
   providedIn: 'root'
@@ -60,7 +61,6 @@ export class AdminServiceService {
     }
   //End of Institute related Service Methods
 
-  clsurl = 'http://veledu.edujinni.in/classallocation';
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
   casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
@@ -109,9 +109,9 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
 
-  public getdesignation()
+  public getdesignation(desig_get : Designation)
   {
-    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+    return this.http.post(this.Baseurl+"desiginationlist",desig_get);
   }
   public createdesignation(desig_in:Designation){
       return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
@@ -130,13 +130,13 @@ export class AdminServiceService {
   public updatebloodgroup(blood_up: Bloodgroup){
     return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
   }
-  getclassallocation()
+  getclassallocation(class_get : TeacherData)
   {
-    return this.http.get(`${this.Baseurl+"Classallocationlist"}`);
+    return this.http.post(`${this.Baseurl+"Classallocationlist"}`,class_get);
   }
-  insertclassallocation(class_in : Classteacherdetails)
+  insertclassallocation(class_in : TeacherData)
   {
-    return this.http.post(`${this.clsurl}`, class_in);
+    return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
   }
 
   //Start of Subject Related ServiceMethods.

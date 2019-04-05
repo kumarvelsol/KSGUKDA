@@ -29,6 +29,7 @@ import { TimeandPeriodComponent } from '../timeand-period/timeand-period.compone
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
+import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -39,7 +40,7 @@ import { SubjectAllocationComponent } from './subject/subject-allocation/subject
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
-  TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent,EmployeedetailsComponent],
+  TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent,EmployeedetailsComponent, ClassTabBarComponent],
 
 imports: [
 

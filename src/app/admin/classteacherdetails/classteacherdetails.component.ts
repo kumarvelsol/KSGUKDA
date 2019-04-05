@@ -14,12 +14,13 @@ import { Employeemodel } from 'src/app/shared/employeemodel';
 export interface TeacherData {
   institution_id :1;
     academic_id : 1;
-    class_id : string;
-    employee_id : string;
-    departmant_id : string;
+    class_id : number;
+    employee_id : number;
+    departmant_id : number;
     class_name : string;
-    employee_name : string;
+    first_name : string;
     departmant_name : string;
+    id : number;
 }
 
 export interface TeacherList {
@@ -44,10 +45,22 @@ export class ClassteacherdetailsComponent implements OnInit {
   teacherlist : TeacherList;
   deptdata : DepartmentData[]; deptlist : DepartmentList;
   clsdata :  Data[]; clslist : Classresponse;
-  displayedColumns: string[] = ['class_name','employee_name','departmant_name','actions'];
+  displayedColumns: string[] = ['class_name','first_name','departmant_name','actions'];
   constructor(private designationservice: AdminServiceService,public cservice : ClasserviceService) { }
 
   ngOnInit() {
+    let a : TeacherData =
+    {
+      departmant_id : this.deptSelected,
+      class_id : this.classSelected,
+      employee_id : this.empSelected,
+      institution_id : 1,
+      academic_id : 1,
+      class_name : this.class_name,
+      first_name : this.first_name,
+      departmant_name : this.departmant_name,
+      id : this.id      
+    }
     this.designationservice.getdepartment().subscribe((data : DepartmentList) => 
      {
           this.deptdata = data.Data;
@@ -55,7 +68,7 @@ export class ClassteacherdetailsComponent implements OnInit {
       this.cservice.get_products().subscribe(res =>{          
         this.clsdata = res.Data;   
       });
-      this.designationservice.getclassallocation().subscribe((res : TeacherList) =>
+      this.designationservice.getclassallocation(a).subscribe((res : TeacherList) =>
         {
               console.log(res);
               this.teacherlist = res;
@@ -69,34 +82,59 @@ export class ClassteacherdetailsComponent implements OnInit {
     institution_id : 1;
     academic_id : 1;
     class_name : string;
-    employee_name : string;
+    first_name : string;
     departmant_name : string;
     id : number;
   
   public onsubmitclick()
    {
-          let a:Classteacherdetails = {
-            department_id : this.deptSelected,
+     if(this.buttoncontent == 'Save')
+     {
+          let a:TeacherData = {
+            departmant_id : this.deptSelected,
             class_id : this.classSelected,
             employee_id : this.empSelected,
             institution_id : 1,
             academic_id : 1,
             class_name : this.class_name,
-            employee_name : this.employee_name,
+            first_name : this.first_name,
             departmant_name : this.departmant_name,
             id : this.id
            }
           this.designationservice.insertclassallocation(a).subscribe((res)=>{
+            console.log(res);
             console.log("Created");
-            this.designationservice.getclassallocation().subscribe((data: TeacherList) => 
+            this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
             {
               this.teacherlist = data;
               console.log(this.teacherlist);
               this.abDatasource = new MatTableDataSource(data.Data);
-            });
-            
-            this.buttoncontent = 'Save';
+            });            
         });
+      }
+        else {
+        let a:TeacherData = {
+          departmant_id : this.deptSelected,
+          class_id : this.classSelected,
+          employee_id : this.empSelected,
+          institution_id : 1,
+          academic_id : 1,
+          class_name : this.class_name,
+          first_name : this.first_name,
+          departmant_name : this.departmant_name,
+          id : this.id
+         }
+        this.designationservice.insertclassallocation(a).subscribe((res)=>{
+          console.log("Updated");
+          this.designationservice.getclassallocation(a).subscribe((data: TeacherList) => 
+          {
+            this.teacherlist = data;
+            console.log(this.teacherlist);
+            this.abDatasource = new MatTableDataSource(data.Data);
+          });
+          this.buttoncontent = 'Save';
+      });
+    }
   }
   no : number;
   public RowSelected(ii: number,id,class_id : number, departmant_id: number, employee_id: number)
