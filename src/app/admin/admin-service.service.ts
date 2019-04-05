@@ -26,18 +26,23 @@ import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
+import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 
+export interface Parsing{
+  institution_id : number,
+  academic_id : number,
+}
 @Injectable({
   providedIn: 'root'
 })
 export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
+
+  refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
-
-
   //Start of Department related Service Methods
-    getdepartment(){
-      return this.http.get<DepartmentList>(this.Baseurl+"departmentlist");
+    getdepartment(dep_parsing : Parsing){
+      return this.http.post<DepartmentList>(this.Baseurl+"departmentlist",dep_parsing);
     }
     createdepartment (department : Department){
       return this.http.post(`${this.Baseurl+"department"}`,department);
@@ -66,7 +71,7 @@ export class AdminServiceService {
   religionurllist='http://veledu.edujinni.in/getReligionDetails';
   religionurlinsert='http://veledu.edujinni.in/addingReligion';
   religionurlupdate='http://veledu.edujinni.in/updateReligion';
-  refer:Cast
+  //refer:Cast
   
   getcast (passing_institute : PassingInstitute)
   {
@@ -155,6 +160,13 @@ export class AdminServiceService {
     }
     public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
       return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    }
+    public UpdateSubjectAllocation(sub_allo_update : SubjectAllocationUpdate){
+      return this.http.post(`${this.Baseurl+"subjectallocationupdate"}`,sub_allo_update);
+    }
+    public get_classes(cls_parsing : Parsing)
+    {
+      return this.http.post('http://veledu.edujinni.in/Classlist',cls_parsing);
     }
   //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.

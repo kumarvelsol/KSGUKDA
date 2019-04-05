@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../../admin-service.service';
+import { AdminServiceService, Parsing } from '../../admin-service.service';
 import { Data } from 'src/app/class/data';
 import { ClasserviceService } from 'src/app/class/classervice.service';
 import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
@@ -15,6 +15,7 @@ import { SubjectAllocationParsing } from 'src/app/shared/SubjectAllocationModels
 import { SubjectAllocationList } from 'src/app/shared/SubjectAllocationModels/subjectallocationlist';
 import { MatTableDataSource } from '@angular/material';
 import { SubjectAllocationUpdate } from 'src/app/shared/SubjectAllocationModels/subjectallocation_update';
+import { Classresponse } from 'src/app/class/classresponse';
 
 @Component({
   selector: 'app-subject-allocation',
@@ -40,22 +41,26 @@ export class SubjectAllocationComponent implements OnInit {
     this.GettingSubjectAllocationList();
   }
   public ondepartmentchanged(val){
-    // console.log("class : " +this.classSelected);
-    // console.log("subject : " +this.subjectSelected);
-    // console.log("department : " +this.departmentSelected);
-    // console.log("teacher : " +this.teacherSelected);
+    console.log("class : " +this.classSelected);
+    console.log("subject : " +this.subjectSelected);
+    console.log("department : " +this.departmentSelected);
+    console.log("teacher : " +this.teacherSelected);
     this.teacherSelected = 0;
     this.GetDepEmplist(val);
   }
   //Start of Getting all Data For Drop Downs
   public gettingDetails(){
     // Start of Getting Classes
-    this.cservice.get_products().subscribe(res=>{          
-      this.classes = res.Data;   
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.service.get_classes(parsing).subscribe((data : Classresponse)=>{
+      this.classes = data.Data;
     });
     //End of Getting Classes
     // Start of Getting Subjects
-    let sub_parsing : SubjectParsing ={
+    let sub_parsing : SubjectParsing = {
       institution_id : 1,
       academic_id : 1
     }
@@ -65,7 +70,7 @@ export class SubjectAllocationComponent implements OnInit {
     // End of Getting Subjects
 
     // Start of Getting Department 
-    this.service.getdepartment().subscribe(data => 
+    this.service.getdepartment(parsing).subscribe(data => 
     {
       this.departments = data.Data;
     });
@@ -103,6 +108,11 @@ export class SubjectAllocationComponent implements OnInit {
       });
     }
     else if(this.buttoncontent == "Update"){
+      console.log("Id : "+this.id);
+      console.log("class : " +this.classSelected);
+      console.log("subject : " +this.subjectSelected);
+      console.log("department : " +this.departmentSelected);
+      console.log("teacher : " +this.teacherSelected);
       let suballocation_update : SubjectAllocationUpdate = {
         sub_allocation_id : this.id,
         class_id : this.classSelected,
@@ -112,7 +122,8 @@ export class SubjectAllocationComponent implements OnInit {
         departmant_id : this.departmentSelected,
         subject_id : this.subjectSelected,
       }
-      this.service.CreateSubjectAllocaion(suballocation_update).subscribe((data : JsResponse) =>{
+      this.service.UpdateSubjectAllocation(suballocation_update).subscribe((data : JsResponse) =>{
+        console.log(data);
         if(data.code == 200){
           alert("Succefully Updated");
         }else{
