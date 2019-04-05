@@ -56,7 +56,15 @@ export class UsertypeComponent implements OnInit {
             institution_id:1,
             Academic_id:1
           }
-          this.service.createuser(user).subscribe((res)=>{
+          this.service.createuser(user).subscribe((res:JsResponse)=>{
+            if(res.code == 200)
+            {
+             alert("Created User successfully");
+            }
+            else
+            {
+              alert(""+res.message);
+            }
             console.log("Created a user successfully");
             this.service.getusers().subscribe((data : Userlist) =>
             {
@@ -77,7 +85,15 @@ export class UsertypeComponent implements OnInit {
             institution_id:1,
             Academic_id:1
           }
-            this.service.updateuser(user).subscribe((res)=>{
+            this.service.updateuser(user).subscribe((res:JsResponse)=>{
+              if(res.code == 200)
+              {
+                alert("Updated User successfully");
+              }
+              else
+              {
+                alert(""+res.message);
+              }
               console.log(res);
               this.service.getusers().subscribe((data : Userlist) =>
               {
