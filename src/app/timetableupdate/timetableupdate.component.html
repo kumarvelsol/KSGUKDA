@@ -1,64 +1,65 @@
 <form #updateTperiod="ngForm" autocomplete="off" (ngSubmit)="onSubmit(updateTperiod)" >
-  <div class="row">
+  <div class="col-md-10">
 
 
 
-    <mat-select name="sub_allocation_id" #sub_allocation_id="ngModel" [ngModel]="service.subject_id">
-      <mat-option>Subject</mat-option>
+   
+    
+      <mat-form-field>
+          <mat-label>select subject</mat-label>  
+    <mat-select name="sub_allocation_id" #sub_allocation_id="ngModel" [ngModel]="service.subject_id">              
       <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
     </mat-select>
+      </mat-form-field>
+    
 
+
+      
+        <div class="row">
+          <label style="margin-top:15px;"> First Name </label>
+                                  
+          <input  matInput [disabled]="true"  name="first_name" #first_name="ngModel" [ngModel]="service.ttable.first_name" required>        
+        </div>
+     
+    
+
+      <div class="form-row">
+        <div class="col">
+          <label> From Time </label>
+        </div>
+
+        <div class="col">
+            <input matInput  [disabled]="true"   name="from_time" #from_time="ngModel" [ngModel]="service.ttable.from_time" required>
+        </div>
+
+        <div class="col">
+          <label> To Time</label>
+        </div>
+        <div class="col">
+            <input matInput  [disabled]="true"  name="to_time" #to_time="ngModel" [ngModel]="service.ttable.to_time" required>
+        </div>
+      </div>
 
 
     
 
 
-
-    <mat-form-field class="col-md-12" style="color: gray;" >
-      <mat-label style="color: gray;">First Naae</mat-label>
-
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="first_name" #first_name="ngModel" [ngModel]="service.ttable.first_name" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
-
-
-    <mat-form-field class="col-md-12" style="color: gray;">
-      <mat-label style="color: gray;">From Time</mat-label>
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="from_time" #from_time="ngModel" [ngModel]="service.ttable.from_time" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
-
-
-    <mat-form-field class="col-md-12" style="color: gray;" >
-      <mat-label style="color: gray;">To Time</mat-label>
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="to_time" #to_time="ngModel" [ngModel]="service.ttable.to_time" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
-
-
-    <mat-form-field class="col-md-12" style="color: gray;" >
-      <mat-label style="color: gray;">Section Name</mat-label>
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="session_name" #session_name="ngModel" [ngModel]="service.ttable.session_name" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
-
-
-
-    
-
-
-    <mat-form-field class="col-md-12" style="color: gray;" >
-      <mat-label style="color: gray;">Status</mat-label>
-      <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-      <input matInput    name="timetable_status" #timetable_status="ngModel" [ngModel]="service.ttable.timetable_status" required>
-      <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-    </mat-form-field>
-
-
+      <div class="form-row">
+        <div class="col">
+            <label> Section name </label>
+        </div>
+        <div class="col">
+            <input matInput  [disabled]="true"  name="session_name" #session_name="ngModel" [ngModel]="service.ttable.session_name" required>
+        </div>   
+        
+        <div class="col">
+          <label> Status </label>
+        </div>
+        <div class="col">
+            <input matInput  [disabled]="true"  name="timetable_status" #timetable_status="ngModel" [ngModel]="service.ttable.timetable_status" required>
+        </div>
+      </div>
+          
 
     <input  type="hidden"    name="subject_id" #subject_id="ngModel" [ngModel]="service.ttable.subject_id">
 
@@ -73,6 +74,12 @@
     <input  type="hidden"    name="time_table_id" #time_table_id="ngModel" [ngModel]="service.ttable.time_table_id">
 
 
-    <button mat-raised-button  class="btn btn-lg btn-block btn-info"> Assign </button> 
+    <div class="row">
+      
+        <button   class="btn btn-primary" > Assign </button> <br>
+        <button   class="btn btn-danger" (click)="close()"> close </button>
+      
+    </div>
+
   </div>
 </form>
