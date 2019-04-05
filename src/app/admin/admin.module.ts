@@ -30,31 +30,32 @@ import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
-
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
-     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent,EmployeedetailsComponent, ClassTabBarComponent],
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,ClassTabBarComponent,EmployeedetailsComponent,TimeperiodsComponent,
+    TimeandPeriodComponent,
+    TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent],
 
 imports: [
 
+    TimeperiodsComponent,
+    TimeandPeriodComponent,
+    TimetableComponent,
+    TimetableupdateComponent,
+    EmployeedetailsComponent,
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-
     MatIconModule,MatDialogModule,
     AmazingTimePickerModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
     MaterialModule,FormsModule,
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
@@ -62,10 +63,11 @@ imports: [
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
+
+    
 })
 export class AdminModule { }

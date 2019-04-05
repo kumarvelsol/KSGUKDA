@@ -5,7 +5,7 @@ import { Department } from 'src/app/shared/DepartmentModels/department';
 import { DataSource} from '@angular/cdk/collections';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { DepartmentDetails} from 'src/app/shared/DepartmentModels/departmentdetails';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService ,Parsing } from '../admin-service.service';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 
@@ -26,7 +26,11 @@ export class DepartmentComponent implements OnInit {
   //@ViewChild(MatPaginator) paginator: MatPaginator;
   // constructor() { }
   ngOnInit() {
-    this.service.getdepartment().subscribe(data => 
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.service.getdepartment(parsing).subscribe(data => 
     {
       this.dataSource = new MatTableDataSource(data.Data);
     });
