@@ -66,7 +66,7 @@ export class DesignationComponent implements OnInit {
   designation_id : number ;
   designation_code :string =''
   designation_name :string = ''
-  department_name : string = ''
+  departmant_name : string = ''
   designation_description :string = ''
   institution_id : 1
   academic_id : 1
@@ -89,7 +89,7 @@ public onsubmitclick()
           institution_id : 1,
           academic_id : 1,
           departmant_id :1,
-          department_name : this.department_name
+          departmant_name : this.departmant_name
          }
         this.designationservice.updatedesignation(a).subscribe((res)=>{
           console.log("Updated");
@@ -117,7 +117,7 @@ public onsubmitclick()
           institution_id : 1,
           academic_id : 1,
           departmant_id :1,
-          department_name : this.department_name
+          departmant_name : this.departmant_name
          }
         this.designationservice.createdesignation(a).subscribe((res)=>{
           console.log("Created");
@@ -147,7 +147,6 @@ public RowSelected(row)
    this.designation_id = row.designation_id;
    this.departmant_id = row.departmant_id;
    this.designation_code = row.designation_code;
-   this.department_name = row.departmant_name;
    this.designation_name = row.designation_name;
    this.designation_description = row.designation_description;
    console.log("row clicked",row);

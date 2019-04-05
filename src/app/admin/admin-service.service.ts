@@ -59,7 +59,7 @@ export class AdminServiceService {
     }
   //End of Institute related Service Methods
 
-
+  clsurl = 'http://veledu.edujinni.in/classallocation';
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
   casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
@@ -135,7 +135,7 @@ export class AdminServiceService {
   }
   insertclassallocation(class_in : Classteacherdetails)
   {
-    return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
+    return this.http.post(`${this.clsurl}`, class_in);
   }
 
   //Start of Subject Related ServiceMethods.
