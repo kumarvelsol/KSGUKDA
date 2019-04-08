@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Bloodgroup } from 'src/app/shared/bloodgroup';
 import { AdminServiceService } from '../admin-service.service';
+import { JsResponse } from 'src/app/shared/jsresponse';
 
 export interface Bloodgroupdetails {
   institution_id : number;
@@ -32,7 +33,7 @@ export interface BloodgroupList {
   styleUrls: ['./bloodgroup.component.css']
 })
 export class BloodgroupComponent implements OnInit {
-
+  jsRes : JsResponse;
   blood_group_id : number;
   blood_group_code : number;
   blood_group_name : string;
@@ -67,16 +68,21 @@ export class BloodgroupComponent implements OnInit {
       institution_id :1,
       academic_id : 1
       }
-      this.service1Service.createbloodgroup(a).subscribe((res)=>{
-      console.log("res");
+      this.service1Service.createbloodgroup(a).subscribe((data : JsResponse) => {
+        this.jsRes = data;
+        if(this.jsRes.code==200)
+        {
+          alert("BloodGroup Added Succesfully.!");
+          console.log("success");
+        }else{ }
+      });
       this.service1Service.getbloodgroup(a).subscribe((data: BloodgroupList) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);
         this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
       });
-      this.blood_group_name ='';
-   });
+      this.blood_group_name ='';this.blood_group_code =null;
   }
    else if(this.buttoncontent == 'Update')
    {
@@ -87,15 +93,19 @@ export class BloodgroupComponent implements OnInit {
       institution_id :1,
       academic_id : 1
       }
-      this.service1Service.updatebloodgroup(a).subscribe((res)=>{
-        console.log(res);
+      this.service1Service.updatebloodgroup(a).subscribe((data : JsResponse) => {
+        this.jsRes = data;
+        if(this.jsRes.code==200)
+        {
+          alert("BloodGroup Updated Succesfully.!");
+        }else{ }
+      });
       this.service1Service.getbloodgroup(a).subscribe((data: BloodgroupList) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);
         this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
       });
-   });
       this.buttoncontent = 'Save';
   }
   this.blood_group_name =''; this.blood_group_code =null;

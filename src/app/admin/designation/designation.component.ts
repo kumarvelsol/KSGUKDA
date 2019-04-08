@@ -5,6 +5,7 @@ import { MatPaginator,MatTableDataSource } from '@angular/material';
 import { Department } from 'src/app/shared/DepartmentModels/department';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
+import { JsResponse } from 'src/app/shared/jsresponse';
 
 export interface Designationdetails {
   designation_id : number ;
@@ -45,6 +46,7 @@ export interface DesignationList {
 export class DesignationComponent implements OnInit {
   ab:Designation[];
   abDatasource;
+  jsRes : JsResponse;
   delist : DepartmentData[];
   desiglist : DesignationList;
   designationlist : DesignationData[];
@@ -101,21 +103,22 @@ public onsubmitclick()
           departmant_id :1,
           departmant_name : this.departmant_name
          }
-        this.designationservice.updatedesignation(a).subscribe((res)=>{
-          console.log("Updated");
-          this.designationservice.getdepartment(a).subscribe((data: DepartmentList) => 
+         this.designationservice.updatedesignation(a).subscribe((data : JsResponse) => {
+          this.jsRes = data;
+          if(this.jsRes.code==200)
           {
-            this.delist = data.Data;
-            
-          });
+            alert("Designation Updated Succesfully.!");
+          }else{
+            alert(""+this.jsRes.message);
+          }
+        });
           this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
           })
           this.designation_code =''; this.designation_name = ''; this.designation_description = '';
-        });
-        this.buttoncontent = 'Save';
+          this.buttoncontent = 'Save';
       }
       else
       {
@@ -129,25 +132,20 @@ public onsubmitclick()
           departmant_id :1,
           departmant_name : this.departmant_name
          }
-        this.designationservice.createdesignation(a).subscribe((res)=>{
-          console.log("Created");
-          this.designationservice.getdepartment(a).subscribe((data: DepartmentList) => 
+         this.designationservice.createdesignation(a).subscribe((data : JsResponse) => {
+          this.jsRes = data;
+          if(this.jsRes.code==200)
           {
-            this.delist = data.Data;
-          });
+            alert("Designation Added Succesfully.!");
+          }else{}
+        });
           this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
           })
           this.designation_code =''; this.designation_name = ''; this.designation_description = '';
-
-        console.log(this.designation_id);
-        console.log(this.designation_code);
-        console.log(this.designation_name);
-        console.log(this.designation_description);
         this.buttoncontent = 'Save';
-      });
     }
  }
 }
