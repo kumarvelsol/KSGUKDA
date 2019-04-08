@@ -7,9 +7,9 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/cast';
+import { Cast } from 'src/app/shared/Cast/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/religion';
+import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
@@ -26,9 +26,14 @@ import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
+
+import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
+import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
+
 import {Classteacherdetails} from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
+
 
 export interface Parsing{
   institution_id : number,
@@ -72,6 +77,11 @@ export class AdminServiceService {
   religionurllist='http://veledu.edujinni.in/getReligionDetails';
   religionurlinsert='http://veledu.edujinni.in/addingReligion';
   religionurlupdate='http://veledu.edujinni.in/updateReligion';
+  mothertongueurllist='http://veledu.edujinni.in/getmothertongueDetails';
+  mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
+  mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
+   
+  
   //refer:Cast
   
   getcast (passing_institute : PassingInstitute)
@@ -183,4 +193,14 @@ export class AdminServiceService {
     }
   //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.
+  getmothertongue (PasingInstitute : PasingInstitute )
+   {
+     return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
+   }
+   createmothertongue(mothertongue: Mother_Tongue){
+    return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
+  }
+  updatemothertongue(mothertongue:Mother_Tongue){
+    return this.http.put('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
+  }
 }
