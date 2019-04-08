@@ -45,7 +45,6 @@ import { EmployeelistComponent } from './employee/employeelist/employeelist.comp
   TimetableComponent,
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent],
-   ],
 
 imports: [
     CommonModule,
