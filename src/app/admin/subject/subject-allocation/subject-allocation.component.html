@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">
-          <p style="margin-top: 20px;">Subject Details</p>
+          <p style="margin-top: 20px;">Subject Allocation</p>
           <mat-form-field class="col-md-12 mat-form-wrap">
             <mat-label>Class</mat-label>
             <mat-select [(ngModel)] = "classSelected">
@@ -32,13 +32,11 @@
               <mat-option *ngFor="let teacher of teachers" [value]="teacher.employee_id">{{teacher.first_name}}</mat-option>
             </mat-select>
           </mat-form-field>
-          <div>
-            <div class="col-sm-6">
-              <button mat-raised-button class="btn-style" (click)="onclearclick()"> Clear </button>
-            </div>
-            <div class="col-sm-6">
-              <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>
-            </div>
+          <div class="col-md-12">
+            <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>
+            <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+                <mat-icon>clear_all</mat-icon>
+            </button>
           </div>
         </div>
       </mat-card>
