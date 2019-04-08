@@ -9,6 +9,7 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 export interface ParseInstituteId {
   institution_id : number;
 }
+
 @Component({
   selector: 'app-institutedetails',
   templateUrl: './institutedetails.component.html',
@@ -19,6 +20,7 @@ export class InstitutedetailsComponent implements OnInit {
   institute : InstituteInsert[];
   constructor(public service:AdminServiceService) { }
   ngOnInit() {
+    this.GetInstituteDetails();
   }
   In_name : string='';
   In_code : string='';
@@ -28,7 +30,6 @@ export class InstitutedetailsComponent implements OnInit {
   In_address : string='';
   ad_name : string='';
   ad_mobile : number;
-
   buttoncontent:string = "Add";
   public imagePath;
   imgURL: string;
@@ -95,15 +96,15 @@ export class InstitutedetailsComponent implements OnInit {
       }
     }
   }
-  public onmodifyclick(){
-    this.buttoncontent = "Update";
+  public GetInstituteDetails(){
     let inst_Id : ParseInstituteId = {
-      institution_id : 8,
+      institution_id : 1,
     }
     this.service.getinstitute(inst_Id).subscribe((data : Response) =>{
       this.Res = data;
       if(this.Res.code == 200)
       {
+        this.buttoncontent = "Update";
         this.In_name = this.Res.Data[0].institution_name;
         this.In_code = this.Res.Data[0].institution_code;
         this.In_address = this.Res.Data[0].institution_address;
@@ -113,7 +114,7 @@ export class InstitutedetailsComponent implements OnInit {
         this.ad_name = this.Res.Data[0].contact_person_name;
         this.ad_mobile = this.Res.Data[0].contact_person_mobile_no;
       }else{
-        alert("failed");
+        this.buttoncontent = "Add";
       }
     });
   }

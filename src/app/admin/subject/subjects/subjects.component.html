@@ -22,13 +22,11 @@
             <input style="color:gray;" matInput [(ngModel)]="description" type="text" name="description">
             <!-- <mat-hint color="primary">Hint</mat-hint> -->
           </mat-form-field>
-          <div>
-            <div class="col-sm-6">
-              <button mat-raised-button class="btn-style" (click)="onclearclick()"> Clear </button>
-            </div>
-            <div class="col-sm-6">
+          <div class="col-md-12">
               <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>
-            </div>
+              <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+                  <mat-icon>clear_all</mat-icon>
+              </button>
           </div>
         </div>
       </mat-card>

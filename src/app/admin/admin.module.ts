@@ -45,7 +45,7 @@ import { EmployeelistComponent } from './employee/employeelist/employeelist.comp
   TimetableComponent,
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent],
-
+   ],
 
 imports: [
     CommonModule,
@@ -60,9 +60,7 @@ imports: [
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
     MatListModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
