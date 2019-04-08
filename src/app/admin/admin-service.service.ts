@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { Userlist,PassInstituteAcademicid } from '../admin/usertype/usertype.component';
+import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/cast';
+import { Cast } from 'src/app/shared/Cast/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/religion';
+import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
@@ -26,7 +26,14 @@ import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
+
+import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
+import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
+
+import {Classteacherdetails} from '../shared/classteacherdetails';
+import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
+
 
 export interface Parsing{
   institution_id : number,
@@ -64,13 +71,17 @@ export class AdminServiceService {
     }
   //End of Institute related Service Methods
 
-
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
   casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
   religionurllist='http://veledu.edujinni.in/getReligionDetails';
   religionurlinsert='http://veledu.edujinni.in/addingReligion';
   religionurlupdate='http://veledu.edujinni.in/updateReligion';
+  mothertongueurllist='http://veledu.edujinni.in/getmothertongueDetails';
+  mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
+  mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
+   
+  
   //refer:Cast
   
   getcast (passing_institute : PassingInstitute)
@@ -96,7 +107,7 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(userinstacad:PassInstituteAcademicid){
+  getusers(userinstacad:Parsing){
     return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
   }
   createuser (user : User){
@@ -113,9 +124,9 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
 
-  public getdesignation()
+  public getdesignation(desig_get : Parsing)
   {
-    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+    return this.http.post(this.Baseurl+"desiginationlist",desig_get);
   }
   public createdesignation(desig_in:Designation){
       return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
@@ -134,6 +145,14 @@ export class AdminServiceService {
   public updatebloodgroup(blood_up: Bloodgroup){
     return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
   }
+  getclassallocation(class_get : TeacherData)
+  {
+    return this.http.post(`${this.Baseurl+"Classallocationlist"}`,class_get);
+  }
+  insertclassallocation(class_in : TeacherData)
+  {
+    return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
+  }
 
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
@@ -149,6 +168,10 @@ export class AdminServiceService {
    public createemployee(emp:Employeemodel)
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
+   }
+   public getemployee(emp_list:Employeemodel)
+   {
+     return this.http.get(`${this.Baseurl+"Employeelist"}`);
    }
 
   //Start of Subject Allocation ServiceMethods.
@@ -170,4 +193,14 @@ export class AdminServiceService {
     }
   //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.
+  getmothertongue (PasingInstitute : PasingInstitute )
+   {
+     return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
+   }
+   createmothertongue(mothertongue: Mother_Tongue){
+    return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
+  }
+  updatemothertongue(mothertongue:Mother_Tongue){
+    return this.http.put('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
+  }
 }

@@ -13,26 +13,26 @@ import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-ba
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
- import { TimetableComponent } from '../timetable/timetable.component';
-
-
+import { TimetableComponent } from '../timetable/timetable.component';
+import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+// import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
   {path:'usertype',component:UsertypeComponent},
   {path:'academicdetails',component:AcademicdetailsComponent},
-  {path:'designationDetails',component:DesignationComponent},
   {path:'settings',component:SettingsComponent},
-  {path:'bloodgroupDetails',component:BloodgroupComponent},
-  {path:'classdetails',component:ClassesRelatedComponent},
+  {path:'classdetails',component:ClassTabBarComponent},
+  {path:'TimePeriod',component:TimeperiodsComponent},
+  {path:'TimePeriod',component:TimeandPeriodComponent},  
+  {path:'TimePeriod/time',component:TimeperiodsComponent},
+  {path:'TimePeriod/ttable',component:TimetableComponent},
   {path:'TimePeriod',component:TimeperiodsComponent},
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
-  {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'TimePeriod/time',component:TimeperiodsComponent},
   {path:'TimePeriod/ttable',component:TimetableComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent}
-
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
+import { Designation } from 'src/app/shared/designation';
 
 @Component({
   selector: 'app-employeedetails',
@@ -50,16 +51,16 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingdesignation()
   {
-    this.service.getdesignation().subscribe((data : DesignationList) =>{
-      this.designation = data.Data;
-    });
+    // this.service.getdesignation().subscribe((data : DesignationList) =>{
+    //   this.designation = data.Data;
+    // });
   }
   gettingaccesstype()
   {
-    let passing_institute = 
+    let passing_institute:Parsing=
     {
       institution_id:1,
-      Academic_id:1
+      academic_id:1
     }
     this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
       this.users = data.Data;
