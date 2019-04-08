@@ -27,7 +27,6 @@ const routes: Routes = [
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassTabBarComponent},
   {path:'TimePeriod',component:TimeperiodsComponent},
-  // {path:'classallocation',component:ClassteacherdetailsComponent},
   {path:'TimePeriod',component:TimeandPeriodComponent},  
   {path:'TimePeriod/time',component:TimeperiodsComponent},
   {path:'TimePeriod/ttable',component:TimetableComponent},
