@@ -43,7 +43,8 @@ import { EmployeelistComponent } from './employee/employeelist/employeelist.comp
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent, MothertongueComponent],
+  ClassTabBarComponent,
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent],
 
 
 imports: [

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminServiceService, Parsing} from '../../admin-service.service';
 import { DesignationList,DesignationData } from '../../designation/designation.component';
@@ -16,7 +16,6 @@ import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-  @ViewChild(EmployeelistComponent) emp;
   emplist:EmployeeList;
   list:any=[];
   isLinear = false;
@@ -27,10 +26,12 @@ export class EmployeedetailsComponent implements OnInit {
   constructor(private service:AdminServiceService) {}
   id:number;
   ngOnInit() {
+    debugger;
     this.gettingbloodgroup();
     this.gettingdesignation();
     this.gettingdepartments();
     this.gettingaccesstype();
+    this.receiveMessage(Event);
     // let passing_institute:Parsing = 
     // {
     //   institution_id:1,
@@ -43,7 +44,10 @@ export class EmployeedetailsComponent implements OnInit {
     //   this.list=this.emplist.Data;
     //   console.log(this.list);
     // });    
-    
+
+  }
+  receiveMessage($event) {
+    this.id = $event
   }
   gettingbloodgroup()
   {

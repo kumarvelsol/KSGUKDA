@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatTableDataSource} from '@angular/material';
 import { AdminServiceService,Parsing } from 'src/app/admin/admin-service.service';
 
@@ -28,7 +28,8 @@ export interface EmployeeList {
   styleUrls: ['./employeelist.component.css']
 })
 export class EmployeelistComponent implements OnInit {
-  employee_id:number;employee_code:string;first_name:string;last_name:string;phone_no:string;user_type:string;department_name:string;designation_name:string;
+  @Output() empid = new EventEmitter<string>();
+  employee_id:string;employee_code:string;first_name:string;last_name:string;phone_no:string;user_type:string;department_name:string;designation_name:string;
   emplist : EmployeeList;
   empdata : Employeedata[];
   dataSource;
@@ -48,9 +49,10 @@ export class EmployeelistComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.emplist.Data);
     });
   }
-  public onchangeclick(i:number,employee_id:number)
+  public onchangeclick(i:number,employee_id:string)
   {
     this.employee_id=employee_id;
+    this.empid.emit(this.employee_id);
     //console.log(this.employee_id);
     //localStorage.setItem("emplistt",JSON.stringify(this.list));
   }
