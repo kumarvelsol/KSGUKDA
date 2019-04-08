@@ -24,43 +24,25 @@ import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/class
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
-<<<<<<< HEAD
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { MothertongueComponent } from './mothertongue/mothertongue.component';
-
-
-=======
 import { AmazingTimePickerModule } from 'amazing-time-picker';
-import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
-import { TimetableComponent } from '../timetable/timetable.component';
-import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
-import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
->>>>>>> 35754b9b48cb2cbf5bf87f60ec8b73f80e35bd53
+
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
-<<<<<<< HEAD
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent, MothertongueComponent],
-
-
-
- imports: [
-=======
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,ClassTabBarComponent,EmployeedetailsComponent,TimeperiodsComponent,
-    TimeandPeriodComponent,
-    TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent],
->>>>>>> 35754b9b48cb2cbf5bf87f60ec8b73f80e35bd53
+   TimeperiodsComponent,
+   TimeandPeriodComponent,
+   TimetableComponent,
+   TimetableupdateComponent,EmployeedetailsComponent, MothertongueComponent],
 
 imports: [
     CommonModule,
@@ -75,9 +57,12 @@ imports: [
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
     MatListModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,SubjectTabBarComponent,SubjectsComponent,
+    SubjectAllocationComponent,ClassTabBarComponent,EmployeedetailsComponent,
+    TimeperiodsComponent,
+    TimeandPeriodComponent,
+    TimetableComponent,ClassteacherdetailsComponent,
+    TimetableupdateComponent
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
