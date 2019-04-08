@@ -42,8 +42,8 @@ export class EmployeedetailsComponent implements OnInit {
     //   //console.log(this.emplist.Data);
     //   this.list=this.emplist.Data;
     //   console.log(this.list);
-    // });
-
+    // });    
+    
   }
   gettingbloodgroup()
   {
