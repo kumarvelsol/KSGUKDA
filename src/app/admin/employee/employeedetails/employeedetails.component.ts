@@ -32,18 +32,6 @@ export class EmployeedetailsComponent implements OnInit {
     this.gettingdepartments();
     this.gettingaccesstype();
     this.receiveMessage(Event);
-    // let passing_institute:Parsing = 
-    // {
-    //   institution_id:1,
-    //   academic_id:1
-    // }
-    // this.service.getemployee(passing_institute).subscribe((data : EmployeeList) =>
-    // {
-    //   this.emplist=data;
-    //   //console.log(this.emplist.Data);
-    //   this.list=this.emplist.Data;
-    //   console.log(this.list);
-    // });    
 
   }
   receiveMessage($event) {
