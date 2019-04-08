@@ -21,7 +21,7 @@ import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
-import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
@@ -30,6 +30,7 @@ import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
@@ -38,7 +39,7 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,ClassTabBarComponent,EmployeedetailsComponent,TimeperiodsComponent,
     TimeandPeriodComponent,
-    TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent],
+    TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent, EmployeelistComponent],
 
 imports: [
     CommonModule,
