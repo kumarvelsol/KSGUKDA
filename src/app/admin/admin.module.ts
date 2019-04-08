@@ -20,9 +20,11 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
 import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
+<<<<<<< HEAD
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
@@ -30,12 +32,21 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
 import { MothertongueComponent } from './mothertongue/mothertongue.component';
 
 
+=======
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
+import { TimetableComponent } from '../timetable/timetable.component';
+import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
+import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
+import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+>>>>>>> 35754b9b48cb2cbf5bf87f60ec8b73f80e35bd53
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
-     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+<<<<<<< HEAD
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
   TimeperiodsComponent,
   TimeandPeriodComponent,
@@ -45,17 +56,21 @@ import { MothertongueComponent } from './mothertongue/mothertongue.component';
 
 
  imports: [
+=======
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,ClassTabBarComponent,EmployeedetailsComponent,TimeperiodsComponent,
+    TimeandPeriodComponent,
+    TimetableComponent,ClassteacherdetailsComponent,TimetableupdateComponent],
+>>>>>>> 35754b9b48cb2cbf5bf87f60ec8b73f80e35bd53
 
+imports: [
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-
     MatIconModule,MatDialogModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
     MaterialModule,FormsModule,
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
@@ -63,10 +78,11 @@ import { MothertongueComponent } from './mothertongue/mothertongue.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
-
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
+
+    
 })
 export class AdminModule { }

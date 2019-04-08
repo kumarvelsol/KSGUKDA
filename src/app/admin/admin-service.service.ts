@@ -26,20 +26,30 @@ import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
+
 import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
 
+import {Classteacherdetails} from '../shared/classteacherdetails';
+import { TeacherData } from './classteacherdetails/classteacherdetails.component';
+import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
+
+
+export interface Parsing{
+  institution_id : number,
+  academic_id : number,
+}
 @Injectable({
   providedIn: 'root'
 })
 export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
+
+  refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
-
-
   //Start of Department related Service Methods
-    getdepartment(){
-      return this.http.get<DepartmentList>(this.Baseurl+"departmentlist");
+    getdepartment(dep_parsing : Parsing){
+      return this.http.post<DepartmentList>(this.Baseurl+"departmentlist",dep_parsing);
     }
     createdepartment (department : Department){
       return this.http.post(`${this.Baseurl+"department"}`,department);
@@ -61,7 +71,6 @@ export class AdminServiceService {
     }
   //End of Institute related Service Methods
 
-
   casturllist='http://veledu.edujinni.in/getCastDetails';
   casturlinsert='  http://veledu.edujinni.in/addingCast';
   casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
@@ -72,7 +81,8 @@ export class AdminServiceService {
   mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
    
-  refer:Cast
+  
+  //refer:Cast
   
   getcast (passing_institute : PassingInstitute)
   {
@@ -97,8 +107,8 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(){
-    return this.http.get<Userlist>(this.Baseurl+"usertypelist");
+  getusers(userinstacad:Parsing){
+    return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
   }
   createuser (user : User){
     return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
@@ -114,9 +124,9 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
   }
 
-  public getdesignation()
+  public getdesignation(desig_get : Parsing)
   {
-    return this.http.get<DesignationList>(this.Baseurl+"desiginationlist");
+    return this.http.post(this.Baseurl+"desiginationlist",desig_get);
   }
   public createdesignation(desig_in:Designation){
       return this.http.post(`${this.Baseurl+"desigination"}`,desig_in);
@@ -135,6 +145,14 @@ export class AdminServiceService {
   public updatebloodgroup(blood_up: Bloodgroup){
     return this.http.post(`${this.Baseurl+"updateBloodGroup"}`,blood_up);
   }
+  getclassallocation(class_get : TeacherData)
+  {
+    return this.http.post(`${this.Baseurl+"Classallocationlist"}`,class_get);
+  }
+  insertclassallocation(class_in : TeacherData)
+  {
+    return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
+  }
 
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
@@ -151,6 +169,10 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
+   public getemployee(emp_list:Employeemodel)
+   {
+     return this.http.get(`${this.Baseurl+"Employeelist"}`);
+   }
 
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(depemp : DepEmpParsing){
@@ -161,6 +183,13 @@ export class AdminServiceService {
     }
     public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
       return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    }
+    public UpdateSubjectAllocation(sub_allo_update : SubjectAllocationUpdate){
+      return this.http.post(`${this.Baseurl+"subjectallocationupdate"}`,sub_allo_update);
+    }
+    public get_classes(cls_parsing : Parsing)
+    {
+      return this.http.post('http://veledu.edujinni.in/Classlist',cls_parsing);
     }
   //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.

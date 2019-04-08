@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing} from '../admin-service.service';
 import { DesignationList,DesignationData } from '../designation/designation.component';
 import { BloodgroupList,BloodgroupData,PassInstituteID } from '../bloodgroup/bloodgroup.component';
 import { Userlist,Userdata } from '../usertype/usertype.component';
@@ -8,6 +8,7 @@ import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
+import { Designation } from 'src/app/shared/designation';
 
 @Component({
   selector: 'app-employeedetails',
@@ -40,28 +41,37 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingdepartments()
   {
-    this.service.getdepartment().subscribe((data : DepartmentList) =>{
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.service.getdepartment(parsing).subscribe((data : DepartmentList) =>{
       this.department = data.Data;
     });
   }
   gettingdesignation()
   {
-    this.service.getdesignation().subscribe((data : DesignationList) =>{
-      this.designation = data.Data;
-    });
+    // this.service.getdesignation().subscribe((data : DesignationList) =>{
+    //   this.designation = data.Data;
+    // });
   }
   gettingaccesstype()
   {
-    this.service.getusers().subscribe((data : Userlist) =>{
+    let passing_institute:Parsing=
+    {
+      institution_id:1,
+      academic_id:1
+    }
+    this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
       this.users = data.Data;
     });
   }
-  employee_code:string=""; first_name:string=""; last_name:string=""; date_of_birth:Date;
-  gender:string=""; phone_no:string=""; alternate_phone_no:string=""; email:string="";
-  user_type:string="";academic_id:1; institution_id:1; designation_id :Number;
-  joining_date:Date; qualification:string=""; experience:string=""; departmant_id:Number;
-  blood_group_id:Number; present_address :string=""; perminent_address:string=""; state:string="";
-  city :string=""; pin_code:string="";
+  employee_code:string=""; first_name:string="";      last_name:string="";          date_of_birth:Date;
+  gender:string="";        phone_no:string="";        alternate_phone_no:string=""; email:string="";
+  user_type:string="";     academic_id:1;             institution_id:1;             designation_id :Number;
+  joining_date:Date;       qualification:string="";   experience:string="";         departmant_id:Number;
+  blood_group_id:Number;   present_address :string="";perminent_address:string="";  state:string="";
+  city :string="";         pin_code:string="";
 
   
   public OnSaveclick()
