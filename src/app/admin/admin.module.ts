@@ -24,10 +24,10 @@ import { EmployeedetailsComponent } from './employeedetails/employeedetails.comp
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
-import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
+import { MothertongueComponent } from './mothertongue/mothertongue.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent],
+  TimetableupdateComponent,EmployeedetailsComponent, MothertongueComponent],
 
 
 
@@ -54,7 +54,6 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
     MatSidenavModule,
 
     MatIconModule,MatDialogModule,
-    AmazingTimePickerModule,
     MatListModule,MatTableModule,
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
     MaterialModule,FormsModule,
