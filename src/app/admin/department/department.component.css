@@ -16,12 +16,21 @@ table {
 .btn-style{
     background-color: #33B5E5;
     color: white;
-    width : 100%;
+    width : 120px;
     height: 50px;
     left: 0px;
     margin-bottom: 15px;
     margin-top: 15px;
     font-size: 18px;
+}
+.clearbtn-style{
+    color: gray;
+    background-color: white;
+    width : 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 .parent{
     text-align:center;
@@ -37,6 +46,7 @@ table {
     height: 500px;
     overflow: auto; 
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 p{
     text-align: center;

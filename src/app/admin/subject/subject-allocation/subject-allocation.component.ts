@@ -28,10 +28,10 @@ export class SubjectAllocationComponent implements OnInit {
   subjects : SubjectList[];
   departments : DepartmentData[];
   teachers : DepEmpData[];
-  departmentSelected : number;
-  classSelected : number;
-  subjectSelected : number;
-  teacherSelected : number;
+  departmentSelected : number = 0;
+  classSelected : number = 0;
+  subjectSelected : number = 0;
+  teacherSelected : number = 0;
   displayedColumns = ['sub_allocation_id', 'class_name', 'subject_name', 'departmant_name','first_name','actions'];
   dataSource;
   buttoncontent : string = "Add";
@@ -90,46 +90,52 @@ export class SubjectAllocationComponent implements OnInit {
   }
   //End of Getting Subject Allocation List
   public onsaveclick(){
-    if(this.buttoncontent == "Add"){
-      let suballocation_insert : SubjectAllocationInsert = {
-        class_id : this.classSelected,
-        institution_id : 1,
-        employee_id : this.teacherSelected,
-        academic_id : 1,
-        departmant_id : this.departmentSelected,
-        subject_id : this.subjectSelected,
-      }
-      this.service.CreateSubjectAllocaion(suballocation_insert).subscribe((data : JsResponse) =>{
-        if(data.code == 200){
-          alert("Succefully inserted");
-        }else{
-          alert("Failed to insert");
+    if(this.classSelected == 0 || this.subjectSelected == 0 || this.departmentSelected == 0 || this.teacherSelected == 0){
+      alert("Please select all Fields");
+    }else{
+      if(this.buttoncontent == "Add"){
+        let suballocation_insert : SubjectAllocationInsert = {
+          class_id : this.classSelected,
+          institution_id : 1,
+          employee_id : this.teacherSelected,
+          academic_id : 1,
+          departmant_id : this.departmentSelected,
+          subject_id : this.subjectSelected,
         }
-      });
-    }
-    else if(this.buttoncontent == "Update"){
-      console.log("Id : "+this.id);
-      console.log("class : " +this.classSelected);
-      console.log("subject : " +this.subjectSelected);
-      console.log("department : " +this.departmentSelected);
-      console.log("teacher : " +this.teacherSelected);
-      let suballocation_update : SubjectAllocationUpdate = {
-        sub_allocation_id : this.id,
-        class_id : this.classSelected,
-        institution_id : 1,
-        employee_id : this.teacherSelected,
-        academic_id : 1,
-        departmant_id : this.departmentSelected,
-        subject_id : this.subjectSelected,
+        this.service.CreateSubjectAllocaion(suballocation_insert).subscribe((data : JsResponse) =>{
+          if(data.code == 200){
+            alert("Succefully inserted");
+            this.onclearclick();
+          }else{
+            alert("Failed to insert");
+          }
+        });
       }
-      this.service.UpdateSubjectAllocation(suballocation_update).subscribe((data : JsResponse) =>{
-        console.log(data);
-        if(data.code == 200){
-          alert("Succefully Updated");
-        }else{
-          alert("Failed to update");
+      else if(this.buttoncontent == "Update"){
+        console.log("Id : "+this.id);
+        console.log("class : " +this.classSelected);
+        console.log("subject : " +this.subjectSelected);
+        console.log("department : " +this.departmentSelected);
+        console.log("teacher : " +this.teacherSelected);
+        let suballocation_update : SubjectAllocationUpdate = {
+          sub_allocation_id : this.id,
+          class_id : this.classSelected,
+          institution_id : 1,
+          employee_id : this.teacherSelected,
+          academic_id : 1,
+          departmant_id : this.departmentSelected,
+          subject_id : this.subjectSelected,
         }
-      });
+        this.service.UpdateSubjectAllocation(suballocation_update).subscribe((data : JsResponse) =>{
+          console.log(data);
+          if(data.code == 200){
+            alert("Succefully Updated");
+            this.onclearclick();
+          }else{
+            alert("Failed to update");
+          }
+        });
+      }
     }
   }
   id : number;
@@ -153,5 +159,18 @@ export class SubjectAllocationComponent implements OnInit {
       this.teachers = data.Data;
     })
     //End of Getting Employess based on Department Id
+  }
+  public onclearclick(){
+    // this.name = "";
+    // this.code = "";
+    // this.description = "";
+    this.buttoncontent = "Add";
+    this.classSelected = 0;
+    this.subjectSelected = 0;
+    this.departmentSelected = 0;
+    this.teacherSelected = 0;
+    this.GettingSubjectAllocationList();
+    // this.LoadingList();
+    this.id = 0;
   }
 }
