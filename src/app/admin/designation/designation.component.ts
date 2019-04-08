@@ -151,11 +151,12 @@ public onsubmitclick()
     }
  }
 }
+deptselected : number;
 public RowSelected(row)
  {
    this.buttoncontent = 'Modify';
    this.designation_id = row.designation_id;
-   this.departmant_id = row.departmant_id;
+   this.deptselected = row.departmant_id;
    this.designation_code = row.designation_code;
    this.designation_name = row.designation_name;
    this.designation_description = row.designation_description;

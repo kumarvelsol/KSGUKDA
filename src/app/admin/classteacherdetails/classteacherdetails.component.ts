@@ -48,24 +48,12 @@ export class ClassteacherdetailsComponent implements OnInit {
   deptdata : DepartmentData[]; deptlist : DepartmentList;
   clsdata :  Data[]; clslist : Classresponse;
   empdata : DepEmpData[];
-  displayedColumns: string[] = ['class_name','first_name','departmant_name','actions'];
-  constructor(private designationservice: AdminServiceService,public cservice : ClasserviceService) { }
+  displayedColumns: string[] = ['id','class_name','departmant_name','first_name','actions'];
+  constructor(public designationservice: AdminServiceService,public cservice : ClasserviceService) { }
   public ondepartmentchanged(val){
      this.GetDepEmplist(val);
   }
-  public GetDepEmplist(id : number){
-    //Start of Getting Employess based on Department Id
-    let depemp_parsing : DepEmpParsing = {
-      institution_id : 1,
-      academic_id : 1,
-      departmant_id : id,
-    }
-    this.designationservice.getDepEmpList(depemp_parsing).subscribe((data : DepEmpList) =>{
-      this.empdata = data.Data;
-    })
-    //End of Getting Employess based on Department Id
-  }
-  ngOnInit() {
+    ngOnInit() {
     let parsing : Parsing = {
       institution_id : 1,
       academic_id : 1
@@ -159,22 +147,29 @@ export class ClassteacherdetailsComponent implements OnInit {
     }
   }
   no : number;
-  public RowSelected(ii: number,id : number,class_id : number, departmant_id: number, employee_id: number)
+  public RowSelected(j: number,id : number,class_id : number, departmant_id: number, employee_id: number)
    {
-     this.buttoncontent = 'Modify';
      this.no = id;
      this.cnameSelected = class_id;
      this.deptSelected = departmant_id;
+     this.GetDepEmplist(departmant_id);
      this.empSelected = employee_id;
-     console.log("row clicked",ii);
+     console.log("row clicked",j);
      console.log(this.cnameSelected);
      console.log(this.empSelected);
      console.log(this.deptSelected);
      console.log(id);
+     this.buttoncontent = 'Update';
    }
+   public GetDepEmplist(id : number){
+    //Start of Getting Employess based on Department Id
+    let depemp_parsing : DepEmpParsing = {
+      institution_id : 1,
+      academic_id : 1,
+      departmant_id : id,
+    }
+    this.designationservice.getDepEmpList(depemp_parsing).subscribe((data : DepEmpList) =>{
+      this.empdata = data.Data;
+    })
   }
-
-  
-  
-  
-  
+}
