@@ -38,10 +38,9 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
-    DepartmentComponent,ClassesRelatedComponent,
+    DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    BloodgroupComponent,ReligionComponent,UsertypeComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
@@ -54,23 +53,12 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatIconModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-    MatIconModule,MatDialogModule,
-    MatListModule,MatTableModule,
-   
+    MaterialModule,FormsModule,
     MatInputModule,ReactiveFormsModule,
+    MatIconModule,MatDialogModule,
     MatSelectModule,MatTabsModule,
-    MatListModule,
-
-    ReactiveFormsModule,AmazingTimePickerModule
-
-  
-   
-  
-
-  ],
+    AmazingTimePickerModule],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
