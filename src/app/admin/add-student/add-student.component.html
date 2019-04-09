@@ -1,0 +1,430 @@
+<div class="col-md-12">
+    <div class="main">
+      <p style="margin-top: 15px;">Add Student</p>
+    </div>
+  </div>
+  <div class="container">
+  <mat-card class="row example-card">
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+        <ng-template matStepLabel>Basic Details</ng-template>
+        <div class="container">
+          <div class="row col-md-12">
+            <div class="col-md-4 ">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                <mat-label style="color :gray">First Name</mat-label>
+                <input style="color :gray" type="text" [(ngModel)]="first_name" name="first_name" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                <mat-label style="color :gray">Last Name</mat-label>
+                <input style="color :gray" type="text" [(ngModel)]="last_name" name="last_name" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                <mat-label style="color :gray">Birth Place</mat-label>
+                <input style="color :gray" type="text" [(ngModel)]="birth_place" name="birth_place" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-4 ">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-label style="color :gray">Student DOB</mat-label>
+                <input style="color :gray" [matDatepicker]="picker" [(ngModel)]="date_of_birth" name="date_of_birth" matInput required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              
+                <!-- <mat-icon style="color :gray" matSuffix>code</mat-icon> -->
+                <mat-radio-group style="border-style: groove;text-align: center;margin-top: 50px; margin-bottom: 20px;" [(ngModel)]="gender" name="gender" aria-label="Select an option">
+                    <mat-radio-button style="margin-right: 20px;" value="Male">Male</mat-radio-button>
+                    <mat-radio-button style="margin-right: 20px;" value="Female">Female</mat-radio-button>
+                    <mat-radio-button  value="Others">Others</mat-radio-button>
+                  </mat-radio-group>
+                
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+             
+            </div>
+            <div class="col-md-4">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                <mat-label style="color :gray">Nationality</mat-label>
+                <input style="color :gray" type="text" [(ngModel)]="nationality" name="nationality" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-4 ">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                <mat-label style="color :gray">Mother Tongue</mat-label>
+                <input style="color :gray" type="text" [(ngModel)]="mother_tongue" name="mother_tongue" matInput required>
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-label>Student Religion</mat-label>
+                      <mat-select [(ngModel)]="religion_id">
+                        <mat-option>Student Religion</mat-option>
+                        <mat-option *ngFor="let bg of religionData" [value]="bg.religion_id">{{bg.religion_name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-label>Student Caste</mat-label>
+                      <mat-select [(ngModel)]="cast_id">
+                        <mat-option>Student Caste</mat-option>
+                        <mat-option *ngFor="let bg of casteData" [value]="bg.cast_id">{{bg.cast_name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-4 ">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-label>Blood Group</mat-label>
+                      <mat-select [(ngModel)]="blood_group_id">
+                        <mat-option>Blood Group</mat-option>
+                        <mat-option *ngFor="let bg of bloodGroupData" [value]="bg.blood_group_id">{{bg.blood_group_name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="col-md-8">
+                    <button class="btn-style" mat-button matStepperNext>Next</button>
+                 
+            </div>
+            <!-- <div class="col-md-4">
+                 <mat-label style="color :gray">Employee Gender</mat-label> -->
+               
+                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            <!-- </div> -->
+          </div>
+        </div>
+        
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Address & Contact Details</ng-template>
+        <div class="container">
+          <div class="row col-md-12">
+              <div class="col-md-8">
+                <div class="col-md-12">
+                  <mat-form-field class="col-md-12" style="color :gray" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">Present Address</mat-label>
+                    <textarea style="color :gray;height: 75px;" type="text" [(ngModel)]="present_address" name="present_address" matInput required></textarea>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12">
+                  <mat-form-field class="col-md-12" style="color :gray" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">Permanent Address</mat-label>
+                    <textarea style="color :gray;height: 75px;" type="text"  [(ngModel)]="perminent_address" name="perminent_address" matInput required></textarea>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+                </div>
+              </div>
+            <div class="col-md-4">
+              <div class="col-md-12">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
+                  <mat-icon style="color :gray" matSuffix>location_city</mat-icon>
+                  <mat-label style="color :gray">City</mat-label>
+                  <input style="color :gray" type="text"  [(ngModel)]="city" name="city" matInput required>
+                  <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                  <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                      <mat-label>Student Religion</mat-label>
+                        <mat-select [(ngModel)]="state">
+                          <mat-option>State</mat-option>
+                          <mat-option *ngFor="let bg of stateData" [value]="bg.state_id">{{bg.states}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+              </div>
+              <div class="col-md-12">
+                  <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">PinCode</mat-label>
+                    <input style="color :gray" type="text"  [(ngModel)]="pin_code" name="pin_code" matInput required>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row col-md-12">
+            <div class="col-md-4 ">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">Mobile Number</mat-label>
+                    <input style="color :gray" type="text" [(ngModel)]="mobile_no" name="mobile_no" matInput required>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">Alternative Mobile Number</mat-label>
+                    <input style="color :gray" type="text" [(ngModel)]="alternate_mobile_no" name="alternate_mobile_no" matInput required>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                    <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                    <mat-label style="color :gray">Email Id</mat-label>
+                    <input style="color :gray" type="text" [(ngModel)]="email" name="email" matInput required>
+                    <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                  </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+          <button class="btn-style" style="width: 150px" mat-button matStepperNext>Next</button>&nbsp;&nbsp;
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Academic Info</ng-template>
+        <div class="container">
+          <div class="row col-md-12">
+                <div class="col-md-4 ">
+                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                          <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                          <mat-label style="color :gray">Student Id</mat-label>
+                          <input style="color :gray" type="text" [(ngModel)]="student_id" name="student_id" matInput required>
+                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-4">
+                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                          <mat-label style="color :gray">Student Roll No</mat-label>
+                          <input style="color :gray" type="text" [(ngModel)]="student_roll_no" name="student_roll_no" matInput required>
+                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-4">
+                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                          <mat-label style="color :gray">Student Admission No</mat-label>
+                          <input style="color :gray" type="text" [(ngModel)]="admission_number" name="admission_number" matInput required>
+                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                        </mat-form-field>
+                      </div>
+              </div>
+              <div class="row col-md-12">
+                    <div class="col-md-4 ">
+                      <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                        <mat-label style="color :gray">Student DOB</mat-label>
+                        <input style="color :gray" [matDatepicker]="picker2" [(ngModel)]="admission_date" name="admission_date" matInput required>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                                <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                        <mat-label>Class</mat-label>
+                                          <mat-select [(ngModel)]="class_id">
+                                            <mat-option>Select Class</mat-option>
+                                            <mat-option *ngFor="let bg of classData" [value]="bg.class_id">{{bg.class_name}}</mat-option>
+                                          </mat-select>
+                                        </mat-form-field>
+                          </div>
+                          <div class="col-md-4">
+                            
+                          </div>
+                  </div>
+                  <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+                  <button class="btn-style" style="width: 150px" mat-button matStepperNext>Next</button>&nbsp;&nbsp;
+              </div>
+              </mat-step>
+              <mat-step>
+                    <ng-template matStepLabel>Address & Contact Details</ng-template>
+                    <div class="container">
+                      <div class="row col-md-12">
+                            <div class="col-md-4 ">
+                                    <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                      <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                      <mat-label style="color :gray">Father Name</mat-label>
+                                      <input style="color :gray" type="text" [(ngModel)]="father_name" name="father_name" matInput required>
+                                      <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                      <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                      <mat-label style="color :gray">Father Mobile No</mat-label>
+                                      <input style="color :gray" type="text" [(ngModel)]="father_mobile_no" name="father_mobile_no" matInput required>
+                                      <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                      <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                      <mat-label style="color :gray">Father Designation</mat-label>
+                                      <input style="color :gray" type="text" [(ngModel)]="father_designation" name="father_designation" matInput required>
+                                      <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                    </mat-form-field>
+                                  </div>
+                          </div>
+                          <div class="row col-md-12">
+                                <div class="col-md-4 ">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                          <mat-label style="color :gray">Mother Name
+                                        <div class=""></div></mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="mather_name" name="mather_name" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                          <mat-label style="color :gray">Mother Mobile No</mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="mother_mobile_no" name="mother_mobile_no" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                          <mat-label style="color :gray">Mother Designation</mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="mother_designation" name="mother_designation" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                              </div>
+                              <div class="row col-md-12">
+                                    <div class="col-md-4">Select Guardian</div>
+                                    <div class="col-md-4"> 
+                                        <mat-radio-group style="border-style: groove;text-align: center;height: 190px;" [(ngModel)]="guardian_type" name="guardian_type" aria-label="Select an option">
+                                            <mat-radio-button style="margin-right: 20px;" value="father">Father</mat-radio-button>
+                                            <mat-radio-button style="margin-right: 20px;" value="mother">Mother</mat-radio-button>
+                                            <mat-radio-button value="guardian">Other</mat-radio-button>
+                                          </mat-radio-group>
+                                        </div>
+                          </div>
+                          <button class="btn-style" mat-button matStepperPrevious>Previous</button>
+                          <button class="btn-style" mat-button matStepperNext>Next</button>
+                          </div>
+                    
+                          </mat-step>
+                          <mat-step>
+                            <ng-template matStepLabel>Guardian Details</ng-template>
+                            <div class="container">
+                              <div class="row col-md-12">
+                                  <div class="col-md-4 ">
+                                      <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                        <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                        <mat-label style="color :gray">Guardian Name</mat-label>
+                                        <input style="color :gray" type="text" [(ngModel)]="guardian_name" name="guardian_name" matInput required>
+                                        <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                        <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                        <mat-label style="color :gray">Guardian Mobile No</mat-label>
+                                        <input style="color :gray" type="text" [(ngModel)]="guardian_mobile_no" name="guardian_mobile_no" matInput required>
+                                        <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                      </mat-form-field>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                        <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                        <mat-label style="color :gray">Guardian Designation</mat-label>
+                                        <input style="color :gray" type="text" [(ngModel)]="guardian_designation" name="guardian_designation" matInput required>
+                                        <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                      </mat-form-field>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="col-md-4 ">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                          <mat-label style="color :gray">Guardian Alternative Mobile No</mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="guardian_second_mobile_no" name="guardian_second_mobile_no" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                          <mat-label style="color :gray">Guardian Email ID</mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="guardian_email" name="guardian_email" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                          <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                          <mat-label style="color :gray">Relation with Student</mat-label>
+                                          <input style="color :gray" type="text" [(ngModel)]="relation" name="relation" matInput required>
+                                          <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                        </mat-form-field>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row col-md-12">
+                                      <div class="col-md-12 ">
+                                          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                            <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                            <mat-label style="color :gray">Address</mat-label>
+                                            <input style="color :gray" type="text" [(ngModel)]="guardian_address" name="guardian_address" matInput required>
+                                            <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                          </mat-form-field>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4 ">
+                                            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                              <mat-icon style="color :gray" matSuffix>code</mat-icon>
+                                              <mat-label style="color :gray">City</mat-label>
+                                              <input style="color :gray" type="text" [(ngModel)]="guardian_city" name="guardian_city" matInput required>
+                                              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                              <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                              <mat-label style="color :gray">State</mat-label>
+                                              <input style="color :gray" type="text" [(ngModel)]="guardian_state" name="guardian_state" matInput required>
+                                              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                            </mat-form-field>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+                                              <mat-icon style="color :gray" matSuffix>person</mat-icon>
+                                              <mat-label style="color :gray">Pincode</mat-label>
+                                              <input style="color :gray" type="text" [(ngModel)]="guardian_pincode" name="guardian_pincode" matInput required>
+                                              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                                            </mat-form-field>
+                                          </div>
+                                          
+                                      </div>
+                                      <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
+                                      <button class="btn-style" (click)="onAddStudentClick()" style="width: 210px" mat-button>Save Employee Details</button>
+                                     
+                                </div>
+                                </mat-step>
+  </mat-vertical-stepper>
+  </mat-card>
+  </div>

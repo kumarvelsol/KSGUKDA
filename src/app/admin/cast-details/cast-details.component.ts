@@ -6,13 +6,9 @@ import { JsResponse } from 'src/app/shared/jsresponse';
 import { CastData } from 'src/app/shared/Cast/castdata';
 import { CastList } from 'src/app/shared/Cast/castlist';
 
-
-
 export interface PassingInstitute {
   institution_id : number;
 }
-
-
 @Component({
   selector: 'app-cast-details',
   templateUrl: './cast-details.component.html',

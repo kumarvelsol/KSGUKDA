@@ -8,6 +8,18 @@ import { ReligionList } from 'src/app/shared/Religion/religionlist';
 
 
 
+
+export interface ReligionData {
+  institution_id: number;
+  religion_id: number;
+  religion_name: string;
+}
+export interface ReligionList {
+  code: number;
+  message: string;
+  Data:ReligionData [];
+}
+
 export interface PassInstitute {
 institution_id : number;
 }

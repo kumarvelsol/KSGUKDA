@@ -1,27 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Academicdetails } from 'src/app/shared/academicdetails';
 import { MatTableDataSource} from '@angular/material';
+import { Data } from 'src/app/shared/data';
+import { Apiresponse } from 'src/app/shared/apiresponse';
 
-export interface PassingInstituteid {
-  institution_id:number;
-}
-export interface Academicdata {
-  academic_id:number;
-  academic_start_year:number;
-  academic_start_month:number;
-  academic_end_year:number;
-  academic_end_month:number;
-  academic_status:string;
-  institution_id:number;
-}
-
-export interface Academiclist {
-  code: number;
-  message: string;
-  Data: Academicdata[];
-}
 
 @Component({
   selector: 'app-academicdetails',
@@ -29,18 +13,19 @@ export interface Academiclist {
   styleUrls: ['./academicdetails.component.css']
 })
 export class AcademicdetailsComponent implements OnInit {
-  acde:Academicdetails[];
-  academiclist:Academiclist;
+  acde:Data[];
+  academiclist:Apiresponse;
   dataSource;
   displayedColumns: string[] = ["academic_id", "academic_start_year", "academic_start_month", "academic_end_year", "academic_end_month", "academic_status"];
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:PassingInstituteid = 
+    let passing_institute:Parsing = 
     {
-      institution_id:1
+      institution_id:1,
+      academic_id:1
     };
-    this.service.getacademic(passing_institute).subscribe((data : Academiclist) =>
+    this.service.getacademic(passing_institute).subscribe((data : Apiresponse) =>
     {
       this.academiclist = data;
       console.log(this.academiclist.Data);
@@ -80,7 +65,7 @@ export class AcademicdetailsComponent implements OnInit {
           alert(""+res.message);
         }
         console.log(res);
-        this.service.getacademic(acd).subscribe((data : Academiclist) =>
+        this.service.getacademic(acd).subscribe((data : Apiresponse) =>
         {
         this.academiclist = data;
         console.log(this.academiclist.Data);
