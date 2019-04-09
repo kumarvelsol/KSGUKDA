@@ -21,7 +21,7 @@ import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
-import { EmployeedetailsComponent } from './employeedetails/employeedetails.component';
+import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
 import { SubjectAllocationComponent } from './subject/subject-allocation/subject-allocation.component';
@@ -31,20 +31,20 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
 import { MothertongueComponent } from './mothertongue/mothertongue.component';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    BloodgroupComponent,
+    BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-   TimeperiodsComponent,
-   TimeandPeriodComponent,
-   TimetableComponent,
-   TimetableupdateComponent,EmployeedetailsComponent, MothertongueComponent,ClassTabBarComponent,
-   ClassteacherdetailsComponent,
-   ],
+  TimeperiodsComponent,
+  TimeandPeriodComponent,
+  TimetableComponent,
+  ClassTabBarComponent,
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent],
 
 imports: [
     CommonModule,

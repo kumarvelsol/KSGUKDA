@@ -169,9 +169,9 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
-   public getemployee(emp_list:Employeemodel)
+   public getemployee(emplist:Parsing)
    {
-     return this.http.get(`${this.Baseurl+"Employeelist"}`);
+     return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
    }
 
   //Start of Subject Allocation ServiceMethods.
