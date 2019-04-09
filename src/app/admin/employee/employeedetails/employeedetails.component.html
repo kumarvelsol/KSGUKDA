@@ -76,7 +76,7 @@
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                 <mat-icon style="color :gray" matSuffix>phone</mat-icon>
                 <mat-label style="color :gray">Employee Mobile Number</mat-label>
-                <input style="color :gray" type="text" [(ngModel)]="phone_no" name="phone_no" matInput required>
+                <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="phone_no" name="phone_no" matInput required>
                 <!-- <mat-hint color="primary">Hint</mat-hint> -->
               </mat-form-field>
             </div>
@@ -84,7 +84,7 @@
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                 <mat-icon style="color :gray" matSuffix>phone</mat-icon>
                 <mat-label style="color :gray">Employee Alternative Number</mat-label>
-                <input style="color :gray" type="text" [(ngModel)]="alternate_phone_no" name="alternate_phone_no" matInput required>
+                <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="alternate_phone_no" name="alternate_phone_no" matInput required>
                 <!-- <mat-hint color="primary">Hint</mat-hint> -->
               </mat-form-field>
             </div>
@@ -94,7 +94,7 @@
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                 <mat-icon style="color :gray" matSuffix>email</mat-icon>
                 <mat-label style="color :gray">Employee Email Id</mat-label>
-                <input style="color :gray" type="text" [(ngModel)]="email" name="email" matInput required>
+                <input style="color :gray" type="email" email="true" [(ngModel)]="email" name="email" matInput required>
                 <!-- <mat-hint color="primary">Hint</mat-hint> -->
               </mat-form-field>
             </div>

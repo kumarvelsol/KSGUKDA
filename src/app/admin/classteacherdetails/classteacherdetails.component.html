@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="row example-card parent">
+        <div class="block child">
+          <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Class Teacher Details</p>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+            <mat-label style="color :gray">Class Name</mat-label>
+            <mat-select style="color:gray;" [(ngModel)] = "cnameSelected">
+                <mat-option>Class</mat-option>
+              <mat-option *ngFor="let cname of clsdata" [value]="cname.class_id">{{cname.class_name}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+            <mat-label style="color :gray">Select Department</mat-label>
+            <mat-select style="color:gray;" [(ngModel)] = "deptSelected" (ngModelChange)="ondepartmentchanged($event)">
+                <mat-option>Department</mat-option>
+              <mat-option *ngFor="let dname of deptdata" [value]="dname.departmant_id">{{dname.departmant_name}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+            <mat-label style="color :gray">Employee name</mat-label>
+            <mat-select style="color:gray;" [(ngModel)] = "empSelected">
+                <mat-option>Employee</mat-option>
+              <mat-option *ngFor="let ename of empdata" [value]="ename.employee_id">{{ename.first_name}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-6">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="abDatasource">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let i"> {{i.id}} </td>
+              </ng-container>
+          <ng-container matColumnDef="class_name">
+            <th mat-header-cell *matHeaderCellDef> Class Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.class_name}} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="departmant_name">
+            <th mat-header-cell *matHeaderCellDef> Department Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.departmant_name}} </td>
+          </ng-container>
+          <!-- Code Column -->
+          <ng-container matColumnDef="first_name">
+            <th mat-header-cell *matHeaderCellDef> Employee Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.first_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Edit</th>
+              <td mat-cell *matCellDef="let i; let j=index;">
+                <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelected(j,i.id,i.class_id,i.departmant_id,i.employee_id)">
+                  <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

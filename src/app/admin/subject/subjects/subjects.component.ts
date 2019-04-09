@@ -14,6 +14,7 @@ import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
   providers: [AdminServiceService],
   styleUrls: ['./subjects.component.css']
 })
+
 export class SubjectsComponent implements OnInit {
   name : string = '';
   code : string = '';
@@ -28,7 +29,7 @@ export class SubjectsComponent implements OnInit {
     this.LoadingList();
   }
   public onsaveclick(){
-    if(this.name == null || this.code == null){
+    if(this.name == "" || this.code == ""){
       alert("Please fill all fields");
     }else{
       if(this.buttoncontent == "Add")
@@ -46,7 +47,9 @@ export class SubjectsComponent implements OnInit {
           if(this.jsRes.code==200)
           {
             alert("Subject Added Succesfully.!");
+            this.onclearclick();
           }else{
+            alert(""+this.jsRes.message);
           }
         });
       }else if(this.buttoncontent == "Update")
@@ -66,8 +69,9 @@ export class SubjectsComponent implements OnInit {
           {
             alert("Subject Updated Succesfully.!");
             this.code = "";this.name = "";this.description = "";this.id = 0;
-            this.LoadingList();
+            this.onclearclick();
           }else{
+            alert(""+this.jsRes.message);
           }
         });
       }
@@ -84,7 +88,6 @@ export class SubjectsComponent implements OnInit {
     this.description = subject_description;
     this.buttoncontent = "Update";
   }
-
   public LoadingList(){
     let sub_parse : SubjectParsing = {
       institution_id : 1,
@@ -94,5 +97,13 @@ export class SubjectsComponent implements OnInit {
       this.sub_list = data.Data;
       this.dataSource = new MatTableDataSource(this.sub_list);
     });
+  }
+  public onclearclick(){
+    this.name = "";
+    this.code = "";
+    this.description = "";
+    this.buttoncontent = "Add";
+    this.LoadingList();
+    this.id = 0;
   }
 }

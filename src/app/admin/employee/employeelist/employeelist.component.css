@@ -1,0 +1,44 @@
+table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .example-container{
+    overflow:auto;
+    height: 510px;
+    width: 1080px;
+    margin-left: 0px;
+    margin-right: 100px;
+    margin-top: 15px;
+  }
+  .example-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 500px;
+}
+  .mat-form-wrap{
+    width: 100%;
+    margin: 0px;
+  }
+  .btn-style{
+    background-color: #33B5E5;
+    color: white;
+    width: 120px;
+    height: 40px;
+    left: 0px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: center;
+  }
+  .parent{
+    text-align:center;
+    height:500px;
+  }
+  .block {
+    width: 100%;
+  }
+  .child {
+    margin:auto;
+  }
