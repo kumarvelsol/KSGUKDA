@@ -20,7 +20,6 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
-
 import { StudentComponent } from './student/student.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { AddStudentComponent } from './add-student/add-student.component';
@@ -33,11 +32,6 @@ import { TimeandPeriodComponent } from '../timeand-period/timeand-period.compone
 import { TimetableComponent } from '../timetable/timetable.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 
-
-@NgModule({
-  declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, DepartmentComponent,CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent, UsertypeComponent, AcademicdetailsComponent, SettingsComponent, BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent, StudentComponent, StudentListComponent, AddStudentComponent],
-
-
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,
@@ -48,7 +42,7 @@ import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.com
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent],
+  TimetableupdateComponent,EmployeedetailsComponent,AddStudentComponent,StudentListComponent,StudentComponent],
  imports: [
 
     CommonModule,

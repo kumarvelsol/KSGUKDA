@@ -13,7 +13,7 @@ export interface ReligionData {
 export interface ReligionList {
   code: number;
   message: string;
-  Data:ReligionList [];
+  Data:ReligionData [];
 }
 export interface PassInstitute {
 institution_id : number;
