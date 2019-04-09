@@ -25,13 +25,12 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
 
   {path:'classdetails',component:ClassTabBarComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent},
+  
   {path:'TimePeriod',component:TimeandPeriodComponent},  
  
-  {path:'TimePeriod',component:TimeperiodsComponent},
+  
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
-  {path:'TimePeriod/time',component:TimeperiodsComponent},
-  {path:'TimePeriod/ttable',component:TimetableComponent},
+ 
   {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'employeelist',component:EmployeelistComponent}
 ];
