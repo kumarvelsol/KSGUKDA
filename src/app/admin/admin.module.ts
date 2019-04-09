@@ -59,13 +59,17 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
     MatIconModule,MatDialogModule,
     MatListModule,MatTableModule,
-    MaterialModule,FormsModule,
+   
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
     MatListModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+
+    ReactiveFormsModule,AmazingTimePickerModule
+
+  
+   
+  
+
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],

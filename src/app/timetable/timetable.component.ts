@@ -54,6 +54,7 @@ export class TimetableComponent implements OnInit {
   });
   }
 
+  
         
 
   // selectOption(value) 
@@ -66,10 +67,8 @@ export class TimetableComponent implements OnInit {
     {
       console.log(ff);    
 
-
-
       this.service.ttable=Object.assign({},ff);
-     // this.service.dataInDialog(ff);
+     
       const dialogConfig=new MatDialogConfig();
       dialogConfig.disableClose=true;
       dialogConfig.autoFocus=true;
