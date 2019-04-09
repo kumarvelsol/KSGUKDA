@@ -59,7 +59,7 @@ imports: [
     MatInputModule,ReactiveFormsModule,
     MatSelectModule,MatTabsModule,
     MatListModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,AmazingTimePickerModule
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
