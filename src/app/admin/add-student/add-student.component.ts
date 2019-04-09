@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, Form} from '@angular/forms';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
-import { ReligionList, ReligionData, PassInstitute } from '../religion/religion.component';
+import { Religion } from 'src/app/shared/Religion/religion';
+import { PassInstitute } from '../religion/religion.component';
+import { CastData } from 'src/app/shared/Cast/castdata';
+import { CastList } from 'src/app/shared/Cast/castlist';
+import { ReligionList } from 'src/app/shared/Religion/religionlist';
+import { ReligionData } from 'src/app/shared/Religion/religiondata';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { Data } from 'src/app/shared/data';
 import { Student } from 'src/app/shared/student';
@@ -218,4 +223,3 @@ export class AddStudentComponent implements OnInit {
      return validation;
     }
 }
-
