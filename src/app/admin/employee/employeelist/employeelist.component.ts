@@ -1,27 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatTableDataSource} from '@angular/material';
 import { AdminServiceService,Parsing } from 'src/app/admin/admin-service.service';
+import { Data } from '@angular/router';
+import { Apiresponse } from 'src/app/shared/apiresponse';
 
-export interface Employeedata {
-  empolyee_id:number,
-  employee_code:string,
-  first_name:string,
-  last_name:string,
-  phone_no:string,
-  user_type:string,
-  academic_id:1,
-  institution_id:1,
-  designation_id :Number,
-  departmant_id:Number,
-  department_name:string,
-  designation_name:string
-}
-
-export interface EmployeeList {
-  code: number;
-  message: string;
-  Data: Employeedata[];
-}
 @Component({
   selector: 'app-employeelist',
   templateUrl: './employeelist.component.html',
@@ -30,8 +12,8 @@ export interface EmployeeList {
 export class EmployeelistComponent implements OnInit {
   @Output() empid = new EventEmitter<string>();
   employee_id:string;employee_code:string;first_name:string;last_name:string;phone_no:string;user_type:string;department_name:string;designation_name:string;
-  emplist : EmployeeList;
-  empdata : Employeedata[];
+  emplist : Data;
+  empdata : Apiresponse[];
   dataSource;
   displayedColumns: string[] = ["employee_code", "first_name", "last_name","departmant_name","designation_name","phone_no","user_type","actions"];
   constructor(public service:AdminServiceService) { }
@@ -42,7 +24,7 @@ export class EmployeelistComponent implements OnInit {
       institution_id:1,
       academic_id:1
     }
-    this.service.getemployee(passing_institute).subscribe((data : EmployeeList) =>
+    this.service.getemployee(passing_institute).subscribe((data : Apiresponse) =>
     {
       this.emplist=data;
       console.log(this.emplist.Data);

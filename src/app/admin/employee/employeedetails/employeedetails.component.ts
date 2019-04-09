@@ -1,14 +1,12 @@
 import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminServiceService, Parsing} from '../../admin-service.service';
-import { DesignationList,DesignationData } from '../../designation/designation.component';
-import { BloodgroupList,BloodgroupData,PassInstituteID } from '../../bloodgroup/bloodgroup.component';
-import { Userlist,Userdata } from '../../usertype/usertype.component';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
-import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist/employeelist.component';
+import { Data } from 'src/app/shared/data';
+import { Apiresponse } from 'src/app/shared/apiresponse';
 
 @Component({
   selector: 'app-employeedetails',
@@ -16,33 +14,45 @@ import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-  emplist:EmployeeList;
+  emplist:Apiresponse;
   list:any=[];
   isLinear = false;
-  blood:BloodgroupData[];
-  designation:DesignationData[];
-  users:Userdata[];
+  blood:Data[];
+  designation:Data[];
+  users:Data[];
   department:DepartmentData[];
   constructor(private service:AdminServiceService) {}
   id:number;
   ngOnInit() {
-    debugger;
     this.gettingbloodgroup();
     this.gettingdesignation();
     this.gettingdepartments();
     this.gettingaccesstype();
-    this.receiveMessage(Event);
-
+    let passing_institute:Parsing = 
+    {
+      institution_id:1,
+      academic_id:1
+    }
+    this.service.getemployee(passing_institute).subscribe((data : Apiresponse) =>
+    {
+      this.emplist=data;
+      console.log(data);
+      this.employee_code=data[0];
+      this.first_name=data[1];
+      this.last_name=data[2];
+    });
+    //this.receiveMessage(Event);
+    //console.log(this.id);
   }
   receiveMessage($event) {
     this.id = $event
   }
   gettingbloodgroup()
   {
-    let institute : PassInstituteID= {
+    let institute = {
       institution_id : 1
     }
-    this.service.getbloodgroup(institute).subscribe((data : BloodgroupList) =>{
+    this.service.getbloodgroup(institute).subscribe((data : Apiresponse) =>{
       this.blood = data.Data;
     });
   }
@@ -62,7 +72,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id : 1,
       academic_id : 1
     }
-    this.service.getdesignation(parsing).subscribe((data : DesignationList) =>{
+    this.service.getdesignation(parsing).subscribe((data : Apiresponse) =>{
       this.designation = data.Data;
     });
   }
@@ -73,7 +83,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id:1,
       academic_id:1
     }
-    this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
+    this.service.getusers(passing_institute).subscribe((data : Apiresponse) =>{
       this.users = data.Data;
     });
   }

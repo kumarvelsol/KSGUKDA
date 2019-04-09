@@ -6,15 +6,25 @@ export interface Data {
     //employee_id:string;
     //departmant_id:string;
     time_table_id:string;
+    
+    user_type_id:number;
+    user_code:string;
+    user_name:string;
 
     timetable_status:string;
     //sub_allocation_id:string;
     time_period_id:string;
     blood_group_code:string;
     blood_group_id:string;
+<<<<<<< HEAD
     //academic_id:string;
     blood_group_name:string;
     //institution_id:string;
+=======
+    academic_id:number;
+    blood_group_name:string;
+    institution_id:number;
+>>>>>>> 73c7ef56cc06c781308cd3e298a44ad8cfcb6ca6
     academic_end_month:string;
     academic_end_year:string;
     academic_start_month:string;
@@ -27,7 +37,27 @@ export interface Data {
 
     states:string;
     state_id:string;
+    
+    employee_code:string,
+    first_name:string,
+    last_name:string,
+    date_of_birth:Date,
+    gender:string,
+    phone_no:string,
+    alternate_phone_no:string,
+    email:string,
+    user_type:string,
+    designation_id :Number,
+    joining_date:Date,
+    qualification:string,
+    experience:string,
+    present_address :string,
+    perminent_address:string,
+    state:string,
+    city :string,
+    pin_code:string
 
+<<<<<<< HEAD
     //Start of Department Fields
     departmant_id: number;
     departmant_name: string;
@@ -48,4 +78,11 @@ export interface Data {
     subject_description : string;
     subject_status : string;
     //End of Subject Allocation Fields
+=======
+    designation_code :string;
+    designation_name :string;
+    designation_description :string;
+    departmant_name : string;
+    id : number;
+>>>>>>> 73c7ef56cc06c781308cd3e298a44ad8cfcb6ca6
 }
