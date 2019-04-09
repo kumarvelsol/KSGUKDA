@@ -13,7 +13,6 @@ import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { Designation } from '../shared/designation';
-import { DesignationList } from './designation/designation.component';
 import { Bloodgroup} from '../shared/bloodgroup';
 import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';

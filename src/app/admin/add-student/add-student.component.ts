@@ -3,8 +3,6 @@ import {FormBuilder, FormGroup, Validators, Form} from '@angular/forms';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { ReligionList, ReligionData, PassInstitute } from '../religion/religion.component';
-import { BloodgroupData, PassInstituteID } from '../bloodgroup/bloodgroup.component';
-import {BloodgroupList} from '../bloodgroup/bloodgroup.component';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { Data } from 'src/app/shared/data';
 import { Student } from 'src/app/shared/student';

@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminServiceService, Parsing} from '../../admin-service.service';
-import { DesignationList,DesignationData } from '../../designation/designation.component';
-import { BloodgroupList,BloodgroupData,PassInstituteID } from '../../bloodgroup/bloodgroup.component';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
@@ -19,8 +17,8 @@ export class EmployeedetailsComponent implements OnInit {
   emplist:Apiresponse;
   list:any=[];
   isLinear = false;
-  blood:BloodgroupData[];
-  designation:DesignationData[];
+  blood:Data[];
+  designation:Data[];
   users:Data[];
   department:DepartmentData[];
   constructor(private service:AdminServiceService) {}
@@ -51,10 +49,10 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingbloodgroup()
   {
-    let institute : PassInstituteID= {
+    let institute = {
       institution_id : 1
     }
-    this.service.getbloodgroup(institute).subscribe((data : BloodgroupList) =>{
+    this.service.getbloodgroup(institute).subscribe((data : Apiresponse) =>{
       this.blood = data.Data;
     });
   }
@@ -74,7 +72,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id : 1,
       academic_id : 1
     }
-    this.service.getdesignation(parsing).subscribe((data : DesignationList) =>{
+    this.service.getdesignation(parsing).subscribe((data : Apiresponse) =>{
       this.designation = data.Data;
     });
   }
