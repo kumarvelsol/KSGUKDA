@@ -4,5 +4,4 @@ export class Department {
     departmant_name : string;
     institution_id : number;
     academic_id : number;
-    departmant_id : number;
 }
