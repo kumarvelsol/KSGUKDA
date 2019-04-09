@@ -26,13 +26,25 @@ export class EmployeedetailsComponent implements OnInit {
   constructor(private service:AdminServiceService) {}
   id:number;
   ngOnInit() {
-    debugger;
     this.gettingbloodgroup();
     this.gettingdesignation();
     this.gettingdepartments();
     this.gettingaccesstype();
-    this.receiveMessage(Event);
-
+    let passing_institute:Parsing = 
+    {
+      institution_id:1,
+      academic_id:1
+    }
+    this.service.getemployee(passing_institute).subscribe((data : EmployeeList) =>
+    {
+      this.emplist=data;
+      console.log(data);
+      this.employee_code=data[0];
+      this.first_name=data[1];
+      this.last_name=data[2];
+    });
+    //this.receiveMessage(Event);
+    //console.log(this.id);
   }
   receiveMessage($event) {
     this.id = $event
