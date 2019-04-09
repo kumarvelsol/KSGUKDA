@@ -51,4 +51,11 @@ export interface Data {
     city :string,
     pin_code:string
 
+    designation_id : number ;
+    designation_code :string;
+    designation_name :string;
+    designation_description :string;
+    departmant_name : string;
+    first_name : string;
+    id : number;
 }

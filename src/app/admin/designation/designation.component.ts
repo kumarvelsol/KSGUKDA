@@ -6,37 +6,8 @@ import { Department } from 'src/app/shared/DepartmentModels/department';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
-
-export interface Designationdetails {
-  designation_id : number ;
-    designation_code :string;
-    designation_name :string;
-    designation_description :string;
-    institution_id : 1;
-    academic_id : 1;
-    departmant_id :1;
-}
-export interface DesignationData {
-  designation_id : number ;
-  designation_code :string;
-  designation_name :string;
-  designation_description :string;
-  departmant_name :string;
-}
-export interface DeptData {
-  departmant_id : number;
-  departmant_name :string;
-}
-export interface DeptList {
-  code: number;
-  message: string;
-  Data: DeptData[];
-}
-export interface DesignationList {
-  code: number;
-  message: string;
-  Data: DesignationData[];
-}
+import { Apiresponse } from 'src/app/shared/apiresponse';
+import { Data } from 'src/app/shared/data';
 
 @Component({
   selector: 'app-designation',
@@ -48,8 +19,8 @@ export class DesignationComponent implements OnInit {
   abDatasource;
   jsRes : JsResponse;
   delist : DepartmentData[];
-  desiglist : DesignationList;
-  designationlist : DesignationData[];
+  desiglist : Apiresponse;
+  designationlist : Data[];
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
@@ -67,7 +38,7 @@ export class DesignationComponent implements OnInit {
       {
         this.delist = data.Data;
       });
-      this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
+      this.designationservice.getdesignation(a).subscribe((data : Apiresponse) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
@@ -112,7 +83,7 @@ public onsubmitclick()
             alert(""+this.jsRes.message);
           }
         });
-          this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
+          this.designationservice.getdesignation(a).subscribe((data : Apiresponse) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
@@ -139,7 +110,7 @@ public onsubmitclick()
             alert("Designation Added Succesfully.!");
           }else{}
         });
-          this.designationservice.getdesignation(a).subscribe((data : DesignationList) =>
+          this.designationservice.getdesignation(a).subscribe((data : Apiresponse) =>
           {
             this.desiglist = data;
             this.abDatasource = new MatTableDataSource(this.desiglist.Data);
