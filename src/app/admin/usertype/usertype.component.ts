@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService,Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { User} from 'src/app/shared/user';
 import { MatTableDataSource} from '@angular/material';
+
 
 export interface Userdata {
   user_code: string;
@@ -25,11 +26,16 @@ export class UsertypeComponent implements OnInit {
   userdata : Userdata[];
   users:User;
   dataSource;
-  displayedColumns: string[] = ["user_type_id", "user_code", "user_name"];
+  displayedColumns: string[] = ["user_type_id", "user_code", "user_name","actions"];
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    this.service.getusers().subscribe((data : Userlist) =>
+    let passing_institute:Parsing = 
+    {
+      institution_id:1,
+      academic_id:1
+    }
+    this.service.getusers(passing_institute).subscribe((data : Userlist) =>
     {
       this.userlist=data;
       console.log(this.userlist.Data);
@@ -54,11 +60,19 @@ export class UsertypeComponent implements OnInit {
             user_code:this.user_code,
             user_name:this.user_name,
             institution_id:1,
-            Academic_id:1
+            academic_id:1
           }
-          this.service.createuser(user).subscribe((res)=>{
+          this.service.createuser(user).subscribe((res:JsResponse)=>{
+            if(res.code == 200)
+            {
+             alert("Created User successfully");
+            }
+            else
+            {
+              alert(""+res.message);
+            }
             console.log("Created a user successfully");
-            this.service.getusers().subscribe((data : Userlist) =>
+            this.service.getusers(user).subscribe((data : Userlist) =>
             {
               this.userlist=data;
               console.log(this.userlist.Data);
@@ -75,11 +89,19 @@ export class UsertypeComponent implements OnInit {
             user_code:this.user_code,
             user_name:this.user_name,
             institution_id:1,
-            Academic_id:1
+            academic_id:1
           }
-            this.service.updateuser(user).subscribe((res)=>{
+            this.service.updateuser(user).subscribe((res:JsResponse)=>{
+              if(res.code == 200)
+              {
+                alert("Updated User successfully");
+              }
+              else
+              {
+                alert(""+res.message);
+              }
               console.log(res);
-              this.service.getusers().subscribe((data : Userlist) =>
+              this.service.getusers(user).subscribe((data : Userlist) =>
               {
                 this.userlist=data;
                 console.log(this.userlist.Data);
@@ -97,12 +119,11 @@ export class UsertypeComponent implements OnInit {
     this.user_code=null;this.user_name=null;
     this.buttoncontent="Add";
   }
-  public RowSelected(row)
+  public RowSelected(i:number,user_type_id:number,user_code:string,user_name:string)
   {
       this.buttoncontent="Modify";
-      this.user_type_id = row.user_type_id;
-      this.user_code =  row.user_code;
-      this.user_name = row.user_name;
-      console.log(row);
+      this.user_type_id = user_type_id;
+      this.user_code =  user_code;
+      this.user_name = user_name;
   }
 }

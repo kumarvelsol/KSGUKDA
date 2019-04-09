@@ -3,18 +3,17 @@
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">
-          <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">BloodGroup Details</p>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-            <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-            <mat-label style="color :gray">BloodGroup Code</mat-label>
-            <input style="color :gray" [(ngModel)]="blood_group_code" type="text" name="blood_group_code"  matInput>
+          <p style="margin-top: 20px; margin-left: 15px; color:#0123e4; font-size: 24px;">BloodGroup Details</p>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :#0123e4" appearance="outline">
+            <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+            <mat-label style="color :#0123e4">BloodGroup Code</mat-label>
+            <input style="color :#0123e4" [(ngModel)]="blood_group_code" type="text" name="blood_group_code"  matInput>
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-            <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-            <mat-label style="color :gray">BloodGroup Name</mat-label>
-            <input style="color :gray" [(ngModel)]="blood_group_name" type="text" name="blood_group_name"  matInput>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :#0123e4" appearance="outline">
+            <mat-icon style="color :#0123e4" matSuffix>developer_board</mat-icon>
+            <mat-label style="color :#0123e4">BloodGroup Name</mat-label>
+            <input style="color :#0123e4" [(ngModel)]="blood_group_name" type="text" name="blood_group_name"  matInput>
           </mat-form-field>
-          
           <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
         </div>
       </mat-card>

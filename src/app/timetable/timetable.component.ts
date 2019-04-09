@@ -23,7 +23,7 @@ export class TimetableComponent implements OnInit {
   dataSource
   constructor(private service:ClasserviceService,public dialog: MatDialog) { }
 
-  displayedColumns: string[] = ['session_name','from_time','to_time','subject_name','first_name','change/assign'];
+  displayedColumns: string[] = ['session_name','from_time','to_time','subject_name','first_name','timetable_status','change/assign'];
   ngOnInit() 
   {
     this.resetForm();
@@ -56,13 +56,12 @@ export class TimetableComponent implements OnInit {
 
         
 
-  selectOption(value) 
-  {     
-      console.log( this.class_id);
-      //getted from binding
-      
-    }
-    
+  // selectOption(value) 
+  // {     
+  //     console.log(value);
+  //     //getted from binding      
+  // }
+
     populateForm(ff:Ttablemodel)
     {
       console.log(ff);    
@@ -78,6 +77,8 @@ export class TimetableComponent implements OnInit {
       this.dialog.open(TimetableupdateComponent,dialogConfig);
       
     }
+
+    
 }
 
 

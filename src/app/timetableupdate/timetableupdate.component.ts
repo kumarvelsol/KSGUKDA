@@ -9,6 +9,7 @@ import { AdminServiceService } from '../admin/admin-service.service';
 import { Classresponse } from '../class/classresponse';
 import { MatDialogRef } from '@angular/material';
 
+
 @Component({
   selector: 'app-timetableupdate',
   templateUrl: './timetableupdate.component.html',
@@ -19,12 +20,11 @@ export class TimetableupdateComponent implements OnInit {
   subjects : SubjectList[];
   serRes:Classresponse;
 
-  buttoncontent:string="";
-
   constructor(private service:ClasserviceService,public srs:AdminServiceService,
-    public dialogRef: MatDialogRef<TimetableupdateComponent>) { }
+    public dialogRef: MatDialogRef<TimetableupdateComponent> ) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.resetForm();
     
     let sub_parsing : SubjectParsing ={
@@ -60,18 +60,19 @@ export class TimetableupdateComponent implements OnInit {
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);   
-        this.dialogRef.close();      
-        this.buttoncontent="assigned"  ;
+        this.dialogRef.close();    
+               //this.ttablecmp.resetForm();        
       }
       else{
         alert(this.serRes.message);
         
       }
-  })    
+  }) 
+
   }
-
-
-
-
+  close()
+  {
+    this.dialogRef.close();
+  }
 
 }

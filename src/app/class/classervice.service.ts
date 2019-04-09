@@ -15,36 +15,31 @@ export class ClasserviceService {
 
   tperiods:Timeperiodmodel;
   refer:Classmodel
-data:Data[];
+  data:Data[];
 
-ttable:Ttablemodel;
-tupdates:Tupdate
-
+  ttable:Ttablemodel;
+  tupdates:Tupdate
   constructor(private http:HttpClient) { }
-
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })
   };
-
   validateLogin(emp:Classmodel):Observable<Classresponse>
   {    
     emp.institution_id=1;
     emp.academic_id=1;
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp)
   }
-
-
-
-//displaying the classes details
+  //displaying the classes details
   get_products()
   {
-      return this.http.get<Classresponse>('http://veledu.edujinni.in/Classlist');
+
+    this.refer.institution_id=1;
+    this.refer.academic_id=1;
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',this.refer);
+
   }
-
-
   //updating the classes list
   updateClass(refer:Classmodel):Observable<Classresponse>
   {
@@ -52,11 +47,6 @@ tupdates:Tupdate
     refer.academic_id=1;
     return this.http.post<Classresponse>('http://veledu.edujinni.in/classupdate',refer);
   }
-
-
-
-
-
   addTperiods(emp:Timeperiodmodel):Observable<Classresponse>
   {    
     emp.institution_id=1;
