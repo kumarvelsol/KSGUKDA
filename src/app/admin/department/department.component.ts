@@ -100,7 +100,7 @@ export class DepartmentComponent implements OnInit {
     // });
   }
   public GetDepartmentDetails(){
-    this.service.getdepartment(1,1).subscribe(data => 
+    this.service.getdepartment(1,1).subscribe(data =>
     {
       this.dataSource = new MatTableDataSource(data.Data);
     });

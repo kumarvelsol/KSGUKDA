@@ -59,8 +59,10 @@ export class AdminServiceService {
   //End of Department related Service Methods
 
   //Start of Institute related Service Methods
-    getinstitute (inst_Id : ParseInstituteId){
-      return this.http.post(`${this.Baseurl+"Institutionlist"}`,inst_Id);
+    getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
     }
     createinstitute (institute : InstituteInsert){
       return this.http.post(`${this.Baseurl+"Institution"}`,institute);
