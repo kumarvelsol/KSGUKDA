@@ -83,10 +83,11 @@ export class AdminServiceService {
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
   //refer:Cast
   
-  getcast (passing_institute : PassingInstitute)
+  getcast (institution_id : number)
   {
-    //return this.http.get<CastList>(this.casturllist);
-    return this.http.post(`${this.casturllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.casturllist}`, params);
   }
   createcast(cast: Cast){
     return this.http.post(`${this.casturlinsert}`,cast);
