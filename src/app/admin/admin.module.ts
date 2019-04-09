@@ -45,13 +45,12 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,
+  TimeperiodsComponent,MothertongueComponent,
+  TimeandPeriodComponent,EmployeelistComponent,
+  TimetableComponent,ClassTabBarComponent,ClassteacherdetailsComponent,
   TimetableupdateComponent,EmployeedetailsComponent,AddStudentComponent,StudentListComponent,StudentComponent],
- imports: [
-  ClassTabBarComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
+ 
+  imports: [
     CommonModule,
     AdminRoutingModule,
     LayoutModule,

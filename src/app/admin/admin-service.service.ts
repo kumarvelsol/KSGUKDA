@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
@@ -13,7 +12,6 @@ import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
-import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
 import { Designation } from '../shared/designation';
 import { DesignationList } from './designation/designation.component';
 import { Bloodgroup} from '../shared/bloodgroup';
@@ -124,7 +122,7 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
   }
 
-  getacademic (academic : PassingInstituteid){
+  getacademic (academic : Parsing){
     return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
   }
   createacademic (academici : Academicdetails){

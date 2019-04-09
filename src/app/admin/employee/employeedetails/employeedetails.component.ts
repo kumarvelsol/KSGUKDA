@@ -3,12 +3,12 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { AdminServiceService, Parsing} from '../../admin-service.service';
 import { DesignationList,DesignationData } from '../../designation/designation.component';
 import { BloodgroupList,BloodgroupData,PassInstituteID } from '../../bloodgroup/bloodgroup.component';
-import { Userlist,Userdata } from '../../usertype/usertype.component';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
-import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist/employeelist.component';
+import { Data } from 'src/app/shared/data';
+import { Apiresponse } from 'src/app/shared/apiresponse';
 
 @Component({
   selector: 'app-employeedetails',
@@ -16,12 +16,12 @@ import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-  emplist:EmployeeList;
+  emplist:Apiresponse;
   list:any=[];
   isLinear = false;
   blood:BloodgroupData[];
   designation:DesignationData[];
-  users:Userdata[];
+  users:Data[];
   department:DepartmentData[];
   constructor(private service:AdminServiceService) {}
   id:number;
@@ -35,7 +35,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id:1,
       academic_id:1
     }
-    this.service.getemployee(passing_institute).subscribe((data : EmployeeList) =>
+    this.service.getemployee(passing_institute).subscribe((data : Apiresponse) =>
     {
       this.emplist=data;
       console.log(data);
@@ -85,7 +85,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id:1,
       academic_id:1
     }
-    this.service.getusers(passing_institute).subscribe((data : Userlist) =>{
+    this.service.getusers(passing_institute).subscribe((data : Apiresponse) =>{
       this.users = data.Data;
     });
   }
