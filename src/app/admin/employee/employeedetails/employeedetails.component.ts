@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { AdminServiceService, Parsing} from '../admin-service.service';
-import { DesignationList,DesignationData } from '../designation/designation.component';
-import { BloodgroupList,BloodgroupData,PassInstituteID } from '../bloodgroup/bloodgroup.component';
-import { Userlist,Userdata } from '../usertype/usertype.component';
+import { Component, OnInit} from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AdminServiceService, Parsing} from '../../admin-service.service';
+import { DesignationList,DesignationData } from '../../designation/designation.component';
+import { BloodgroupList,BloodgroupData,PassInstituteID } from '../../bloodgroup/bloodgroup.component';
+import { Userlist,Userdata } from '../../usertype/usertype.component';
 import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
 import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
-import { Designation } from 'src/app/shared/designation';
+import { EmployeelistComponent,EmployeeList,Employeedata } from '../employeelist/employeelist.component';
 
 @Component({
   selector: 'app-employeedetails',
@@ -16,19 +16,26 @@ import { Designation } from 'src/app/shared/designation';
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-
+  emplist:EmployeeList;
+  list:any=[];
   isLinear = false;
   blood:BloodgroupData[];
   designation:DesignationData[];
   users:Userdata[];
   department:DepartmentData[];
   constructor(private service:AdminServiceService) {}
-
+  id:number;
   ngOnInit() {
+    debugger;
     this.gettingbloodgroup();
     this.gettingdesignation();
     this.gettingdepartments();
     this.gettingaccesstype();
+    this.receiveMessage(Event);
+
+  }
+  receiveMessage($event) {
+    this.id = $event
   }
   gettingbloodgroup()
   {
@@ -51,9 +58,13 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingdesignation()
   {
-    // this.service.getdesignation().subscribe((data : DesignationList) =>{
-    //   this.designation = data.Data;
-    // });
+    let parsing : Parsing = {
+      institution_id : 1,
+      academic_id : 1
+    }
+    this.service.getdesignation(parsing).subscribe((data : DesignationList) =>{
+      this.designation = data.Data;
+    });
   }
   gettingaccesstype()
   {
@@ -71,7 +82,7 @@ export class EmployeedetailsComponent implements OnInit {
   user_type:string="";     academic_id:1;             institution_id:1;             designation_id :Number;
   joining_date:Date;       qualification:string="";   experience:string="";         departmant_id:Number;
   blood_group_id:Number;   present_address :string="";perminent_address:string="";  state:string="";
-  city :string="";         pin_code:string="";
+  city :string="";         pin_code:string="";        departmant_name:string="";    designation_name:string="";
 
   
   public OnSaveclick()
