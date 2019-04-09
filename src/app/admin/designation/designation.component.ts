@@ -3,8 +3,6 @@ import { AdminServiceService, Parsing } from '../admin-service.service';
 import { Designation } from 'src/app/shared/designation';
 import { MatPaginator,MatTableDataSource } from '@angular/material';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
-import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { Data } from 'src/app/shared/data';
@@ -18,7 +16,7 @@ export class DesignationComponent implements OnInit {
   ab:Designation[];
   abDatasource;
   jsRes : JsResponse;
-  delist : DepartmentData[];
+  delist : Data[];
   desiglist : Apiresponse;
   designationlist : Data[];
   displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
@@ -33,16 +31,16 @@ export class DesignationComponent implements OnInit {
       academic_id : 1,
       departmant_id :1,
       departmant_name : this.departmant_name
-     }
-     this.designationservice.getdepartment(a).subscribe((data : DepartmentList )=>
-      {
-        this.delist = data.Data;
-      });
-      this.designationservice.getdesignation(a).subscribe((data : Apiresponse) =>
-          {
-            this.desiglist = data;
-            this.abDatasource = new MatTableDataSource(this.desiglist.Data);
-          })
+    }
+    this.designationservice.getdepartment(1,1).subscribe(data =>
+    {
+      this.delist = data.Data;
+    });
+    this.designationservice.getdesignation(a).subscribe((data : Apiresponse) =>
+    {
+      this.desiglist = data;
+      this.abDatasource = new MatTableDataSource(this.desiglist.Data);
+    })
   }
   selected = null;
   buttoncontent:string = 'Save';
@@ -55,11 +53,10 @@ export class DesignationComponent implements OnInit {
   academic_id : 1
   departmant_id =1
 
-public onsubmitclick()
- {
-  
-   if(this.designation_name == '' || this.designation_code == '')
-      {alert("Please enter Valid Data") }
+  public onsubmitclick()
+  {
+    if(this.designation_name == '' || this.designation_code == '')
+    {alert("Please enter Valid Data") }
     else
     {
       if(this.buttoncontent == 'Modify')

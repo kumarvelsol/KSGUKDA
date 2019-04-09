@@ -1,13 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Data } from '../class/data';
+//import { Data } from '../class/data';
 import { ClasserviceService } from '../class/classervice.service';
 import { NgForm } from '@angular/forms';
-import { SubjectList } from '../shared/SubjectModels/subjectList';
-import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
-import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
 import { AdminServiceService } from '../admin/admin-service.service';
 import { Classresponse } from '../class/classresponse';
 import { MatDialogRef } from '@angular/material';
+import { Data } from '../shared/data';
 
 
 @Component({
@@ -17,8 +15,8 @@ import { MatDialogRef } from '@angular/material';
 })
 export class TimetableupdateComponent implements OnInit {
 
-  subjects : SubjectList[];
-  serRes:Classresponse;
+  subjects : Data[];
+  serRes : Classresponse;
 
   constructor(private service:ClasserviceService,public srs:AdminServiceService,
     public dialogRef: MatDialogRef<TimetableupdateComponent> ) { }
@@ -26,12 +24,7 @@ export class TimetableupdateComponent implements OnInit {
   ngOnInit() 
   {
     this.resetForm();
-    
-    let sub_parsing : SubjectParsing ={
-      institution_id : 1,
-      academic_id : 1
-    }
-    this.srs.subjectlist(sub_parsing).subscribe((data : SubjectData) =>{
+    this.srs.subjectlist(1,1).subscribe(data =>{
       this.subjects = data.Data;
     });
   }
