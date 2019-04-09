@@ -6,7 +6,7 @@ import { AdminServiceService } from '../admin/admin-service.service';
 import { Classresponse } from '../class/classresponse';
 import { MatDialogRef } from '@angular/material';
 
-import { TimetableComponent } from '../timetable/timetable.component';
+
 
 import { Data } from '../shared/data';
 
