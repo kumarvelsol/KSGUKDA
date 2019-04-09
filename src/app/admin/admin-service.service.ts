@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
 import { Userlist } from '../admin/usertype/usertype.component';
@@ -26,6 +26,8 @@ import { Employeemodel } from '../shared/employeemodel';
 import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
+import { Student } from '../shared/student';
+import {Apiresponse} from '../shared/apiresponse';
 
 import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
@@ -44,6 +46,11 @@ export interface Parsing{
 })
 export class AdminServiceService {
   Baseurl = 'http://veledu.edujinni.in/';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
 
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
@@ -169,10 +176,12 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
+
    public getemployee(emplist:Parsing)
    {
      return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
    }
+
 
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(depemp : DepEmpParsing){
@@ -193,6 +202,55 @@ export class AdminServiceService {
     }
   //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.
+  public insertStudent(student:Student) 
+  {
+    return this.http.post(`${this.Baseurl+"StudentInsert"}`,student);
+  }
+
+  public getClassesList(institution_id:string,academic_id:string)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id);
+    params=params.append('academic_id',academic_id);
+    return this.http.post<Apiresponse> (this.Baseurl+"Classlist",params)
+  }
+  public getTimeTAbleList(institution_id:string,academic_id:string)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id);
+    params=params.append('academic_id',academic_id);
+    return this.http.post<Apiresponse> (this.Baseurl+"getTimeTabless",params)
+  }
+
+  public getCastesLists(institution_id:string)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id);
+    return this.http.post<Apiresponse> (this.Baseurl+"getCastDetails",params)
+  }
+  public getReligionsLists(institution_id:string)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id);
+    return this.http.post<Apiresponse> (this.Baseurl+"getReligionDetails",params)
+  }
+  public getBloodGroupsLists(institution_id:string)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id);
+    return this.http.post<Apiresponse> (this.Baseurl+"getbloodGroupdetails",params)
+  }
+
+  public getStatesList()
+  {
+    return this.http.get<Apiresponse> (this.Baseurl+"stateslist")
+  }
+  public addStudent(student:Student)
+  {
+    console.log(student);
+     return this.http.post(this.Baseurl+"StudentInsert",student);
+  }
+  
   getmothertongue (PasingInstitute : PasingInstitute )
    {
      return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
