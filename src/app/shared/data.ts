@@ -25,7 +25,7 @@ export interface Data {
     academic_start_year:string;
     academic_status:string;
     cast_name:string;
-    cast_id:string;
+    cast_id: number;
     religion_id:string;
     religion_name:string;
 
@@ -73,4 +73,16 @@ export interface Data {
     designation_description :string;
     departmant_name : string;
     id : number;
+
+
+    institution_name : string;
+    institution_address : string;
+    institution_email : string;
+    institution_phone_no : number;
+    institution_mobile_no : number;
+    contact_person_name : string;
+    contact_person_mobile_no : number;
+    institution_image : string;
+    institution_code : string;
+
 }

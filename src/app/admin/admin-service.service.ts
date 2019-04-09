@@ -6,7 +6,7 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/Cast/cast';
+import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
@@ -59,8 +59,10 @@ export class AdminServiceService {
   //End of Department related Service Methods
 
   //Start of Institute related Service Methods
-    getinstitute (inst_Id : ParseInstituteId){
-      return this.http.post(`${this.Baseurl+"Institutionlist"}`,inst_Id);
+    getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
     }
     createinstitute (institute : InstituteInsert){
       return this.http.post(`${this.Baseurl+"Institution"}`,institute);
@@ -81,10 +83,11 @@ export class AdminServiceService {
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
   //refer:Cast
   
-  getcast (passing_institute : PassingInstitute)
+  getcast (institution_id : number)
   {
-    //return this.http.get<CastList>(this.casturllist);
-    return this.http.post(`${this.casturllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.casturllist}`, params);
   }
   createcast(cast: Cast){
     return this.http.post(`${this.casturlinsert}`,cast);
