@@ -16,6 +16,7 @@ export class ClassesRelatedComponent implements OnInit {
   data:Data[];
   dataSource
   serRes:Classresponse;
+  submit_text:string='save';
   
   constructor(private servs:ClasserviceService,private http:HttpClient) { }
   displayedColumns: string[] = ['class_name', 'class_code', 'class_description','actions'];
@@ -69,32 +70,30 @@ export class ClassesRelatedComponent implements OnInit {
 else
 {
   //calling update method
-  this.updateClasses(addingClass);
+  this.updateClasses(addingClass);  
   
 }
   }
 
   updateClasses(addingClass : NgForm)
   {
-
     //this.servs.updateClass(addingClass.value);
     this.servs.updateClass(addingClass.value).subscribe(data=>{
       this.serRes=data;
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        this.callingClasses();
-        
+        this.callingClasses();        
       }
       else{
-        alert(this.serRes.message);
-        
+        alert(this.serRes.message);        
       }
   })
   }
 
   populateForm(country:Classmodel)
   {
-    this.servs.refer=Object.assign({},country);  
+    this.servs.refer=Object.assign({},country); 
+    this.submit_text='update'; 
   }
 }

@@ -3,29 +3,12 @@ import { MatTableDataSource } from '@angular/material';
 import { Bloodgroup } from 'src/app/shared/bloodgroup';
 import { AdminServiceService } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
+import { Data } from 'src/app/shared/data';
+import { Apiresponse } from 'src/app/shared/apiresponse';
 
-export interface Bloodgroupdetails {
-  institution_id : number;
-  blood_group_code : number;
-  blood_group_id : number;
-  blood_group_name: string;
-  academic_id : 1;
-}
 export interface PassInstituteID{
   institution_id : number;
 }
-export interface BloodgroupData {
- blood_group_code : number;
-  blood_group_id : number;
-  blood_group_name: string;
-}
-
-export interface BloodgroupList {
-  code: number;
-  message: string;
-  Data: BloodgroupData[];
-}
-
 
 @Component({
   selector: 'app-bloodgroup',
@@ -34,12 +17,11 @@ export interface BloodgroupList {
 })
 export class BloodgroupComponent implements OnInit {
   jsRes : JsResponse;
-  blood_group_id : number;
-  blood_group_code : number;
+  blood_group_id : string;
+  blood_group_code : string;
   blood_group_name : string;
-  bloodgrouplist:BloodgroupList;
-  bloodgroupdata :BloodgroupData[];
-  ab :Bloodgroup[] = []; 
+  bloodgrouplist: Apiresponse;
+  bloodgroupdata : Data[];
   abDataSource; 
   displayedColumns: string[] = ['blood_group_id','blood_group_code','blood_group_name'];
   buttoncontent: string = 'Save';
@@ -50,7 +32,7 @@ export class BloodgroupComponent implements OnInit {
     {
         institution_id :1
     }
-   this.service1Service.getbloodgroup(passing_institute).subscribe((data: BloodgroupList) => 
+   this.service1Service.getbloodgroup(passing_institute).subscribe((data: Apiresponse) => 
    {
      this.bloodgrouplist = data;
      console.log(this.bloodgrouplist);
@@ -76,7 +58,7 @@ export class BloodgroupComponent implements OnInit {
           console.log("success");
         }else{ }
       });
-      this.service1Service.getbloodgroup(a).subscribe((data: BloodgroupList) => 
+      this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);
@@ -100,7 +82,7 @@ export class BloodgroupComponent implements OnInit {
           alert("BloodGroup Updated Succesfully.!");
         }else{ }
       });
-      this.service1Service.getbloodgroup(a).subscribe((data: BloodgroupList) => 
+      this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);

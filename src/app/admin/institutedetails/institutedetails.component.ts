@@ -22,22 +22,23 @@ export class InstitutedetailsComponent implements OnInit {
   ngOnInit() {
     this.GetInstituteDetails();
   }
-  In_name : string='';
-  In_code : string='';
-  In_email : string='';
+  In_name : string = "";
+  In_code : string = "";
+  In_email : string = "";
   In_phone : number;
   In_mobile : number;
-  In_address : string='';
-  ad_name : string='';
+  In_address : string = "";
+  ad_name : string = "";
   ad_mobile : number;
-  buttoncontent:string = "Add";
+  buttoncontent : string = "Add";
   public imagePath;
   imgURL: string;
   imageUrl : string = "/assets/images/uploadIcon.png";
   FileToUpload : File = null;
   public message: string;
 
-  public onaddclick(){
+  public onaddclick()
+  {
     if(this.In_name == '' || this.In_code == '' || this.In_email == '' || this.In_phone == null || this.In_mobile == null || this.In_address == '' || this.ad_name == '' || this.ad_mobile == null)
     {
       alert("Please fill all fields");
