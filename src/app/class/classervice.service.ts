@@ -41,9 +41,9 @@ tupdates:Tupdate
 //displaying the classes details
   get_products()
   {
-    this.refer.institution_id=1;
-    this.refer.academic_id=1;
-      return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',this.refer);
+    this.tperiods.institution_id=1;
+    this.tperiods.academic_id=1;
+      return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',this.tperiods);
   }
 
 

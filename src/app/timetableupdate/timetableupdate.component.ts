@@ -8,7 +8,7 @@ import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
 import { AdminServiceService } from '../admin/admin-service.service';
 import { Classresponse } from '../class/classresponse';
 import { MatDialogRef } from '@angular/material';
-import { TimetableComponent } from '../timetable/timetable.component';
+
 
 @Component({
   selector: 'app-timetableupdate',
@@ -61,7 +61,7 @@ export class TimetableupdateComponent implements OnInit {
       {
         alert(this.serRes.message);   
         this.dialogRef.close();    
-        //this.ttablecmp.resetForm();        
+               //this.ttablecmp.resetForm();        
       }
       else{
         alert(this.serRes.message);

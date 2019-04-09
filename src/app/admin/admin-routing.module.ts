@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'settings',component:SettingsComponent},
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent},
+  {path:'TimePeriod',component:TimeandPeriodComponent},
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'TimePeriod/time',component:TimeperiodsComponent},
