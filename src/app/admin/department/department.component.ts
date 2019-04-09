@@ -1,22 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
-import { Department } from 'src/app/shared/department';
+import { Department } from 'src/app/shared/DepartmentModels/department';
 import { DataSource} from '@angular/cdk/collections';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { DepartmentDetails} from 'src/app/shared/departmentdetails';
+import { DepartmentDetails} from 'src/app/shared/DepartmentModels/departmentdetails';
 import { AdminServiceService } from '../admin-service.service';
-export interface DepartmentList {
-  code: number;
-  message: string;
-  Data: DepartmentData[];
-}
-export interface DepartmentData {
-  departmant_id: number;
-  departmant_name: string;
-  department_code: string;
-  department_description: string;
-}
+import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
+import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
+
 @Component({
   selector: 'app-department',
   templateUrl: './department.component.html',
@@ -26,7 +18,6 @@ export interface DepartmentData {
 export class DepartmentComponent implements OnInit {
   jsRes : JsResponse;
   department : Department[];
-  departlist : DepartmentList;
   departData : DepartmentData[];
   
   displayedColumns = ['departmant_id', 'departmant_name', 'department_code', 'department_description','actions'];
@@ -35,11 +26,9 @@ export class DepartmentComponent implements OnInit {
   //@ViewChild(MatPaginator) paginator: MatPaginator;
   // constructor() { }
   ngOnInit() {
-    this.service.getdepartment().subscribe((data : DepartmentList) => 
+    this.service.getdepartment().subscribe(data => 
     {
-      this.departlist = data;
-      //console.log(this.departlist.Data);
-      this.dataSource = new MatTableDataSource(this.departlist.Data);
+      this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   name : string='';
@@ -49,7 +38,7 @@ export class DepartmentComponent implements OnInit {
   buttoncontent:string = "Add";
   public ondepartmentclick()
   {
-    if(this.name == '' || this.description == '' || this.code == '')
+    if(this.name == '' || this.code == '')
     {
       alert("Please fill all fields");
     }

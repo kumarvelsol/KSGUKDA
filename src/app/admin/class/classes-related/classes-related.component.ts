@@ -21,6 +21,11 @@ export class ClassesRelatedComponent implements OnInit {
   ngOnInit()
   { 
     this.resetForm();
+    this.callingClasses();
+    
+  }
+  callingClasses()
+  {
     this.servs.get_products().subscribe(res=>{          
       this.data=res.Data;      
       this.dataSource = this.data;
@@ -51,11 +56,10 @@ export class ClassesRelatedComponent implements OnInit {
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        this.servs.get_products();
+        this.callingClasses();
         
       }
-      else{
-        
+      else{        
         alert(this.serRes.message);
         
       }
@@ -78,7 +82,7 @@ else
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        this.servs.get_products();
+        this.callingClasses();
         
       }
       else{
