@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Cast } from 'src/app/shared/Cast/cast';
+import { Cast } from 'src/app/shared/CastModels/cast';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource} from '@angular/material';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { CastData } from 'src/app/shared/Cast/castdata';
-import { CastList } from 'src/app/shared/Cast/castlist';
+import { CastData } from 'src/app/shared/CastModels/castdata';
+import { CastList } from 'src/app/shared/CastModels/castlist';
 
 export interface PassingInstitute {
   institution_id : number;

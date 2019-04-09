@@ -4,8 +4,6 @@ import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from '../religion/religion.component';
-import { CastData } from 'src/app/shared/Cast/castdata';
-import { CastList } from 'src/app/shared/Cast/castlist';
 import { ReligionList } from 'src/app/shared/Religion/religionlist';
 import { ReligionData } from 'src/app/shared/Religion/religiondata';
 import { Apiresponse } from 'src/app/shared/apiresponse';
