@@ -28,12 +28,7 @@ export class EmployeedetailsComponent implements OnInit {
     this.gettingdesignation();
     this.gettingdepartments();
     this.gettingaccesstype();
-    let passing_institute:Parsing = 
-    {
-      institution_id:1,
-      academic_id:1
-    }
-    this.service.getemployee(passing_institute).subscribe((data : Apiresponse) =>
+    this.service.getemployee(1,1).subscribe((data : Apiresponse) =>
     {
       this.emplist=data;
       console.log(data);
@@ -78,12 +73,7 @@ export class EmployeedetailsComponent implements OnInit {
   }
   gettingaccesstype()
   {
-    let passing_institute:Parsing=
-    {
-      institution_id:1,
-      academic_id:1
-    }
-    this.service.getusers(passing_institute).subscribe((data : Apiresponse) =>{
+    this.service.getusers(1,1).subscribe((data : Apiresponse) =>{
       this.users = data.Data;
     });
   }

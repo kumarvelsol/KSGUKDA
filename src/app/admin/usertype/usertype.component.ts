@@ -22,12 +22,7 @@ export class UsertypeComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:Parsing = 
-    {
-      institution_id:1,
-      academic_id:1
-    }
-    this.service.getusers(passing_institute).subscribe((data : Apiresponse) =>
+    this.service.getusers(1,1).subscribe((data : Apiresponse) =>
     {
       this.userlist=data;
       console.log(this.userlist.Data);
@@ -64,7 +59,7 @@ export class UsertypeComponent implements OnInit {
               alert(""+res.message);
             }
             console.log("Created a user successfully");
-            this.service.getusers(user).subscribe((data : Apiresponse) =>
+            this.service.getusers(1,1).subscribe((data : Apiresponse) =>
             {
               this.userlist=data;
               console.log(this.userlist.Data);
@@ -93,7 +88,7 @@ export class UsertypeComponent implements OnInit {
                 alert(""+res.message);
               }
               console.log(res);
-              this.service.getusers(user).subscribe((data : Apiresponse) =>
+              this.service.getusers(1,1).subscribe((data : Apiresponse) =>
               {
                 this.userlist=data;
                 console.log(this.userlist.Data);

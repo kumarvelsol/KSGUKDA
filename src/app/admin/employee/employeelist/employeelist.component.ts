@@ -19,12 +19,7 @@ export class EmployeelistComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:Parsing = 
-    {
-      institution_id:1,
-      academic_id:1
-    }
-    this.service.getemployee(passing_institute).subscribe((data : Apiresponse) =>
+    this.service.getemployee(1,1).subscribe((data : Apiresponse) =>
     {
       this.emplist=data;
       console.log(this.emplist.Data);
