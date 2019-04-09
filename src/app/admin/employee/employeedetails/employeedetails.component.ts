@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminServiceService, Parsing} from '../../admin-service.service';
-import { DepartmentList } from 'src/app/shared/DepartmentModels/departmentlist';
-import { DepartmentData } from 'src/app/shared/DepartmentModels/departmentdata';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Employeemodel } from 'src/app/shared/employeemodel';
 import { Data } from 'src/app/shared/data';
@@ -14,13 +12,13 @@ import { Apiresponse } from 'src/app/shared/apiresponse';
   styleUrls: ['./employeedetails.component.css']
 })
 export class EmployeedetailsComponent implements OnInit {
-  emplist:Apiresponse;
-  list:any=[];
+  emplist : Apiresponse;
+  list : any=[];
   isLinear = false;
-  blood:Data[];
-  designation:Data[];
-  users:Data[];
-  department:DepartmentData[];
+  blood : Data[];
+  designation : Data[];
+  users : Data[];
+  department : Data[];
   constructor(private service:AdminServiceService) {}
   id:number;
   ngOnInit() {
@@ -62,7 +60,7 @@ export class EmployeedetailsComponent implements OnInit {
       institution_id : 1,
       academic_id : 1
     }
-    this.service.getdepartment(parsing).subscribe((data : DepartmentList) =>{
+    this.service.getdepartment(1,1).subscribe(data =>{
       this.department = data.Data;
     });
   }
