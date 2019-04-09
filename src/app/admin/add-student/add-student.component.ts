@@ -19,11 +19,11 @@ import { Student } from 'src/app/shared/student';
 export class AddStudentComponent implements OnInit {
   
   isLinear = false;
-  classData:Data[];
-  bloodGroupData:Data[];
-  casteData:Data[];
-  religionData:Data[];
-  stateData:Data[];
+  classData : Data[];
+  bloodGroupData : Data[];
+  casteData : Data[];
+  religionData : Data[];
+  stateData : Data[];
 
   constructor(private _formBuilder: FormBuilder,public service:AdminServiceService) { }
   ngOnInit() {
