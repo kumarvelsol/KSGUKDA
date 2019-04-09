@@ -15,28 +15,19 @@ import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
 import { Designation } from '../shared/designation';
-import { DesignationList } from './designation/designation.component';
 import { Bloodgroup} from '../shared/bloodgroup';
-import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
-import { SubjectParsing } from '../shared/SubjectModels/subparsing';
-import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
 import { Employeemodel } from '../shared/employeemodel';
-import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
-import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
-
 import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
-
-import {Classteacherdetails} from '../shared/classteacherdetails';
+import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
-
-
+import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -55,8 +46,11 @@ export class AdminServiceService {
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
   //Start of Department related Service Methods
-    getdepartment(dep_parsing : Parsing){
-      return this.http.post<DepartmentList>(this.Baseurl+"departmentlist",dep_parsing);
+    getdepartment(institution_id : number, academic_id : number){
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(this.Baseurl+"departmentlist",params);
     }
     createdepartment (department : Department){
       return this.http.post(`${this.Baseurl+"department"}`,department);
@@ -87,8 +81,6 @@ export class AdminServiceService {
   mothertongueurllist='http://veledu.edujinni.in/getmothertongueDetails';
   mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
-   
-  
   //refer:Cast
   
   getcast (passing_institute : PassingInstitute)
@@ -168,8 +160,11 @@ export class AdminServiceService {
     public updatesubject(sub_up: SubjectUpdate){
       return this.http.post(`${this.Baseurl+"Subjectupdate"}`,sub_up);
     }
-    public subjectlist(sub_parse : SubjectParsing){
-      return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
+    public subjectlist(institution_id: number,academic_id : number){//sub_parse : SubjectParsing
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Subjectslist"}`,params);
     }
   //End of Subject Related ServiceMethods.
    public createemployee(emp:Employeemodel)
@@ -181,27 +176,36 @@ export class AdminServiceService {
    {
      return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
    }
-
-
+   
   //Start of Subject Allocation ServiceMethods.
-    public getDepEmpList(depemp : DepEmpParsing){
-      return this.http.post(`${this.Baseurl+"Employeeparticular"}`,depemp);
+    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number){//,depemp : DepEmpParsing
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('departmant_id',departmant_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
     }
     public CreateSubjectAllocaion(sub_allo_insert : SubjectAllocationInsert){
       return this.http.post(`${this.Baseurl+"subjectallocationinsert"}`,sub_allo_insert);
     }
-    public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
-      return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    public getSubjectAllocationList(institution_id : number,academic_id : number){
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<SubjectAllocationList>(`${this.Baseurl+"subjectallocationdetailslist"}`,params);
     }
     public UpdateSubjectAllocation(sub_allo_update : SubjectAllocationUpdate){
       return this.http.post(`${this.Baseurl+"subjectallocationupdate"}`,sub_allo_update);
     }
-    public get_classes(cls_parsing : Parsing)
+    public get_classes(institution_id : number,academic_id : number)
     {
-      return this.http.post('http://veledu.edujinni.in/Classlist',cls_parsing);
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Classlist"}`,params);
     }
-  //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.
+
   public insertStudent(student:Student) 
   {
     return this.http.post(`${this.Baseurl+"StudentInsert"}`,student);
@@ -248,14 +252,14 @@ export class AdminServiceService {
   public addStudent(student:Student)
   {
     console.log(student);
-     return this.http.post(this.Baseurl+"StudentInsert",student);
+    return this.http.post(this.Baseurl+"StudentInsert",student);
   }
   
   getmothertongue (PasingInstitute : PasingInstitute )
-   {
-     return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
-   }
-   createmothertongue(mothertongue: Mother_Tongue){
+  {
+    return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
+  }
+  createmothertongue(mothertongue: Mother_Tongue){
     return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
   }
   updatemothertongue(mothertongue:Mother_Tongue){

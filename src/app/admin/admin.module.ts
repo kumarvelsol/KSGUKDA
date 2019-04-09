@@ -40,18 +40,16 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
-    DepartmentComponent,
-    CastDetailsComponent, ReligionComponent,DesignationComponent,ClassesRelatedComponent,
+    DepartmentComponent,ClassesRelatedComponent,
+    CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    BloodgroupComponent,ReligionComponent,UsertypeComponent,AcademicdetailsComponent,
+    BloodgroupComponent,ReligionComponent,UsertypeComponent,
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,AddStudentComponent,StudentListComponent,StudentComponent],
- imports: [
-  ClassTabBarComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
+    TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
+    ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+    MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
+    AddStudentComponent,StudentListComponent,StudentComponent],
+  imports: [
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
@@ -75,7 +73,5 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
-
-    
 })
 export class AdminModule { }
