@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { debug } from 'util';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { Response} from 'src/app/shared/response';
 import { AdminServiceService } from '../admin-service.service';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 
