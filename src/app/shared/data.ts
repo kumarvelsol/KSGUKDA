@@ -12,9 +12,9 @@ export interface Data {
     time_period_id:string;
     blood_group_code:string;
     blood_group_id:string;
-    academic_id:string;
+    academic_id:number;
     blood_group_name:string;
-    institution_id:string;
+    institution_id:number;
     academic_end_month:string;
     academic_end_year:string;
     academic_start_month:string;
@@ -28,4 +28,11 @@ export interface Data {
     states:string;
     state_id:string;
 
+    designation_id : number ;
+    designation_code :string;
+    designation_name :string;
+    designation_description :string;
+    departmant_name : string;
+    first_name : string;
+    id : number;
 }

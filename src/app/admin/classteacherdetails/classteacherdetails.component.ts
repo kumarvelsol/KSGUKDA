@@ -145,7 +145,7 @@ export class ClassteacherdetailsComponent implements OnInit {
           this.buttoncontent = 'Save';
       });
     }
-    this.class_name = ''; this.departmant_name = '' ; this.first_name = ''; this.class_id = null;this.departmant_id = null;
+    this.class_name = ''; this.departmant_name = "" ; this.first_name = "";
   }
   no : number;
   public RowSelected(j: number,id : number,class_id : number, departmant_id: number, employee_id: number)
