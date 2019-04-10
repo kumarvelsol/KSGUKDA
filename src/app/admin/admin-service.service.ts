@@ -93,7 +93,7 @@ export class AdminServiceService {
     return this.http.post(`${this.casturlinsert}`,cast);
   }
   updatecast(cast:Cast){
-    return this.http.put(`${this.casturlupdate}${cast.cast_name}`,cast);
+    return this.http.post(`${this.casturlupdate}${cast.cast_name}`,cast);
   }
 
   getreligion (institution_id : number )
@@ -106,7 +106,7 @@ export class AdminServiceService {
     return this.http.post(`${this.religionurlinsert}`,religion);
   }
   updatereligion(religion:Religion){
-    return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
+    return this.http.post(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
   getusers(institution_id : number, academic_id : number)
@@ -280,6 +280,6 @@ export class AdminServiceService {
     return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
   }
   updatemothertongue(mothertongue:Mother_Tongue){
-    return this.http.put('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
+    return this.http.post('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
   }
 }
