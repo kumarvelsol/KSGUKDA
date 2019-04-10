@@ -3,10 +3,8 @@ import { AdminServiceService } from '../../admin-service.service';
 import { SubjectInsert } from 'src/app/shared/SubjectModels/subjectinsert';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { SubjectUpdate } from 'src/app/shared/SubjectModels/subjectupdate';
-import { SubjectData } from 'src/app/shared/SubjectModels/subjectdata';
 import { MatTableDataSource } from '@angular/material';
-import { SubjectList } from 'src/app/shared/SubjectModels/subjectList';
-import { SubjectParsing } from 'src/app/shared/SubjectModels/subparsing';
+import { Data } from 'src/app/shared/data';
 
 @Component({
   selector: 'app-subjects',
@@ -20,7 +18,7 @@ export class SubjectsComponent implements OnInit {
   code : string = '';
   description : string = '';
   jsRes : JsResponse;
-  sub_list : SubjectList[];
+  sub_list : Data[];
   displayedColumns = ['subject_id', 'subject_name', 'subject_code', 'subject_description','actions'];
   dataSource;
   buttoncontent:string = "Add";
@@ -89,11 +87,7 @@ export class SubjectsComponent implements OnInit {
     this.buttoncontent = "Update";
   }
   public LoadingList(){
-    let sub_parse : SubjectParsing = {
-      institution_id : 1,
-      academic_id : 1
-    }
-    this.service.subjectlist(sub_parse).subscribe((data : SubjectData) =>{
+    this.service.subjectlist(1,1).subscribe(data =>{
       this.sub_list = data.Data;
       this.dataSource = new MatTableDataSource(this.sub_list);
     });

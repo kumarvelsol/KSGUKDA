@@ -1,7 +1,7 @@
 export interface Bloodgroup {
-    blood_group_name :string;
-    blood_group_code :number;
-    institution_id :1;
-    academic_id : 1;
-    blood_group_id : number;
+    blood_group_code : string;
+    blood_group_id : string;
+    academic_id : number;
+    blood_group_name : string;
+    institution_id : number;
 }

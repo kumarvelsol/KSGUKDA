@@ -2,41 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Department } from 'src/app/shared/DepartmentModels/department';
-import { Userlist } from '../admin/usertype/usertype.component';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/Cast/cast';
+import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/Religion/religion';
-import { PassInstitute } from './religion/religion.component';
+import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
-import { PassingInstituteid } from '../admin/academicdetails/academicdetails.component';
 import { Designation } from '../shared/designation';
-import { DesignationList } from './designation/designation.component';
 import { Bloodgroup} from '../shared/bloodgroup';
-import { PassInstituteID } from './bloodgroup/bloodgroup.component';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
-import { SubjectParsing } from '../shared/SubjectModels/subparsing';
-import { DepartmentList } from '../shared/DepartmentModels/departmentlist';
 import { Employeemodel } from '../shared/employeemodel';
-import { DepEmpParsing } from '../shared/SubjectAllocationModels/depemparsing';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
-import { SubjectAllocationParsing } from '../shared/SubjectAllocationModels/subjectallocation_parsing';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
-
-import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
-
-import {Classteacherdetails} from '../shared/classteacherdetails';
+import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
-
-
+import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -51,12 +38,14 @@ export class AdminServiceService {
       'Content-Type':  'application/json'
     })
   };
-
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
   //Start of Department related Service Methods
-    getdepartment(dep_parsing : Parsing){
-      return this.http.post<DepartmentList>(this.Baseurl+"departmentlist",dep_parsing);
+    getdepartment(institution_id : number, academic_id : number){
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(this.Baseurl+"departmentlist",params);
     }
     createdepartment (department : Department){
       return this.http.post(`${this.Baseurl+"department"}`,department);
@@ -67,8 +56,10 @@ export class AdminServiceService {
   //End of Department related Service Methods
 
   //Start of Institute related Service Methods
-    getinstitute (inst_Id : ParseInstituteId){
-      return this.http.post(`${this.Baseurl+"Institutionlist"}`,inst_Id);
+    getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
     }
     createinstitute (institute : InstituteInsert){
       return this.http.post(`${this.Baseurl+"Institution"}`,institute);
@@ -87,35 +78,45 @@ export class AdminServiceService {
   mothertongueurllist='http://veledu.edujinni.in/getmothertongueDetails';
   mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
-   
-  
   //refer:Cast
   
-  getcast (passing_institute : PassingInstitute)
+  getcast (institution_id : number)
   {
-    //return this.http.get<CastList>(this.casturllist);
-    return this.http.post(`${this.casturllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"getCastDetails"}`, params);
   }
   createcast(cast: Cast){
     return this.http.post(`${this.casturlinsert}`,cast);
   }
-  updatecast(cast:Cast){
-    return this.http.put(`${this.casturlupdate}${cast.cast_name}`,cast);
+  updatecast(cast_id : number,institution_id : number,acdamic_id : number, cast_name : string){
+    let params = new HttpParams();
+    params = params.append('cast_id', cast_id+"");
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('acdamic_id', acdamic_id+"");
+    params = params.append('cast_name', cast_name);
+    return this.http.put(`${this.Baseurl+"UpdatingCast"}`,params);
   }
 
-  getreligion (passing_institute : PassInstitute )
+  getreligion (institution_id : number )
   {
-    return this.http.post(`${this.religionurllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.religionurllist}`, params);
   }
   createreligion(religion: Religion){
     return this.http.post(`${this.religionurlinsert}`,religion);
   }
   updatereligion(religion:Religion){
-    return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
+    return this.http.post(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(userinstacad:Parsing){
-    return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
+  getusers(institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"usertypelist"}`,params);
   }
   createuser (user : User){
     return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
@@ -124,8 +125,12 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
   }
 
-  getacademic (academic : PassingInstituteid){
-    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
+  getacademic (institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,params);
   }
   createacademic (academici : Academicdetails){
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
@@ -168,8 +173,11 @@ export class AdminServiceService {
     public updatesubject(sub_up: SubjectUpdate){
       return this.http.post(`${this.Baseurl+"Subjectupdate"}`,sub_up);
     }
-    public subjectlist(sub_parse : SubjectParsing){
-      return this.http.post(`${this.Baseurl+"Subjectslist"}`,sub_parse);
+    public subjectlist(institution_id: number,academic_id : number){//sub_parse : SubjectParsing
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Subjectslist"}`,params);
     }
   //End of Subject Related ServiceMethods.
    public createemployee(emp:Employeemodel)
@@ -177,31 +185,52 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
 
-   public getemployee(emplist:Parsing)
+   public getemployeelist(institution_id : number, academic_id : number)
    {
-     return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+     return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
-
-
+   public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('employee_id',employee_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
+   }
+   
   //Start of Subject Allocation ServiceMethods.
-    public getDepEmpList(depemp : DepEmpParsing){
-      return this.http.post(`${this.Baseurl+"Employeeparticular"}`,depemp);
+    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
+    {//,depemp : DepEmpParsing
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('departmant_id',departmant_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
     }
     public CreateSubjectAllocaion(sub_allo_insert : SubjectAllocationInsert){
       return this.http.post(`${this.Baseurl+"subjectallocationinsert"}`,sub_allo_insert);
     }
-    public getSubjectAllocationList(sub_allo_parsing : SubjectAllocationParsing){
-      return this.http.post(`${this.Baseurl+"subjectallocationdetailslist"}`,sub_allo_parsing);
+    public getSubjectAllocationList(institution_id : number,academic_id : number){
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<SubjectAllocationList>(`${this.Baseurl+"subjectallocationdetailslist"}`,params);
     }
     public UpdateSubjectAllocation(sub_allo_update : SubjectAllocationUpdate){
       return this.http.post(`${this.Baseurl+"subjectallocationupdate"}`,sub_allo_update);
     }
-    public get_classes(cls_parsing : Parsing)
+    public get_classes(institution_id : number,academic_id : number)
     {
-      return this.http.post('http://veledu.edujinni.in/Classlist',cls_parsing);
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Classlist"}`,params);
     }
-  //public UpdateSubjectAllocation()
   //End of Subject Allocation ServiceMethods.
+
   public insertStudent(student:Student) 
   {
     return this.http.post(`${this.Baseurl+"StudentInsert"}`,student);
@@ -248,17 +277,20 @@ export class AdminServiceService {
   public addStudent(student:Student)
   {
     console.log(student);
-     return this.http.post(this.Baseurl+"StudentInsert",student);
+    return this.http.post(this.Baseurl+"StudentInsert",student);
   }
   
-  getmothertongue (PasingInstitute : PasingInstitute )
-   {
-     return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
-   }
-   createmothertongue(mothertongue: Mother_Tongue){
+  getmothertongue (institution_id: number,academic_id:number )
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.mothertongueurllist}`, params);
+  }
+  createmothertongue(mothertongue: Mother_Tongue){
     return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
   }
   updatemothertongue(mothertongue:Mother_Tongue){
-    return this.http.put('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
+    return this.http.post('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
   }
 }

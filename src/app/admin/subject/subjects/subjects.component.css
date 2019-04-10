@@ -44,8 +44,9 @@ table {
 }
 .example-container {
     height: 500px;
-    overflow: auto; 
+    overflow: auto;
     margin-top: 20px;
+    border-radius: 5px;
     margin-bottom: 20px;
 }
 p{

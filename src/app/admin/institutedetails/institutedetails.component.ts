@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { debug } from 'util';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { Response} from 'src/app/shared/response';
 import { AdminServiceService } from '../admin-service.service';
 import { InstituteInsert } from 'src/app/shared/instituteinsert';
 
@@ -22,22 +21,23 @@ export class InstitutedetailsComponent implements OnInit {
   ngOnInit() {
     this.GetInstituteDetails();
   }
-  In_name : string='';
-  In_code : string='';
-  In_email : string='';
+  In_name : string = "";
+  In_code : string = "";
+  In_email : string = "";
   In_phone : number;
   In_mobile : number;
-  In_address : string='';
-  ad_name : string='';
+  In_address : string = "";
+  ad_name : string = "";
   ad_mobile : number;
-  buttoncontent:string = "Add";
+  buttoncontent : string = "Add";
   public imagePath;
   imgURL: string;
   imageUrl : string = "/assets/images/uploadIcon.png";
   FileToUpload : File = null;
   public message: string;
 
-  public onaddclick(){
+  public onaddclick()
+  {
     if(this.In_name == '' || this.In_code == '' || this.In_email == '' || this.In_phone == null || this.In_mobile == null || this.In_address == '' || this.ad_name == '' || this.ad_mobile == null)
     {
       alert("Please fill all fields");
@@ -97,22 +97,18 @@ export class InstitutedetailsComponent implements OnInit {
     }
   }
   public GetInstituteDetails(){
-    let inst_Id : ParseInstituteId = {
-      institution_id : 1,
-    }
-    this.service.getinstitute(inst_Id).subscribe((data : Response) =>{
-      this.Res = data;
-      if(this.Res.code == 200)
+    this.service.getinstitute(1).subscribe(data =>{
+      if(data.code == 200)
       {
         this.buttoncontent = "Update";
-        this.In_name = this.Res.Data[0].institution_name;
-        this.In_code = this.Res.Data[0].institution_code;
-        this.In_address = this.Res.Data[0].institution_address;
-        this.In_email = this.Res.Data[0].institution_email;
-        this.In_mobile = this.Res.Data[0].institution_mobile_no;
-        this.In_phone = this.Res.Data[0].institution_phone_no;
-        this.ad_name = this.Res.Data[0].contact_person_name;
-        this.ad_mobile = this.Res.Data[0].contact_person_mobile_no;
+        this.In_name = data.Data[0].institution_name;
+        this.In_code = data.Data[0].institution_code;
+        this.In_address = data.Data[0].institution_address;
+        this.In_email = data.Data[0].institution_email;
+        this.In_mobile = data.Data[0].institution_mobile_no;
+        this.In_phone = data.Data[0].institution_phone_no;
+        this.ad_name = data.Data[0].contact_person_name;
+        this.ad_mobile = data.Data[0].contact_person_mobile_no;
       }else{
         this.buttoncontent = "Add";
       }

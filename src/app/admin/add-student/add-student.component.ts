@@ -2,10 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, Form} from '@angular/forms';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
-
-import { ReligionList, ReligionData, PassInstitute } from '../religion/religion.component';
-import { BloodgroupData, PassInstituteID } from '../bloodgroup/bloodgroup.component';
-import {BloodgroupList} from '../bloodgroup/bloodgroup.component';
+import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { Data } from 'src/app/shared/data';
 import { Student } from 'src/app/shared/student';
@@ -24,11 +21,9 @@ export class AddStudentComponent implements OnInit {
   stateData:Data[];
   datava:string;
 
+
   constructor(private _formBuilder: FormBuilder,public service:AdminServiceService) { }
   ngOnInit() {
-    let passing_institute: PassInstitute = {
-      institution_id : 1,
-    }
     this.getClasses();
     this.gettingbloodgroup();
     this.getCaste();
@@ -186,4 +181,3 @@ get string():string
      return validation;
     }
 }
-

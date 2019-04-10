@@ -1,41 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService,Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { User} from 'src/app/shared/user';
+import { Data} from 'src/app/shared/data';
 import { MatTableDataSource} from '@angular/material';
+import { Apiresponse } from 'src/app/shared/apiresponse';
+import { User } from 'src/app/shared/user';
 
 
-export interface Userdata {
-  user_code: string;
-  user_name: string;
-  user_type_id: number;
-}
 
-export interface Userlist {
-  code: number;
-  message: string;
-  Data: Userdata[];
-}
 @Component({
   selector: 'app-usertype',
   templateUrl: './usertype.component.html',
   styleUrls: ['./usertype.component.css']
 })
 export class UsertypeComponent implements OnInit {
-  userlist : Userlist;
-  userdata : Userdata[];
-  users:User;
+  userlist : Apiresponse;
+  userdata : Data[];
+  users:Data;
   dataSource;
   displayedColumns: string[] = ["user_type_id", "user_code", "user_name","actions"];
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:Parsing = 
-    {
-      institution_id:1,
-      academic_id:1
-    }
-    this.service.getusers(passing_institute).subscribe((data : Userlist) =>
+    this.service.getusers(1,1).subscribe((data : Apiresponse) =>
     {
       this.userlist=data;
       console.log(this.userlist.Data);
@@ -72,7 +59,7 @@ export class UsertypeComponent implements OnInit {
               alert(""+res.message);
             }
             console.log("Created a user successfully");
-            this.service.getusers(user).subscribe((data : Userlist) =>
+            this.service.getusers(1,1).subscribe((data : Apiresponse) =>
             {
               this.userlist=data;
               console.log(this.userlist.Data);
@@ -101,7 +88,7 @@ export class UsertypeComponent implements OnInit {
                 alert(""+res.message);
               }
               console.log(res);
-              this.service.getusers(user).subscribe((data : Userlist) =>
+              this.service.getusers(1,1).subscribe((data : Apiresponse) =>
               {
                 this.userlist=data;
                 console.log(this.userlist.Data);

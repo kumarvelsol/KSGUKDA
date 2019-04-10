@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Injectable } from '@angular/core';
 import { ClasserviceService } from '../class/classervice.service';
 import { NgForm } from '@angular/forms';
 import { Data } from '../class/data';
@@ -8,6 +8,8 @@ import { Classresponse } from '../class/classresponse';
 
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
+import { Router } from '@angular/router';
+import { TransfereServiceService } from '../transfere-service.service';
 
 @Component({
   selector: 'app-timetable',
@@ -21,14 +23,15 @@ export class TimetableComponent implements OnInit {
   serRes:Classresponse;
   class_id:number;
   dataSource
-  constructor(private service:ClasserviceService,public dialog: MatDialog) { }
+  constructor(private service:ClasserviceService,public dialog: MatDialog,
+    private transfereService:TransfereServiceService,) { }
 
   displayedColumns: string[] = ['session_name','from_time','to_time','subject_name','first_name','timetable_status','change/assign'];
   ngOnInit() 
   {
     this.resetForm();
 
-    this.service.get_products().subscribe(res=>{          
+    this.service.get_products(1,1).subscribe(res=>{          
       this.data=res.Data;      
     });
   }
@@ -54,6 +57,7 @@ export class TimetableComponent implements OnInit {
   });
   }
 
+  
         
 
   // selectOption(value) 
@@ -63,15 +67,14 @@ export class TimetableComponent implements OnInit {
   // }
 
     populateForm(ff:Ttablemodel)
-    {
-      console.log(ff);    
+    {              
+      this.transfereService.setData(ff.class_id);
 
-
-
+      
       this.service.ttable=Object.assign({},ff);
-     // this.service.dataInDialog(ff);
+     
       const dialogConfig=new MatDialogConfig();
-      dialogConfig.disableClose=true;
+      dialogConfig.disableClose=false;
       dialogConfig.autoFocus=true;
       dialogConfig.width="60%";
       this.dialog.open(TimetableupdateComponent,dialogConfig);
@@ -80,5 +83,7 @@ export class TimetableComponent implements OnInit {
 
     
 }
+
+
 
 
