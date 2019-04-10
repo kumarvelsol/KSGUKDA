@@ -41,7 +41,6 @@ export class CastDetailsComponent implements OnInit {
         academic_id : 1
       }
       this.service.createcast(cast).subscribe((data : JsResponse)=>{
-          //this.respons=data;
         this.jsRes = data;
         if(this.jsRes.code==200)
         {
@@ -74,7 +73,6 @@ export class CastDetailsComponent implements OnInit {
   }
 
   }
-
   index : number;
   num : number;
   public startEdit(i:number,cast_id: number, cast_name: string,) {

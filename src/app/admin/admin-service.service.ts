@@ -40,7 +40,6 @@ export class AdminServiceService {
       'Content-Type':  'application/json'
     })
   };
-
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
   //Start of Department related Service Methods
