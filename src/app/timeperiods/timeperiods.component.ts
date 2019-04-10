@@ -23,7 +23,7 @@ export class TimeperiodsComponent implements OnInit {
   serRes:Classresponse;
   data:Data[];
 
-  displayedColumns: string[] = ['session_name', 'from_time', 'to_time','actions'];
+  displayedColumns: string[] = ['class_name','session_name', 'from_time', 'to_time','actions'];
   ngOnInit()
   { 
     this.resetForm();

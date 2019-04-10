@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'classdetails',component:ClassesRelatedComponent},
   {path:'studentDetails',component:StudentComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent},
+ 
 
 
   {path:'classdetails',component:ClassTabBarComponent},

@@ -7,8 +7,8 @@
     
       <mat-form-field>
           <mat-label>select subject</mat-label>  
-    <mat-select name="sub_allocation_id" #sub_allocation_id="ngModel" [ngModel]="service.subject_id">              
-      <mat-option *ngFor="let subject of subjects" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
+    <mat-select name="sub_allocation_id" #sub_allocation_id="ngModel" [ngModel]="service.sub_allocation_id">              
+      <mat-option *ngFor="let subject of subjects" [value]="subject.sub_allocation_id">{{subject.subject_name}}</mat-option>
     </mat-select>
       </mat-form-field>
     
