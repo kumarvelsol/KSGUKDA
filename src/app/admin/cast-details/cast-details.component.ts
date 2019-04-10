@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Cast } from 'src/app/shared/Cast/cast';
+import { Cast } from 'src/app/shared/CastModels/cast';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource} from '@angular/material';
 import { JsResponse } from 'src/app/shared/jsresponse';
-import { CastData } from 'src/app/shared/Cast/castdata';
-import { CastList } from 'src/app/shared/Cast/castlist';
 
 export interface PassingInstitute {
   institution_id : number;
@@ -17,9 +15,7 @@ export interface PassingInstitute {
 })
 export class CastDetailsComponent implements OnInit {
   jsRes : JsResponse;
-  cast:Cast[];
-  castlist:CastList;
-  castdata :CastData[];
+  cast : Cast[];
   // dataSource = new MatTableDataSource<Datum>();
   // displayedColumns: string[] = ['cast_id', 'cast_name'];
   
@@ -28,14 +24,9 @@ export class CastDetailsComponent implements OnInit {
   constructor(public service:AdminServiceService ) { }
 
   ngOnInit() {
-    let passing_institute: PassingInstitute = {
-      institution_id : 1,
-    }
-   this.service.getcast(passing_institute).subscribe((data: CastList) => 
-   {
-     this.castlist = data;
-     console.log(this.castlist);
-     this.dataSource = new MatTableDataSource(this.castlist.Data);
+    this.service.getcast(1).subscribe(data => 
+    {
+     this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   cast_name:string='';

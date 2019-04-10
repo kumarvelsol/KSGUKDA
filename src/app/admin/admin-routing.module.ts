@@ -23,11 +23,8 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 const routes: Routes = [
   {path:'',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
-  {path:'bloodgroupDetails',component:BloodgroupComponent},
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
-  {path:'bloodgroupDetails',component:BloodgroupComponent},
-  {path:'classdetails',component:ClassesRelatedComponent},
   {path:'studentDetails',component:StudentComponent},
  
 

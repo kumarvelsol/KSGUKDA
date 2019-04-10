@@ -158,9 +158,11 @@
               </div>
               <div class="col-md-12">
                   <mat-form-field class="col-md-12 mat-form-wrap" style="color: gray;" appearance="outline">
-                    <mat-icon style="color :gray" matSuffix>location_city</mat-icon>
-                    <mat-label style="color :gray">State</mat-label>
-                    <input style="color :gray" type="text"  [(ngModel)]="state" name="state" matInput required>
+                    <mat-label>State</mat-label>
+                      <mat-select [(ngModel)]="state_id">
+                        <mat-option>States</mat-option>
+                        <mat-option *ngFor="let stt of states" [value]="stt.state_id">{{stt.states}}</mat-option>
+                      </mat-select>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
               </div>

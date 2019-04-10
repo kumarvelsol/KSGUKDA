@@ -6,7 +6,7 @@ import { InstituteInsert } from 'src/app/shared/instituteinsert';
 import { DepartmentDetails } from 'src/app/shared/DepartmentModels/departmentdetails';
 import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
-import { Cast } from 'src/app/shared/Cast/cast';
+import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/Religion/religion';
 import { PassInstitute } from './religion/religion.component';
@@ -59,8 +59,10 @@ export class AdminServiceService {
   //End of Department related Service Methods
 
   //Start of Institute related Service Methods
-    getinstitute (inst_Id : ParseInstituteId){
-      return this.http.post(`${this.Baseurl+"Institutionlist"}`,inst_Id);
+    getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
     }
     createinstitute (institute : InstituteInsert){
       return this.http.post(`${this.Baseurl+"Institution"}`,institute);
@@ -81,10 +83,11 @@ export class AdminServiceService {
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
   //refer:Cast
   
-  getcast (passing_institute : PassingInstitute)
+  getcast (institution_id : number)
   {
-    //return this.http.get<CastList>(this.casturllist);
-    return this.http.post(`${this.casturllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.casturllist}`, params);
   }
   createcast(cast: Cast){
     return this.http.post(`${this.casturlinsert}`,cast);
@@ -104,8 +107,12 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(userinstacad:Parsing){
-    return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
+  getusers(institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"usertypelist"}`,params);
   }
   createuser (user : User){
     return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
@@ -114,8 +121,12 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
   }
 
-  getacademic (academic : Parsing){
-    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
+  getacademic (institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,params);
   }
   createacademic (academici : Academicdetails){
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
@@ -170,9 +181,12 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
 
-   public getemployee(emplist:Parsing)
+   public getemployee(institution_id : number, academic_id : number)
    {
-     return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+     return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
    
   //Start of Subject Allocation ServiceMethods.
