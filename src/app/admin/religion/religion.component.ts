@@ -4,11 +4,6 @@ import { AdminServiceService } from '../admin-service.service';
 import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { JsResponse } from 'src/app/shared/JsResponse';
 
-export interface PassInstitute {
-institution_id : number;
-}
-
-
 @Component({
   selector: 'app-religion',
   templateUrl: './religion.component.html',

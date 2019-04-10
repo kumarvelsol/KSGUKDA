@@ -4,11 +4,6 @@ import { MatTableDataSource} from '@angular/material';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
 
-export interface PasingInstitute {
-  institution_id : number;
-  academic_id : number;
-}
-
 @Component({
   selector: 'app-mothertongue',
   providers : [AdminServiceService],
@@ -25,14 +20,14 @@ export class MothertongueComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-   this.service.getmothertongue(1,1).subscribe(data => 
-   {
+    this.service.getmothertongue(1,1).subscribe(data => 
+    {
      this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   
-   mother_tongue_name:string='';
-   id:number;
+  mother_tongue_name:string='';
+  id:number;
   buttoncontent:string="Add";
   public onclick(){
     if(this.buttoncontent == "Add")
@@ -61,7 +56,6 @@ export class MothertongueComponent implements OnInit {
         academic_id : 1,
         institution_id : 1,
         mother_tongue_name : this.mother_tongue_name,
-        
       }
       this.service.updatemothertongue(mothertongue).subscribe((data : JsResponse) => {
         //this.respons=data;
