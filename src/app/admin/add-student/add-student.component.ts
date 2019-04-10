@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, Form} from '@angular/forms';
 import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
-import { Religion } from 'src/app/shared/religion';
+
 import { ReligionList, ReligionData, PassInstitute } from '../religion/religion.component';
 import { BloodgroupData, PassInstituteID } from '../bloodgroup/bloodgroup.component';
 import {BloodgroupList} from '../bloodgroup/bloodgroup.component';
-import { CastList, CastData } from '../cast-details/cast-details.component';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { Data } from 'src/app/shared/data';
 import { Student } from 'src/app/shared/student';
@@ -23,6 +22,7 @@ export class AddStudentComponent implements OnInit {
   casteData:Data[];
   religionData:Data[];
   stateData:Data[];
+  datava:string;
 
   constructor(private _formBuilder: FormBuilder,public service:AdminServiceService) { }
   ngOnInit() {
@@ -34,7 +34,9 @@ export class AddStudentComponent implements OnInit {
     this.getCaste();
     this.getReligion();
     this.getStates();
+    console.log(this.datava)
   }
+
   gettingbloodgroup()
   {
     this.service.getBloodGroupsLists('1').subscribe((data : Apiresponse) =>{
@@ -48,7 +50,10 @@ export class AddStudentComponent implements OnInit {
       }
     });
   }
-
+get string():string
+{
+  return this.datava;
+}
   getReligion()
   {
     this.service.getReligionsLists('1').subscribe((data : Apiresponse) =>{
@@ -120,45 +125,8 @@ export class AddStudentComponent implements OnInit {
     student_id:string="";
 
     private onAddStudentClick(){
-      // if(this.checkValidations()==true)
-      // {
+     
         let std:Student={
-          // admission_number:this.admission_number,
-          // admission_date:new Date(this.admission_date),
-          // first_name:this.first_name,
-          // last_name:this.last_name,
-          // date_of_birth:new Date(this.date_of_birth),
-          // gender:this.gender,
-          // nationality:this.nationality,
-          // present_address:this.present_address,
-          // perminent_address:this.perminent_address,
-          // city:this.city,
-          // state:this.state,
-          // pin_code:this.pin_code,
-          // mobile_no:this.mobile_no,
-          // alternate_mobile_no:this.alternate_mobile_no,
-          // email:this.email,
-          // student_roll_no:this.student_roll_no,
-          // father_name:this.father_name,
-          // father_mobile_no:this.father_mobile_no,
-          // father_designation:this.father_designation,
-          // mather_name:this.mather_name,
-          // mother_designation:this.mother_designation,
-          // mother_mobile_no:this.mother_mobile_no,
-          // guardian_name:this.guardian_name,
-          // guardian_mobile_no:this.guardian_mobile_no,
-          // guardian_designation:this.guardian_designation,
-          // guardian_second_mobile_no:this.guardian_second_mobile_no,
-          // relation:this.relation,
-          // guardian_address:this.guardian_address,
-          // institution_id:1,
-          // academic_id:1,
-          // religion_id:Number(this.religion_id),
-          // cast_id:Number(this.cast_id),
-          // blood_group_id:Number(this.blood_group_id),
-          // class_id:Number(this.class_id),
-          // mother_tongue_id:Number(this.mother_tongue),
-          
           academic_id:1,
           institution_id:1,
           present_address:this.present_address,
@@ -200,11 +168,7 @@ export class AddStudentComponent implements OnInit {
         this.service.addStudent(std).subscribe((data:Apiresponse)=>{
           console.log(data);
         })
-      // }
-      // else
-      // {
-      //   alert("Please Eter all the Required Values");
-      // }
+     
     }
     private checkValidations() :any
     {

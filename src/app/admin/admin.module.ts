@@ -48,10 +48,11 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,AddStudentComponent,StudentListComponent,StudentComponent],
- imports: [
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
+  AddStudentComponent,StudentListComponent,StudentComponent],
+ imports: [
+  
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
