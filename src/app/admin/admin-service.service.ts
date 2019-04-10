@@ -8,7 +8,7 @@ import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
 import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/Religion/religion';
+import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { PassInstitute } from './religion/religion.component';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
@@ -96,9 +96,11 @@ export class AdminServiceService {
     return this.http.put(`${this.casturlupdate}${cast.cast_name}`,cast);
   }
 
-  getreligion (passing_institute : PassInstitute )
+  getreligion (institution_id : number )
   {
-    return this.http.post(`${this.religionurllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.religionurllist}`, params);
   }
   createreligion(religion: Religion){
     return this.http.post(`${this.religionurlinsert}`,religion);
@@ -256,9 +258,12 @@ export class AdminServiceService {
     return this.http.post(this.Baseurl+"StudentInsert",student);
   }
   
-  getmothertongue (PasingInstitute : PasingInstitute )
+  getmothertongue (institution_id: number,academic_id:number )
   {
-    return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
+    let params = new HttpParams();
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.mothertongueurllist}`, params);
   }
   createmothertongue(mothertongue: Mother_Tongue){
     return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);

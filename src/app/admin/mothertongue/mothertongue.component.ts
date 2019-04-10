@@ -3,8 +3,6 @@ import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource} from '@angular/material';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
-import { MothertongueData } from 'src/app/shared/Mother_tongue/mothertonguedata';
-import { MothertongueList } from 'src/app/shared/Mother_tongue/mothertonguelist';
 
 export interface PasingInstitute {
   institution_id : number;
@@ -20,9 +18,6 @@ export interface PasingInstitute {
 export class MothertongueComponent implements OnInit {
   jsRes : JsResponse;
   mothertongue:Mother_Tongue[];
-  mothertonguelist:MothertongueList;
-  mothertonguedata :MothertongueData[];
-
   
   displayedColumns : string[] = ['mother_tongue_id', 'mother_tongue_name','actions'];
   dataSource;
@@ -30,15 +25,9 @@ export class MothertongueComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let PasingInstitute: PasingInstitute = {
-      institution_id : 1,
-      academic_id : 1,
-    }
-   this.service.getmothertongue(PasingInstitute).subscribe((data: MothertongueList) => 
+   this.service.getmothertongue(1,1).subscribe(data => 
    {
-     this.mothertonguelist = data;
-     console.log(this.mothertonguelist);
-     this.dataSource = new MatTableDataSource(this.mothertonguelist.Data);
+     this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   
