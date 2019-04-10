@@ -31,7 +31,7 @@ export class TimetableComponent implements OnInit {
   {
     this.resetForm();
 
-    this.service.get_products().subscribe(res=>{          
+    this.service.get_products(1,1).subscribe(res=>{          
       this.data=res.Data;      
     });
   }
@@ -70,10 +70,11 @@ export class TimetableComponent implements OnInit {
     {              
       this.transfereService.setData(ff.class_id);
 
+      
       this.service.ttable=Object.assign({},ff);
      
       const dialogConfig=new MatDialogConfig();
-      dialogConfig.disableClose=true;
+      dialogConfig.disableClose=false;
       dialogConfig.autoFocus=true;
       dialogConfig.width="60%";
       this.dialog.open(TimetableupdateComponent,dialogConfig);

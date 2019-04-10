@@ -32,12 +32,12 @@ export class ClasserviceService {
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp);
   }
   //displaying the classes details
-  get_products()
-  {
-
-    this.refer.institution_id=1;
-    this.refer.academic_id=1;
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',this.refer);
+  get_products(institution_id : number, academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',params);
 
   }
   //updating the classes list
@@ -116,16 +116,10 @@ export class ClasserviceService {
 
 
 
-  // getPerticularClassAllocatoinSubjects(pp:Ttablemodel)
-  // {
-  //   pp.academic_id=1;
-  //   pp.institution_id=1;
-    
-  //   return this.http.post<Classresponse>('http://veledu.edujinni.in/allocationlist',pp);    
-  // }
 
 
-  getdepartment(institution_id : number, academic_id : number,class_id:number){
+
+  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number){
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");

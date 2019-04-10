@@ -8,6 +8,7 @@ import { MatDialogRef } from '@angular/material';
 
 import { Ttablemodel } from '../ttablemodel';
 import { TransfereServiceService } from '../transfere-service.service';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -20,9 +21,7 @@ export class TimetableupdateComponent implements OnInit {
   subjects : Data[];
   serRes : Classresponse;
   ff:Ttablemodel;
-
-  
-  
+  cls_id:number;
   constructor(private service:ClasserviceService,public srs:AdminServiceService,
     public dialogRef: MatDialogRef<TimetableupdateComponent> ,
     private transfereService:TransfereServiceService ) { }
@@ -32,12 +31,10 @@ export class TimetableupdateComponent implements OnInit {
     //this.resetForm();
 
    let ss:number=this.transfereService.getData();
-   
-   this.service.refer.class_id=ss;
-   
-   
-    this.service.getdepartment(1,1,this.service.refer.class_id).subscribe(data=>{
-      //this.serRes=data;  
+  this.cls_id=ss;
+
+    this.service.getPerticularClassAllocatointoSubjects(1,1,this.cls_id).subscribe(data=>{
+      
       this.subjects=data.Data;
     });
 
@@ -66,27 +63,32 @@ export class TimetableupdateComponent implements OnInit {
   onSubmit(updateTperiod:NgForm)
   {
 
-    console.log(updateTperiod.value);
-    
-    
-    this.service.updateTimeTables(updateTperiod.value).subscribe(data=>{
-      this.serRes=data;
-      if(this.serRes.code==200)
-      {
-        alert(this.serRes.message);  
-        console.log(this.serRes.Data); 
-        this.dialogRef.close();                   
-      }
-      else{
-        alert(this.serRes.message);
-        
-      }
-  }) 
+    if(updateTperiod.value.sub_allocation_id==null)
+    {
+
+    }else
+    {
+        this.service.updateTimeTables(updateTperiod.value).subscribe(data=>
+          {
+              this.serRes=data;
+              if(this.serRes.code==200)
+              {
+                alert(this.serRes.message);  
+                
+                this.dialogRef.close();                   
+              }
+              else{
+                alert(this.serRes.message);
+                
+              }
+            }) 
+    }
+  
 
   }
   close()
   {
-    this.dialogRef.close();
+   this.dialogRef.close();
   }
 
 }

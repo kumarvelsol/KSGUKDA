@@ -28,7 +28,7 @@ export class TimeperiodsComponent implements OnInit {
   { 
     this.resetForm();
     this.callingGetPeriods();
-    this.service.get_products().subscribe(res=>{          
+    this.service.get_products(1,1).subscribe(res=>{          
     this.data=res.Data;      
     
   });
