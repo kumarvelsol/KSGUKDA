@@ -119,7 +119,8 @@ export class ClasserviceService {
 
 
 
-  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number){
+  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number)
+  {
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");
