@@ -65,7 +65,7 @@ export class TimetableupdateComponent implements OnInit {
 
     if(updateTperiod.value.sub_allocation_id==null)
     {
-
+      alert("-- please select class --");      
     }else
     {
         this.service.updateTimeTables(updateTperiod.value).subscribe(data=>
