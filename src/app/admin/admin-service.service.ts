@@ -109,8 +109,12 @@ export class AdminServiceService {
     return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
   }
   
-  getusers(userinstacad:Parsing){
-    return this.http.post(`${this.Baseurl+"usertypelist"}`,userinstacad);
+  getusers(institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"usertypelist"}`,params);
   }
   createuser (user : User){
     return this.http.post(`${this.Baseurl+"USERINSERT"}`,user);
@@ -119,8 +123,12 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"updateusertype"}`,user_details);
   }
 
-  getacademic (academic : Parsing){
-    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,academic);
+  getacademic (institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+    return this.http.post(`${this.Baseurl+"getAcadamicdetails"}`,params);
   }
   createacademic (academici : Academicdetails){
     return this.http.post(`${this.Baseurl+"Acadamicdetails"}`,academici)
@@ -175,9 +183,12 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
 
-   public getemployee(emplist:Parsing)
+   public getemployee(institution_id : number, academic_id : number)
    {
-     return this.http.post(`${this.Baseurl+"Employeelist"}`,emplist);
+    let params = new HttpParams();
+     params = params.append('institution_id', institution_id+"");
+     params = params.append('academic_id',academic_id+"");
+     return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
    
   //Start of Subject Allocation ServiceMethods.

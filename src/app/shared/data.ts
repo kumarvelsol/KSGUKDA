@@ -47,7 +47,6 @@ export interface Data {
     experience:string,
     present_address :string,
     perminent_address:string,
-    state:string,
     city :string,
     pin_code:string
 
