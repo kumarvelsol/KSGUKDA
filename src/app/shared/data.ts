@@ -26,9 +26,10 @@ export interface Data {
     academic_status:string;
     cast_name:string;
     cast_id: number;
-    religion_id:string;
+    religion_id:number;
     religion_name:string;
-
+    mother_tongue_id:number;
+    mother_tongue_name:string;
     states:string;
     state_id:string;
     
@@ -46,7 +47,6 @@ export interface Data {
     experience:string,
     present_address :string,
     perminent_address:string,
-    state:string,
     city :string,
     pin_code:string
 

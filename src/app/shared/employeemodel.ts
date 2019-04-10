@@ -19,7 +19,7 @@ export interface Employeemodel {
     blood_group_id:Number,
     present_address :string,
     perminent_address:string,
-    state:string,
+    state_id:number,
     city :string,
     pin_code:string
 }

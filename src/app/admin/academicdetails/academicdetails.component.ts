@@ -20,12 +20,7 @@ export class AcademicdetailsComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute:Parsing = 
-    {
-      institution_id:1,
-      academic_id:1
-    };
-    this.service.getacademic(passing_institute).subscribe((data : Apiresponse) =>
+    this.service.getacademic(1,1).subscribe((data : Apiresponse) =>
     {
       this.academiclist = data;
       console.log(this.academiclist.Data);
@@ -65,7 +60,7 @@ export class AcademicdetailsComponent implements OnInit {
           alert(""+res.message);
         }
         console.log(res);
-        this.service.getacademic(acd).subscribe((data : Apiresponse) =>
+        this.service.getacademic(1,1).subscribe((data : Apiresponse) =>
         {
         this.academiclist = data;
         console.log(this.academiclist.Data);

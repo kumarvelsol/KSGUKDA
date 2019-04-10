@@ -23,12 +23,12 @@ export class TimeperiodsComponent implements OnInit {
   serRes:Classresponse;
   data:Data[];
 
-  displayedColumns: string[] = ['session_name', 'from_time', 'to_time','actions'];
+  displayedColumns: string[] = ['class_name','session_name', 'from_time', 'to_time','actions'];
   ngOnInit()
   { 
     this.resetForm();
     this.callingGetPeriods();
-    this.service.get_products().subscribe(res=>{          
+    this.service.get_products(1,1).subscribe(res=>{          
     this.data=res.Data;      
     
   });

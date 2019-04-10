@@ -28,7 +28,7 @@ export class ClassesRelatedComponent implements OnInit {
   }
   callingClasses()
   {
-    this.servs.get_products().subscribe(res=>{          
+    this.servs.get_products(1,1).subscribe(res=>{          
       this.data=res.Data;      
       this.dataSource = this.data;
   });
