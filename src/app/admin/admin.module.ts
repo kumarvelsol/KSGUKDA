@@ -70,25 +70,11 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
 
     ReactiveFormsModule,
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent],
+  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent,
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
     AddStudentComponent,StudentListComponent,StudentComponent],
-  imports: [
-    CommonModule, AdminRoutingModule,
-    LayoutModule, MatToolbarModule,
-    MatButtonModule, MatSidenavModule,
-    MatListModule, MatTableModule,
-    MaterialModule, FormsModule,
-    MatInputModule, ReactiveFormsModule,
-    MatIconModule, MatDialogModule,
-    MatSelectModule, MatTabsModule,
-    AmazingTimePickerModule],
-  exports:[DashboardComponent,AdminToolbarComponent,
-    ClassesRelatedComponent,TimeperiodsComponent,
-    SubjectsComponent,TimetableupdateComponent],
-  providers:[AdminServiceService],
-  entryComponents: [TimetableupdateComponent]
+  
 })
 export class AdminModule { }
