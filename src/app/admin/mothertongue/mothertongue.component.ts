@@ -57,7 +57,7 @@ export class MothertongueComponent implements OnInit {
         institution_id : 1,
         mother_tongue_name : this.mother_tongue_name,
       }
-      this.service.updatemothertongue(mothertongue).subscribe((data : JsResponse) => {
+      this.service.updatemothertongue(this.num,1,1,this.mother_tongue_name).subscribe((data : JsResponse) => {
         //this.respons=data;
         this.jsRes = data;
         if(this.jsRes.code==200)
@@ -69,17 +69,11 @@ export class MothertongueComponent implements OnInit {
       });
     }
   }
-  index : number;
-  number : number;
-  public startEdit(i:number,mother_tongue_id: number, mother_tongue_name : string) {
-
-  this.index = i;
-  this.number = mother_tongue_id;
-  this.mother_tongue_name = mother_tongue_name;
   
-  this.buttoncontent = "Update";
-  console.log(this.id);
-  }
-  
-
+ num : number;
+ public startEdit(i:number,mother_tongue_id: number, mother_tongue_name : string) {
+ this.num = mother_tongue_id;
+ this.mother_tongue_name = mother_tongue_name;
+ this.buttoncontent = "Update";
+ } 
 }
