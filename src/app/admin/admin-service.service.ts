@@ -8,8 +8,7 @@ import { InstituteUpdate } from 'src/app/shared/instituteupdate';
 import { ParseInstituteId } from '../admin/institutedetails/institutedetails.component';
 import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
-import { Religion } from 'src/app/shared/Religion/religion';
-import { PassInstitute } from './religion/religion.component';
+import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { User } from '../shared/user';
 import { Academicdetails} from '../shared/academicdetails';
 import { Designation } from '../shared/designation';
@@ -20,7 +19,6 @@ import { Employeemodel } from '../shared/employeemodel';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
-import {PasingInstitute} from '../admin/mothertongue/mothertongue.component';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
 import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
@@ -40,7 +38,6 @@ export class AdminServiceService {
       'Content-Type':  'application/json'
     })
   };
-
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
   //Start of Department related Service Methods
@@ -87,24 +84,36 @@ export class AdminServiceService {
   {
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
-    return this.http.post<Apiresponse>(`${this.casturllist}`, params);
+    return this.http.post<Apiresponse>(`${this.Baseurl+"getCastDetails"}`, params);
   }
   createcast(cast: Cast){
-    return this.http.post(`${this.casturlinsert}`,cast);
+    return this.http.post(`${this.Baseurl+"addingCast"}`,cast);
   }
-  updatecast(cast:Cast){
-    return this.http.put(`${this.casturlupdate}${cast.cast_name}`,cast);
+  updatecast(cast_id : number,institution_id : number,academic_id : number, cast_name : string){
+    let params = new HttpParams();
+    params = params.append('cast_id', cast_id+"");
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('cast_name', cast_name);
+    return this.http.post(`${this.Baseurl+"UpdatingCast"}`,params);
   }
 
-  getreligion (passing_institute : PassInstitute )
+  getreligion (institution_id : number )
   {
-    return this.http.post(`${this.religionurllist}`, passing_institute);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"getReligionDetails"}`, params);
   }
   createreligion(religion: Religion){
-    return this.http.post(`${this.religionurlinsert}`,religion);
+    return this.http.post(`${this.Baseurl+"addingReligion"}`,religion);
   }
-  updatereligion(religion:Religion){
-    return this.http.put(`${this.religionurlupdate}${religion.religion_name}`,religion);
+  updatereligion(religion_id : number,institution_id : number,academic_id : number,religion_name : string ){
+    let params = new HttpParams();
+    params = params.append('religion_id', religion_id+"");
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('religion_name', religion_name);
+    return this.http.post(`${this.Baseurl+"updateReligion"}`,params);
   }
   
   getusers(institution_id : number, academic_id : number)
@@ -181,16 +190,25 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
 
-   public getemployee(institution_id : number, academic_id : number)
+   public getemployeelist(institution_id : number, academic_id : number)
    {
     let params = new HttpParams();
      params = params.append('institution_id', institution_id+"");
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('employee_id',employee_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
+   }
    
   //Start of Subject Allocation ServiceMethods.
-    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number){//,depemp : DepEmpParsing
+    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
+    {//,depemp : DepEmpParsing
       let params = new HttpParams();
       params = params.append('institution_id', institution_id+"");
       params = params.append('academic_id',academic_id+"");
@@ -267,14 +285,22 @@ export class AdminServiceService {
     return this.http.post(this.Baseurl+"StudentInsert",student);
   }
   
-  getmothertongue (PasingInstitute : PasingInstitute )
+  getmothertongue (institution_id: number,academic_id:number )
   {
-    return this.http.post(`${this.mothertongueurllist}`, PasingInstitute);
+    let params = new HttpParams();
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"getmothertongueDetails"}`, params);
   }
   createmothertongue(mothertongue: Mother_Tongue){
-    return this.http.post(`${this.mothertongueurlinsert}`,mothertongue);
+    return this.http.post(`${this.Baseurl+"addmothertongue"}`,mothertongue);
   }
-  updatemothertongue(mothertongue:Mother_Tongue){
-    return this.http.put('${this.mothertongueurlupdate}${mothertongue.mother_tongue_name}',mothertongue);
+  updatemothertongue(mother_tongue_id : number,institution_id : number,academic_id : number,mother_tongue_name : string){
+    let params = new HttpParams();
+    params = params.append('mother_tongue_id', mother_tongue_id+"");
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('mother_tongue_name', mother_tongue_name);
+    return this.http.post(`${this.Baseurl+"Updatingmothertongue"}`,params);
   }
 }
