@@ -1,29 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import { AdminServiceService } from '../admin-service.service';
-import { Religion } from 'src/app/shared/Religion/religion';
+import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { JsResponse } from 'src/app/shared/JsResponse';
-import { ReligionData } from 'src/app/shared/Religion/religiondata';
-import { ReligionList } from 'src/app/shared/Religion/religionlist';
-
-
-
-
-export interface ReligionData {
-  institution_id: number;
-  religion_id: number;
-  religion_name: string;
-}
-export interface ReligionList {
-  code: number;
-  message: string;
-  Data:ReligionData [];
-}
-
-export interface PassInstitute {
-institution_id : number;
-}
-
 
 @Component({
   selector: 'app-religion',
@@ -34,8 +13,6 @@ institution_id : number;
 export class ReligionComponent implements OnInit {
   jsRes : JsResponse;
   religion:Religion[];
-  religionlist:ReligionList;
-  religiondata :ReligionData[];
 
   // dataSource = new MatTableDataSource<Religion>();
   // displayedColumns: string[] = ['religion_id', 'religion_name'];
@@ -46,20 +23,13 @@ export class ReligionComponent implements OnInit {
   constructor(public service:AdminServiceService ) { }
 
   ngOnInit() {
-    let passing_institute: PassInstitute = {
-      institution_id : 1,
-  }
-  this.service.getreligion(passing_institute).subscribe((data: ReligionList) => 
-  {
-    this.religionlist = data;
-    console.log(this.religionlist);
-    this.dataSource = new MatTableDataSource(this.religionlist.Data);
+  this.service.getreligion(1).subscribe(data => 
+   {
+    this.dataSource = new MatTableDataSource(data.Data);
    });
   }
   religion_name:string='';
   id:number;
-
-
   buttoncontent:string="Add";
   public onclick(){
     

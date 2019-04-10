@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
   {path:'studentDetails',component:StudentComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent},
+ 
 
 
   {path:'classdetails',component:ClassTabBarComponent},
