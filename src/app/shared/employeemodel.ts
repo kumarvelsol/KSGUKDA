@@ -16,10 +16,10 @@ export interface Employeemodel {
     qualification:string,
     experience:string,
     departmant_id:Number,
-    blood_group_id:Number,
+    blood_group_id:string,
     present_address :string,
     perminent_address:string,
-    state_id:number,
+    state_id:string,
     city :string,
     pin_code:string
 }

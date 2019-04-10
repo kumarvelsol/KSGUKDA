@@ -161,7 +161,7 @@
                     <mat-label>State</mat-label>
                       <mat-select [(ngModel)]="state_id">
                         <mat-option>States</mat-option>
-                        <mat-option *ngFor="let stt of states" [value]="stt.state_id">{{stt.states}}</mat-option>
+                        <mat-option *ngFor="let stt of statess" [value]="stt.state_id">{{stt.states}}</mat-option>
                       </mat-select>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
@@ -211,7 +211,7 @@
         </div>
         <div>
           <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Back</button>&nbsp;&nbsp;
-          <button class="btn-style" (click)="OnSaveclick()" style="width: 210px" mat-button>Save Employee Details</button>
+          <button class="btn-style" (click)="OnSaveclick()" style="width: 210px" mat-button>{{buttoncontent}}</button>
         </div>
     </mat-step>
   </mat-vertical-stepper>

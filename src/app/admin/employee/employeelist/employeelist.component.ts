@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource} from '@angular/material';
-import { AdminServiceService,Parsing } from 'src/app/admin/admin-service.service';
+import { AdminServiceService } from 'src/app/admin/admin-service.service';
 import { Data } from '@angular/router';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 
@@ -18,7 +18,7 @@ export class EmployeelistComponent implements OnInit {
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() {
-    this.service.getemployee(1,1).subscribe((data : Apiresponse) =>
+    this.service.getemployeelist(1,1).subscribe((data : Apiresponse) =>
     {
       this.emplist=data;
       this.dataSource = new MatTableDataSource(this.emplist.Data);

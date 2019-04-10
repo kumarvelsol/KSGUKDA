@@ -181,16 +181,25 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
 
-   public getemployee(institution_id : number, academic_id : number)
+   public getemployeelist(institution_id : number, academic_id : number)
    {
     let params = new HttpParams();
      params = params.append('institution_id', institution_id+"");
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('employee_id',employee_id+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
+   }
    
   //Start of Subject Allocation ServiceMethods.
-    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number){//,depemp : DepEmpParsing
+    public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
+    {//,depemp : DepEmpParsing
       let params = new HttpParams();
       params = params.append('institution_id', institution_id+"");
       params = params.append('academic_id',academic_id+"");
