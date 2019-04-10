@@ -32,6 +32,7 @@ export class CastDetailsComponent implements OnInit {
   cast_name:string='';
   id:number;
   buttoncontent:string="Add";
+
   public onclick(){
     if(this.buttoncontent == "Add")
     {
@@ -41,7 +42,6 @@ export class CastDetailsComponent implements OnInit {
         academic_id : 1
       }
       this.service.createcast(cast).subscribe((data : JsResponse)=>{
-          //this.respons=data;
         this.jsRes = data;
         if(this.jsRes.code==200)
         {
@@ -54,37 +54,30 @@ export class CastDetailsComponent implements OnInit {
       this.id = null;this.cast_name = null; 
     }
     else if(this.buttoncontent == "Update")
-  {
-    let cast: Cast = {
-      academic_id : 1,
-      institution_id : 1,
-      cast_name : this.cast_name,
-      
-    }
-    this.service.updatecast(cast).subscribe((data : JsResponse) => {
-      //this.respons=data;
-      this.jsRes = data;
-      if(this.jsRes.code==200)
-      {
-        alert("Cast update Succesfully.!");
-        console.log("success");
-      }else{
+    {
+      let cast: Cast = {
+        academic_id : 1,
+        institution_id : 1,
+        cast_name : this.cast_name,
+        
       }
-    });
+      this.service.updatecast(this.num,1,1,this.cast_name).subscribe((data : JsResponse) => {
+        //this.respons=data;
+        this.jsRes = data;
+        if(this.jsRes.code==200)
+        {
+          alert("Cast update Succesfully.!");
+          console.log("success");
+        }else{
+        }
+      });
+    }
   }
-
-  }
-
-  index : number;
   num : number;
   public startEdit(i:number,cast_id: number, cast_name: string,) {
   // index row is used just for debugging proposes and can be removed
-  this.index = i;
-  this.num = cast_id;
-  this.cast_name = cast_name;
-  
-  this.buttoncontent = "Update";
-  console.log(this.id);
+    this.num = cast_id;
+    this.cast_name = cast_name;
+    this.buttoncontent = "Update";
   }
-
 }
