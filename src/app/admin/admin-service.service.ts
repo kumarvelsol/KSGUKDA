@@ -200,7 +200,14 @@ export class AdminServiceService {
       params = params.append('employee_id',employee_id+"");
       return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
    }
-   
+   public getclassexam(institution_id : number, academic_id : number,exam_id : number)
+   {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('exam_id',exam_id+"");
+    return this.http.post(`${this.Baseurl+"getClassExams"}`,params);
+   }
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
     {//,depemp : DepEmpParsing

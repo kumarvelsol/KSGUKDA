@@ -15,6 +15,7 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
+import { ClassexamComponent } from '../admin/classexam/classexam.component';
 
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
@@ -26,17 +27,12 @@ const routes: Routes = [
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
   {path:'studentDetails',component:StudentComponent},
- 
-
-
   {path:'classdetails',component:ClassTabBarComponent},
-  
   {path:'TimePeriod',component:TimeandPeriodComponent},  
-
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
- 
   {path:'subjectdetails',component:SubjectTabBarComponent},
-  {path:'employeelist',component:EmployeelistComponent}
+  {path:'employeelist',component:EmployeelistComponent},
+  {path:'classexam',component:ClassexamComponent}
 ];
 
 @NgModule({

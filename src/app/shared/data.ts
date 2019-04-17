@@ -86,4 +86,7 @@ export interface Data {
     institution_image : string;
     institution_code : string;
 
+    exam_class_start_date :Date;
+    exam_class_end_date:Date ; 
+    exam_id:string ;
 }
