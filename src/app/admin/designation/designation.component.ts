@@ -29,7 +29,7 @@ export class DesignationComponent implements OnInit {
       designation_description :this.designation_description,
       institution_id : 1,
       academic_id : 1,
-      departmant_id :1,
+      departmant_id : this.deptselected,
       departmant_name : this.departmant_name
     }
     this.designationservice.getdepartment(1,1).subscribe(data =>
@@ -68,7 +68,7 @@ export class DesignationComponent implements OnInit {
           designation_description :this.designation_description,
           institution_id : 1,
           academic_id : 1,
-          departmant_id :1,
+          departmant_id : this.deptselected,
           departmant_name : this.departmant_name
          }
          this.designationservice.updatedesignation(a).subscribe((data : JsResponse) => {
@@ -97,7 +97,7 @@ export class DesignationComponent implements OnInit {
           designation_description :this.designation_description,
           institution_id : 1,
           academic_id : 1,
-          departmant_id :1,
+          departmant_id : this.deptselected,
           departmant_name : this.departmant_name
          }
          this.designationservice.createdesignation(a).subscribe((data : JsResponse) => {
@@ -128,4 +128,8 @@ public RowSelected(row)
    this.designation_description = row.designation_description;
    console.log("row clicked",row);
  }
+ callType(value){
+  console.log(value);
+  this.departmant_name=value;
+}
 }

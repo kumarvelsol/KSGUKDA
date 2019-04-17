@@ -36,6 +36,7 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
 import { ClassexamComponent } from './classexam/classexam.component';
+import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -46,7 +47,9 @@ import { ClassexamComponent } from './classexam/classexam.component';
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent, ClassexamComponent],
+    AddStudentComponent,StudentListComponent,StudentComponent, ClassexamComponent,SchoolexamComponent],
+
+
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,

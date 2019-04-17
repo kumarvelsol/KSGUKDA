@@ -58,13 +58,15 @@ export class ClasserviceService {
 
 
 
-  getTperiods ()
+  getTperiods (institution_id : number, academic_id : number,class_id:number)
   {
-    this.tperiods.institution_id=1;
-    this.tperiods.academic_id=1;
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
  
     //console.log(emp);
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/getTimeperiods',JSON.stringify(this.tperiods), this.httpOptions);
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/getTimeperiods',params);
    
   }
 
@@ -119,7 +121,8 @@ export class ClasserviceService {
 
 
 
-  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number){
+  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number)
+  {
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");

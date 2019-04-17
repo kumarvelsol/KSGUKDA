@@ -11,7 +11,7 @@
           </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
             <mat-label style="color :gray">Department Id</mat-label>
-             <mat-select [(ngModel)] = "deptselected"> 
+             <mat-select [(ngModel)] = "deptselected" (change)="callType(value)"> 
                 <mat-option>Department</mat-option>
               <mat-option *ngFor="let dname of delist" [value]="dname.departmant_id">{{dname.departmant_name}}</mat-option> 
             </mat-select>

@@ -60,7 +60,7 @@ export class ReligionComponent implements OnInit {
           religion_name : this.religion_name,
           
         }
-        this.service.updatereligion(religion).subscribe((data : JsResponse) => {
+        this.service.updatereligion(this.num,1,1,this.religion_name).subscribe((data : JsResponse) => {
           //this.respons=data;
           this.jsRes = data;
           if(this.jsRes.code==200)
@@ -74,17 +74,11 @@ export class ReligionComponent implements OnInit {
       }
       
   }
-  index : number;
-  num : number;
-  public startEdit(i:number,religion_id: number, religion_name: string,) {
-  // index row is used just for debugging proposes and can be removed
-  this.index = i;
-  this.num = religion_id;
-  this.religion_name = religion_name;
-  
-  this.buttoncontent = "Update";
-  console.log(this.id);
-  }
-
-
+   num : number;
+   public startEdit(i:number,religion_id: number, religion_name: string,) {
+    // index row is used just for debugging proposes and can be removed
+   this.num = religion_id;
+   this.religion_name = religion_name;
+   this.buttoncontent = "Update";
+   }
 }
