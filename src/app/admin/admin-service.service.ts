@@ -26,6 +26,8 @@ import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
+import { Schoolexam } from '../shared/schoolexam';
+
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -132,7 +134,7 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
   }
 
-  getbloodgroup(blood_get : PassingInstitute)
+  getbloodgroup(blood_get : Parsing)
   {
     return this.http.post(`${this.Baseurl+"getbloodGroupdetails"}`, blood_get);
   }
@@ -150,7 +152,20 @@ export class AdminServiceService {
   {
     return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
   }
-
+  //School Exams Related ServiceMethods
+  getschoolexams(exam_get : Parsing)
+  {
+    return this.http.post(`${this.Baseurl+"getSchoolExams"}`, exam_get);
+  }
+  public createschoolexam(exam_in:Schoolexam){
+      return this.http.post(`${this.Baseurl+"addingSchoolExam"}`,exam_in);
+  }
+  public updateschoolexam(exam_up: Schoolexam){
+    return this.http.post(`${this.Baseurl+" updatingSchoolExam"}`,exam_up);
+  }
+  public deleteschoolexam(exam_del: Schoolexam){
+    return this.http.post(`${this.Baseurl+" deletingSchoolExam"}`,exam_del);
+  }
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
       return this.http.post(`${this.Baseurl+"Subjectinsert"}`,sub_insert);

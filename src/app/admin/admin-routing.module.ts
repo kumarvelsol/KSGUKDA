@@ -17,6 +17,7 @@ import { TimeandPeriodComponent } from '../timeand-period/timeand-period.compone
 import { TimetableComponent } from '../timetable/timetable.component';
 
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
  
   {path:'subjectdetails',component:SubjectTabBarComponent},
-  {path:'employeelist',component:EmployeelistComponent}
+  {path:'employeelist',component:EmployeelistComponent},
+  {path:'schoolexam',component:SchoolexamComponent}
 ];
 
 @NgModule({

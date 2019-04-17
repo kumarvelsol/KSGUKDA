@@ -48,7 +48,8 @@ export class EmployeedetailsComponent implements OnInit {
   gettingbloodgroup()
   {
     let institute = {
-      institution_id : 1
+      institution_id : 1,
+      academic_id :1
     }
     this.service.getbloodgroup(institute).subscribe((data : Apiresponse) =>{
       this.blood = data.Data;
