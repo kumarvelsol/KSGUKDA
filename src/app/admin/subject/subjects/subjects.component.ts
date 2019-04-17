@@ -19,6 +19,7 @@ export class SubjectsComponent implements OnInit {
   description : string = '';
   jsRes : JsResponse;
   sub_list : Data[];
+  //displayedHeading = ["subjects"];
   displayedColumns = ['subject_id', 'subject_name', 'subject_code', 'subject_description','actions'];
   dataSource;
   buttoncontent:string = "Add";

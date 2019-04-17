@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <mat-card class="row example-card parent">
+    <div class="col-lg-6">
+      <mat-card class="col-lg-12 row example-card parent">
         <div class="block child">
           <p style="margin-top: 20px;">Subject Details</p>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
@@ -31,10 +31,13 @@
         </div>
       </mat-card>
     </div>
-    <div class="col-md-6">
-      <div class="example-container mat-elevation-z1">
+    <div class="col-lg-6">
+      <div class="example-container row mat-elevation-z1">
         <table mat-table [dataSource]="dataSource">
           <!--Id Column-->
+          <!-- <ng-container matColumnDef="subjects">
+            <th mat-header-cell *matHeaderCellDef colspan="5"> Subjects </th>
+          </ng-container> -->
           <ng-container matColumnDef="subject_id">
             <th mat-header-cell *matHeaderCellDef> Id </th>
             <td mat-cell *matCellDef="let element"> {{element.subject_id}} </td>
@@ -63,6 +66,7 @@
               </button>
             </td>
           </ng-container>
+          <!-- <tr mat-header-row *matHeaderRowDef="displayedHeading; sticky: true"></tr> -->
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

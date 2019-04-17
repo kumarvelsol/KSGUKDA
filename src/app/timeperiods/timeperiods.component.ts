@@ -23,22 +23,19 @@ export class TimeperiodsComponent implements OnInit {
   serRes:Classresponse;
   data:Data[];
 
-  displayedColumns: string[] = ['session_name', 'from_time', 'to_time','actions'];
+  displayedColumns: string[] = ['class_name','session_name', 'from_time', 'to_time','actions'];
   ngOnInit()
   { 
     this.resetForm();
-    this.callingGetPeriods();
-    this.service.get_products().subscribe(res=>{          
+    //this.callingGetPeriods();
+    this.service.get_products(1,1).subscribe(res=>{          
     this.data=res.Data;      
     
   });
   }
   callingGetPeriods()
   {
-    this.service.getTperiods().subscribe(data=>{
-      this.serRes=data;
-      this.dataSource=this.serRes.Data;          
-    });
+    
   }
 
   resetForm(form? : NgForm)
@@ -69,7 +66,12 @@ export class TimeperiodsComponent implements OnInit {
         if(this.serRes.code==200)
         {
           alert(this.serRes.message);
-          this.callingGetPeriods();       
+
+          //method for displaying the added valued
+          this.service.getTperiods(1,1,addingTperiod.value.class_id).subscribe(data=>{
+            this.serRes=data;
+            this.dataSource=this.serRes.Data;          
+          });     
         }
         else{          
           alert(this.serRes.message);          
@@ -101,7 +103,11 @@ export class TimeperiodsComponent implements OnInit {
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        this.callingGetPeriods();        
+                        //method for displaying the added valued
+          this.service.getTperiods(1,1,addingClass.value.class_id).subscribe(data=>{
+            this.serRes=data;
+            this.dataSource=this.serRes.Data;          
+          });  
       }
       else{
         alert(this.serRes.message);
@@ -120,7 +126,7 @@ export class TimeperiodsComponent implements OnInit {
       if(this.serRes.code==200)
       {
         alert(this.serRes.message);
-        this.callingGetPeriods();
+        this.resetForm();
       }
       else
       {
@@ -132,13 +138,19 @@ export class TimeperiodsComponent implements OnInit {
 
 
 
-  // selectOption(value) {
-  //   //getted from event
-  //   this.cis_id=value;
-  //   console.log(value);
-  //   //getted from binding
+  selectOption(value) 
+  {
+
+    this.service.getTperiods(1,1,value).subscribe(data=>{
+      this.serRes=data;
+      this.dataSource=this.serRes.Data;          
+    });
+    //getted from event
+    this.cis_id=value;
+    console.log(value);
+    //getted from binding
     
-  // }
+  }
 
 
 }

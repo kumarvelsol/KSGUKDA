@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Classmodel } from './classmodel';
 import { Data } from './data';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Classresponse } from './classresponse';
 import { Timeperiodmodel } from '../timeperiods/timeperiodmodel';
@@ -29,15 +29,15 @@ export class ClasserviceService {
   {    
     emp.institution_id=1;
     emp.academic_id=1;
-    return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp)
+    return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp);
   }
   //displaying the classes details
-  get_products()
-  {
-
-    this.refer.institution_id=1;
-    this.refer.academic_id=1;
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',this.refer);
+  get_products(institution_id : number, academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',params);
 
   }
   //updating the classes list
@@ -58,13 +58,15 @@ export class ClasserviceService {
 
 
 
-  getTperiods ()
+  getTperiods (institution_id : number, academic_id : number,class_id:number)
   {
-    this.tperiods.institution_id=1;
-    this.tperiods.academic_id=1;
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
  
     //console.log(emp);
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/getTimeperiods',JSON.stringify(this.tperiods), this.httpOptions);
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/getTimeperiods',params);
    
   }
 
@@ -107,15 +109,26 @@ export class ClasserviceService {
   }
 
 
-  updateTimeTables(ss:Ttablemodel) :Observable<Classresponse>
+  updateTimeTables(nn:Ttablemodel) :Observable<Classresponse>
   {    
-    ss.academic_id=1;
-    ss.institution_id=1;
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/updateTimeTables',ss)
+    nn.academic_id=1;
+    nn.institution_id=1;
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/updateTimeTables',nn)
   }
 
 
 
+
+
+
+  getPerticularClassAllocatointoSubjects(institution_id : number, academic_id : number,class_id:number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/allocationlist',params);
+  }
  
 
 

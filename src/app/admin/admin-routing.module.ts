@@ -27,15 +27,9 @@ const routes: Routes = [
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
   {path:'studentDetails',component:StudentComponent},
-  {path:'TimePeriod',component:TimeperiodsComponent},
-
-
   {path:'classdetails',component:ClassTabBarComponent},
-  
   {path:'TimePeriod',component:TimeandPeriodComponent},  
-
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
- 
   {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'employeelist',component:EmployeelistComponent},
   {path:'schoolexam',component:SchoolexamComponent}
