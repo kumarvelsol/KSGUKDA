@@ -75,6 +75,11 @@ export interface Data {
     departmant_name : string;
     id : number;
 
+    exam_type: string;
+    exam_start_date: Date;
+    exam_end_date: Date;
+    exam_id: number;
+    
     institution_name : string;
     institution_address : string;
     institution_email : string;

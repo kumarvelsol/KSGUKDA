@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Bloodgroup } from 'src/app/shared/bloodgroup';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Data } from 'src/app/shared/data';
 import { Apiresponse } from 'src/app/shared/apiresponse';
@@ -28,9 +28,10 @@ export class BloodgroupComponent implements OnInit {
   constructor(private service1Service: AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute: PassInstituteID = 
+    let passing_institute: Parsing = 
     {
-        institution_id :1
+        institution_id :1,
+        academic_id :1
     }
    this.service1Service.getbloodgroup(passing_institute).subscribe((data: Apiresponse) => 
    {
