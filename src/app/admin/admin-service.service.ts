@@ -181,10 +181,10 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"addingSchoolExam"}`,exam_in);
   }
   public updateschoolexam(exam_up: Schoolexam){
-    return this.http.post(`${this.Baseurl+" updatingSchoolExam"}`,exam_up);
+    return this.http.post(`${this.Baseurl+"updatingSchoolExam"}`,exam_up);
   }
   public deleteschoolexam(exam_del: Schoolexam){
-    return this.http.post(`${this.Baseurl+" deletingSchoolExam"}`,exam_del);
+    return this.http.post(`${this.Baseurl+"deletingSchoolExam"}`,exam_del);
   }
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
