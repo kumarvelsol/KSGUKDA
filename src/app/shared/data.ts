@@ -33,22 +33,22 @@ export interface Data {
     states:string;
     state_id:string;
     
-    employee_code:string,
-    last_name:string,
-    date_of_birth:Date,
-    gender:string,
-    phone_no:string,
-    alternate_phone_no:string,
-    email:string,
-    user_type:string,
-    designation_id :Number,
-    joining_date:Date,
-    qualification:string,
-    experience:string,
-    present_address :string,
-    perminent_address:string,
-    city :string,
-    pin_code:string
+    employee_code:string;
+    last_name:string;
+    date_of_birth:Date;
+    gender:string;
+    phone_no:string;
+    alternate_phone_no:string;
+    email:string;
+    user_type:string;
+    designation_id :Number;
+    joining_date:Date;
+    qualification:string;
+    experience:string;
+    present_address :string;
+    perminent_address:string;
+    city :string;
+    pin_code:string;
 
     //Start of Department Fields
     departmant_id: number;
@@ -75,7 +75,6 @@ export interface Data {
     departmant_name : string;
     id : number;
 
-
     institution_name : string;
     institution_address : string;
     institution_email : string;
@@ -86,4 +85,14 @@ export interface Data {
     institution_image : string;
     institution_code : string;
 
+    //Start of Fee Module
+    fee_type_id : number;
+    fee_type_code : string;
+    fee_name : string;
+
+    fee_mode_name : string;
+    fee_mode_code : string;
+    fee_mode_id : number;
+    fee_mode_status : string;
+    //End of Fee Module
 }

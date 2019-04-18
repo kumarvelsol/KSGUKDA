@@ -35,6 +35,8 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
+import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
+import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -45,7 +47,7 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent],
+    AddStudentComponent,StudentListComponent,StudentComponent, FeeTypeComponent, FeeModeComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
