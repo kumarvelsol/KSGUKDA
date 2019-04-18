@@ -19,7 +19,7 @@ export class DesignationComponent implements OnInit {
   delist : Data[];
   desiglist : Apiresponse;
   designationlist : Data[];
-  displayedColumns: string[] = ['designation_id','designation_code','designation_name'];
+  displayedColumns: string[] = ['designation_id','designation_code','designation_name','actions'];
   constructor(private designationservice: AdminServiceService) { }
   ngOnInit() {
     let a:Designation = {
@@ -59,7 +59,7 @@ export class DesignationComponent implements OnInit {
     {alert("Please enter Valid Data") }
     else
     {
-      if(this.buttoncontent == 'Modify')
+      if(this.buttoncontent == 'Update')
       { 
         let a:Designation = {
           designation_id : this.designation_id ,
@@ -120,13 +120,23 @@ export class DesignationComponent implements OnInit {
 deptselected : number;
 public RowSelected(row)
  {
-   this.buttoncontent = 'Modify';
+   this.buttoncontent = 'Update';
    this.designation_id = row.designation_id;
    this.deptselected = row.departmant_id;
    this.designation_code = row.designation_code;
    this.designation_name = row.designation_name;
    this.designation_description = row.designation_description;
    console.log("row clicked",row);
+ }
+ public RowSelectedd(j:number,designation_id:number,departmant_id:number,designation_code:string,designation_name:string,designation_description:string)
+ {
+   this.buttoncontent = 'Update';
+   this.designation_id = designation_id;
+   this.deptselected = departmant_id;
+   this.designation_code = designation_code;
+   this.designation_name = designation_name;
+   this.designation_description = designation_description;
+   console.log("row clicked",j);
  }
  callType(value){
   console.log(value);
