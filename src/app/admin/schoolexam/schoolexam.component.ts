@@ -131,7 +131,7 @@ export class SchoolexamComponent implements OnInit {
       this.jsRes = data;
       if(this.jsRes.code==200)
       {
-        alert("SchoolExams Deleted Succesfully.!");
+        alert("SchoolExams Deleted Succesfully.!"); 
       }else{ }
     });
     this.service1Service.getschoolexams(b).subscribe((data: Apiresponse) => 
