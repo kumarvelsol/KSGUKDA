@@ -16,6 +16,7 @@ import { Bloodgroup} from '../shared/bloodgroup';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { Employeemodel } from '../shared/employeemodel';
+import { Classexammodel } from '../shared/classexammodel';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
@@ -212,6 +213,13 @@ export class AdminServiceService {
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   public createclassexam(cls:Classexammodel)
+   {
+      return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
+   }
+   public updateclassexam(clsu: Classexammodel){
+    return this.http.post(`${this.Baseurl+"updatingClassExam"}`,clsu);
+  }
    public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
    {
       let params = new HttpParams();
