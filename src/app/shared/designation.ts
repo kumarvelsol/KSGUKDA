@@ -5,6 +5,6 @@ export interface Designation {
     designation_description :string
     institution_id : 1
     academic_id : 1
-    departmant_id :1
+    departmant_id :number;
     departmant_name : string
 }

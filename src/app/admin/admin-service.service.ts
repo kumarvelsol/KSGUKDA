@@ -16,6 +16,7 @@ import { Bloodgroup} from '../shared/bloodgroup';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { Employeemodel } from '../shared/employeemodel';
+import { Classexammodel } from '../shared/classexammodel';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
@@ -24,6 +25,8 @@ import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
+import { JsResponse } from '../shared/jsresponse';
+import { Schoolexam } from '../shared/schoolexam';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -152,7 +155,7 @@ export class AdminServiceService {
     return this.http.post(`${this.Baseurl+"desiginationupdate"}`,desig_up);
   }
 
-  getbloodgroup(blood_get : PassingInstitute)
+  getbloodgroup(blood_get : Parsing)
   {
     return this.http.post(`${this.Baseurl+"getbloodGroupdetails"}`, blood_get);
   }
@@ -170,7 +173,20 @@ export class AdminServiceService {
   {
     return this.http.post(`${this.Baseurl+"classallocation"}`, class_in);
   }
-
+  //School Exams Related ServiceMethods
+  getschoolexams(exam_get : Parsing)
+  {
+    return this.http.post(`${this.Baseurl+"getSchoolExams"}`, exam_get);
+  }
+  public createschoolexam(exam_in:Schoolexam){
+      return this.http.post(`${this.Baseurl+"addingSchoolExam"}`,exam_in);
+  }
+  public updateschoolexam(exam_up: Schoolexam){
+    return this.http.post(`${this.Baseurl+"updatingSchoolExam"}`,exam_up);
+  }
+  public deleteschoolexam(exam_del: Schoolexam){
+    return this.http.post(`${this.Baseurl+"deletingSchoolExam"}`,exam_del);
+  }
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
       return this.http.post(`${this.Baseurl+"Subjectinsert"}`,sub_insert);
@@ -197,6 +213,13 @@ export class AdminServiceService {
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   public createclassexam(cls:Classexammodel)
+   {
+      return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
+   }
+   public updateclassexam(clsu: Classexammodel){
+    return this.http.post(`${this.Baseurl+"updatingClassExam"}`,clsu);
+  }
    public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
    {
       let params = new HttpParams();
@@ -205,7 +228,14 @@ export class AdminServiceService {
       params = params.append('employee_id',employee_id+"");
       return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
    }
-   
+   public getclassexam(institution_id : number, academic_id : number,exam_id : number)
+   {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('exam_id',exam_id+"");
+    return this.http.post(`${this.Baseurl+"getClassExams"}`,params);
+   }
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
     {//,depemp : DepEmpParsing
@@ -213,7 +243,7 @@ export class AdminServiceService {
       params = params.append('institution_id', institution_id+"");
       params = params.append('academic_id',academic_id+"");
       params = params.append('departmant_id',departmant_id+"");
-      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
+      return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticularepartment"}`,params);
     }
     public CreateSubjectAllocaion(sub_allo_insert : SubjectAllocationInsert){
       return this.http.post(`${this.Baseurl+"subjectallocationinsert"}`,sub_allo_insert);
@@ -303,4 +333,57 @@ export class AdminServiceService {
     params = params.append('mother_tongue_name', mother_tongue_name);
     return this.http.post(`${this.Baseurl+"Updatingmothertongue"}`,params);
   }
+  //Start of FeeType ServiceMethods
+  public CreateFeeType(institution_id : number,academic_id : number,fee_name : string,fee_type_code : string){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('fee_name', fee_name);
+    params = params.append('fee_type_code', fee_type_code);
+    return this.http.post<JsResponse>(`${this.Baseurl+"Addingfee"}`,params);
+  }
+  public GetFeeTypes(institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Allfeetypes"}`,params)
+  }
+  public UpdateFeeType(institution_id : number,academic_id : number,fee_type_id:number, fee_name : string,fee_type_code : string){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('fee_type_id', fee_type_id+"");
+    params = params.append('fee_name', fee_name);
+    params = params.append('fee_type_code', fee_type_code);
+    return this.http.post<JsResponse>(`${this.Baseurl+"updatefee"}`,params);
+  }
+  //End of Feetype ServiceMethods
+
+  //Start of FeeModes ServiceMethods
+  public CreateFeeMode(institution_id : number,academic_id : number,fee_mode_name : string, fee_mode_code : string, No_of_installments : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('fee_mode_name', fee_mode_name);
+    params = params.append('fee_mode_code', fee_mode_code);
+    params = params.append('No_of_installments', No_of_installments+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"Addingfeemode"}`,params);
+  }
+  public GetFeeModes(institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Allfeemodes"}`,params)
+  }
+  public UpdateFeeMode(institution_id : number,academic_id : number,fee_mode_id : number, fee_mode_name : string, fee_mode_code : string, No_of_installments : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('fee_mode_id', fee_mode_id+"");
+    params = params.append('fee_mode_name', fee_mode_name);
+    params = params.append('fee_mode_code', fee_mode_code);
+    params = params.append('No_of_installments', No_of_installments+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"updatefeemode"}`,params);
+  }
+  //End of FeeMode ServiceMethods
 }

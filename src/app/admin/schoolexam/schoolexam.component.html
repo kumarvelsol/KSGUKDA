@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+  <div class=" example-container mat-elevation-z8">
+    <table mat-table [dataSource]="abDatasource">
+      <ng-container matColumnDef="exam_id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let i"> {{i.exam_id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="exam_type">
+        <th mat-header-cell *matHeaderCellDef> ExamType </th>
+        <td mat-cell *matCellDef="let i"> {{i.exam_type}} </td>
+      </ng-container>
+      <ng-container matColumnDef="exam_start_date">
+        <th mat-header-cell *matHeaderCellDef> StartDate </th>
+        <td mat-cell *matCellDef="let i"> {{i.exam_start_date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="exam_end_date">
+        <th mat-header-cell *matHeaderCellDef> EndDate </th>
+        <td mat-cell *matCellDef="let i"> {{i.exam_end_date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="textSizes">Actions</th>
+        <td mat-cell *matCellDef="let i; let j=index;"> 
+          <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelectedd(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
+            <mat-icon aria-label="Edit">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row (click)="RowSelected(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+<div class="col-md-6">
+    <mat-card class="row example-card parent">
+      <div class="block child">
+        <p style="margin-top: 20px; color: gray; font-size: 24px;">SchoolExam Details</p>
+        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+            <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+            <mat-label style="color :gray">ExamType</mat-label>
+            <input style="color :gray" [(ngModel)]="exam_type" type="text" name="exam_type"  matInput>
+          </mat-form-field>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_start_date" name="exam_start_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="year" [startAt]="startDate" ></mat-datepicker>
+            </mat-form-field>            
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+                <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="exam_end_date" name="exam_end_date"> 
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+        <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+</div>
