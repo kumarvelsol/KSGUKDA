@@ -78,7 +78,6 @@ export interface Data {
     exam_type: string;
     exam_start_date: Date;
     exam_end_date: Date;
-    exam_id: number;
     
     institution_name : string;
     institution_address : string;
@@ -90,6 +89,9 @@ export interface Data {
     institution_image : string;
     institution_code : string;
 
+    exam_class_start_date :Date;
+    exam_class_end_date:Date ; 
+    exam_id:string ;
     //Start of Fee Module
     fee_type_id : number;
     fee_type_code : string;

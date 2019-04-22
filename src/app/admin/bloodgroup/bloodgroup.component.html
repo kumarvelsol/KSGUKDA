@@ -35,7 +35,18 @@
             <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let i "> {{i.blood_group_name}} </td>
           </ng-container>
-          <!-- Code Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="textSizes">Actions</th>
+            <td mat-cell *matCellDef="let i; let j=index;"> 
+              <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelectedd(j,blood_group_id,blood_group_code,blood_group_name)">
+                <mat-icon aria-label="Edit">edit</mat-icon>
+              </button>
+    
+              <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,blood_group_id,blood_group_code,blood_group_name)">
+                <mat-icon aria-label="Edit">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
          
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row (click) = RowSelected(row) *matRowDef="let row; columns: displayedColumns;"></tr>

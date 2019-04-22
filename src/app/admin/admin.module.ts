@@ -35,6 +35,7 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
+import { ClassexamComponent } from './classexam/classexam.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
@@ -47,23 +48,24 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
-    ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
-    MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent, 
-    FeeTypeComponent, FeeModeComponent, SchoolexamComponent, ClassFeeDeclarationsComponent],
-  imports: [
-    CommonModule, AdminRoutingModule,
-    LayoutModule, MatToolbarModule,
-    MatButtonModule, MatSidenavModule,
-    MatListModule, MatTableModule,
-    MaterialModule, FormsModule,
-    MatInputModule, ReactiveFormsModule,
-    MatIconModule, MatDialogModule,
-    MatSelectModule, MatTabsModule,
-    AmazingTimePickerModule],
-  exports:[DashboardComponent,AdminToolbarComponent,
-    ClassesRelatedComponent,TimeperiodsComponent,
-    SubjectsComponent,TimetableupdateComponent],
+    ClassTabBarComponent,TimetableupdateComponent,EmployeedetailsComponent,
+    EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
+    AddStudentComponent,StudentListComponent,StudentComponent],
+ imports: [
+    CommonModule, AdminRoutingModule, LayoutModule,
+    MatToolbarModule, MatButtonModule, MatSidenavModule,
+    MatIconModule,MaterialModule, FormsModule,
+    MatInputModule, ReactiveFormsModule, MatDialogModule,
+    MatListModule, MatTableModule,MatSelectModule,
+    MatTabsModule,CommonModule,AmazingTimePickerModule,
+  ],
+  exports:[DashboardComponent, AdminToolbarComponent, ClassesRelatedComponent,
+    TimeperiodsComponent, SubjectsComponent, TimeandPeriodComponent,
+    TimetableComponent, ClassTabBarComponent, EmployeelistComponent,
+    MothertongueComponent, TimetableupdateComponent, EmployeedetailsComponent,
+    AddStudentComponent, StudentListComponent, ClassteacherdetailsComponent,
+    FeeTypeComponent, ClassexamComponent, StudentComponent,
+    FeeModeComponent, SchoolexamComponent, ClassFeeDeclarationsComponent],
   providers:[AdminServiceService],
   entryComponents: [TimetableupdateComponent]
 })

@@ -16,6 +16,7 @@ import { Bloodgroup} from '../shared/bloodgroup';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { Employeemodel } from '../shared/employeemodel';
+import { Classexammodel } from '../shared/classexammodel';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
@@ -181,10 +182,10 @@ export class AdminServiceService {
       return this.http.post(`${this.Baseurl+"addingSchoolExam"}`,exam_in);
   }
   public updateschoolexam(exam_up: Schoolexam){
-    return this.http.post(`${this.Baseurl+" updatingSchoolExam"}`,exam_up);
+    return this.http.post(`${this.Baseurl+"updatingSchoolExam"}`,exam_up);
   }
   public deleteschoolexam(exam_del: Schoolexam){
-    return this.http.post(`${this.Baseurl+" deletingSchoolExam"}`,exam_del);
+    return this.http.post(`${this.Baseurl+"deletingSchoolExam"}`,exam_del);
   }
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
@@ -212,6 +213,13 @@ export class AdminServiceService {
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   public createclassexam(cls:Classexammodel)
+   {
+      return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
+   }
+   public updateclassexam(clsu: Classexammodel){
+    return this.http.post(`${this.Baseurl+"updatingClassExam"}`,clsu);
+  }
    public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
    {
       let params = new HttpParams();
@@ -220,7 +228,14 @@ export class AdminServiceService {
       params = params.append('employee_id',employee_id+"");
       return this.http.post<Apiresponse>(`${this.Baseurl+"Employeeparticular"}`,params);
    }
-   
+   public getclassexam(institution_id : number, academic_id : number,exam_id : number)
+   {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('exam_id',exam_id+"");
+    return this.http.post(`${this.Baseurl+"getClassExams"}`,params);
+   }
   //Start of Subject Allocation ServiceMethods.
     public getDepEmpList(institution_id : number, academic_id : number, departmant_id : number)
     {//,depemp : DepEmpParsing

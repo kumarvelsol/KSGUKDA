@@ -23,7 +23,7 @@ export class BloodgroupComponent implements OnInit {
   bloodgrouplist: Apiresponse;
   bloodgroupdata : Data[];
   abDataSource; 
-  displayedColumns: string[] = ['blood_group_id','blood_group_code','blood_group_name'];
+  displayedColumns: string[] = ['blood_group_id','blood_group_code','blood_group_name','actions'];
   buttoncontent: string = 'Save';
   constructor(private service1Service: AdminServiceService) { }
 
@@ -100,5 +100,12 @@ public RowSelected(row)
    this.blood_group_code = row.blood_group_code;
    this.buttoncontent = 'Update';
    console.log("row clicked",row);
+ }
+ public RowSelectedd(j:number,blood_group_id:string,blood_group_code:string,blood_group_name:string)
+ {
+  this.blood_group_id = blood_group_id;
+  this.blood_group_name = blood_group_name;
+  this.blood_group_code = blood_group_code;
+  this.buttoncontent = 'Update';
  }
   }
