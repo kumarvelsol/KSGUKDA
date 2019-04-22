@@ -19,6 +19,7 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path:'employeelist',component:EmployeelistComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
-  {path:'schoolexam',component:SchoolexamComponent}
+  {path:'schoolexam',component:SchoolexamComponent},
+  {path:'ClassFee',component:ClassFeeDeclarationsComponent}
 ];
 
 @NgModule({

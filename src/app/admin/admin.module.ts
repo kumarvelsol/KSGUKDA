@@ -38,6 +38,7 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -49,7 +50,7 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
     AddStudentComponent,StudentListComponent,StudentComponent, 
-    FeeTypeComponent, FeeModeComponent, SchoolexamComponent],
+    FeeTypeComponent, FeeModeComponent, SchoolexamComponent, ClassFeeDeclarationsComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
