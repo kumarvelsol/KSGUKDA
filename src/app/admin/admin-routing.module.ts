@@ -21,6 +21,7 @@ import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
 
@@ -38,11 +39,13 @@ const routes: Routes = [
   {path:'classexam',component:ClassexamComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
-  {path:'schoolexam',component:SchoolexamComponent}
+  {path:'schoolexam',component:SchoolexamComponent},
+  {path:'subjectexam',component:SubjectexamComponent},
+  
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule { } 

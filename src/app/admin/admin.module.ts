@@ -39,6 +39,7 @@ import { ClassexamComponent } from './classexam/classexam.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -49,7 +50,7 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent],
+    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent],
 
 
   imports: [
