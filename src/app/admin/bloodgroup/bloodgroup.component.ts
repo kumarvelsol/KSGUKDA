@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { Bloodgroup } from 'src/app/shared/bloodgroup';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService, Parsing } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Data } from 'src/app/shared/data';
 import { Apiresponse } from 'src/app/shared/apiresponse';
@@ -23,14 +23,15 @@ export class BloodgroupComponent implements OnInit {
   bloodgrouplist: Apiresponse;
   bloodgroupdata : Data[];
   abDataSource; 
-  displayedColumns: string[] = ['blood_group_id','blood_group_code','blood_group_name'];
+  displayedColumns: string[] = ['blood_group_id','blood_group_code','blood_group_name','actions'];
   buttoncontent: string = 'Save';
   constructor(private service1Service: AdminServiceService) { }
 
   ngOnInit() {
-    let passing_institute: PassInstituteID = 
+    let passing_institute: Parsing = 
     {
-        institution_id :1
+        institution_id :1,
+        academic_id :1
     }
    this.service1Service.getbloodgroup(passing_institute).subscribe((data: Apiresponse) => 
    {
@@ -99,5 +100,12 @@ public RowSelected(row)
    this.blood_group_code = row.blood_group_code;
    this.buttoncontent = 'Update';
    console.log("row clicked",row);
+ }
+ public RowSelectedd(j:number,blood_group_id:string,blood_group_code:string,blood_group_name:string)
+ {
+  this.blood_group_id = blood_group_id;
+  this.blood_group_name = blood_group_name;
+  this.blood_group_code = blood_group_code;
+  this.buttoncontent = 'Update';
  }
   }

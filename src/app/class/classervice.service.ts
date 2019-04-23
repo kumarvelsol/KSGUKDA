@@ -20,7 +20,7 @@ export class ClasserviceService {
   ttable:Ttablemodel;
   tupdates:Tupdate
   constructor(private http:HttpClient) { }
-  httpOptions = {
+  httpOptions = { 
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
     })

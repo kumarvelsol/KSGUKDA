@@ -4,7 +4,6 @@ import { SubjectInsert } from 'src/app/shared/SubjectModels/subjectinsert';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { SubjectUpdate } from 'src/app/shared/SubjectModels/subjectupdate';
 import { MatTableDataSource } from '@angular/material';
-import { Data } from 'src/app/shared/data';
 
 @Component({
   selector: 'app-subjects',
@@ -18,7 +17,7 @@ export class SubjectsComponent implements OnInit {
   code : string = '';
   description : string = '';
   jsRes : JsResponse;
-  sub_list : Data[];
+  //displayedHeading = ["subjects"];
   displayedColumns = ['subject_id', 'subject_name', 'subject_code', 'subject_description','actions'];
   dataSource;
   buttoncontent:string = "Add";
@@ -88,8 +87,7 @@ export class SubjectsComponent implements OnInit {
   }
   public LoadingList(){
     this.service.subjectlist(1,1).subscribe(data =>{
-      this.sub_list = data.Data;
-      this.dataSource = new MatTableDataSource(this.sub_list);
+      this.dataSource = new MatTableDataSource(data.Data);
     });
   }
   public onclearclick(){
