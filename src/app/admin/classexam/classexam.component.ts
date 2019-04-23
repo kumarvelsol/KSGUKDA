@@ -143,7 +143,8 @@ export class ClassexamComponent implements OnInit {
     this.exam_class_start_date=null;this.exam_class_end_date=null;
     this.buttoncontent="Save";
   }
-  public RowSelected(j:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+
+  public editclick(i:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
       this.buttoncontent="Update";
       this.exam_class_id = exam_class_id;
