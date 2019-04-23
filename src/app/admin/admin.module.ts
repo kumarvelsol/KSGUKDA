@@ -51,7 +51,7 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
   TimetableComponent,
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent],
+  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent],
  imports: [
   
     CommonModule,
@@ -71,7 +71,6 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
     MatListModule,
     MaterialModule,
     FormsModule,
-
     ReactiveFormsModule,
   ],
   exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent,
