@@ -53,7 +53,8 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
+    ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
 
   TimeperiodsComponent,
   TimeandPeriodComponent,
@@ -87,6 +88,7 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
 SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
+TimetableupdateComponent,
     AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent],
 
 
