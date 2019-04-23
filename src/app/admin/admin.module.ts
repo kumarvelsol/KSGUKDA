@@ -35,6 +35,9 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
+import { SignupRequestFormComponent } from '../signup-request-form/signup-request-form.component';
+import { LoginFormComponent } from '../login-form/login-form.component';
+import { ContactAdminComponent } from '../contact-admin/contact-admin.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -45,7 +48,7 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent],
+    AddStudentComponent,StudentListComponent,StudentComponent, SignupRequestFormComponent, LoginFormComponent, ContactAdminComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
@@ -60,6 +63,6 @@ import { EmployeedetailsComponent } from './employee/employeedetails/employeedet
     ClassesRelatedComponent,TimeperiodsComponent,
     SubjectsComponent,TimetableupdateComponent],
   providers:[AdminServiceService],
-  entryComponents: [TimetableupdateComponent]
+  entryComponents: [TimetableupdateComponent , ContactAdminComponent]
 })
 export class AdminModule { }
