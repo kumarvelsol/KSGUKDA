@@ -79,6 +79,13 @@ export interface Data {
     exam_start_date: Date;
     exam_end_date: Date;
     
+    exam_subject_type : string ;
+    exam_subject_marks : string;  
+    exam_subject_date : string; 
+    exam_subject_start_time : string;  
+    exam_subject_end_time : string;
+    exam_class_id : number ;
+
     institution_name : string;
     institution_address : string;
     institution_email : string;

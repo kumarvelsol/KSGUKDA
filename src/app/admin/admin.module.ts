@@ -42,6 +42,8 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 import { PostattendenceComponent } from './attendence/postattendence/postattendence.component';
 import { ViewattendenceComponent } from './attendence/viewattendence/viewattendence.component';
 import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
+import { SubjectexamComponent } from './subjectexam/subjectexam.component';
+import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -54,34 +56,27 @@ import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/atten
   TimetableComponent,
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent, PostattendenceComponent, ViewattendenceComponent, AttendenceTabBarComponent],
- imports: [
-  
-    CommonModule,
-    AdminRoutingModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-    MatIconModule,MatDialogModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,
-    MatInputModule,ReactiveFormsModule,
-    MatSelectModule,MatTabsModule,
-    MatListModule,
-    MaterialModule,
-    FormsModule,
+  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent, PostattendenceComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent],
 
-    ReactiveFormsModule,
+
+   imports: [
+    CommonModule, AdminRoutingModule, LayoutModule,
+    MatToolbarModule, MatButtonModule, MatSidenavModule,
+    MatIconModule,MaterialModule, FormsModule,
+    MatInputModule, ReactiveFormsModule, MatDialogModule,
+    MatListModule, MatTableModule,MatSelectModule,
+    MatTabsModule,CommonModule,AmazingTimePickerModule,
   ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent,
-    TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
-    ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
-    MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent],
-
+  exports:[DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
+    DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
+    CastDetailsComponent, ReligionComponent,DesignationComponent,
+    UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
+    TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,FeeTypeComponent,FeeModeComponent,
+    ClassTabBarComponent,TimetableupdateComponent,EmployeedetailsComponent,
+    EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
+    AddStudentComponent,StudentListComponent,StudentComponent, 
+    ClassexamComponent, SchoolexamComponent, ClassFeeDeclarationsComponent],
+  entryComponents: [TimetableupdateComponent]
 })
 export class AdminModule { }
