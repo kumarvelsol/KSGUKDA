@@ -39,6 +39,9 @@ import { ClassexamComponent } from './classexam/classexam.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { PostattendenceComponent } from './attendence/postattendence/postattendence.component';
+import { ViewattendenceComponent } from './attendence/viewattendence/viewattendence.component';
+import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -51,7 +54,7 @@ import { SchoolexamComponent } from './schoolexam/schoolexam.component';
   TimetableComponent,
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent],
+  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent, PostattendenceComponent, ViewattendenceComponent, AttendenceTabBarComponent],
  imports: [
   
     CommonModule,

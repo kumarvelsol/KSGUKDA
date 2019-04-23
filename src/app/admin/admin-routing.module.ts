@@ -16,7 +16,7 @@ import { EmployeelistComponent } from './employee/employeelist/employeelist.comp
 import { TimeandPeriodComponent } from '../timeand-period/timeand-period.component';
 import { TimetableComponent } from '../timetable/timetable.component';
 import { ClassexamComponent } from '../admin/classexam/classexam.component';
-
+import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
@@ -38,7 +38,8 @@ const routes: Routes = [
   {path:'classexam',component:ClassexamComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
-  {path:'schoolexam',component:SchoolexamComponent}
+  {path:'schoolexam',component:SchoolexamComponent},
+  {path:'attendence',component:AttendenceTabBarComponent}
 ];
 
 @NgModule({
