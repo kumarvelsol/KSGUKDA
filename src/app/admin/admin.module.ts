@@ -87,12 +87,8 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-<<<<<<< HEAD
-  SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
-=======
-SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
-TimetableupdateComponent,
->>>>>>> 4e73b6c67c096530077919a4799bfd83a818ace6
+
+    
     AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent],
 
 
