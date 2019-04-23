@@ -6,6 +6,8 @@ import { Apiresponse } from 'src/app/shared/apiresponse';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Classexammodel } from 'src/app/shared/classexammodel';
 import { DatePipe } from '@angular/common';
+import { Router,NavigationExtras } from '@angular/router';
+import { Subjectexam } from 'src/app/shared/subjectexam';
 
 @Component({
   selector: 'app-classexam',
@@ -18,16 +20,24 @@ export class ClassexamComponent implements OnInit {
   examdata:Data[];
   buttoncontent="Save";
   dataSource;
-  displayedColumns: string[] = ["exam_class_id", "exam_type","class_name", "exam_class_start_date","exam_class_end_date"];
-  constructor(public service:AdminServiceService,private datePipe: DatePipe) { }
+  displayedColumns: string[] = ["exam_class_id", "exam_type","class_name", "exam_class_start_date","exam_class_end_date",'actions'];
+  constructor(public service:AdminServiceService,private datePipe: DatePipe,private router: Router) { }
   exam_class_id:number=null;
   exam_type:string="";
   class_name:string="";
   exam_class_start_date = new Date();
   exam_class_end_date = new Date();
   class_id:number=null;
-  exam_id:number=null;
+  exam_id:string=null;
   date:any;
+
+  exam_subject_type : string ; 
+  exam_subject_marks : string; 
+  exam_subject_date = new Date(); 
+  exam_subject_start_time : string; 
+  exam_subject_end_time : string; 
+  subject_id : number;
+
   ngOnInit() {
     this.gettingclasses();
     this.gettingexams();
@@ -133,7 +143,8 @@ export class ClassexamComponent implements OnInit {
     this.exam_class_start_date=null;this.exam_class_end_date=null;
     this.buttoncontent="Save";
   }
-  public editclick(i:number,exam_class_id:number,exam_id:number,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+
+  public editclick(i:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
       this.buttoncontent="Update";
       this.exam_class_id = exam_class_id;
@@ -144,11 +155,24 @@ export class ClassexamComponent implements OnInit {
   }
   public RowSelectedd(row)
   {
-    this.exam_class_id=row.exam_class_id;
-    this.class_id=row.class_id;
-    this.exam_id=row.exam_id;
-    this.exam_class_start_date=row.exam_class_start_date;
-    this.exam_class_end_date=row.exam_class_end_date;
-    this.buttoncontent = "Update";
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "clsname":this.class_name = row.class_name,
+          "examtype":this.exam_type = row.exam_type,
+          "clsexamid":this.exam_class_id=row.exam_class_id,
+          "clsid":this.class_id = row.class_id,
+          "exmid":this.exam_id = row.exam_id,
+      }
+  };
+   // const navigation: NavigationExtras = {state: {class_id: row.class_id}};
+
+    this.router.navigate(['/subjectexam'],navigationExtras);
+    
+    // this.exam_class_id=row.exam_class_id;
+    // this.class_id=row.class_id;
+    // this.exam_id=row.exam_id;
+    // this.exam_class_start_date=row.exam_class_start_date;
+    // this.exam_class_end_date=row.exam_class_end_date;
+    // this.buttoncontent = "Update";
   }
 }

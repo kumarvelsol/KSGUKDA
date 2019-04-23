@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .example-container{
+    overflow:auto;
+    height: 950px;
+    width: 138%;
+  }
+  .example-card{
+    /* background-color: #33B5E5; */
+    margin-top: 3px;
+    width: 70%;
+    margin-right: 90px;
+  }
+  .mat-form-wrap{
+    width: 100%;
+    margin: 0px;
+  }
+  .btn-style{
+    background-color: #33B5E5;
+    color: white;
+    width: 200px;
+    height: 50px;
+    left: 0px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  .parent{
+    text-align:center;
+    height:950px;
+    margin-left: 180px;
+    margin-top: 3px;
+  }
+  .block {
+    width: 80%;
+  }
+  .child {
+    margin:auto;
+  }
