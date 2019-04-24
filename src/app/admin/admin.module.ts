@@ -20,9 +20,9 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
-import { StudentComponent } from './student/student.component';
-import { StudentListComponent } from './student-list/student-list.component';
-import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentComponent } from './students/student/student.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+import { AddStudentComponent } from './students/add-student/add-student.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
@@ -35,18 +35,20 @@ import { AmazingTimePickerModule } from 'amazing-time-picker';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
 import { EmployeelistComponent } from './employee/employeelist/employeelist.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
-
 import { SignupRequestFormComponent } from '../signup-request-form/signup-request-form.component';
 import { LoginFormComponent } from '../login-form/login-form.component';
 import { ContactAdminComponent } from '../contact-admin/contact-admin.component';
-
 import { ClassexamComponent } from './classexam/classexam.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { PostattendenceComponent } from './attendence/postattendence/postattendence.component';
+import { ViewattendenceComponent } from './attendence/viewattendence/viewattendence.component';
+import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
 import { AddeventsComponent } from './addevents/addevents.component';
+import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 
 @NgModule({
@@ -54,45 +56,35 @@ import { AddeventsComponent } from './addevents/addevents.component';
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
 
   TimeperiodsComponent,
   TimeandPeriodComponent,
-  TimetableComponent,
-  ClassTabBarComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent, AddeventsComponent],
- imports: [
-  
-    CommonModule,
-    AdminRoutingModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-    MatIconModule,MatDialogModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,
-    MatInputModule,ReactiveFormsModule,
-    MatSelectModule,MatTabsModule,
-    MatListModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent,
-    TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
-    ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
-    MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
-TimetableupdateComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent],
+  TimetableComponent,ClassTabBarComponent,
+     AddHolidaysComponent, TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+   MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, AddeventsComponent],
 
 
-    
+    imports: [
+      CommonModule, AdminRoutingModule,
+      LayoutModule, MatToolbarModule,
+      MatButtonModule, MatSidenavModule,
+      MatListModule, MatTableModule,
+      MaterialModule, FormsModule,
+      MatInputModule, ReactiveFormsModule,
+      MatIconModule, MatDialogModule,
+      MatSelectModule, MatTabsModule,
+      AmazingTimePickerModule],
+    exports:[DashboardComponent,AdminToolbarComponent,
+      ClassesRelatedComponent,TimeperiodsComponent,
+
+      SubjectsComponent,TimetableupdateComponent,],
+   
+    entryComponents: [TimetableupdateComponent , ContactAdminComponent]
+
 })
 export class AdminModule { }
+

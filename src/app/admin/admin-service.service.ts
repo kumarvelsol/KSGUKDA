@@ -27,6 +27,7 @@ import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subje
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
 import { JsResponse } from '../shared/jsresponse';
 import { Schoolexam } from '../shared/schoolexam';
+import { ClassFeeList } from '../shared/classfeelist';
 import { Subjectexam } from '../shared/subjectexam';
 import { Addevents } from '../shared/addevents';
 export interface Parsing{
@@ -228,7 +229,10 @@ public updateaddevents(event_up: Addevents){
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
-
+   public updateemployee(empu:Employeemodel)
+   {
+     return this.http.post(`${this.Baseurl+"Employeeupdate"}`,empu);
+   }
    public getemployeelist(institution_id : number, academic_id : number)
    {
     let params = new HttpParams();
@@ -409,4 +413,39 @@ public updateaddevents(event_up: Addevents){
     return this.http.post<JsResponse>(`${this.Baseurl+"updatefeemode"}`,params);
   }
   //End of FeeMode ServiceMethods
+  getclassstudent (institution_id : number, academic_id : number,class_id:number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"studentclassdetails"}`,params);
+  }
+  getparticularstudent(institution_id : number, academic_id : number,mobile_no : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('mobile_no',mobile_no+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"particularstudentdetails"}`,params);
+   }
+
+  //Start of Class Fee Declarations
+  public GetClassFee(institution_id : number, academic_id : number, class_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<ClassFeeList>(`${this.Baseurl+"classfeelist"}`,params);
+  }
+  public CreateClassFee(classid : string,feetypeid : string,feeAmount : string,institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('classid', classid);
+    params = params.append('feetypeid', feetypeid);
+    params = params.append('feeAmount', feeAmount);
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"classfee"}`,params);
+  }
+  //End of Class Fee Declarations
 }
