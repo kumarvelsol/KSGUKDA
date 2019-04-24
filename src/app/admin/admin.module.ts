@@ -54,14 +54,16 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
+    ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
+
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
   ClassTabBarComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
-   PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+   MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
     
     imports: [
       CommonModule, AdminRoutingModule,
