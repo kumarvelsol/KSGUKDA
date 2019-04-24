@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, Form} from '@angular/forms';
-import { AdminServiceService } from '../admin-service.service';
+import { AdminServiceService } from 'src/app/admin/admin-service.service';
 import { MatTableDataSource } from '@angular/material';
 import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { Apiresponse } from 'src/app/shared/apiresponse';
@@ -20,7 +20,8 @@ export class AddStudentComponent implements OnInit {
   religionData:Data[];
   stateData:Data[];
   datava:string;
-
+  buttoncontent:string;
+  studentlist:Apiresponse;
 
   constructor(private _formBuilder: FormBuilder,public service:AdminServiceService) { }
   ngOnInit() {
@@ -29,7 +30,55 @@ export class AddStudentComponent implements OnInit {
     this.getCaste();
     this.getReligion();
     this.getStates();
-    console.log(this.datava)
+    console.log(this.datava);
+    let myItem = localStorage.getItem('key');
+    console.log(myItem);
+    if(myItem == "" || myItem == null)
+    {
+      this.buttoncontent = "Save Student Details";
+    }
+    else
+    {
+      this.buttoncontent = "Update";
+      this.service.getparticularstudent(1,1,myItem).subscribe((data : Apiresponse) =>
+      {
+        this.studentlist=data;
+        console.log(this.studentlist.Data);
+        this.admission_number=data.Data[0].admission_number;
+        this.admission_date = data.Data[0].admission_date;
+        this.first_name = data.Data[0].first_name;
+        this.last_name = data.Data[0].last_name;
+        this.date_of_birth = data.Data[0].date_of_birth;
+        this.gender=data.Data[0].gender;
+        this.mobile_no = data.Data[0].mobile_no;
+        this.alternate_mobile_no = data.Data[0].alternate_mobile_no;
+        this.email=data.Data[0].email;
+        this.student_roll_no = data.Data[0].student_roll_no;
+        this.blood_group_id=data.Data[0].blood_group_id;
+        this.religion_id = data.Data[0].religion_id;
+        this.cast_id = data.Data[0].cast_id;
+        this.class_id = data.Data[0].class_id;
+        this.nationality = data.Data[0].nationality;
+        this.mother_tongue = data.Data[0].mother_tongue;
+        this.present_address=data.Data[0].present_address;
+        this.perminent_address=data.Data[0].perminent_address;
+        this.state = data.Data[0].state;
+        this.city=data.Data[0].city;
+        this.pin_code=data.Data[0].pin_code;
+        this.father_name = data.Data[0].father_name;
+        this.father_mobile_no = data.Data[0].father_mobile_no;
+        this.father_designation = data.Data[0].father_designation;
+        this.mather_name = data.Data[0].mather_name;
+        this.mother_mobile_no = data.Data[0].mother_mobile_no;
+        this.mother_designation = data.Data[0].mother_designation;
+        this.guardian_name = data.Data[0].guardian_name;
+        this.guardian_mobile_no = data.Data[0].guardian_mobile_no;
+        this.guardian_designation = data.Data[0].guardian_designation;
+        this.guardian_address = data.Data[0].guardian_address;
+        this.relation = data.Data[0].relation;
+      });
+      localStorage.removeItem('key');
+    }
   }
 
   gettingbloodgroup()
@@ -38,7 +87,6 @@ export class AddStudentComponent implements OnInit {
       if(data.code==200)
       {
       this.bloodGroupData = data.Data;
-      console.log(this.bloodGroupData);
       }
       else{
         console.log("Error While Retrieving the response")
@@ -55,7 +103,6 @@ get string():string
       if(data.code==200)
       {
       this.religionData = data.Data;
-      console.log(this.religionData);
       }
       else{
         console.log("Error While Retrieving the response")
@@ -68,7 +115,6 @@ get string():string
       if(data.code==200)
       {
       this.casteData = data.Data;
-      console.log(this.casteData);
       }
       else{
         console.log("Error While Retrieving the response")
@@ -82,7 +128,6 @@ get string():string
       if(data.code==200)
       {
       this.classData = data.Data;
-      console.log(this.classData);
       }
       else{
         console.log("Error While Retrieving the response")
@@ -95,7 +140,6 @@ get string():string
       if(data.code==200)
       {
       this.stateData = data.Data;
-      console.log(this.stateData);
       }
       else{
         console.log("Error While Retrieving the response")
@@ -106,10 +150,10 @@ get string():string
   
   admission_number:string="";
     admission_date:string="";first_name:string="";last_name:string="";birth_place:string="";
-    date_of_birth:string="";gender:string="";mobile_no:string="";alternate_mobile_no:string="";
+    date_of_birth:Date=null;gender:string="";mobile_no:string="";alternate_mobile_no:string="";
     email:string="";photo:string="";student_roll_no:string="";institution_id:string="";
-    academic_id:string="";blood_group_id:string="";religion_id:string="";
-    cast_id:string="";class_id:string="";nationality:string="";mother_tongue:string="";present_address:string="";
+    academic_id:string="";blood_group_id:string="";religion_id:number=null;
+    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";present_address:string="";
     perminent_address:string="";state :string="";city:string="";pin_code:string="";
     father_name:string="";father_mobile_no :string="";father_designation:string="";
     mather_name:string="";mother_mobile_no:string="";mother_designation:string="";
@@ -168,9 +212,9 @@ get string():string
     private checkValidations() :any
     {
      let  validation:boolean =false;
-      if(this.first_name==""||this.last_name==""||this.date_of_birth==""||this.birth_place==""
+      if(this.first_name==""||this.last_name==""||this.date_of_birth==null||this.birth_place==""
       ||this.admission_number==""||this.admission_date==""||this.blood_group_id==""||this.nationality==""||
-      this.mother_tongue==""||this.religion_id==""||this.cast_id==""||this.class_id==""||this.student_roll_no==""||
+      this.mother_tongue==""||this.religion_id==null||this.cast_id==null||this.class_id==null||this.student_roll_no==""||
       this.present_address==""||this.perminent_address==""||this.city==""||this.state==""||this.pin_code==""||
       this.mobile_no==""||this.email==""||this.father_name==""||this.father_mobile_no==""||this.mather_name==""||
       this.mother_mobile_no==""||this.guardian_name==""||this.guardian_mobile_no==""||this.guardian_mobile_no==""||this.guardian_address==""

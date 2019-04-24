@@ -3,10 +3,6 @@
       <div class="col-md-6">
     <div class=" example-container mat-elevation-z8">
       <table mat-table [dataSource]="abDatasource">
-        <!-- <ng-container matColumnDef="subject_id">
-              <th mat-header-cell *matHeaderCellDef>ID</th>
-              <td mat-cell *matCellDef="let i"> {{i.subject_id}} </td>
-        </ng-container> -->
         <ng-container matColumnDef="exam_subject_type">
           <th mat-header-cell *matHeaderCellDef> ExamSubjectType </th>
           <td mat-cell *matCellDef="let i"> {{i.exam_subject_type}} </td>
@@ -26,7 +22,7 @@
               <mat-icon aria-label="Edit">edit</mat-icon>
             </button>
   
-            <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
+            <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,class_id,exam_id,exam_class_id,subject_id,exam_subject_type,exam_subject_marks,exam_subject_date,exam_subject_start_time,exam_subject_end_time,class_name,exam_type)">
               <mat-icon aria-label="Edit">delete</mat-icon>
             </button>
           </td>
@@ -44,7 +40,7 @@
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
               <mat-label style="color :gray">ClassName</mat-label>
-              <input style="color :gray" [(ngModel)]="class_id" type="text" name="class_id"  matInput>
+              <input style="color :gray" [(ngModel)]="class_name" type="text" name="class_name"  matInput>
             </mat-form-field>
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                 <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
@@ -53,7 +49,7 @@
               </mat-form-field>
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Subject Name</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "subject_id">
+              <mat-select style="color:gray;" [(ngModel)]="subject_id">
                 <mat-option>Exam</mat-option>
                 <mat-option *ngFor="let subject of subdata" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
               </mat-select>
@@ -71,19 +67,20 @@
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
                 <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_subject_date" name="exam_subject_date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker startView="year" [startAt]="startDate" ></mat-datepicker>
+                <mat-datepicker #picker ></mat-datepicker>
               </mat-form-field>            
               <mat-form-field class="col-md-12" style="color: gray;" >
                   <mat-label style="color: gray;">Exam StartTime</mat-label>
                   <mat-icon style="color :orange" matSuffix>timer</mat-icon>
-                  <input  matInput type="time" atp-time-picker name="exam_subject_start_time" #from_time="ngModel" [ngModel]="exam_subject_start_time">
+                  <input matInput type="time"   atp-time-picker  name="exam_subject_start_time"  [(ngModel)]="exam_subject_start_time" >
                 </mat-form-field>
                 <mat-form-field class="col-md-12" style="color: gray;" >
-                    <mat-label style="color: gray;">Exam EndTime</mat-label>
-                    <mat-icon style="color :orange" matSuffix>timer</mat-icon>
-                    <input  matInput type="time" atp-time-picker name="exam_subject_end_time" #from_time="ngModel" [ngModel]="exam_subject_end_time"> 
-                  </mat-form-field>
-          <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+                  <mat-label style="color: gray;">To Time</mat-label>
+                  <mat-icon style="color :orange" matSuffix>timer</mat-icon>
+                  <input  matInput type="time" atp-time-picker name="exam_subject_end_time"  [(ngModel)]="exam_subject_end_time"> 
+                  <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                </mat-form-field>  
+          <button mat-raised-button class="btn-style" (click)="onsubmitclick(exam_subject_start_time.value,exam_subject_end_time.values)">{{buttoncontent}}</button>
         </div>
       </mat-card>
     </div>
