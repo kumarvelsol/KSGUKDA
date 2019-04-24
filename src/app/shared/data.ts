@@ -101,5 +101,8 @@ export interface Data {
     fee_mode_code : string;
     fee_mode_id : number;
     fee_mode_status : string;
+
+    class_fee_declaration_id : number;
+    fee_Amount : number;
     //End of Fee Module
 }
