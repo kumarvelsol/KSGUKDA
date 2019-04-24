@@ -27,6 +27,7 @@ import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
@@ -53,8 +54,8 @@ const routes: Routes = [
   {path:'FeeMode',component:FeeModeComponent},
   {path:'schoolexam',component:SchoolexamComponent},
   {path:'subjectexam',component:SubjectexamComponent},
-  {path:'ClassFee',component:ClassFeeDeclarationsComponent}
-
+  {path:'ClassFee',component:ClassFeeDeclarationsComponent},
+  {path:'AddNotice',component:AddNoticeComponent}
 ];
 
 @NgModule({

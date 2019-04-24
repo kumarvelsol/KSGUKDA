@@ -112,4 +112,11 @@ export interface Data {
     class_fee_declaration_id : number;
     fee_Amount : number;
     //End of Fee Module
+
+    //Start of Notice
+    title : string;
+    discription : string;
+    date : string;
+    notice_board_id : number;
+    //End of Notice
 }
