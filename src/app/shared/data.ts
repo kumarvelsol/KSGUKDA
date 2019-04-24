@@ -112,6 +112,12 @@ export interface Data {
     class_fee_declaration_id : number;
     fee_Amount : number;
     //End of Fee Module
+    //Event Modules
+    event_name:string;
+    discription:string;
+    from_date : string;
+    to_date  : string;
+    event_organizer : string;
 
     admission_number: string,
     admission_date:string,

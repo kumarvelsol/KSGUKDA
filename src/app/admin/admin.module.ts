@@ -47,6 +47,7 @@ import { ViewattendenceComponent } from './attendence/viewattendence/viewattende
 import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 
@@ -61,12 +62,11 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
   TimeperiodsComponent,
   TimeandPeriodComponent,
-  TimetableComponent,
-  ClassTabBarComponent,AddHolidaysComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+  TimetableComponent,ClassTabBarComponent,
+     AddHolidaysComponent, TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
    MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
-  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
-    
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, AddeventsComponent],
+
 
     imports: [
       CommonModule, AdminRoutingModule,

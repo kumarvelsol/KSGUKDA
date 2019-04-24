@@ -29,6 +29,7 @@ import { JsResponse } from '../shared/jsresponse';
 import { Schoolexam } from '../shared/schoolexam';
 import { ClassFeeList } from '../shared/classfeelist';
 import { Subjectexam } from '../shared/subjectexam';
+import { Addevents } from '../shared/addevents';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -200,6 +201,16 @@ export class AdminServiceService {
   public updatesubjectexam(exam_up: Subjectexam){
     return this.http.post(`${this.Baseurl+"updatingExamSubject"}`,exam_up);
   }
+  getaddevents(event_get : Parsing)
+  {
+    return this.http.post(`${this.Baseurl+"Eventlist"}`, event_get);
+  }
+  public createaddevents(event_in:Addevents){
+    return this.http.post(`${this.Baseurl+"addingevent"}`,event_in);
+}
+public updateaddevents(event_up: Addevents){
+  return this.http.post(`${this.Baseurl+"updateevent"}`,event_up);
+}
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
       return this.http.post(`${this.Baseurl+"Subjectinsert"}`,sub_insert);

@@ -28,6 +28,7 @@ import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
   {path:'attendence',component:AttendenceTabBarComponent},
   {path:'subjectexam',component:SubjectexamComponent},
   {path:'ClassFee',component:ClassFeeDeclarationsComponent},
+  {path:'Addevents',component:AddeventsComponent},
   {path:'holidays',component:AddHolidaysComponent},
   {path:'addstudent',component:AddStudentComponent},
 
