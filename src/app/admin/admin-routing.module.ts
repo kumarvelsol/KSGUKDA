@@ -56,7 +56,7 @@ const routes: Routes = [
   {path:'subjectexam',component:SubjectexamComponent},
   {path:'ClassFee',component:ClassFeeDeclarationsComponent},
 
-  {path:'holidays',component:AddHolidaysComponent}
+  {path:'holidays',component:AddHolidaysComponent},
 
   {path:'addstudent',component:AddStudentComponent},
 
