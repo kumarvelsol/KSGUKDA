@@ -34,7 +34,7 @@ export class SubjectexamComponent implements OnInit {
     exam_class_id : number; 
     subject_id : number;
     example:string;test: number;
-    class_name : string = ""; exam_type :string=""; exam_subject_id:number;
+    class_name : string = ""; exam_type :string="";
   constructor(private service1Service: AdminServiceService,private datePipe: DatePipe,private router: Router,private route: ActivatedRoute) {
     
     this.route.queryParams.subscribe(params => {
@@ -87,15 +87,12 @@ export class SubjectexamComponent implements OnInit {
         academic_id : 1,
         subject_id : this.subject_id
       }
-      // console.log(exam_subject_start_time);
-      // console.log(exam_subject_end_time);
-      // console.log(a);
       this.service1Service.createsubjectexam(a).subscribe((data : JsResponse) => {
         this.jsRes = data;
         if(this.jsRes.code==200)
         {
           console.log(data);
-          alert("SchoolExams Added Succesfully.!");
+          alert("SubjectExams Added Succesfully.!");
         }else{ }
       });
       this.service1Service.getsubjectexams(a).subscribe((data: Apiresponse) => 
@@ -107,7 +104,7 @@ export class SubjectexamComponent implements OnInit {
       console.log(this.exam_class_id);
       console.log(this.class_id);
       console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
-      console.log(this.exam_subject_type);console.log(this.exam_subject_id);
+      console.log(this.exam_subject_type);console.log(this.subject_id);
    }
    else if(this.buttoncontent == 'Update')
    {
@@ -125,11 +122,11 @@ export class SubjectexamComponent implements OnInit {
         academic_id : 1,
         subject_id : this.subject_id
     }
-    this.service1Service.updatesubjectexam(b).subscribe((data : JsResponse) => {
+    this.service1Service.updatesubjectexam(b).subscribe((data:JsResponse)=>{
       this.jsRes = data;
       if(this.jsRes.code==200)
       {
-        alert("SchoolExams Updated Succesfully.!");
+        alert("SubjectExams Updated Succesfully.!");
       }else{ }
     });
     this.service1Service.getsubjectexams(b).subscribe((data: Apiresponse) => 
@@ -141,7 +138,7 @@ export class SubjectexamComponent implements OnInit {
     console.log(this.exam_class_id);
       console.log(this.class_id);
       console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
-      console.log(this.exam_subject_type);console.log(this.exam_subject_id);
+      console.log(this.exam_subject_type);console.log(this.subject_id);
     this.buttoncontent = 'Save';
    }
    else if(this.exam_subject_type == "" || this.exam_subject_marks == null|| this.exam_subject_date == null)

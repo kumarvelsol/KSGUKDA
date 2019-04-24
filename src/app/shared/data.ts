@@ -109,4 +109,11 @@ export interface Data {
     fee_mode_id : number;
     fee_mode_status : string;
     //End of Fee Module
+
+    //Event Modules
+    event_name:string;
+    discription:string;
+    from_date : string;
+    to_date  : string;
+    event_organizer : string;
 }
