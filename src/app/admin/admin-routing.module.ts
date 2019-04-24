@@ -8,7 +8,8 @@ import {DesignationComponent} from './designation/designation.component';
 import { SettingsComponent } from './settings/settings.component';
 import {BloodgroupComponent} from './bloodgroup/bloodgroup.component';
 import { ClassesRelatedComponent } from './class/classes-related/classes-related.component';
-import { StudentComponent } from './student/student.component';
+import { StudentComponent } from './students/student/student.component';
+import { AddStudentComponent } from './students/add-student/add-student.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { EmployeedetailsComponent } from './employee/employeedetails/employeedetails.component';
@@ -44,17 +45,16 @@ const routes: Routes = [
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'employeelist',component:EmployeelistComponent},
-
   {path:'signUp',component:SignupRequestFormComponent},
   {path:'login',component:LoginFormComponent},
-
   {path:'classexam',component:ClassexamComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
   {path:'schoolexam',component:SchoolexamComponent},
   {path:'attendence',component:AttendenceTabBarComponent},
   {path:'subjectexam',component:SubjectexamComponent},
-  {path:'ClassFee',component:ClassFeeDeclarationsComponent}
+  {path:'ClassFee',component:ClassFeeDeclarationsComponent},
+  {path:'addstudent',component:AddStudentComponent},
 
 ];
 

@@ -24,9 +24,8 @@ table {
   font-size: 18px;
 }
 .parent{
-  text-align:center;
   height:210px;
-  width: 1100px;
+  width: 1140px;
 }
 .block {
   width: 80%;
@@ -35,10 +34,10 @@ table {
   margin:auto;
 }
 .example-container {
-  margin-left: -570px;
-  margin-top: 250px;
+  margin-left: 0px;
+  margin-top: 20px;
   height:270px;
-  width: 1100px;
+  width: 1150px;
   overflow: auto;
 }
 p{

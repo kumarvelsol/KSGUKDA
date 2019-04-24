@@ -109,4 +109,27 @@ export interface Data {
     fee_mode_id : number;
     fee_mode_status : string;
     //End of Fee Module
+
+    admission_number: string,
+    admission_date:string,
+    mobile_no: string,
+    alternate_mobile_no: string,
+    photo: null,
+    student_roll_no: string,
+    nationality: string,
+    mother_tongue: null,
+    address_id: string,
+    student_status: string,
+    state: string,
+    father_name: string,
+    father_mobile_no: string,
+    father_designation: string,
+    mather_name: string,
+    mother_mobile_no: string,
+    mother_designation: string,
+    guardian_name: string,
+    guardian_mobile_no:string,
+    guardian_address: string,
+    relation: string,
+    guardian_designation: string
 }

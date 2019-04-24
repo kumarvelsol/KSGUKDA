@@ -20,9 +20,9 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
-import { StudentComponent } from './student/student.component';
-import { StudentListComponent } from './student-list/student-list.component';
-import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentComponent } from './students/student/student.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+import { AddStudentComponent } from './students/add-student/add-student.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
@@ -61,7 +61,7 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
   ClassTabBarComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
   AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
-   PostattendenceComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
+   PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
     
     imports: [
       CommonModule, AdminRoutingModule,

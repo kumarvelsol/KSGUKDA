@@ -398,4 +398,20 @@ export class AdminServiceService {
     return this.http.post<JsResponse>(`${this.Baseurl+"updatefeemode"}`,params);
   }
   //End of FeeMode ServiceMethods
+  getclassstudent (institution_id : number, academic_id : number,class_id:number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"studentclassdetails"}`,params);
+  }
+  getparticularstudent(institution_id : number, academic_id : number,mobile_no : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('mobile_no',mobile_no+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"particularstudentdetails"}`,params);
+   }
 }
