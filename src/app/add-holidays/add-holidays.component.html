@@ -1,0 +1,143 @@
+<div class="container">
+
+
+  
+
+  
+
+
+  <div class="row">
+    <div class="col-md-6">
+      <mat-card class="row example-card parent">
+        <div class="block child">
+          <form #addingHolidays="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingHolidays)">
+              <p style="margin-top: 20px;">Add Holidays</p>
+
+
+
+
+              
+
+
+
+              <div class="col-sm-6">
+              <mat-form-field class="mat-form-wrap" style="color: gray;">
+                <input matInput   [matDatepicker]="picker"  name="startdate" #startdate="ngModel" [ngModel]="service.addHoliday.startdate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker ngDefaultControl ></mat-datepicker>
+              </mat-form-field>
+              </div>
+              <div *ngIf="startdate.invalid && (startdate.dirty || startdate.touched)"class="alert alert-danger">
+                <div *ngIf="startdate.errors.required">
+                    className is required.
+                </div>
+
+              </div> 
+
+
+              <div class="col-sm-6">
+                <mat-form-field class="mat-form-wrap" style="color: gray;">
+                  <input matInput   [matDatepicker]="socker"  name="enddate" #enddate="ngModel" [ngModel]="service.addHoliday.enddate" required>
+                  <mat-datepicker-toggle matSuffix [for]="socker"></mat-datepicker-toggle>
+                  <mat-datepicker #socker ngDefaultControl ></mat-datepicker>
+                </mat-form-field>
+                </div>
+                <div *ngIf="enddate.invalid && (enddate.dirty || enddate.touched)"class="alert alert-danger">
+                  <div *ngIf="enddate.errors.required">
+                      className is required.
+                  </div>
+  
+                </div> 
+              
+
+
+
+
+                
+
+
+
+                  <ng-container *ngIf="show">
+
+                      <mat-form-field class="mat-form-wrap" style="color: gray;">
+                          <mat-label style="color: gray;"> Remarks </mat-label>
+                          <mat-icon style="color :gray" matSuffix>code</mat-icon>          
+                          <input matInput   name="remarks" #remarks="ngModel" [ngModel]="service.addHoliday.remarks" >
+                          <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
+                        </mat-form-field>
+                        
+                  </ng-container>
+
+
+
+
+              
+                         
+              <div class="col-sm-6">
+                  <div class="mat-form-wrap">
+                      <div>
+                          <button type="submit" [disabled]="!addingHolidays.form.valid" [ngClass] = "{'my-color': !addingHolidays.valid} "     class="btn btn-lg btn-block btn-info">{{ buttoncontent }}</button>
+                            </div>                          
+                    </div>
+                    </div>      
+          </form>
+        </div>
+      </mat-card>
+    </div>  
+
+
+
+    
+    <div class="col-md-6">
+      <div class="example-container mat-elevation-z1">
+        <table mat-table [dataSource]="dataSource">
+
+          
+          
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> date </th>
+            <td mat-cell *matCellDef="let element" > {{element.date}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="month">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> month </th>
+            <td mat-cell *matCellDef="let element" > {{element.month}} </td>
+          </ng-container>
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> Year </th>
+            <td mat-cell *matCellDef="let element" > {{element.year}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="remarks">
+            <th mat-header-cell *matHeaderCellDef class="textSizes"> Remarks </th>
+            <td mat-cell *matCellDef="let element" > {{element.remarks}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="textSizes">Actions</th>
+            <td mat-cell *matCellDef="let element; let i=index;"> 
+              <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="populateForm(element)">
+                <mat-icon aria-label="Edit">edit</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>    
+      </div>    
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
+
+
+

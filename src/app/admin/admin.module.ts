@@ -47,6 +47,7 @@ import { ViewattendenceComponent } from './attendence/viewattendence/viewattende
 import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 
 @NgModule({
@@ -54,17 +55,19 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
+
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
 
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
-  ClassTabBarComponent,
+  ClassTabBarComponent,AddHolidaysComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
    MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
   PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
     
+
     imports: [
       CommonModule, AdminRoutingModule,
       LayoutModule, MatToolbarModule,
@@ -77,8 +80,11 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
       AmazingTimePickerModule],
     exports:[DashboardComponent,AdminToolbarComponent,
       ClassesRelatedComponent,TimeperiodsComponent,
-      SubjectsComponent,TimetableupdateComponent],
-    providers:[AdminServiceService],
+
+      SubjectsComponent,TimetableupdateComponent,],
+   
     entryComponents: [TimetableupdateComponent , ContactAdminComponent]
+
 })
 export class AdminModule { }
+
