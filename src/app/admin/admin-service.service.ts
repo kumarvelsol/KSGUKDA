@@ -218,7 +218,10 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
-
+   public updateemployee(empu:Employeemodel)
+   {
+     return this.http.post(`${this.Baseurl+"Employeeupdate"}`,empu);
+   }
    public getemployeelist(institution_id : number, academic_id : number)
    {
     let params = new HttpParams();

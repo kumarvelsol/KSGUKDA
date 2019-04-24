@@ -159,7 +159,39 @@ export class EmployeedetailsComponent implements OnInit {
       }
       else
       {
-
+        let insti: Employeemodel = 
+        {
+          employee_code:this.employee_code,
+          first_name:this.first_name,
+          last_name:this.last_name,
+          date_of_birth:this.date_of_birth,
+          gender:this.gender,
+          phone_no:this.phone_no,
+          alternate_phone_no:this.alternate_phone_no,
+          email:this.email,
+          user_type:this.user_type,
+          academic_id:1,
+          institution_id:1,
+          designation_id:this.designation_id,
+          joining_date:this.joining_date,
+          qualification:this.qualification,
+          experience:this.experience,
+          departmant_id:this.departmant_id,
+          blood_group_id:this.blood_group_id,
+          present_address:this.present_address,
+          perminent_address:this.perminent_address,
+          state_id:this.state_id,
+          city:this.city,
+          pin_code:this.pin_code
+        }
+        this.service.updateemployee(insti).subscribe((res : JsResponse)=>{
+          if(res.code == 200){
+            alert("Updated Employee successfully");
+          }else{
+            alert(""+res.message);
+          }
+          console.log(res);
+        });
       }
       this.employee_code=""; this.first_name=""; this.last_name=""; this.date_of_birth=null;
       this.gender=""; this.phone_no=""; this.alternate_phone_no=""; this.email="";
