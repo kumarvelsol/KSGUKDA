@@ -330,6 +330,10 @@ export class AdminServiceService {
     console.log(student);
     return this.http.post(this.Baseurl+"StudentInsert",student);
   }
+  public updatestudent(student:Student)
+  {
+    return this.http.post(this.Baseurl+"StudentUpdate",student);
+  }
   
   getmothertongue (institution_id: number,academic_id:number )
   {

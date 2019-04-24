@@ -55,9 +55,7 @@ const routes: Routes = [
   {path:'attendence',component:AttendenceTabBarComponent},
   {path:'subjectexam',component:SubjectexamComponent},
   {path:'ClassFee',component:ClassFeeDeclarationsComponent},
-
   {path:'holidays',component:AddHolidaysComponent},
-
   {path:'addstudent',component:AddStudentComponent},
 
 
