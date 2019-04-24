@@ -46,6 +46,7 @@ import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 
 @NgModule({
@@ -53,45 +54,29 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
-    ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
-
-  TimeperiodsComponent,
-  TimeandPeriodComponent,
-  TimetableComponent,
-  ClassTabBarComponent,
-  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent, MothertongueComponent,
-  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent],
- imports: [
-  
-    CommonModule,
-    AdminRoutingModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,MatInputModule,ReactiveFormsModule,
-    MatIconModule,MatDialogModule,
-    MatListModule,MatTableModule,
-    MaterialModule,FormsModule,
-    MatInputModule,ReactiveFormsModule,
-    MatSelectModule,MatTabsModule,
-    MatListModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ],
-  exports:[DashboardComponent,AdminToolbarComponent,ClassesRelatedComponent,TimeperiodsComponent,SubjectsComponent,TimetableupdateComponent,
-    TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
+        TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
+  SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
+    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent, AddHolidaysComponent],
 
-    
-    AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent],
 
-
-    
+    imports: [
+      CommonModule, AdminRoutingModule,
+      LayoutModule, MatToolbarModule,
+      MatButtonModule, MatSidenavModule,
+      MatListModule, MatTableModule,
+      MaterialModule, FormsModule,
+      MatInputModule, ReactiveFormsModule,
+      MatIconModule, MatDialogModule,
+      MatSelectModule, MatTabsModule,
+      AmazingTimePickerModule],
+    exports:[DashboardComponent,AdminToolbarComponent,
+      ClassesRelatedComponent,TimeperiodsComponent,
+      SubjectsComponent,TimetableupdateComponent,],
+    providers:[AdminServiceService],
+    entryComponents: [TimetableupdateComponent , ContactAdminComponent,]
 })
 export class AdminModule { }
+
