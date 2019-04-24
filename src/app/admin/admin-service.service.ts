@@ -28,6 +28,7 @@ import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subject
 import { JsResponse } from '../shared/jsresponse';
 import { Schoolexam } from '../shared/schoolexam';
 import { ClassFeeList } from '../shared/classfeelist';
+import { Subjectexam } from '../shared/subjectexam';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -187,6 +188,17 @@ export class AdminServiceService {
   }
   public deleteschoolexam(exam_del: Schoolexam){
     return this.http.post(`${this.Baseurl+"deletingSchoolExam"}`,exam_del);
+  }
+  //Subject Exams Related ServiceMethods
+  getsubjectexams(exam_get : Parsing)
+  {
+    return this.http.post(`${this.Baseurl+"getExamSubjects"}`, exam_get);
+  }
+  public createsubjectexam(exam_in:Subjectexam){
+      return this.http.post(`${this.Baseurl+"addingExamSubject"}`,exam_in);
+  }
+  public updatesubjectexam(exam_up: Subjectexam){
+    return this.http.post(`${this.Baseurl+"updatingExamSubject"}`,exam_up);
   }
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){

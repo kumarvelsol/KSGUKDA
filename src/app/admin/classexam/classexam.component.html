@@ -1,41 +1,45 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <div class="example-container mat-elevation-z1">
-        <table mat-table [dataSource]="dataSource">
-          <ng-container matColumnDef="exam_class_id">
-            <th mat-header-cell *matHeaderCellDef> S.No </th>
-            <td mat-cell *matCellDef="let element"> {{element.exam_class_id}} </td>
-          </ng-container>
-          <ng-container matColumnDef="exam_type">
-            <th mat-header-cell *matHeaderCellDef> Exam Type </th>
-            <td mat-cell *matCellDef="let element"> {{element.exam_type}} </td>
-          </ng-container>
-          <ng-container matColumnDef="class_name">
-              <th mat-header-cell *matHeaderCellDef> Class Type </th>
-              <td mat-cell *matCellDef="let element"> {{element.class_name}} </td>
-          </ng-container>
-          <ng-container matColumnDef="exam_class_start_date">
-            <th mat-header-cell *matHeaderCellDef> Class Exam Start Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.exam_class_start_date}} </td>
-          </ng-container>
-          <ng-container matColumnDef="exam_class_end_date">
-            <th mat-header-cell *matHeaderCellDef> Class Exam End Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.exam_class_end_date}} </td>
-          </ng-container>
-          <!-- <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Edit</th>
-            <td mat-cell *matCellDef="let element; let i=index;">
-              <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="editclick(i,element.exam_class_id,element.exam_id,element.class_id,element.exam_class_start_date,element.exam_class_end_date)">
-                <mat-icon aria-label="Edit">edit</mat-icon>
-              </button>
-            </td>
-          </ng-container> -->
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row (click)="RowSelectedd(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
-    </div>
+      <div class="col-md-6">
+          <div class=" example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="exam_class_id">
+                    <th mat-header-cell *matHeaderCellDef>ID</th>
+                    <td mat-cell *matCellDef="let element"> {{element.exam_class_id}} </td>
+              </ng-container>
+              <ng-container matColumnDef="exam_type">
+                <th mat-header-cell *matHeaderCellDef> ExamType </th>
+                <td mat-cell *matCellDef="let element"> {{element.exam_type}} </td>
+              </ng-container>
+              <ng-container matColumnDef="class_name">
+                <th mat-header-cell *matHeaderCellDef> Classname </th>
+                <td mat-cell *matCellDef="let element"> {{element.class_name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="exam_class_start_date">
+                <th mat-header-cell *matHeaderCellDef> StartDate </th>
+                <td mat-cell *matCellDef="let element"> {{element.exam_class_start_date}} </td>
+              </ng-container>
+              <ng-container matColumnDef="exam_class_end_date">
+                  <th mat-header-cell *matHeaderCellDef> EndDate </th>
+                  <td mat-cell *matCellDef="let element"> {{element.exam_class_end_date}} </td>
+                </ng-container>
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="textSizes">Actions</th>
+                <td mat-cell *matCellDef="let element; let j=index;"> 
+                  <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelected(j,element.exam_class_id,element.exam_id,element.class_id,element.exam_class_start_date,element.exam_class_end_date)">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                  </button>
+        
+                  <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,element.exam_class_id,element.exam_id,element.class_id,element.exam_class_start_date,element.exam_class_end_date)">
+                    <mat-icon aria-label="Edit">delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row (click)="RowSelectedd(row)" *matRowDef="let row; columns: displayedColumns;"  routerLink="/subjectexam" routerLinkActive="active"></tr>
+            </table>
+          </div>
+        </div>
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">

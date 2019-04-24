@@ -18,11 +18,19 @@ import { TimetableComponent } from '../timetable/timetable.component';
 import { ClassexamComponent } from '../admin/classexam/classexam.component';
 
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
+
+import { SignupRequestFormComponent } from '../signup-request-form/signup-request-form.component';
+import { LoginFormComponent } from '../login-form/login-form.component';
+
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
+
+
 
 
 const routes: Routes = [
@@ -36,15 +44,21 @@ const routes: Routes = [
   {path:'EmployeeDetails',component:EmployeedetailsComponent},
   {path:'subjectdetails',component:SubjectTabBarComponent},
   {path:'employeelist',component:EmployeelistComponent},
+
+  {path:'signUp',component:SignupRequestFormComponent},
+  {path:'login',component:LoginFormComponent},
+
   {path:'classexam',component:ClassexamComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
   {path:'schoolexam',component:SchoolexamComponent},
+  {path:'subjectexam',component:SubjectexamComponent},
   {path:'ClassFee',component:ClassFeeDeclarationsComponent}
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule { } 
