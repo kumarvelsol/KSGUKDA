@@ -15,11 +15,9 @@ export class FeeModeComponent implements OnInit {
   displayedColumns = ['fee_mode_id', 'fee_mode_name', 'fee_mode_code','No_of_installments', 'actions'];
   dataSource;
   constructor(public service : AdminServiceService) { }
-
   ngOnInit() {
     this.onclearclick();
   }
-
   public onsaveclick(){
     if(this.mode == "" || this.code == "" || this.installments == 0){
       alert("Please fill all fields");
