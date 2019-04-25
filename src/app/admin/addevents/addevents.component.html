@@ -43,39 +43,39 @@
         <table mat-table [dataSource]="abDatasource">
           <!--Id Column-->
           <ng-container matColumnDef="event_name">
-            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <th mat-header-cell *matHeaderCellDef> Event Name </th>
             <td mat-cell *matCellDef="let i"> {{i.event_name}} </td>
           </ng-container>
           <!-- Name Column -->
           <ng-container matColumnDef="discription">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <th mat-header-cell *matHeaderCellDef> Description </th>
             <td mat-cell *matCellDef="let i"> {{i.discription}} </td>
           </ng-container>
           <!-- Code Column -->
           <ng-container matColumnDef="from_date">
-            <th mat-header-cell *matHeaderCellDef> Code </th>
+            <th mat-header-cell *matHeaderCellDef> From Date </th>
             <td mat-cell *matCellDef="let i"> {{i.from_date}} </td>
           </ng-container>
           <ng-container matColumnDef="to_date">
-            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <th mat-header-cell *matHeaderCellDef> To Date </th>
             <td mat-cell *matCellDef="let i"> {{i.to_date}} </td>
           </ng-container>
           <ng-container matColumnDef="event_organizer">
-            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <th mat-header-cell *matHeaderCellDef> InCharge/Organise </th>
             <td mat-cell *matCellDef="let i"> {{i.event_organizer}} </td>
           </ng-container>
            <!-- actions -->
            <ng-container matColumnDef="View/Change">
             <th mat-header-cell *matHeaderCellDef> View/Change </th>
             <td mat-cell *matCellDef="let i; let j=index;">
-              <button mat-raised-button class="btn-style" (click)="RowSelectedd(j,event_name,discription,from_date,to_date,event_organizer)"> View/Change </button>
+              <button mat-raised-button class="btn-style" (click)="RowSelected(j,i.event_id,i.event_name,i.discription,i.from_date,i.to_date,i.event_organizer)"> View/Change </button>
               <!-- <a [routerLink]="['/']"> <button mat-raised-button class="btn-style" (click)="RowSelectedd(j,event_name,discription,from_date,to_date,event_organizer)"> View/Change </button></a> -->
             </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-      </div>
+      </div> 
     </div>
   </div>
 </div>

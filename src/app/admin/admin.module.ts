@@ -51,7 +51,6 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
-
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -65,7 +64,7 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
     ClassteacherdetailsComponent, MothertongueComponent,
     AddStudentComponent,StudentListComponent,StudentComponent,
     FeeTypeComponent,FeeModeComponent,ClassexamComponent,
-    SchoolexamComponent, AddNoticeComponent],
+    SchoolexamComponent, AddNoticeComponent,AttendenceTabBarComponent,PostattendenceComponent,ViewattendenceComponent,AddeventsComponent,AddHolidaysComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
