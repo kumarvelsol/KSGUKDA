@@ -33,7 +33,7 @@ export class SubjectexamComponent implements OnInit {
     exam_id : string;
     exam_class_id : number; 
     subject_id : number;
-    example:string;test: number;
+    example:string;test: number; exam_subject_id : string;
     class_name : string = ""; exam_type :string="";
   constructor(private service1Service: AdminServiceService,private datePipe: DatePipe,private router: Router,private route: ActivatedRoute) {
     
@@ -85,7 +85,8 @@ export class SubjectexamComponent implements OnInit {
         exam_class_id : this.exam_class_id, 
         institution_id : 1,
         academic_id : 1,
-        subject_id : this.subject_id
+        subject_id : this.subject_id,
+        exam_subject_id :this.exam_subject_id
       }
       this.service1Service.createsubjectexam(a).subscribe((data : JsResponse) => {
         this.jsRes = data;
@@ -120,7 +121,8 @@ export class SubjectexamComponent implements OnInit {
         exam_class_id : this.exam_class_id, 
         institution_id : 1,
         academic_id : 1,
-        subject_id : this.subject_id
+        subject_id : this.subject_id,
+        exam_subject_id : this.exam_subject_id
     }
     this.service1Service.updatesubjectexam(b).subscribe((data:JsResponse)=>{
       this.jsRes = data;
@@ -164,7 +166,7 @@ export class SubjectexamComponent implements OnInit {
     this.subject_id = row.subject_id;
     console.log("row clicked",row);
   }
-  public RowSelectedd(j:number,class_id:number,exam_id:string,exam_class_id:number,class_name:string,exam_type:string,subject_id:number,exam_subject_type:string,exam_subject_marks:string,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string)
+  public RowSelectedd(j:number,class_id:number,exam_id:string,exam_subject_id:string,exam_class_id:number,class_name:string,exam_type:string,subject_id:number,exam_subject_type:string,exam_subject_marks:string,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string)
   {
     this.buttoncontent = 'Update';
     this.exam_subject_type = exam_subject_type ;
@@ -178,6 +180,7 @@ export class SubjectexamComponent implements OnInit {
     this.exam_type = exam_type;
     this.exam_class_id = exam_class_id; 
     this.subject_id = subject_id;
+    this.exam_subject_id = exam_subject_id;
     console.log("row clicked",j);
   }
 }
