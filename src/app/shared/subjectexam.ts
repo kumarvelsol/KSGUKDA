@@ -9,5 +9,6 @@ export interface Subjectexam {
     exam_class_id : number,  
     subject_id : number,
     institution_id: number , 
-    academic_id : number
+    academic_id : number,
+    exam_subject_id:string
 }

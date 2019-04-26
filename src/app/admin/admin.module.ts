@@ -47,9 +47,10 @@ import { ViewattendenceComponent } from './attendence/viewattendence/viewattende
 import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
-
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -66,23 +67,22 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
   PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, AddeventsComponent],
 
 
-    imports: [
-      CommonModule, AdminRoutingModule,
-      LayoutModule, MatToolbarModule,
-      MatButtonModule, MatSidenavModule,
-      MatListModule, MatTableModule,
-      MaterialModule, FormsModule,
-      MatInputModule, ReactiveFormsModule,
-      MatIconModule, MatDialogModule,
-      MatSelectModule, MatTabsModule,
-      AmazingTimePickerModule],
-    exports:[
-      DashboardComponent,AdminToolbarComponent,
-      ClassesRelatedComponent,TimeperiodsComponent,
-      SubjectsComponent,TimetableupdateComponent],
-   
-    entryComponents: [TimetableupdateComponent , ContactAdminComponent]
-
+  imports: [
+    CommonModule, AdminRoutingModule,
+    LayoutModule, MatToolbarModule,
+    MatButtonModule, MatSidenavModule,
+    MatListModule, MatTableModule,
+    MaterialModule, FormsModule,
+    MatInputModule, ReactiveFormsModule,
+    MatIconModule, MatDialogModule,
+    MatSelectModule, MatTabsModule,
+    AmazingTimePickerModule,
+  ],
+  exports:[DashboardComponent,AdminToolbarComponent,
+    ClassesRelatedComponent,TimeperiodsComponent,
+    SubjectsComponent,TimetableupdateComponent],
+  entryComponents: [TimetableupdateComponent , ContactAdminComponent],
+  providers: [DatePipe]
 })
 export class AdminModule { }
 

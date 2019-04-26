@@ -25,6 +25,7 @@ export class AddeventsComponent implements OnInit {
     from_date = new Date();
     to_date  = new Date();
     event_organizer : string; 
+    event_id: number;
     buttoncontent:string = 'Save';
   constructor(private service1Service: AdminServiceService,private datePipe: DatePipe) { }
 
@@ -53,14 +54,15 @@ export class AddeventsComponent implements OnInit {
       to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
       event_organizer : this.event_organizer,
       institution_id : 1,
-      academic_id : 1
+      academic_id : 1,
+      event_id : this.event_id
     }
     this.service1Service.createaddevents(a).subscribe((data : JsResponse) => {
       this.jsRes = data;
       if(this.jsRes.code==200)
       {
         console.log(data);
-        alert("SubjectExams Added Succesfully.!");
+        alert("Event Added Succesfully.!");
       }else{ }
     });
     console.log(a);
@@ -74,22 +76,24 @@ export class AddeventsComponent implements OnInit {
       to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
       event_organizer : this.event_organizer,
       institution_id : 1,
-      academic_id : 1
+      academic_id : 1,
+      event_id : this.event_id
     }
     this.service1Service.updateaddevents(a).subscribe((data : JsResponse) => {
       this.jsRes = data;
       if(this.jsRes.code==200)
       {
         console.log(data);
-        alert("SubjectExams Added Succesfully.!");
+        alert("Event Updated Succesfully.!");
       }else{ }
     });
     console.log(a);
    }
   }
-  public RowSelectedd(j:number,event_name:string,discription:string,from_date:Date,to_date:Date,event_organizer:string)
+  public RowSelected(j:number,event_id:number,event_name:string,discription:string,from_date:Date,to_date:Date,event_organizer:string)
   {
     this.buttoncontent = 'Update';
+    this.event_id = event_id;
     this.event_name = event_name ;
     this.discription = discription;  
     this.from_date = from_date;

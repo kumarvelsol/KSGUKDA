@@ -21,7 +21,6 @@ import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subje
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
-import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
@@ -473,4 +472,31 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id', academic_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
   }
+  //Start of Notice Board
+  public CreateNotice(title : string,discription : string,date : string,institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('title',title);
+    params = params.append('discription',discription);
+    params = params.append('date',date+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"addingnotice"}`,params);
+  }
+  public GetNotice(institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Noticeboardlist"}`,params);
+  }
+  public UpdateNotice(notice_board_id : number, institution_id : number, academic_id : number, title : string, discription : string, date : string){
+    let params = new HttpParams();
+    params = params.append('notice_board_id',notice_board_id+"");
+    params = params.append('title',title);
+    params = params.append('discription',discription);
+    params = params.append('date',date+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
+  }
+  //End of Notice Board
 }

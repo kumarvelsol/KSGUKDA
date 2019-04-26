@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from 'src/app/shared/data';
 import { AdminServiceService } from '../../admin-service.service';
-import { count } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({
@@ -33,7 +32,6 @@ export class ClassFeeDeclarationsComponent implements OnInit {
   }
   public onclasschanged(val){
     if(this.classSelected == 0){
-      
     }
     this.service.GetClassFee(1,1,val).subscribe(data=>{
       if(data.Data.length > 0){
