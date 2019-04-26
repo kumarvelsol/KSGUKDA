@@ -93,10 +93,10 @@ export class AddStudentComponent implements OnInit {
       }
     });
   }
-get string():string
-{
-  return this.datava;
-}
+  get string():string
+  {
+    return this.datava;
+  }
   getReligion()
   {
     this.service.getReligionsLists('1').subscribe((data : Apiresponse) =>{
@@ -148,20 +148,17 @@ get string():string
   }
 
   
-  admission_number:string="";
-    admission_date:string="";first_name:string="";last_name:string="";birth_place:string="";
-    date_of_birth:Date=null;gender:string="";mobile_no:string="";alternate_mobile_no:string="";
-    email:string="";photo:string="";student_roll_no:string="";institution_id:string="";
-    academic_id:string="";blood_group_id:string="";religion_id:number=null;
-    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";present_address:string="";
-    perminent_address:string="";state :string="";city:string="";pin_code:string="";
-    father_name:string="";father_mobile_no :string="";father_designation:string="";
-    mather_name:string="";mother_mobile_no:string="";mother_designation:string="";
-    guardian_type:"";
+    admission_number:string="";admission_date:string="";first_name:string="";last_name:string="";
+    birth_place:string="";date_of_birth:Date=null;gender:string="";mobile_no:string="";
+    alternate_mobile_no:string="";email:string="";photo:string="";student_roll_no:string="";
+    institution_id:string="";academic_id:string="";blood_group_id:string="";religion_id:number=null;
+    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";
+    present_address:string="";perminent_address:string="";state :string="";city:string="";
+    pin_code:string="";father_name:string="";father_mobile_no :string="";father_designation:string="";
+    mather_name:string="";mother_mobile_no:string="";mother_designation:string="";guardian_type:"";
     guardian_name:string="";guardian_mobile_no:string="";guardian_second_mobile_no:string="";
     guardian_address:string="";guardian_email:string="";relation:string="";guardian_designation:string="";
-    guardian_state:string="";guardian_city:string="";guardian_pincode:string="";
-    student_id:string="";
+    guardian_state:string="";guardian_city:string="";guardian_pincode:string="";student_id:string="";
 
     private onAddStudentClick()
     {
@@ -264,8 +261,7 @@ get string():string
           }
           console.log(res);
         });
-      }
-     
+      } 
     }
     private checkValidations() :any
     {

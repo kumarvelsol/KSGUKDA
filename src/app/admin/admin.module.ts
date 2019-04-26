@@ -56,10 +56,8 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
-
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,ClassTabBarComponent,
@@ -78,10 +76,10 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
       MatIconModule, MatDialogModule,
       MatSelectModule, MatTabsModule,
       AmazingTimePickerModule],
-    exports:[DashboardComponent,AdminToolbarComponent,
+    exports:[
+      DashboardComponent,AdminToolbarComponent,
       ClassesRelatedComponent,TimeperiodsComponent,
-
-      SubjectsComponent,TimetableupdateComponent,],
+      SubjectsComponent,TimetableupdateComponent],
    
     entryComponents: [TimetableupdateComponent , ContactAdminComponent]
 

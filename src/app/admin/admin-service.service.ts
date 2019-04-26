@@ -30,6 +30,7 @@ import { Schoolexam } from '../shared/schoolexam';
 import { ClassFeeList } from '../shared/classfeelist';
 import { Subjectexam } from '../shared/subjectexam';
 import { Addevents } from '../shared/addevents';
+import { Attendencemodel } from '../shared/attendencemodel';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -452,4 +453,24 @@ public updateaddevents(event_up: Addevents){
     return this.http.post<JsResponse>(`${this.Baseurl+"classfee"}`,params);
   }
   //End of Class Fee Declarations
+
+  public getclassattendencelist(institution_id : number, academic_id : number, class_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"ClassAttendencelist"}`,params);
+  }
+  public createattendence(attend:Attendencemodel)
+  {
+    return this.http.post<JsResponse>(`${this.Baseurl+"Attendenceadding"}`,attend);
+  }
+  public getattendencelist(institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
+  }
 }
