@@ -8,6 +8,8 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { AdminModule } from './admin/admin.module';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
