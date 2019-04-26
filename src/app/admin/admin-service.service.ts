@@ -452,7 +452,7 @@ public updateaddevents(event_up: Addevents){
     let params = new HttpParams();
     params = params.append('title',title);
     params = params.append('discription',discription);
-    params = params.append('date',date);
+    params = params.append('date',date+"");
     params = params.append('institution_id',institution_id+"");
     params = params.append('academic_id',academic_id+"");
     return this.http.post<JsResponse>(`${this.Baseurl+"addingnotice"}`,params);
@@ -468,7 +468,7 @@ public updateaddevents(event_up: Addevents){
     params = params.append('notice_board_id',notice_board_id+"");
     params = params.append('title',title);
     params = params.append('discription',discription);
-    params = params.append('date',date);
+    params = params.append('date',date+"");
     params = params.append('institution_id',institution_id+"");
     params = params.append('academic_id',academic_id+"");
     return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
