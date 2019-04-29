@@ -93,10 +93,10 @@ export class AddStudentComponent implements OnInit {
       }
     });
   }
-get string():string
-{
-  return this.datava;
-}
+  get string():string
+  {
+    return this.datava;
+  }
   getReligion()
   {
     this.service.getReligionsLists('1').subscribe((data : Apiresponse) =>{
@@ -148,23 +148,22 @@ get string():string
   }
 
   
-  admission_number:string="";
-    admission_date:string="";first_name:string="";last_name:string="";birth_place:string="";
-    date_of_birth:Date=null;gender:string="";mobile_no:string="";alternate_mobile_no:string="";
-    email:string="";photo:string="";student_roll_no:string="";institution_id:string="";
-    academic_id:string="";blood_group_id:string="";religion_id:number=null;
-    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";present_address:string="";
-    perminent_address:string="";state :string="";city:string="";pin_code:string="";
-    father_name:string="";father_mobile_no :string="";father_designation:string="";
-    mather_name:string="";mother_mobile_no:string="";mother_designation:string="";
-    guardian_type:"";
+    admission_number:string="";admission_date:string="";first_name:string="";last_name:string="";
+    birth_place:string="";date_of_birth:Date=null;gender:string="";mobile_no:string="";
+    alternate_mobile_no:string="";email:string="";photo:string="";student_roll_no:string="";
+    institution_id:string="";academic_id:string="";blood_group_id:string="";religion_id:number=null;
+    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";
+    present_address:string="";perminent_address:string="";state :string="";city:string="";
+    pin_code:string="";father_name:string="";father_mobile_no :string="";father_designation:string="";
+    mather_name:string="";mother_mobile_no:string="";mother_designation:string="";guardian_type:"";
     guardian_name:string="";guardian_mobile_no:string="";guardian_second_mobile_no:string="";
     guardian_address:string="";guardian_email:string="";relation:string="";guardian_designation:string="";
-    guardian_state:string="";guardian_city:string="";guardian_pincode:string="";
-    student_id:string="";
+    guardian_state:string="";guardian_city:string="";guardian_pincode:string="";student_id:string="";
 
-    private onAddStudentClick(){
-     
+    private onAddStudentClick()
+    {
+      if(this.buttoncontent == "Save Student Details")
+      {
         let std:Student={
           academic_id:1,
           institution_id:1,
@@ -203,11 +202,66 @@ get string():string
           mother_tongue_id:Number(this.mother_tongue),
           class_id:Number(this.class_id),
         }
-          console.log(std);
-        this.service.addStudent(std).subscribe((data:Apiresponse)=>{
-          console.log(data);
-        })
-     
+        console.log(std);
+        this.service.addStudent(std).subscribe((res:Apiresponse)=>{
+          if(res.code == 200){
+            alert("Created Student successfully");
+          }else{
+            alert(""+res.message);
+          }
+          console.log(res);
+        });
+      }
+      else
+      {
+        let std:Student={
+          academic_id:1,
+          institution_id:1,
+          present_address:this.present_address,
+          perminent_address:this.perminent_address,
+          state:this.state,
+          city:this.city,
+          pin_code:this.pin_code,
+          admission_number:Number(this.admission_number),
+          admission_date:new Date(this.admission_date),
+          first_name:this.first_name,
+          last_name:this.last_name,
+          date_of_birth:new Date(this.date_of_birth),
+          gender:this.gender,
+          mobile_no:this.mobile_no,
+          alternate_mobile_no:this.alternate_mobile_no,
+          email:this.email,
+          student_roll_no:this.student_roll_no,
+          nationality:this.nationality,
+          father_name:this.father_name,
+          father_mobile_no:this.father_mobile_no,
+          father_designation:this.father_designation,
+          mather_name:this.mather_name,
+          mother_mobile_no:this.mother_mobile_no,
+          mother_designation:this.mother_designation,
+          guardian_name:this.guardian_name,
+          guardian_mobile_no:this.guardian_mobile_no,
+          guardian_second_mobile_no:this.guardian_second_mobile_no,
+          guardian_address:this.guardian_address,
+          guardian_email:this.guardian_email,
+          relation:this.relation,
+          guardian_designation:this.guardian_designation,
+          blood_group_id:Number(this.blood_group_id),
+          religion_id:Number(this.religion_id),
+          cast_id:Number(this.cast_id),
+          mother_tongue_id:Number(this.mother_tongue),
+          class_id:Number(this.class_id),
+        }
+        console.log(std);
+        this.service.updatestudent(std).subscribe((res:Apiresponse)=>{
+          if(res.code == 200){
+            alert("Updated Student successfully");
+          }else{
+            alert(""+res.message);
+          }
+          console.log(res);
+        });
+      } 
     }
     private checkValidations() :any
     {

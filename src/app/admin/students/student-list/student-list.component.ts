@@ -3,7 +3,6 @@ import { Data } from 'src/app/shared/data';
 import { AdminServiceService } from '../../admin-service.service';
 import { Apiresponse } from 'src/app/shared/apiresponse';
 import { MatTableDataSource } from '@angular/material';
-import { Router,NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-student-list',
@@ -18,7 +17,7 @@ studdata:Apiresponse;
 mobile_no:string;
 dataSource;
 displayedColumns: string[] = ["admission_number","student_roll_no","first_name","last_name","guardian_name","guardian_mobile_no","actions"];
-constructor(public service:AdminServiceService,private router: Router) { }
+constructor(public service:AdminServiceService) { }
 set string(data:string)
 {
   data="kumar";
