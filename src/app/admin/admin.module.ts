@@ -50,8 +50,7 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
-import { DatePipe } from '@angular/common'
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -66,7 +65,6 @@ import { DatePipe } from '@angular/common'
     AddStudentComponent,StudentListComponent,StudentComponent,ViewattendenceComponent,
     FeeTypeComponent,FeeModeComponent,ClassexamComponent,AttendenceTabBarComponent ,
     SchoolexamComponent, AddNoticeComponent],
-
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
@@ -85,4 +83,3 @@ import { DatePipe } from '@angular/common'
   providers: [DatePipe]
 })
 export class AdminModule { }
-
