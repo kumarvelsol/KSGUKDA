@@ -68,8 +68,7 @@ export class TimetableComponent implements OnInit {
   selectOption(value) 
   {     
       //code for selecting the selected value from dropdown 
-      this.transfereService.setData(value);
-      //getted from binding      
+      this.transfereService.setData(value);        
   }
 
     
