@@ -48,6 +48,7 @@ import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/atten
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { MondayComponent } from '../monday/monday.component';
 
 
 @NgModule({
@@ -55,17 +56,15 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
-
   TimeperiodsComponent,
   TimeandPeriodComponent,
   TimetableComponent,
   ClassTabBarComponent,AddHolidaysComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
    MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
-  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent],
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent],
     
 
     imports: [
@@ -80,7 +79,6 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
       AmazingTimePickerModule],
     exports:[DashboardComponent,AdminToolbarComponent,
       ClassesRelatedComponent,TimeperiodsComponent,
-
       SubjectsComponent,TimetableupdateComponent,],
    
     entryComponents: [TimetableupdateComponent , ContactAdminComponent]
