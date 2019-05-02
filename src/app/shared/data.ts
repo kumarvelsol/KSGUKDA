@@ -113,6 +113,19 @@ export interface Data {
     fee_Amount : number;
     //End of Fee Module
 
+    //Start of Notice
+    title : string;
+    discription : string;
+    date : string;
+    notice_board_id : number;
+    //End of Notice
+
+    //Event Modules
+    event_name:string;
+    from_date : string;
+    to_date  : string;
+    event_organizer : string;
+
     admission_number: string,
     admission_date:string,
     mobile_no: string,

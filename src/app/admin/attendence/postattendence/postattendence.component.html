@@ -5,8 +5,7 @@
           <div class="col-md-4 mat-form-wrap">
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Class Name</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "class_id">
-                <mat-option>Class</mat-option>
+              <mat-select style="color:gray;" (selectionChange)="selectOption($event.value)" [(ngModel)] = "class_id">
                 <mat-option *ngFor="let cname of clsdata" [value]="cname.class_id">{{cname.class_name}}</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
@@ -16,7 +15,6 @@
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Subject Name</mat-label>
               <mat-select style="color:gray;" [(ngModel)] = "subject_id">
-                <mat-option>Subject</mat-option>
                 <mat-option *ngFor="let sname of subjdata" [value]="sname.subject_id">{{sname.subject_name}}</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
@@ -29,7 +27,7 @@
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
-          <button mat-raised-button class="btn-style" >{{buttoncontent}}</button>&nbsp;&nbsp;
+          <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>&nbsp;&nbsp;
           <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>&nbsp;&nbsp;
           <button mat-raised-button class="btn-style" (click)="getdetails()">Get Details</button>
         </div>
@@ -40,18 +38,18 @@
       <div class="example-container mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
           <!--S.No Column-->
-          <ng-container matColumnDef="sno">
+          <ng-container matColumnDef="attendence_id">
             <th mat-header-cell *matHeaderCellDef> S.No </th>
-            <td mat-cell *matCellDef="let element"> {{element.sno}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.attendence_id}} </td>
           </ng-container>
           <!-- Code Column -->
-          <ng-container matColumnDef="studentrollno">
+          <ng-container matColumnDef="student_roll_no">
             <th mat-header-cell *matHeaderCellDef> Student RollNo</th>
-            <td mat-cell *matCellDef="let element"> {{element.studentrollno}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.student_roll_no}} </td>
           </ng-container>
-          <ng-container matColumnDef="studentname">
+          <ng-container matColumnDef="first_name">
             <th mat-header-cell *matHeaderCellDef> Student Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.studentname}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
           </ng-container>
           <ng-container matColumnDef="admissionno">
             <th mat-header-cell *matHeaderCellDef> Admission No </th>
@@ -65,7 +63,7 @@
             <th mat-header-cell *matHeaderCellDef> Check All </th>
             <td mat-cell *matCellDef="let element">
               {{element.checkall}}
-              <mat-checkbox [checked]="element.checkall"></mat-checkbox>  
+              <mat-checkbox [checked]="true"></mat-checkbox>  
             </td>      
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
