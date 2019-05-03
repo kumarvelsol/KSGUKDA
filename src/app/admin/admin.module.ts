@@ -50,21 +50,26 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { MondayComponent } from '../monday/monday.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
-    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-    SignupRequestFormComponent,LoginFormComponent,
+
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
-    TimeperiodsComponent, TimeandPeriodComponent, TimetableComponent,
-    ClassTabBarComponent, TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,
-    ClassteacherdetailsComponent, MothertongueComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent,
-    FeeTypeComponent,FeeModeComponent,ClassexamComponent,
-    SchoolexamComponent, AddNoticeComponent,AttendenceTabBarComponent,PostattendenceComponent,ViewattendenceComponent,AddeventsComponent,AddHolidaysComponent],
+  TimeperiodsComponent,
+  TimeandPeriodComponent,
+  TimetableComponent,AddNoticeComponent,AddeventsComponent,
+  ClassTabBarComponent,AddHolidaysComponent,
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+   MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent],
+    
+
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
@@ -79,8 +84,8 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
   exports:[DashboardComponent,AdminToolbarComponent,
     ClassesRelatedComponent,TimeperiodsComponent,
     SubjectsComponent,TimetableupdateComponent],
-  entryComponents: [TimetableupdateComponent , ContactAdminComponent]
+  entryComponents: [TimetableupdateComponent , ContactAdminComponent],
+  providers: [DatePipe]
 
 })
 export class AdminModule { }
-

@@ -21,7 +21,7 @@ export class TransfereServiceService {
 
   getData(){
     let temp = this.data;
-    this.clearData();
+    //this.clearData();
     return temp;
   }
 
