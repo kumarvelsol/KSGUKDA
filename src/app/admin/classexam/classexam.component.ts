@@ -144,7 +144,7 @@ export class ClassexamComponent implements OnInit {
     this.buttoncontent="Save";
   }
 
-  public editclick(i:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+  public editclick(j:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
       this.buttoncontent="Update";
       this.exam_class_id = exam_class_id;
@@ -155,6 +155,7 @@ export class ClassexamComponent implements OnInit {
   }
   public RowSelectedd(row)
   {
+    
     let navigationExtras: NavigationExtras = {
       queryParams: {
           "clsname":this.class_name = row.class_name,
@@ -164,15 +165,7 @@ export class ClassexamComponent implements OnInit {
           "exmid":this.exam_id = row.exam_id,
       }
   };
-   // const navigation: NavigationExtras = {state: {class_id: row.class_id}};
-
+  console.log(this.class_name);console.log(this.exam_type);
     this.router.navigate(['/subjectexam'],navigationExtras);
-    
-    // this.exam_class_id=row.exam_class_id;
-    // this.class_id=row.class_id;
-    // this.exam_id=row.exam_id;
-    // this.exam_class_start_date=row.exam_class_start_date;
-    // this.exam_class_end_date=row.exam_class_end_date;
-    // this.buttoncontent = "Update";
   }
 }
