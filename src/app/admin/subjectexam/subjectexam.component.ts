@@ -138,7 +138,7 @@ export class SubjectexamComponent implements OnInit {
    this.exam_subject_type = "";this.exam_subject_date = null; this.exam_subject_marks = null;this.class_id=null;this.exam_id="";this.subject_id=null;
    this.exam_subject_start_time = ""; this.exam_subject_end_time = "";
  }
- public RowSelected(row)
+  public RowSelected(row)
   {
     this.buttoncontent = 'Update';
     this.exam_subject_type = row.exam_subject_type ;
