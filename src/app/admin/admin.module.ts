@@ -51,6 +51,7 @@ import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 import { DatePipe } from '@angular/common';
+import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -65,7 +66,7 @@ import { DatePipe } from '@angular/common';
     AddStudentComponent,StudentListComponent,StudentComponent,
     FeeTypeComponent,FeeModeComponent,ClassexamComponent,AttendenceTabBarComponent ,
     SchoolexamComponent, AddNoticeComponent,EmployeelistComponent,
-    PostattendenceComponent,SignupRequestFormComponent,AddeventsComponent],
+    PostattendenceComponent,SignupRequestFormComponent,AddeventsComponent, MarqueeTagComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
