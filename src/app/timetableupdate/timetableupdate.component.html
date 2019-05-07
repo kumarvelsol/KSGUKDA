@@ -1,7 +1,7 @@
+
+
 <form #updateTperiod="ngForm" autocomplete="off" (ngSubmit)="onSubmit(updateTperiod)" >
   <div class="col-md-10">
-
-
 
    
     
@@ -13,8 +13,7 @@
       </mat-form-field>
     
 
-
-      
+     
         <div class="row">
           <label style="margin-top:15px;"> First Name </label>
                                   
@@ -22,7 +21,6 @@
         </div>
      
     
-
       <div class="form-row">
         <div class="col">
           <label> From Time </label>
@@ -39,7 +37,6 @@
             <input matInput  [disabled]="true"  name="to_time" #to_time="ngModel" [ngModel]="service.ttable.to_time" required>
         </div>
       </div>
-
 
     
 
@@ -74,11 +71,24 @@
     <input  type="hidden"    name="time_table_id" #time_table_id="ngModel" [ngModel]="service.ttable.time_table_id">
 
 
-    <div class="row">
+            
+        <div class="col-md-6">
+          
+         
+        </div>            
       
-        <button   class="btn btn-primary" > Assign </button> <br>
-      
-    </div>
-    <button   class="btn btn-danger" (click)="close()"> close </button>
+
+
+        <div style="width:400px;">
+          <div style="float: left; width: 130px"> 
+            <button   class="btn btn-primary" > Assign </button> <br>
+          </div>
+          <div style="float: right; width: 225px"> 
+            <button   class="btn btn-danger" (click)="close()"> close </button>
+          </div>
+      </div>
+    
+
+
   </div>
 </form>

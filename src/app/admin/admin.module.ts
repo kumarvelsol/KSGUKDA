@@ -50,23 +50,28 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { MondayComponent } from '../monday/monday.component';
 import { DatePipe } from '@angular/common';
 import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
+
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
     CastDetailsComponent, ReligionComponent,DesignationComponent,
     UsertypeComponent, AcademicdetailsComponent, SettingsComponent, 
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
-    SignupRequestFormComponent,LoginFormComponent,ViewattendenceComponent,
+    SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
     TimeperiodsComponent, TimeandPeriodComponent, TimetableComponent,
     ClassTabBarComponent, TimetableupdateComponent,EmployeedetailsComponent,
     ClassteacherdetailsComponent, MothertongueComponent,AddHolidaysComponent,
     AddStudentComponent,StudentListComponent,StudentComponent,
-    FeeTypeComponent,FeeModeComponent,ClassexamComponent,AttendenceTabBarComponent ,
+    FeeTypeComponent,FeeModeComponent,ClassexamComponent,
     SchoolexamComponent, AddNoticeComponent,EmployeelistComponent,
-    PostattendenceComponent,SignupRequestFormComponent,AddeventsComponent, MarqueeTagComponent],
+    PostattendenceComponent,AddeventsComponent, MarqueeTagComponent,
+    ViewattendenceComponent, MondayComponent,AttendenceTabBarComponent],
+      
+
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
@@ -83,5 +88,6 @@ import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
     SubjectsComponent,TimetableupdateComponent],
   entryComponents: [TimetableupdateComponent , ContactAdminComponent],
   providers: [DatePipe]
+
 })
 export class AdminModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Injectable } from '@angular/core';
 import { Data } from '../class/data';
 import { ClasserviceService } from '../class/classervice.service';
 import { NgForm } from '@angular/forms';
@@ -9,6 +9,8 @@ import { MatDialogRef } from '@angular/material';
 import { Ttablemodel } from '../ttablemodel';
 import { TransfereServiceService } from '../transfere-service.service';
 import { Subject } from 'rxjs';
+import { TimetableComponent } from '../timetable/timetable.component';
+import { ClassesRelatedComponent } from '../admin/class/classes-related/classes-related.component';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class TimetableupdateComponent implements OnInit {
   cls_id:number;
   constructor(private service:ClasserviceService,public srs:AdminServiceService,
     public dialogRef: MatDialogRef<TimetableupdateComponent> ,
-    private transfereService:TransfereServiceService ) { }
+    private transfereService:TransfereServiceService,
+     ) { }
 
   ngOnInit() 
   {
@@ -36,6 +39,8 @@ export class TimetableupdateComponent implements OnInit {
     this.service.getPerticularClassAllocatointoSubjects(1,1,this.cls_id).subscribe(data=>{
       
       this.subjects=data.Data;
+
+      
     });
 
 
@@ -62,11 +67,13 @@ export class TimetableupdateComponent implements OnInit {
 
   onSubmit(updateTperiod:NgForm)
   {
+    //console.log(updateTperiod.value);
 
     if(updateTperiod.value.sub_allocation_id==null)
     {
       alert("-- please select class --");      
-    }else
+    }
+    else
     {
         this.service.updateTimeTables(updateTperiod.value).subscribe(data=>
           {
@@ -89,6 +96,9 @@ export class TimetableupdateComponent implements OnInit {
   close()
   {
    this.dialogRef.close();
+       
   }
+
+  
 
 }
