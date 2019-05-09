@@ -34,7 +34,7 @@ export class StudentexamresultComponent implements OnInit {
   console.log(this.first_name);console.log(this.student_roll_no);   
   console.log(this.studentid);
    }
-
+   numRows = this.dataSource.data.length;
   ngOnInit() {
     // let a : Studentexamresult = {
     //   institution_id : 1,
