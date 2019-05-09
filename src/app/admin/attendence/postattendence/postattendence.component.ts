@@ -73,6 +73,8 @@ export class PostattendenceComponent implements OnInit {
       student_id : this.student_id,
       time_table_id : this.time_table_id
     }
+    
+
     this.service.createattendence(attend).subscribe((res:JsResponse)=>{
       if(res.code == 200)
       {
