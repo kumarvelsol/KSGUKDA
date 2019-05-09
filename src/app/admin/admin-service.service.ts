@@ -30,6 +30,8 @@ import { ClassFeeList } from '../shared/classfeelist';
 import { Subjectexam } from '../shared/subjectexam';
 import { Addevents } from '../shared/addevents';
 import { Attendencemodel } from '../shared/attendencemodel';
+import { Studentexamresult } from '../shared/studentexamresult';
+import { Classexamresults } from '../shared/classexamresults';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -218,7 +220,9 @@ public updateaddevents(event_up: Addevents){
     public updatesubject(sub_up: SubjectUpdate){
       return this.http.post(`${this.Baseurl+"Subjectupdate"}`,sub_up);
     }
-    public subjectlist(institution_id: number,academic_id : number){//sub_parse : SubjectParsing
+    public subjectlist(institution_id: number,academic_id : number)
+    {
+      
       let params = new HttpParams();
       params = params.append('institution_id', institution_id+"");
       params = params.append('academic_id',academic_id+"");
@@ -240,6 +244,33 @@ public updateaddevents(event_up: Addevents){
      params = params.append('academic_id',academic_id+"");
      return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
    }
+   // Class Wise Exam Results Service Methods
+
+   public getexamslist(institution_id : number, academic_id : number,class_id : number)
+   {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    return this.http.post(`${this.Baseurl+"examclasslist"}`, params);
+  }
+  public getexamclslist(params:Classexamresults) //(institution_id : number, academic_id : number,class_id : number)
+   {
+    // let params = new HttpParams();
+    // params = params.append('institution_id', institution_id+"");
+    // params = params.append('academic_id',academic_id+"");
+    // params = params.append('class_id',class_id+"");
+    return this.http.post(`${this.Baseurl+"resultlist"}`, params);
+  }
+  public getstudentmarks(institution_id : number, academic_id : number,class_id : number,student_id :number)
+   {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    params = params.append('student_id',student_id+"");
+    return this.http.post(`${this.Baseurl+"changelist"}`, params);
+  }
    public createclassexam(cls:Classexammodel)
    {
       return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
@@ -469,6 +500,22 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id', class_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"ClassAttendencelist"}`,params);
   }
+
+
+  public getSubjectAllocatedId(institution_id : number, academic_id : number, class_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"allocationlist"}`,params);
+  }
+
+
+
+
+
+
   public createattendence(attend:Attendencemodel)
   {
     return this.http.post<JsResponse>(`${this.Baseurl+"Attendenceadding"}`,attend);
@@ -506,6 +553,19 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id',academic_id+"");
     return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
   }
+
+
+  public getAttendenceList( institution_id : number, academic_id : number,class_id:number )
+  {
+    let params = new HttpParams();
+    params = params.append('class_id', class_id+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
+  }
+
+
+
   //End of Notice Board
   //http://veledu.edujinni.in/FutureNoticeboardlist
   public FutureNoticeBoard(academic_id : number, institution_id : number){

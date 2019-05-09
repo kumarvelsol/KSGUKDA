@@ -89,6 +89,7 @@ export class AddeventsComponent implements OnInit {
     });
     console.log(a);
    }
+   this.event_name = ""; this.discription = ""; this.from_date = null; this.to_date = null; this.event_organizer = "";
   }
   public RowSelected(j:number,event_id:number,event_name:string,discription:string,from_date:Date,to_date:Date,event_organizer:string)
   {

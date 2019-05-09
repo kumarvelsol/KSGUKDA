@@ -25,14 +25,16 @@
           <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="RowSelectedd(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
             <mat-icon aria-label="Edit">edit</mat-icon>
           </button>
-
+          <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="Edit(j,i.exam_type,i.exam_id)" routerLink="/classexam" routerLinkActive = "active">
+            <mat-icon >open_in_new</mat-icon>
+          </button>
           <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
             <mat-icon aria-label="Edit">delete</mat-icon>
           </button>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row (click)="RowSelected(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row  *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </div>
 </div>

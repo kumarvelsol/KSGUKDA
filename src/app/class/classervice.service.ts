@@ -8,6 +8,7 @@ import { Timeperiodmodel } from '../timeperiods/timeperiodmodel';
 import { Ttablemodel } from '../ttablemodel';
 import { Tupdate } from '../tupdate';
 import { DayWiseModel } from '../timetable/timetable.component';
+import { Attendencemodel } from '../shared/attendencemodel';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +58,17 @@ day:DayWiseModel;
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/addingTimePeriods',emp)
   }
 
+  
 
+  addingss(emp:Attendencemodel):Observable<Classresponse>
+  {    
+    emp.institution_id=1;
+    emp.academic_id=1;
+    
+    //emp.sub_allocation_id=1;
+    //emp.class_id=1;
+    return this.http.post<Classresponse> ('http://veledu.edujinni.in/Attendenceadding',emp)
+  }
 
 
   getTperiods (institution_id : number, academic_id : number,class_id:number)

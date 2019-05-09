@@ -1,0 +1,115 @@
+<div class="container card">
+  <div class="row">
+    <mat-card class="row example-card parent">
+        <div class="row col-md-12">
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">Name</mat-label>
+              <input style="color :gray" [(ngModel)]="first_name" type="text" name="first_name"  matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">Roll No</mat-label>
+              <input style="color :gray" [(ngModel)]="student_roll_no" type="text" name="student_roll_no"  matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">Class Name</mat-label>
+              <input style="color :gray" [(ngModel)]="class_name" type="text" name="class_name"  matInput>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row col-md-12">
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">Exam Type</mat-label>
+              <input style="color :gray" [(ngModel)]="exam_type" type="text" name="exam_type"  matInput>
+            </mat-form-field>
+          </div>
+          <div>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+              <input matInput [matDatepicker]="picker" placeholder="From date" [(ngModel)]="exam_class_start_date" name="exam_class_start_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+              <input matInput [matDatepicker]="pickerr" placeholder="To date" [(ngModel)]="exam_class_end_date" name="exam_class_end_date">
+              <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+              <mat-datepicker #pickerr ></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+    </mat-card>
+  </div>
+  <div class="row">
+      <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="ExamType">
+                <th mat-header-cell *matHeaderCellDef>ExamType</th>
+                <td mat-cell *matCellDef="let i"> {{i.exam_type}} </td>
+              </ng-container>
+          <ng-container matColumnDef="Subject Name">
+            <th mat-header-cell *matHeaderCellDef>Subject Name </th>
+            <td mat-cell *matCellDef="let i"> {{i.subject_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Exam Date">
+            <th mat-header-cell *matHeaderCellDef>Exam Date</th>
+            <td mat-cell *matCellDef="let i"> {{i.exam_subject_date}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Out of Marks">
+            <th mat-header-cell *matHeaderCellDef>Out of Marks</th>
+            <td mat-cell *matCellDef="let i"> {{i.exam_subject_marks}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Marks Gained">
+              <th mat-header-cell *matHeaderCellDef>Marks Gained</th>
+              <td mat-cell *matCellDef="let i"> {{i.marks}} </td>
+            </ng-container>
+          <ng-container matColumnDef="Percentage">
+            <th mat-header-cell *matHeaderCellDef>Percentage</th>
+            <td mat-cell *matCellDef="let i"> {{i.percentage}} </td>
+          </ng-container>
+          <ng-container matColumnDef="Change">
+            <th mat-header-cell *matHeaderCellDef> Change </th>
+            <td mat-cell *matCellDef="let i; let j=index;">
+              <button mat-raised-button class="btn-style"  (click)="RowSelected(j,i.event_id,i.event_name,i.discription,i.from_date,i.to_date,i.event_organizer)"> Change </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mat-form-wrap">
+        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+          <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+          <mat-label style="color :gray">Total Out of Marks</mat-label>
+          <input style="color :gray" [(ngModel)]="event_name" type="text" name="event_name"  matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4 mat-form-wrap">
+        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+          <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+          <mat-label style="color :gray">Total Marks</mat-label>
+          <input style="color :gray" [(ngModel)]="event_name" type="text" name="event_name"  matInput>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4 mat-form-wrap">
+        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+          <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+          <mat-label style="color :gray">Over All Percentage</mat-label>
+          <input style="color :gray" [(ngModel)]="event_name" type="text" name="event_name"  matInput>
+        </mat-form-field>
+      </div>
+    <button mat-raised-button class="btn-style" (click)="onsaveclick()">Add Marks</button>&nbsp;&nbsp;
+  </div>
+</div>
+

@@ -52,6 +52,8 @@ import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 import { MondayComponent } from '../monday/monday.component';
 import { DatePipe } from '@angular/common';
+import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
+import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
 
 @NgModule({
@@ -62,16 +64,17 @@ import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
     SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,
     SignupRequestFormComponent,LoginFormComponent,
     ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
-    TimeperiodsComponent, TimeandPeriodComponent, TimetableComponent,
-    ClassTabBarComponent, TimetableupdateComponent,EmployeedetailsComponent,
-    ClassteacherdetailsComponent, MothertongueComponent,AddHolidaysComponent,
-    AddStudentComponent,StudentListComponent,StudentComponent,
-    FeeTypeComponent,FeeModeComponent,ClassexamComponent,
-    SchoolexamComponent, AddNoticeComponent,EmployeelistComponent,
-    PostattendenceComponent,AddeventsComponent, MarqueeTagComponent,
-    ViewattendenceComponent, MondayComponent,AttendenceTabBarComponent],
-      
-
+    TimeperiodsComponent,
+  TimeandPeriodComponent,
+  TimetableComponent,AddNoticeComponent,AddeventsComponent,
+  ClassTabBarComponent,AddHolidaysComponent,
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+   MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,
+  SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent, ClassexamresultsComponent, StudentexamresultComponent,
+  MarqueeTagComponent,
+  MondayComponent,AttendenceTabBarComponent],
+     
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
