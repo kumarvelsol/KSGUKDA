@@ -13,8 +13,9 @@ import { Studentexamresult } from 'src/app/shared/studentexamresult';
 })
 export class StudentexamresultComponent implements OnInit {
   dataSource;
+  studentid:number;
   studentmarkslist : Apiresponse; studentmarksdata : Data[];
-  displayedColumns : string[] = ['Subject Name','RollNo','Exam Date','Out of Marks','Marks Gained','Percentage','Change'];
+  displayedColumns : string[] = ['Subject Name','ExamType','Exam Date','Out of Marks','Marks Gained','Percentage','Change'];
   student_roll_no:number; first_name : string; exam_type : string; class_name : string;
   class_id : number; student_id : number; status : string; percentage : string;
   exam_class_start_date = new Date();exam_class_end_date = new Date();
@@ -27,11 +28,11 @@ export class StudentexamresultComponent implements OnInit {
       this.exam_class_start_date = params["fromdate"];
       this.exam_class_end_date = params["todate"];
       this.class_id = params["clsid"];
-      this.dataSource = params["data"];
+      this.studentid=params["stdid"];
   });
   console.log(this.class_id);console.log(this.exam_type);
   console.log(this.first_name);console.log(this.student_roll_no);   
-
+  console.log(this.studentid);
    }
 
   ngOnInit() {
@@ -47,14 +48,7 @@ export class StudentexamresultComponent implements OnInit {
     //   status: this.status,
     //   percentage: this.percentage,
     // };
-    
-  }
-  onstudentchanged(val)
-  {
-    this.GetStudentMarksList(val);
-  }
-  public GetStudentMarksList(id : number){
-    this.service1Service.getstudentmarks(1,1,1,id).subscribe((data: Apiresponse) => 
+    this.service1Service.getstudentmarks(1,1,this.class_id,this.studentid).subscribe((data: Apiresponse) => 
    {
      this.studentmarkslist = data;
      console.log(this.studentmarkslist);

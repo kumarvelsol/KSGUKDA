@@ -31,6 +31,7 @@ import { Subjectexam } from '../shared/subjectexam';
 import { Addevents } from '../shared/addevents';
 import { Attendencemodel } from '../shared/attendencemodel';
 import { Studentexamresult } from '../shared/studentexamresult';
+import { Classexamresults } from '../shared/classexamresults';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -251,12 +252,12 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id',class_id+"");
     return this.http.post(`${this.Baseurl+"examclasslist"}`, params);
   }
-  public getexamclslist(institution_id : number, academic_id : number,class_id : number)
+  public getexamclslist(params:Classexamresults) //(institution_id : number, academic_id : number,class_id : number)
    {
-    let params = new HttpParams();
-    params = params.append('institution_id', institution_id+"");
-    params = params.append('academic_id',academic_id+"");
-    params = params.append('class_id',class_id+"");
+    // let params = new HttpParams();
+    // params = params.append('institution_id', institution_id+"");
+    // params = params.append('academic_id',academic_id+"");
+    // params = params.append('class_id',class_id+"");
     return this.http.post(`${this.Baseurl+"resultlist"}`, params);
   }
   public getstudentmarks(institution_id : number, academic_id : number,class_id : number,student_id :number)

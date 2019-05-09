@@ -13,7 +13,7 @@
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
               <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
               <mat-label style="color :gray">Roll No</mat-label>
-              <input style="color :gray" [(ngModel)]="student_roll_no" (ngModelChange)="onstudentchanged($event)" type="text" name="student_roll_no"  matInput>
+              <input style="color :gray" [(ngModel)]="student_roll_no" type="text" name="student_roll_no"  matInput>
             </mat-form-field>
           </div>
           <div class="col-md-4 mat-form-wrap">
@@ -46,22 +46,15 @@
               <mat-datepicker #pickerr ></mat-datepicker>
             </mat-form-field>
           </div>
-          <!-- <div class="col-md-4 mat-form-wrap" [style.visibility]="hidden">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-                <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-                <mat-label style="color :gray">Classid</mat-label>
-                <input style="color :gray" [(ngModel)]="class_id" (ngModelChange)="onstudentchanged($event)" type="text" name="class_id"  matInput>
-              </mat-form-field>
-            </div> -->
         </div>
     </mat-card>
   </div>
   <div class="row">
       <div class="example-container mat-elevation-z8">
         <table mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="RollNo">
-                <th mat-header-cell *matHeaderCellDef>RollNo</th>
-                <td mat-cell *matCellDef="let i"> {{i.student_roll_no}} </td>
+            <ng-container matColumnDef="ExamType">
+                <th mat-header-cell *matHeaderCellDef>ExamType</th>
+                <td mat-cell *matCellDef="let i"> {{i.exam_type}} </td>
               </ng-container>
           <ng-container matColumnDef="Subject Name">
             <th mat-header-cell *matHeaderCellDef>Subject Name </th>
