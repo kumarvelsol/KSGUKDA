@@ -153,7 +153,7 @@ export class SubjectexamComponent implements OnInit {
 
 
 
-  RowSelected(j:number,class_id:number,exam_id:number,exam_class_id:number,subject_id:number,exam_subject_type:string,exam_subject_marks:number,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string,class_name:string,exam_type:string,exam_subject_id:number,sid:number,stype:string)
+  RowSelected(j:number,class_id:number,exam_id:string,exam_class_id:number,subject_id:number,exam_subject_type:string,exam_subject_marks:string,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string,class_name:string,exam_type:string,exam_subject_id:string,sid:number,stype:string)
   {
 
     this.buttoncontent = 'Update';
@@ -161,14 +161,13 @@ export class SubjectexamComponent implements OnInit {
       this.exam_type = exam_type;
       this.subject_id = subject_id;
       this.exam_subject_type = exam_subject_type ;
-      
+      this.exam_subject_marks=exam_subject_marks;
       this.exam_subject_date = exam_subject_date;
       this.exam_subject_start_time =exam_subject_start_time;
       this.exam_subject_end_time = exam_subject_end_time;
       this.class_id = class_id;
-      
-      this.exam_class_id = exam_class_id;
-     
-      
+      this.exam_id=exam_id;
+      this.exam_class_id = exam_class_id;   
+      this.exam_subject_id=exam_subject_id;      
   }
 }
