@@ -29,6 +29,8 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
+import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
@@ -59,6 +61,8 @@ const routes: Routes = [
   {path:'Addevents',component:AddeventsComponent},
   {path:'holidays',component:AddHolidaysComponent},
   {path:'addstudent',component:AddStudentComponent},
+  {path:'Results',component:ClassexamresultsComponent},
+  {path:'StudentResult',component:StudentexamresultComponent}
 ];
 
 @NgModule({

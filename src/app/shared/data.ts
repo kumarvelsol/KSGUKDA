@@ -147,5 +147,12 @@ export interface Data {
     guardian_mobile_no:string,
     guardian_address: string,
     relation: string,
-    guardian_designation: string
+    guardian_designation: string,
+    student_id: number,
+    status: string,
+    total_percetage: string
+    
+
+
+
 }

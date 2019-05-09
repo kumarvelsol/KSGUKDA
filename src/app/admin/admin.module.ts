@@ -52,6 +52,8 @@ import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 import { MondayComponent } from '../monday/monday.component';
 import { DatePipe } from '@angular/common';
+import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
+import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
@@ -67,7 +69,7 @@ import { DatePipe } from '@angular/common';
   ClassTabBarComponent,AddHolidaysComponent,
   TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
    MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
-  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent],
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent, ClassexamresultsComponent, StudentexamresultComponent],
     
 
   imports: [
