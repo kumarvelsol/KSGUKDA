@@ -6,7 +6,7 @@ import { Apiresponse } from 'src/app/shared/apiresponse';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Classexammodel } from 'src/app/shared/classexammodel';
 import { DatePipe } from '@angular/common';
-import { Router,NavigationExtras } from '@angular/router';
+import { Router,NavigationExtras, ActivatedRoute } from '@angular/router';
 import { Subjectexam } from 'src/app/shared/subjectexam';
 
 @Component({
@@ -21,7 +21,12 @@ export class ClassexamComponent implements OnInit {
   buttoncontent="Save";
   dataSource;
   displayedColumns: string[] = ["exam_class_id", "exam_type","class_name", "exam_class_start_date","exam_class_end_date",'actions'];
-  constructor(public service:AdminServiceService,private datePipe: DatePipe,private router: Router) { }
+  constructor(public service:AdminServiceService,private datePipe: DatePipe,private router: Router,private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.exam_type = params["examtype"];
+      this.exam_id = params["examid"];
+   });
+  }
   exam_class_id:number=null;
   exam_type:string="";
   class_name:string="";
@@ -66,7 +71,7 @@ export class ClassexamComponent implements OnInit {
   }
   public onclick()
   {
-    if(this.class_id == null || this.exam_id == null || this.exam_class_start_date == null || this.exam_class_end_date == null)
+    if(this.class_id == null || this.exam_type == null || this.exam_class_start_date == null || this.exam_class_end_date == null)
     {alert("Please fill all fields");}
     else
     {
@@ -80,7 +85,8 @@ export class ClassexamComponent implements OnInit {
           class_id:this.class_id,
           exam_id:this.exam_id ,
           institution_id:1,
-          academic_id:1
+          academic_id:1,
+          exam_type:this.exam_type
         }
         this.service.createclassexam(user).subscribe((res:JsResponse)=>{
           if(res.code == 200)
@@ -111,7 +117,8 @@ export class ClassexamComponent implements OnInit {
           class_id:this.class_id,
           exam_id:this.exam_id ,
           institution_id:1,
-          academic_id:1
+          academic_id:1,
+          exam_type:this.exam_type
         }
         this.service.updateclassexam(user).subscribe((res:JsResponse)=>
         {
@@ -144,35 +151,31 @@ export class ClassexamComponent implements OnInit {
     this.buttoncontent="Save";
   }
 
-  public editclick(i:number,exam_class_id:number,exam_id:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+  public editclick(j:number,exam_class_id:number,exam_id:string,exam_type:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
+      this.class_id = null,this.exam_type =""; this.exam_class_end_date = null; this.exam_class_start_date = null;
       this.buttoncontent="Update";
       this.exam_class_id = exam_class_id;
       this.class_id =  class_id;
       this.exam_id = exam_id;
+      this.exam_type = exam_type;
       this.exam_class_start_date = exam_class_start_date;
       this.exam_class_end_date = exam_class_end_date;
+      console.log("ExamType",exam_type); console.log("ExamId",exam_id);console.log("EndDate",exam_class_end_date);
+      console.log("Startdate",exam_class_start_date);console.log("Classid",class_id);
   }
-  public RowSelectedd(row)
+  public NavigateClick(j:number,class_name:string,exam_id:string,class_id:number,exam_type:string,exam_class_id:number)
   {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          "clsname":this.class_name = row.class_name,
-          "examtype":this.exam_type = row.exam_type,
-          "clsexamid":this.exam_class_id=row.exam_class_id,
-          "clsid":this.class_id = row.class_id,
-          "exmid":this.exam_id = row.exam_id,
+          "clsname":this.class_name = class_name,
+          "examtype":this.exam_type = exam_type,
+          "clsexamid":this.exam_class_id= exam_class_id,
+          "clsid":this.class_id = class_id,
+          "exmid":this.exam_id = exam_id,
       }
   };
-   // const navigation: NavigationExtras = {state: {class_id: row.class_id}};
-
+  console.log(this.class_name);console.log(this.exam_type);
     this.router.navigate(['/subjectexam'],navigationExtras);
-    
-    // this.exam_class_id=row.exam_class_id;
-    // this.class_id=row.class_id;
-    // this.exam_id=row.exam_id;
-    // this.exam_class_start_date=row.exam_class_start_date;
-    // this.exam_class_end_date=row.exam_class_end_date;
-    // this.buttoncontent = "Update";
   }
 }

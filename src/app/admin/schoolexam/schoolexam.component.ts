@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material';
 import { Schoolexam } from 'src/app/shared/schoolexam';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { DatePipe } from '@angular/common';
+import { Router,NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-schoolexam',
@@ -18,9 +19,9 @@ export class SchoolexamComponent implements OnInit {
   startDate = new Date(2019, 0, 1);
   schoolexamslist: Apiresponse;
   schoolexamsdata : Data[];
-  buttoncontent : string = 'Save';
+  buttoncontent : string = 'Save'; 
   exam_type: string; exam_start_date= new Date();exam_end_date = new Date(); exam_id: number;
-  constructor(private service1Service: AdminServiceService,private datePipe: DatePipe) { }
+  constructor(private service1Service: AdminServiceService,private datePipe: DatePipe,private router: Router) { }
 
   ngOnInit() {
     this.exam_start_date = null; this.exam_end_date = null;
@@ -98,15 +99,30 @@ export class SchoolexamComponent implements OnInit {
    }
    this.exam_type = "";this.exam_start_date = null; this.exam_end_date = null;
  }
- public RowSelected(row)
-  {
-    this.buttoncontent = 'Update';
-    this.exam_id = row.exam_id;
-    this.exam_type = row.exam_type;
-    this.exam_start_date = row.exam_start_date;
-    this.exam_end_date = row.exam_end_date;
-    console.log("row clicked",row);
-  }
+    // public RowSelected(row)
+    // {
+
+    //   let navigationExtras: NavigationExtras = {
+    //     queryParams: {
+    //         "examtype":this.exam_type = row.exam_type,
+    //     }
+    //   }
+    // console.log(this.exam_type);
+    // this.router.navigate(['/classexam'],navigationExtras);
+    // }
+    public Edit(j:number,exam_type:string,exam_id:number)
+    { 
+      this.exam_type = exam_type;
+      console.log("ExamType",this.exam_type);
+      let navigationExtras: NavigationExtras = {
+        queryParams: {
+            "examtype":this.exam_type = exam_type,
+            "examid":this.exam_id = exam_id,
+        }
+      }
+    console.log(this.exam_type);
+    this.router.navigate(['/classexam'],navigationExtras);
+    }
   public RowSelectedd(j:number,exam_id:number,exam_type:string,exam_start_date:Date,exam_end_date:Date)
   {
     this.buttoncontent = 'Update';

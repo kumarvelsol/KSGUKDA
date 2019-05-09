@@ -31,48 +31,45 @@ export class ClassFeeDeclarationsComponent implements OnInit {
     });
   }
   public onclasschanged(val){
-    if(this.classSelected == 0){
-    }
     this.service.GetClassFee(1,1,val).subscribe(data=>{
-      if(data.Data.length > 0){
-        this.dataSource = new MatTableDataSource(data.Data);
-        this.listcount = data.Data.length; 
-        for (let i = 0; i < data.Data.length; i++) {
-          if(i == 0){
-            this.FeeTypeIds = data.Data[i].fee_type_id+"";
-            this.ClassIds = data.Data[i].class_id+"";
-            this.FeeAmounts = data.Data[i].fee_Amount+"";
-          }else{
-            this.FeeTypeIds = this.FeeTypeIds + "," + data.Data[i].fee_type_id;
-            this.ClassIds = this.ClassIds + "," + data.Data[i].class_id;
-            this.FeeAmounts = this.FeeAmounts + "," + data.Data[i].fee_Amount;
-          }
-          this.fee[i] = data.Data[i].fee_Amount;
-          console.log(i+" : "+this.fee[i]);
-          this.amount = data.Data[i].fee_Amount + this.amount;
+      this.dataSource = new MatTableDataSource(data.Data);
+      this.listcount = data.Data.length;
+      for (let i = 0; i < data.Data.length; i++) {
+        if(i == 0){
+          this.FeeTypeIds = data.Data[i].fee_type_id+"";
+          this.ClassIds = data.Data[i].class_id+"";
+          this.FeeAmounts = data.Data[i].fee_Amount+"";
+        }else{
+          this.FeeTypeIds = this.FeeTypeIds + "," + data.Data[i].fee_type_id;
+          this.ClassIds = this.ClassIds + "," + data.Data[i].class_id;
+          this.FeeAmounts = this.FeeAmounts + "," + data.Data[i].fee_Amount;
         }
-        this.totalamount = this.amount;
-      }else{
-        this.service.GetFeeTypes(1,1).subscribe(data =>{
-          this.dataSource = new MatTableDataSource(data.Data);
-          this.listcount = data.Data.length; 
-          for (let i = 0; i < data.Data.length; i++) {
-            if(i == 0){
-              this.FeeTypeIds = data.Data[i].fee_type_id+"";
-              this.ClassIds = this.classSelected+"";
-              this.FeeAmounts = 0+"";
-            }else{
-              this.FeeTypeIds = this.FeeTypeIds + "," + data.Data[i].fee_type_id;
-              this.ClassIds = this.ClassIds + "," + this.classSelected;
-              this.FeeAmounts = this.FeeAmounts + "," + 0;
-            }
-            this.fee[i] = 0;
-            console.log(i+" : "+this.fee[i]);
-            this.amount = 0 + this.amount;
-          }
-        });
-        this.totalamount = this.amount;
+        this.fee[i] = data.Data[i].fee_Amount;
+        console.log(i+" : "+this.fee[i]);
+        this.amount = data.Data[i].fee_Amount + this.amount;
       }
+      this.totalamount = this.amount;
+      // else{
+      //   this.service.GetFeeTypes(1,1).subscribe(data =>{
+      //     this.dataSource = new MatTableDataSource(data.Data);
+      //     this.listcount = data.Data.length; 
+      //     for (let i = 0; i < data.Data.length; i++) {
+      //       if(i == 0){
+      //         this.FeeTypeIds = data.Data[i].fee_type_id+"";
+      //         this.ClassIds = this.classSelected+"";
+      //         this.FeeAmounts = 0+"";
+      //       }else{
+      //         this.FeeTypeIds = this.FeeTypeIds + "," + data.Data[i].fee_type_id;
+      //         this.ClassIds = this.ClassIds + "," + this.classSelected;
+      //         this.FeeAmounts = this.FeeAmounts + "," + 0;
+      //       }
+      //       this.fee[i] = 0;
+      //       console.log(i+" : "+this.fee[i]);
+      //       this.amount = 0 + this.amount;
+      //     }
+      //   });
+      //   this.totalamount = this.amount;
+      // }
     });
     this.amount = 0;
   }
@@ -90,12 +87,12 @@ export class ClassFeeDeclarationsComponent implements OnInit {
       console.log(this.FeeTypeIds);
     }
     if(this.buttoncontent == "Save"){
-      this.service.CreateClassFee(this.ClassIds,this.FeeTypeIds,this.FeeAmounts,1,1).subscribe(data =>{
+      this.service.UpdateClassFee(this.ClassIds,this.FeeTypeIds,this.FeeAmounts,1,1).subscribe(data =>{
         if(data.code == 200){
-          alert("Inserted Succesfully");
+          alert("Updated Succesfully");
           //this.onclearclick();
         }else{
-          alert("Failed to Insert");
+          alert("Failed to Update");
         }
       });
     }else {//if(this.buttoncontent == "Update"){
