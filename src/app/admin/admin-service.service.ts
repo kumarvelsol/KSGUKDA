@@ -399,13 +399,13 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id', academic_id+"");
     params = params.append('fee_name', fee_name);
     params = params.append('fee_type_code', fee_type_code);
-    return this.http.post<JsResponse>(`${this.Baseurl+"Addingfee"}`,params);
+    return this.http.post<JsResponse>(`${this.Baseurl+"addfeeclassfee"}`,params);
   }
   public GetFeeTypes(institution_id : number,academic_id : number){
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id', academic_id+"");
-    return this.http.post<Apiresponse>(`${this.Baseurl+"Allfeetypes"}`,params)
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Allfeetypes"}`,params);
   }
   public UpdateFeeType(institution_id : number,academic_id : number,fee_type_id:number, fee_name : string,fee_type_code : string){
     let params = new HttpParams();
@@ -417,7 +417,6 @@ public updateaddevents(event_up: Addevents){
     return this.http.post<JsResponse>(`${this.Baseurl+"updatefee"}`,params);
   }
   //End of Feetype ServiceMethods
-
   //Start of FeeModes ServiceMethods
   public CreateFeeMode(institution_id : number,academic_id : number,fee_mode_name : string, fee_mode_code : string, No_of_installments : number){
     let params = new HttpParams();
@@ -454,13 +453,13 @@ public updateaddevents(event_up: Addevents){
     return this.http.post<Apiresponse>(`${this.Baseurl+"studentclassdetails"}`,params);
   }
   getparticularstudent(institution_id : number, academic_id : number,mobile_no : string)
-   {
-      let params = new HttpParams();
-      params = params.append('institution_id', institution_id+"");
-      params = params.append('academic_id',academic_id+"");
-      params = params.append('mobile_no',mobile_no+"");
-      return this.http.post<Apiresponse>(`${this.Baseurl+"particularstudentdetails"}`,params);
-   }
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('mobile_no',mobile_no+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"particularstudentdetails"}`,params);
+  }
 
   //Start of Class Fee Declarations
   public GetClassFee(institution_id : number, academic_id : number, class_id : number){
@@ -470,14 +469,23 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id', class_id+"");
     return this.http.post<ClassFeeList>(`${this.Baseurl+"classfeelist"}`,params);
   }
-  public CreateClassFee(classid : string,feetypeid : string,feeAmount : string,institution_id : number,academic_id : number){
+  // public CreateClassFee(classid : string,feetypeid : string,feeAmount : string,institution_id : number,academic_id : number){
+  //   let params = new HttpParams();
+  //   params = params.append('classid', classid);
+  //   params = params.append('feetypeid', feetypeid);
+  //   params = params.append('feeAmount', feeAmount);
+  //   params = params.append('institution_id', institution_id+"");
+  //   params = params.append('academic_id', academic_id+"");
+  //   return this.http.post<JsResponse>(`${this.Baseurl+"classfee"}`,params);
+  // }
+  public UpdateClassFee(classid : string,feetypeid : string,feeamount : string,institution_id : number,academic_id : number){
     let params = new HttpParams();
     params = params.append('classid', classid);
     params = params.append('feetypeid', feetypeid);
-    params = params.append('feeAmount', feeAmount);
+    params = params.append('feeamount', feeamount);
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id', academic_id+"");
-    return this.http.post<JsResponse>(`${this.Baseurl+"classfee"}`,params);
+    return this.http.post<JsResponse>(`${this.Baseurl+"classfeeupdate"}`,params);
   }
   //End of Class Fee Declarations
 
@@ -527,4 +535,11 @@ public updateaddevents(event_up: Addevents){
     return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
   }
   //End of Notice Board
+  //http://veledu.edujinni.in/FutureNoticeboardlist
+  public FutureNoticeBoard(academic_id : number, institution_id : number){
+    let params = new HttpParams();
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('institution_id',institution_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"FutureNoticeboardlist"}`,params);
+  }
 }
