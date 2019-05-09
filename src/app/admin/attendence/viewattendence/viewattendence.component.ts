@@ -29,20 +29,21 @@ export class ViewattendenceComponent implements OnInit {
   subjdata : Data[];
   class_id:number;subject_id:number;
   dataSource;
-  displayedColumns: string[] = ["attendence_id","first_name"];
+  displayedColumns: string[] = ["attendence_id", "student_roll_no","first_name","class_name","Attendence_status"];
   first_name : string;
   attendence_id : number;
   constructor(public service:AdminServiceService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.buttoncontent = "Save";
-    this.service.getattendencelist(1,1).subscribe((data : Apiresponse) =>
-    {
-      this.viewattend=data;
-      this.dataSource = new MatTableDataSource(this.viewattend.Data);
-    });
+    // this.service.getattendencelist(1,1).subscribe((data : Apiresponse) =>
+    // {
+    //   this.viewattend=data;
+    //   this.dataSource = new MatTableDataSource(this.viewattend.Data);
+    // });
     this.gettingclasses();
-    this.gettingsubjects();
+    //this.gettingsubjects();
   }
   gettingclasses()
   {
@@ -50,15 +51,30 @@ export class ViewattendenceComponent implements OnInit {
       this.clsdata = data.Data;
     });
   }
-  gettingsubjects()
+  
+  // gettingsubjects()
+  // {
+  //   this.service.subjectlist(1,1).subscribe(data=>{
+  //     this.subjdata = data.Data;
+  //   });
+  // }
+
+  // onclearclick()
+  // {
+  //   this.class_id = null;
+  //   this.subject_id = null;
+  // }
+
+
+  selectOption(value)
   {
-    this.service.subjectlist(1,1).subscribe(data=>{
-      this.subjdata = data.Data;
+    //console.log(value.class_id); 
+    this.class_id=value.class_id;   
+
+    this.service.getAttendenceList(1,1,this.class_id).subscribe((data : Apiresponse) =>
+    {
+      this.viewattend=data;
+      this.dataSource = new MatTableDataSource(this.viewattend.Data);
     });
-  }
-  onclearclick()
-  {
-    this.class_id = null;
-    this.subject_id = null;
   }
 }

@@ -218,7 +218,9 @@ public updateaddevents(event_up: Addevents){
     public updatesubject(sub_up: SubjectUpdate){
       return this.http.post(`${this.Baseurl+"Subjectupdate"}`,sub_up);
     }
-    public subjectlist(institution_id: number,academic_id : number){//sub_parse : SubjectParsing
+    public subjectlist(institution_id: number,academic_id : number)
+    {
+      
       let params = new HttpParams();
       params = params.append('institution_id', institution_id+"");
       params = params.append('academic_id',academic_id+"");
@@ -461,6 +463,22 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id', class_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"ClassAttendencelist"}`,params);
   }
+
+
+  public getSubjectAllocatedId(institution_id : number, academic_id : number, class_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"allocationlist"}`,params);
+  }
+
+
+
+
+
+
   public createattendence(attend:Attendencemodel)
   {
     return this.http.post<JsResponse>(`${this.Baseurl+"Attendenceadding"}`,attend);
@@ -498,5 +516,18 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id',academic_id+"");
     return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
   }
+
+
+  public getAttendenceList( institution_id : number, academic_id : number,class_id:number )
+  {
+    let params = new HttpParams();
+    params = params.append('class_id', class_id+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
+  }
+
+
+
   //End of Notice Board
 }

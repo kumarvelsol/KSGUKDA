@@ -148,4 +148,6 @@ export interface Data {
     guardian_address: string,
     relation: string,
     guardian_designation: string
+
+    attendence_id:number;
 }

@@ -23,6 +23,9 @@ export class TimetableComponent implements OnInit {
   serRes:Classresponse;
   class_id:number;
   dataSource
+
+  loading: boolean = false;
+
   public show:boolean = false;
   constructor(private service:ClasserviceService,public dialog: MatDialog,
     private transfereService:TransfereServiceService) { }
@@ -76,12 +79,13 @@ export class TimetableComponent implements OnInit {
     Monday()
     {
 
+      this.loading=true;
       this.class_id=this.transfereService.getData();
       
       this.show = !this.show;
       this.show=true;
       this.service.getDayWiseList(1,1,this.class_id,1).subscribe(data=>{
-
+        this.loading=false;        
         this.data=data.Data;
         this.dataSource=this.data;
       });
@@ -163,7 +167,7 @@ export class TimetableComponent implements OnInit {
 
 export interface DayWiseModel
 {
-  institution_id:number;
+    institution_id:number;
     academic_id:number;
     class_id:number;
     weeksofday_id:number;

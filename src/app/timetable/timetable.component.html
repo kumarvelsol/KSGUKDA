@@ -1,10 +1,13 @@
 <div class="container" >
+    
+  
 
   <div class="row">
+     
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">
-            <form #addingTtables="ngForm" autocomplete="off" >
+            <form #addingTtables="ngForm" autocomplete="off">
                 <p style="margin-top: 20px;">TimePeriod </p>
 
                   <div class="form-group">
@@ -53,6 +56,11 @@
   <ng-container *ngIf="show">
 
 <div class="container">
+
+
+    <i class="material-icons" *ngIf="loading"> rotate_90_degrees_ccw </i>
+
+
   <div class="col-md-10">
     <div class="example-container mat-elevation-z1">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z1" >
