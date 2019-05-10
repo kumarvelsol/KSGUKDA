@@ -38,7 +38,8 @@ import { StudentexamresultComponent } from './studentexamresult/studentexamresul
 
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent},
+  {path:'',pathMatch:'full',redirectTo:'home'},
+  {path:'home',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
