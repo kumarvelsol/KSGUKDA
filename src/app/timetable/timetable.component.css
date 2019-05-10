@@ -13,8 +13,11 @@ table
 
 .example-container {
   height: 500px;
-  overflow: auto; 
+  overflow: auto;
+  /* overflow-y: hidden; */
   margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
 .btn-style{
   background-color: #33B5E5;
@@ -25,4 +28,9 @@ table
   margin-bottom: 15px;
   margin-top: 15px;
   font-size: 18px;
+}
+.sss{
+  margin-top: 50px;
+  margin-left: 75px;
+
 }

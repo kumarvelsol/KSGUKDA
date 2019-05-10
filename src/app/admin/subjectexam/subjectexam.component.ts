@@ -16,7 +16,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SubjectexamComponent implements OnInit {
   abDatasource; jsRes : JsResponse;
-  displayedColumns: string[] = ['exam_subject_type','exam_subject_marks','exam_subject_date','actions'];
+  displayedColumns: string[] = ['exam_subject_type','exam_subject_marks','exam_subject_date','actions'];//'exam_subject_id',
   startDate = new Date(2019, 0, 1);
   clsdata :  Data[];
   examdata:Data[];
@@ -24,7 +24,7 @@ export class SubjectexamComponent implements OnInit {
   subexamslist: Apiresponse;
   subexamsdata : Data[];
   buttoncontent : string = 'Save';
-    exam_subject_type : string ; 
+    exam_subject_type : string ;  
     exam_subject_marks : string; 
     exam_subject_date = new Date(); 
     exam_subject_start_time : string; 
@@ -33,7 +33,7 @@ export class SubjectexamComponent implements OnInit {
     exam_id : string;
     exam_class_id : number; 
     subject_id : number;
-    example:string;test: number;
+    example:string;test: number; exam_subject_id : string;
     class_name : string = ""; exam_type :string="";
   constructor(private service1Service: AdminServiceService,private datePipe: DatePipe,private router: Router,private route: ActivatedRoute) {
     
@@ -69,7 +69,7 @@ export class SubjectexamComponent implements OnInit {
       this.subdata = data.Data;
     });
   }
-  public onsubmitclick()
+  public onsubmitclick(exam_subject_start_time:string,exam_subject_end_time:string)
   {
    if(this.buttoncontent == 'Save')
    {
@@ -83,16 +83,17 @@ export class SubjectexamComponent implements OnInit {
         class_id : this.class_id,
         exam_id : this.exam_id,
         exam_class_id : this.exam_class_id, 
-        subject_id : this.subject_id,
         institution_id : 1,
-        academic_id : 1
+        academic_id : 1,
+        subject_id : this.subject_id,
+        exam_subject_id :this.exam_subject_id
       }
       this.service1Service.createsubjectexam(a).subscribe((data : JsResponse) => {
         this.jsRes = data;
         if(this.jsRes.code==200)
         {
           console.log(data);
-          alert("SchoolExams Added Succesfully.!");
+          alert("SubjectExams Added Succesfully.!");
         }else{ }
       });
       this.service1Service.getsubjectexams(a).subscribe((data: Apiresponse) => 
@@ -103,7 +104,8 @@ export class SubjectexamComponent implements OnInit {
       });
       console.log(this.exam_class_id);
       console.log(this.class_id);
-      console.log(this.exam_id);
+      console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
+      console.log(this.exam_subject_type);console.log(this.subject_id);
    }
    else if(this.buttoncontent == 'Update')
    {
@@ -117,15 +119,16 @@ export class SubjectexamComponent implements OnInit {
         class_id : this.class_id,
         exam_id : this.exam_id,
         exam_class_id : this.exam_class_id, 
-        subject_id : this.subject_id,
         institution_id : 1,
-        academic_id : 1
+        academic_id : 1,
+        subject_id : this.subject_id,
+        exam_subject_id : this.exam_subject_id
     }
-    this.service1Service.updatesubjectexam(b).subscribe((data : JsResponse) => {
+    this.service1Service.updatesubjectexam(b).subscribe((data:JsResponse)=>{
       this.jsRes = data;
       if(this.jsRes.code==200)
       {
-        alert("SchoolExams Updated Succesfully.!");
+        alert("SubjectExams Updated Succesfully.!");
       }else{ }
     });
     this.service1Service.getsubjectexams(b).subscribe((data: Apiresponse) => 
@@ -134,6 +137,10 @@ export class SubjectexamComponent implements OnInit {
       console.log(this.subexamslist);
       this.abDatasource = new MatTableDataSource(this.subexamslist.Data);
     });
+    console.log(this.exam_class_id);
+      console.log(this.class_id);
+      console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
+      console.log(this.exam_subject_type);console.log(this.subject_id);console.log("Examsubid",this.exam_subject_id);
     this.buttoncontent = 'Save';
    }
    else if(this.exam_subject_type == "" || this.exam_subject_marks == null|| this.exam_subject_date == null)
@@ -159,7 +166,7 @@ export class SubjectexamComponent implements OnInit {
     this.subject_id = row.subject_id;
     console.log("row clicked",row);
   }
-  public RowSelectedd(j:number,class_id:number,exam_id:string,exam_class_id:number,class_name:string,exam_type:string,subject_id:number,exam_subject_type:string,exam_subject_marks:string,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string)
+  public RowSelectedd(j:number,class_id:number,exam_id:string,exam_subject_id:string,exam_class_id:number,class_name:string,exam_type:string,subject_id:number,exam_subject_type:string,exam_subject_marks:string,exam_subject_date:Date,exam_subject_start_time:string,exam_subject_end_time:string)
   {
     this.buttoncontent = 'Update';
     this.exam_subject_type = exam_subject_type ;
@@ -173,6 +180,7 @@ export class SubjectexamComponent implements OnInit {
     this.exam_type = exam_type;
     this.exam_class_id = exam_class_id; 
     this.subject_id = subject_id;
+    this.exam_subject_id = exam_subject_id;
     console.log("row clicked",j);
   }
 }

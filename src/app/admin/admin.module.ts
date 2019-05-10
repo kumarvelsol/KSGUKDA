@@ -20,9 +20,9 @@ import { from } from 'rxjs';
 import { BloodgroupComponent } from './bloodgroup/bloodgroup.component';
 import { ReligionComponent } from './religion/religion.component';
 import { SettingsComponent } from './settings/settings.component';
-import { StudentComponent } from './student/student.component';
-import { StudentListComponent } from './student-list/student-list.component';
-import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentComponent } from './students/student/student.component';
+import { StudentListComponent } from './students/student-list/student-list.component';
+import { AddStudentComponent } from './students/add-student/add-student.component';
 import { ClassteacherdetailsComponent } from '../admin/classteacherdetails/classteacherdetails.component';
 import { SubjectTabBarComponent } from './subject/subject-tab-bar/subject-tab-bar.component';
 import { SubjectsComponent } from './subject/subjects/subjects.component';
@@ -42,8 +42,16 @@ import { ClassexamComponent } from './classexam/classexam.component';
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
+import { PostattendenceComponent } from './attendence/postattendence/postattendence.component';
+import { ViewattendenceComponent } from './attendence/viewattendence/viewattendence.component';
+import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { SubjectexamComponent } from './subjectexam/subjectexam.component';
 import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/class-fee-declarations.component';
+import { AddNoticeComponent } from './add-notice/add-notice.component';
+import { AddeventsComponent } from './addevents/addevents.component';
+import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { MondayComponent } from '../monday/monday.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -69,6 +77,15 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
       ClassesRelatedComponent,TimeperiodsComponent,
       SubjectsComponent,TimetableupdateComponent],
     providers:[AdminServiceService],
-    entryComponents: [TimetableupdateComponent , ContactAdminComponent]
+    entryComponents: [TimetableupdateComponent , ContactAdminComponent,
+    SubjectTabBarComponent,SubjectsComponent,SubjectAllocationComponent,SignupRequestFormComponent,LoginFormComponent,
+    ContactAdminComponent,SubjectexamComponent,ClassFeeDeclarationsComponent,
+  TimeperiodsComponent,
+  TimeandPeriodComponent,
+  TimetableComponent,AddNoticeComponent,AddeventsComponent,
+  ClassTabBarComponent,AddHolidaysComponent,
+  TimetableupdateComponent,EmployeedetailsComponent,EmployeelistComponent,ClassteacherdetailsComponent,
+   MothertongueComponent,  AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent,FeeModeComponent,ClassexamComponent,SchoolexamComponent,
+  PostattendenceComponent,ContactAdminComponent,SignupRequestFormComponent,LoginFormComponent, ViewattendenceComponent, AttendenceTabBarComponent,SubjectexamComponent,ClassFeeDeclarationsComponent, MondayComponent],
 })
 export class AdminModule { }

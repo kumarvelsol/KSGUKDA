@@ -7,6 +7,7 @@ import { Classresponse } from './classresponse';
 import { Timeperiodmodel } from '../timeperiods/timeperiodmodel';
 import { Ttablemodel } from '../ttablemodel';
 import { Tupdate } from '../tupdate';
+import { DayWiseModel } from '../timetable/timetable.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ClasserviceService {
   tperiods:Timeperiodmodel;
   refer:Classmodel
   data:Data[];
-
+day:DayWiseModel;
   ttable:Ttablemodel;
   tupdates:Tupdate
   constructor(private http:HttpClient) { }
@@ -32,14 +33,15 @@ export class ClasserviceService {
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/classinsert',emp);
   }
   //displaying the classes details
-  get_products(institution_id : number, academic_id : number){
+  get_products(institution_id : number, academic_id : number)
+  {
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");
     
     return this.http.post<Classresponse>('http://veledu.edujinni.in/Classlist',params);
-
   }
+  
   //updating the classes list
   updateClass(refer:Classmodel):Observable<Classresponse>
   {
@@ -118,6 +120,18 @@ export class ClasserviceService {
 
 
 
+
+
+
+  getDayWiseList(institution_id : number, academic_id : number,class_id:number,weeksofday_id:number) :Observable<Classresponse>
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    params = params.append('weeksofday_id',weeksofday_id+"");
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/daywiselist',params);
+  }
 
 
 

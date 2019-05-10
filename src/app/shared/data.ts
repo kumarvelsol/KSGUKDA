@@ -108,5 +108,44 @@ export interface Data {
     fee_mode_code : string;
     fee_mode_id : number;
     fee_mode_status : string;
+
+    class_fee_declaration_id : number;
+    fee_Amount : number;
     //End of Fee Module
+
+    //Start of Notice
+    title : string;
+    discription : string;
+    date : string;
+    notice_board_id : number;
+    //End of Notice
+
+    //Event Modules
+    event_name:string;
+    from_date : string;
+    to_date  : string;
+    event_organizer : string;
+
+    admission_number: string,
+    admission_date:string,
+    mobile_no: string,
+    alternate_mobile_no: string,
+    photo: null,
+    student_roll_no: string,
+    nationality: string,
+    mother_tongue: null,
+    address_id: string,
+    student_status: string,
+    state: string,
+    father_name: string,
+    father_mobile_no: string,
+    father_designation: string,
+    mather_name: string,
+    mother_mobile_no: string,
+    mother_designation: string,
+    guardian_name: string,
+    guardian_mobile_no:string,
+    guardian_address: string,
+    relation: string,
+    guardian_designation: string
 }

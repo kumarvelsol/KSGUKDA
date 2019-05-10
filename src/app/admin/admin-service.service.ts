@@ -21,13 +21,15 @@ import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subje
 import { Student } from '../shared/student';
 import {Apiresponse} from '../shared/apiresponse';
 import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
-import { Classteacherdetails } from '../shared/classteacherdetails';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
 import { JsResponse } from '../shared/jsresponse';
 import { Schoolexam } from '../shared/schoolexam';
+import { ClassFeeList } from '../shared/classfeelist';
 import { Subjectexam } from '../shared/subjectexam';
+import { Addevents } from '../shared/addevents';
+import { Attendencemodel } from '../shared/attendencemodel';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -199,6 +201,16 @@ export class AdminServiceService {
   public updatesubjectexam(exam_up: Subjectexam){
     return this.http.post(`${this.Baseurl+"updatingExamSubject"}`,exam_up);
   }
+  getaddevents(event_get : Parsing)
+  {
+    return this.http.post(`${this.Baseurl+"Eventlist"}`, event_get);
+  }
+  public createaddevents(event_in:Addevents){
+    return this.http.post(`${this.Baseurl+"addingevent"}`,event_in);
+}
+public updateaddevents(event_up: Addevents){
+  return this.http.post(`${this.Baseurl+"updateevent"}`,event_up);
+}
   //Start of Subject Related ServiceMethods.
     public createsubject(sub_insert: SubjectInsert){
       return this.http.post(`${this.Baseurl+"Subjectinsert"}`,sub_insert);
@@ -217,7 +229,10 @@ export class AdminServiceService {
    {
       return this.http.post(`${this.Baseurl+"EmployeeInsert"}`,emp);
    }
-
+   public updateemployee(empu:Employeemodel)
+   {
+     return this.http.post(`${this.Baseurl+"Employeeupdate"}`,empu);
+   }
    public getemployeelist(institution_id : number, academic_id : number)
    {
     let params = new HttpParams();
@@ -326,6 +341,10 @@ export class AdminServiceService {
     console.log(student);
     return this.http.post(this.Baseurl+"StudentInsert",student);
   }
+  public updatestudent(student:Student)
+  {
+    return this.http.post(this.Baseurl+"StudentUpdate",student);
+  }
   
   getmothertongue (institution_id: number,academic_id:number )
   {
@@ -398,4 +417,86 @@ export class AdminServiceService {
     return this.http.post<JsResponse>(`${this.Baseurl+"updatefeemode"}`,params);
   }
   //End of FeeMode ServiceMethods
+  getclassstudent (institution_id : number, academic_id : number,class_id:number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"studentclassdetails"}`,params);
+  }
+  getparticularstudent(institution_id : number, academic_id : number,mobile_no : string)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('mobile_no',mobile_no+"");
+      return this.http.post<Apiresponse>(`${this.Baseurl+"particularstudentdetails"}`,params);
+   }
+
+  //Start of Class Fee Declarations
+  public GetClassFee(institution_id : number, academic_id : number, class_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<ClassFeeList>(`${this.Baseurl+"classfeelist"}`,params);
+  }
+  public CreateClassFee(classid : string,feetypeid : string,feeAmount : string,institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('classid', classid);
+    params = params.append('feetypeid', feetypeid);
+    params = params.append('feeAmount', feeAmount);
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"classfee"}`,params);
+  }
+  //End of Class Fee Declarations
+
+  public getclassattendencelist(institution_id : number, academic_id : number, class_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    params = params.append('class_id', class_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"ClassAttendencelist"}`,params);
+  }
+  public createattendence(attend:Attendencemodel)
+  {
+    return this.http.post<JsResponse>(`${this.Baseurl+"Attendenceadding"}`,attend);
+  }
+  public getattendencelist(institution_id : number, academic_id : number)
+  {
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id', academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
+  }
+  //Start of Notice Board
+  public CreateNotice(title : string,discription : string,date : string,institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('title',title);
+    params = params.append('discription',discription);
+    params = params.append('date',date+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"addingnotice"}`,params);
+  }
+  public GetNotice(institution_id : number,academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Noticeboardlist"}`,params);
+  }
+  public UpdateNotice(notice_board_id : number, institution_id : number, academic_id : number, title : string, discription : string, date : string){
+    let params = new HttpParams();
+    params = params.append('notice_board_id',notice_board_id+"");
+    params = params.append('title',title);
+    params = params.append('discription',discription);
+    params = params.append('date',date+"");
+    params = params.append('institution_id',institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<JsResponse>(`${this.Baseurl+"updatenotice"}`,params);
+  }
+  //End of Notice Board
 }
