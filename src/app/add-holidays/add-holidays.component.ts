@@ -17,7 +17,7 @@ export class AddHolidaysComponent implements OnInit {
   public show:boolean = false;
 
   buttoncontent:string="save";
-  constructor(private service:HolidaysServsService) { }
+  constructor(public service:HolidaysServsService) { }
 
   displayedColumns: string[] = ['date', 'month', 'year','remarks','actions'];
   end:String;

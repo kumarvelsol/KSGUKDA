@@ -6,8 +6,6 @@
         <div class="block child">
             <form #addingTperiod="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingTperiod)">
                 <p style="margin-top: 20px;">TimePeriod </p>
-
-
                 
                   <div class="form-group">
                       <mat-form-field>
@@ -16,12 +14,7 @@
                               <mat-option [value]="country.class_id" *ngFor="let country of data">{{country.class_name}}</mat-option>                                                                       
                           </mat-select>
                         </mat-form-field>  
-                     </div>
-            
-
-
-
-
+                     </div>            
 
                   <mat-form-field class="col-md-12" style="color: gray;" >
                     <mat-label style="color: gray;">Section Name</mat-label>
@@ -139,7 +132,7 @@
                     </button>
                   </td>
                 </ng-container>
-             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                  
               </table>

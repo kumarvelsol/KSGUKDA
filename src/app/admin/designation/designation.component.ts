@@ -20,7 +20,7 @@ export class DesignationComponent implements OnInit {
   desiglist : Apiresponse;
   designationlist : Data[];
   displayedColumns: string[] = ['designation_id','designation_code','designation_name','actions'];
-  constructor(private designationservice: AdminServiceService) { }
+  constructor(public designationservice: AdminServiceService) { }
   ngOnInit() {
     let a:Designation = {
       designation_id : this.designation_id ,

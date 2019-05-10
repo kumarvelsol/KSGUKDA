@@ -2,7 +2,6 @@
   <mat-card class="row example-card">
     <div class="container">
 
-
         <form #signupRequest="ngForm" autocomplete="off" (ngSubmit)="onSubmit(signupRequest)">
 
             <div class="col-xl-8">
@@ -14,7 +13,6 @@
                         </div>
                       </div>
 
-
             <div class="col-md-6 mat-form-wrap">
                 <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                   <mat-label style="color: gray;">Institute Name</mat-label>
@@ -22,10 +20,8 @@
                   <mat-icon style="color: gray;" matSuffix>business</mat-icon>
                   <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                 </mat-form-field>
-
                
               </div>
-
 
               <div class="col-md-6 mat-form-wrap">
                   <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
@@ -34,12 +30,8 @@
                     <mat-icon style="color: gray;" matSuffix>call</mat-icon>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
-
-                  
-
+                
                 </div>
-
-
 
               <div class="col-md-6 mat-form-wrap">
                   <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
@@ -81,13 +73,7 @@
                 </div>
                 
               </div>
-            
-
-
-
-
-
-                
+                            
                     <p style="margin-top: 20px;">Admin Contact Details</p>
                    <div class="row">
                     <div class="col-md-6 mat-form-wrap">
@@ -111,28 +97,15 @@
                         
                       </div>
                       
-
-
                       <div class="col-md-6 mat-form-wrap">                          
                             <input  type="hidden"    name="institution_image" #institution_image="ngModel" [ngModel]="signupService.signUpModelRef.institution_image" required>                           
                         </div>
-
-
-                      </div>
-                    
+                      </div>                    
                 </div>
-
-                  
-
-
-
-
-
-
-
+              
                 <div class="row">
-                    <div class="col-sm-12">
-                      <button type="submit"    class="btn btn-lg btn-block btn-info"> Save</button>
+                    <div class="col-md-12">
+                      <button   type="submit"    mat-raised-button class="btn-style" > Save</button>
                       
                     </div>
                 </div>

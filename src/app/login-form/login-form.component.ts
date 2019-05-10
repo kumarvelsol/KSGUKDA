@@ -11,7 +11,7 @@ import { Classresponse } from '../class/classresponse';
 export class LoginFormComponent implements OnInit {
 
   serRes:Classresponse;
-  constructor(private signupService:SignupServceService) { }
+  constructor(public signupService:SignupServceService) { }
 
   ngOnInit() 
   {

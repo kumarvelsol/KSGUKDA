@@ -17,7 +17,7 @@ export class TimeperiodsComponent implements OnInit {
   rss:Timeperiodmodel;
   dataSource
   cis_id:number;
-  constructor(private service:ClasserviceService) { }
+  constructor(public service:ClasserviceService) { }
 
   buttoncontent:string = "Add";
   serRes:Classresponse;
