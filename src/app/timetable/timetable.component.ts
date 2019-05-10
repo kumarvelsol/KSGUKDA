@@ -27,7 +27,7 @@ export class TimetableComponent implements OnInit {
   loading: boolean = false;
 
   public show:boolean = false;
-  constructor(private service:ClasserviceService,public dialog: MatDialog,
+  constructor(public service:ClasserviceService,public dialog: MatDialog,
     private transfereService:TransfereServiceService) { }
 
     displayedColumns: string[] = ['session_name','from_time','to_time','subject_name','first_name','time_periods_status','change/assign'];

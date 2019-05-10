@@ -24,7 +24,7 @@ export class TimetableupdateComponent implements OnInit {
   serRes : Classresponse;
   ff:Ttablemodel;
   cls_id:number;
-  constructor(private service:ClasserviceService,public srs:AdminServiceService,
+  constructor(public service:ClasserviceService,public srs:AdminServiceService,
     public dialogRef: MatDialogRef<TimetableupdateComponent> ,
     private transfereService:TransfereServiceService,
      ) { }

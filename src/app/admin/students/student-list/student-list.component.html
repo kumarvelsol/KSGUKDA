@@ -5,7 +5,7 @@
           <div class="col-md-6 mat-form-wrap">
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Class Name</mat-label>
-              <mat-select style="color:gray;" (selectionChange)="selectOption($event.value)" [(ngModel)] = "class_id">
+              <mat-select style="color:gray;" (selectionChange)="selectOption($event.value)" [(ngModel)] = "clsid">
                 <mat-option>Class</mat-option>
                 <mat-option *ngFor="let cname of clsdata" [value]="cname.class_id">{{cname.class_name}}</mat-option> 
               </mat-select>

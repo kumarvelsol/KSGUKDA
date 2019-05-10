@@ -18,7 +18,7 @@ export class ClassesRelatedComponent implements OnInit {
   serRes:Classresponse;
   submit_text:string='save';
   
-  constructor(private servs:ClasserviceService,private http:HttpClient) { }
+  constructor(public servs:ClasserviceService,private http:HttpClient) { }
   displayedColumns: string[] = ['class_name', 'class_code', 'class_description','actions'];
   ngOnInit()
   { 
