@@ -55,8 +55,7 @@ export class PostattendenceComponent implements OnInit {
   selectOption(value) 
   {
     this.class_id =value;
-    this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>
-      {
+    this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>{
       this.subjdata = data.Data;
     });
   }
@@ -106,6 +105,9 @@ export class PostattendenceComponent implements OnInit {
       //student_id : this.student_id,
       time_table_id : this.time_table_id,
     }
+    
+    
+    
     this.srv.addingss(attend).subscribe(data=>{
       this.serRes=data;     
       if(this.serRes.code==200)

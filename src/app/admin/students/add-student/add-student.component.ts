@@ -160,7 +160,7 @@ export class AddStudentComponent implements OnInit {
     guardian_address:string="";guardian_email:string="";relation:string="";guardian_designation:string="";
     guardian_state:string="";guardian_city:string="";guardian_pincode:string="";student_id:string="";
 
-    private onAddStudentClick()
+    public onAddStudentClick()
     {
       if(this.buttoncontent == "Save Student Details")
       {

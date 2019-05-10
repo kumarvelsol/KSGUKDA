@@ -14,7 +14,7 @@ export class SignupRequestFormComponent implements OnInit {
 
 
   serRes:Classresponse;
-  constructor(private signupService:SignupServceService , public dialog: MatDialog) { }
+  constructor(public signupService:SignupServceService , public dialog: MatDialog) { }
 
   ngOnInit() 
   {
