@@ -271,6 +271,10 @@ public updateaddevents(event_up: Addevents){
     params = params.append('student_id',student_id+"");
     return this.http.post(`${this.Baseurl+"changelist"}`, params);
   }
+  public addstudentmarks(cls:Studentexamresult)
+   {
+      return this.http.post(`${this.Baseurl+"addingresult"}`,cls);
+   }
    public createclassexam(cls:Classexammodel)
    {
       return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
