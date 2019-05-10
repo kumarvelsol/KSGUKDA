@@ -555,11 +555,7 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id',academic_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
   }
-
-
-
   //End of Notice Board
-  //http://veledu.edujinni.in/FutureNoticeboardlist
   public FutureNoticeBoard(academic_id : number, institution_id : number){
     let params = new HttpParams();
     params = params.append('academic_id',academic_id+"");
