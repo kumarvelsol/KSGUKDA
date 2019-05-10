@@ -51,7 +51,15 @@ export class TimetableComponent implements OnInit {
           institution_id:1,
           class_id:null,
           time_period_id:null,
-          sub_allocation_id:null
+          sub_allocation_id:null,
+          first_name:null,
+          from_time:null,
+          session_name:null,
+          timetable_status:null,
+          to_time:null,
+          subject_id:null,
+    employee_id:null,
+    time_table_id:null
         }
   }
 
