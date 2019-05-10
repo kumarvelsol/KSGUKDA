@@ -58,12 +58,12 @@ export class BloodgroupComponent implements OnInit {
           alert("BloodGroup Added Succesfully.!");
           console.log("success");
         }else{ }
-      });
-      this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+        this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);
         this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
+      });
       });
       this.blood_group_name ='';this.blood_group_code =null;
   }
@@ -82,12 +82,12 @@ export class BloodgroupComponent implements OnInit {
         {
           alert("BloodGroup Updated Succesfully.!");
         }else{ }
-      });
-      this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+        this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
       {
         this.bloodgrouplist = data;
         console.log(this.bloodgrouplist);
         this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
+      });
       });
       this.buttoncontent = 'Save';
   }

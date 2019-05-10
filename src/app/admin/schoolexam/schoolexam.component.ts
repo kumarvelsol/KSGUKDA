@@ -59,12 +59,12 @@ export class SchoolexamComponent implements OnInit {
           console.log(data);
           alert("SchoolExams Added Succesfully.!");
         }else{ }
-      });
-      this.service1Service.getschoolexams(a).subscribe((data: Apiresponse) => 
+        this.service1Service.getschoolexams(a).subscribe((data: Apiresponse) => 
       {
         this.schoolexamslist = data;
         console.log(this.schoolexamslist);
         this.abDatasource = new MatTableDataSource(this.schoolexamslist.Data);
+      });
       });
    }
    else if(this.buttoncontent == 'Update')
@@ -84,13 +84,14 @@ export class SchoolexamComponent implements OnInit {
       {
         alert("SchoolExams Updated Succesfully.!");
       }else{ }
-    });
-    this.service1Service.getschoolexams(b).subscribe((data: Apiresponse) => 
+      this.service1Service.getschoolexams(b).subscribe((data: Apiresponse) => 
     {
       this.schoolexamslist = data;
       console.log(this.schoolexamslist);
       this.abDatasource = new MatTableDataSource(this.schoolexamslist.Data);
     });
+    });
+    
     this.buttoncontent = 'Save';
    }
    else if(this.exam_type == "" || this.exam_start_date == null|| this.exam_end_date == null)
@@ -99,17 +100,6 @@ export class SchoolexamComponent implements OnInit {
    }
    this.exam_type = "";this.exam_start_date = null; this.exam_end_date = null;
  }
-    // public RowSelected(row)
-    // {
-
-    //   let navigationExtras: NavigationExtras = {
-    //     queryParams: {
-    //         "examtype":this.exam_type = row.exam_type,
-    //     }
-    //   }
-    // console.log(this.exam_type);
-    // this.router.navigate(['/classexam'],navigationExtras);
-    // }
     public Edit(j:number,exam_type:string,exam_id:number)
     { 
       this.exam_type = exam_type;
@@ -149,12 +139,13 @@ export class SchoolexamComponent implements OnInit {
       {
         alert("SchoolExams Deleted Succesfully.!"); 
       }else{ }
-    });
-    this.service1Service.getschoolexams(b).subscribe((data: Apiresponse) => 
+      this.service1Service.getschoolexams(b).subscribe((data: Apiresponse) => 
     {
       this.schoolexamslist = data;
       console.log(this.schoolexamslist);
       this.abDatasource = new MatTableDataSource(this.schoolexamslist.Data);
     });
+    });
+    
   }
 }
