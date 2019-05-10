@@ -63,7 +63,8 @@ export class PostattendenceComponent implements OnInit {
   selectOption(value) 
   {
     this.class_id =value;
-    this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>{
+    this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>
+      {
       this.subjdata = data.Data;
     });
   }
