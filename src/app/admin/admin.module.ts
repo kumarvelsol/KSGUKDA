@@ -50,7 +50,6 @@ import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 import { MondayComponent } from '../monday/monday.component';
 import { DatePipe } from '@angular/common';
-
 import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
 import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
@@ -71,7 +70,6 @@ import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
     ClassexamComponent, SchoolexamComponent, ClassteacherdetailsComponent,
     ClassexamresultsComponent, AttendenceTabBarComponent,
     MarqueeTagComponent, MondayComponent],
-     
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
