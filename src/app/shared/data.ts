@@ -125,6 +125,10 @@ export interface Data {
     from_date : string;
     to_date  : string;
     event_organizer : string;
+    student_id: number;
+    status: string;
+    total_percetage: string;
+
 
     admission_number: string,
     admission_date:string,
@@ -148,4 +152,7 @@ export interface Data {
     guardian_address: string,
     relation: string,
     guardian_designation: string
+
+    attendence_id:number;
+
 }

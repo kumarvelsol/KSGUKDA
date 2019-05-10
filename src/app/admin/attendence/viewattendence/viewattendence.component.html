@@ -5,60 +5,65 @@
           <div class="col-md-3 mat-form-wrap">
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Class Name</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "class_id">
-                <mat-option *ngFor="let cname of clsdata" [value]="cname.class_id">{{cname.class_name}}</mat-option> 
+              <mat-select style="color:gray;" (selectionChange)="selectOption($event.value)" [(ngModel)] = "class_id">
+                <mat-option *ngFor="let cname of clsdata" [value]="cname">{{cname.class_name}}</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>
           </div>
-          <div class="col-md-3 mat-form-wrap">
-            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
-              <mat-label style="color :gray">Subject Name</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "subject_id">
-                <mat-option *ngFor="let sname of subjdata" [value]="sname.subject_id">{{sname.subject_name}}</mat-option> 
-              </mat-select>
-              <!-- <mat-hint color="primary">Hint</mat-hint> -->
-            </mat-form-field>
-          </div>
-          <div class="col-md-3 mat-form-wrap">
-            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
-              <mat-label style="color :gray">Year</mat-label>
-              <mat-select style="color:gray;">
-                <mat-option>Year</mat-option>
-                <mat-option ></mat-option> 
-              </mat-select>
-              <!-- <mat-hint color="primary">Hint</mat-hint> -->
-            </mat-form-field>
-          </div>
-          <div class="col-md-3 mat-form-wrap">
-            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
-              <mat-label style="color :gray">Month</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "month">
-                <mat-option *ngFor="let m of months" [value]="m.month">{{m.month}}</mat-option> 
-              </mat-select>
-              <!-- <mat-hint color="primary">Hint</mat-hint> -->
-            </mat-form-field>
-          </div>
-          <button mat-raised-button class="btn-style" >{{buttoncontent}}</button>&nbsp;&nbsp;
+
+          
+          <!-- <button mat-raised-button class="btn-style" >{{buttoncontent}}</button>&nbsp;&nbsp;
           <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>&nbsp;&nbsp;
-          <button mat-raised-button class="btn-style" >Get Details</button>
+          <button mat-raised-button class="btn-style" >Get Details</button> -->
         </div>
     </mat-card>
   </div>
     
   <div class="row">
-      <div class="example-container mat-elevation-z8">
+      <div class="example-container mat-elevation-z1">
         <table mat-table [dataSource]="dataSource">
           <!--S.No Column-->
           <ng-container matColumnDef="attendence_id">
             <th mat-header-cell *matHeaderCellDef> S.No </th>
             <td mat-cell *matCellDef="let element"> {{element.attendence_id}} </td>
           </ng-container>
+
+
+          <ng-container matColumnDef="student_roll_no">
+            <th mat-header-cell *matHeaderCellDef> Roll Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.student_roll_no}} </td>
+          </ng-container>
+
+
+          
+
+
+
+
+
+
           <!-- Code Column -->
           <ng-container matColumnDef="first_name">
             <th mat-header-cell *matHeaderCellDef> Student Name </th>
             <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
           </ng-container>
+
+
+
+          <ng-container matColumnDef="class_name">
+            <th mat-header-cell *matHeaderCellDef> Class Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.class_name}} </td>
+          </ng-container>
+
+
+
+          <ng-container matColumnDef="Attendence_status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.Attendence_status}} </td>
+          </ng-container>
+
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

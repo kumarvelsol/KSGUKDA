@@ -14,8 +14,8 @@
           <div class="col-md-4 mat-form-wrap">
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Subject Name</mat-label>
-              <mat-select style="color:gray;" [(ngModel)] = "subject_id">
-                <mat-option *ngFor="let sname of subjdata" [value]="sname.subject_id">{{sname.subject_name}}</mat-option> 
+              <mat-select style="color:gray;" [(ngModel)] = "sub_allocation_id" (selectionChange)="selectSubAllocation($event.value)">
+                <mat-option *ngFor="let sname of subjdata" [value]="sname">{{sname.subject_name}}</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>
@@ -34,14 +34,24 @@
     </mat-card>
   </div>
     
-  <div class="row">
-      <div class="example-container mat-elevation-z8">
+  <div class="row" >
+      <div class="example-container mat-elevation-z1">
         <table mat-table [dataSource]="dataSource">
           <!--S.No Column-->
           <ng-container matColumnDef="attendence_id">
             <th mat-header-cell *matHeaderCellDef> S.No </th>
-            <td mat-cell *matCellDef="let element"> {{element.attendence_id}} </td>
+            <td mat-cell *matCellDef="let element" > {{element.attendence_id}} </td>
+            
           </ng-container>
+
+          <ng-container matColumnDef="sub_allocation_id">
+            <th mat-header-cell *matHeaderCellDef> S.No </th>
+            <td mat-cell *matCellDef="let element" > {{element.sub_allocation_id}} </td>
+            <input [disabled]="true" [(ngModel)]="sub_allocation_id" type="number" matInput>   
+          </ng-container>
+          
+          
+          
           <!-- Code Column -->
           <ng-container matColumnDef="student_roll_no">
             <th mat-header-cell *matHeaderCellDef> Student RollNo</th>
@@ -59,16 +69,34 @@
             <th mat-header-cell *matHeaderCellDef> Remarks </th>
             <td mat-cell *matCellDef="let element"> {{element.remarks}} </td>
           </ng-container>
-          <ng-container matColumnDef="checkall">
-            <th mat-header-cell *matHeaderCellDef> Check All </th>
+
+
+          <ng-container matColumnDef="Attendence_status">
+            <th mat-header-cell *matHeaderCellDef> final </th>
+            <td mat-cell *matCellDef="let element; let i=index;">
+              <mat-checkbox  [(ngModel)]="ganesh[i]" (change)='onSelect(i+1,$event,element.sub_allocation_id,element.time_table_id)' 
+              ></mat-checkbox> 
+            </td>
+          </ng-container>
+
+
+          <!-- <ng-container matColumnDef="Attendence_status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let element">
-              {{element.checkall}}
+              {{element.Attendence_status}}
               <mat-checkbox [checked]="true"></mat-checkbox>  
             </td>      
-          </ng-container>
+          </ng-container> -->
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
         </table>
+        
+        <mat-toolbar>
+          
+        </mat-toolbar>
+
     </div>
   </div>
 </div>

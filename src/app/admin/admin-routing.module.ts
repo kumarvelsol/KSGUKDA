@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent} from '../admin/dashboard/dashboard.component'
+import { DashboardComponent} from '../admin/dashboard/dashboard.component';
 import { AdminToolbarComponent} from '../admin/admin-toolbar/admin-toolbar.component';
 import { InstitutedetailsComponent } from './institutedetails/institutedetails.component';
 import { AcademicdetailsComponent } from './academicdetails/academicdetails.component';
@@ -19,10 +19,8 @@ import { TimetableComponent } from '../timetable/timetable.component';
 import { ClassexamComponent } from '../admin/classexam/classexam.component';
 import { AttendenceTabBarComponent } from './attendence/attendence-tab-bar/attendence-tab-bar.component';
 import { ClassTabBarComponent } from './class-tab-bar/class-tab-bar.component';
-
 import { SignupRequestFormComponent } from '../signup-request-form/signup-request-form.component';
 import { LoginFormComponent } from '../login-form/login-form.component';
-
 import { FeeTypeComponent } from './fee/fee-type/fee-type.component';
 import { FeeModeComponent } from './fee/fee-mode/fee-mode.component';
 import { SchoolexamComponent } from './schoolexam/schoolexam.component';
@@ -31,6 +29,8 @@ import { ClassFeeDeclarationsComponent } from './fee/class-fee-declarations/clas
 import { AddNoticeComponent } from './add-notice/add-notice.component';
 import { AddeventsComponent } from './addevents/addevents.component';
 import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
+import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
+import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
@@ -38,7 +38,8 @@ import { AddHolidaysComponent } from '../add-holidays/add-holidays.component';
 
 
 const routes: Routes = [
-  {path:'',component:DashboardComponent},
+  {path:'',pathMatch:'full',redirectTo:'home'},
+  {path:'home',component:DashboardComponent},
   {path:'instituteDetails',component:InstitutedetailsComponent},
   {path:'academicdetails',component:AcademicdetailsComponent},
   {path:'settings',component:SettingsComponent},
@@ -61,6 +62,8 @@ const routes: Routes = [
   {path:'Addevents',component:AddeventsComponent},
   {path:'holidays',component:AddHolidaysComponent},
   {path:'addstudent',component:AddStudentComponent},
+  {path:'Results',component:ClassexamresultsComponent},
+  {path:'StudentResult',component:StudentexamresultComponent}
 ];
 
 @NgModule({

@@ -6,4 +6,5 @@ export interface Classexammodel {
     institution_id:number;
     academic_id:number;
     exam_class_id:number;
+    exam_type:string;
 }
