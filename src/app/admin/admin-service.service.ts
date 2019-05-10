@@ -500,8 +500,6 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id', class_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"ClassAttendencelist"}`,params);
   }
-
-
   public getSubjectAllocatedId(institution_id : number, academic_id : number, class_id : number)
   {
     let params = new HttpParams();
@@ -510,12 +508,6 @@ public updateaddevents(event_up: Addevents){
     params = params.append('class_id', class_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"allocationlist"}`,params);
   }
-
-
-
-
-
-
   public createattendence(attend:Attendencemodel)
   {
     return this.http.post<JsResponse>(`${this.Baseurl+"Attendenceadding"}`,attend);

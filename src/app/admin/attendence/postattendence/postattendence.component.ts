@@ -117,21 +117,16 @@ export class PostattendenceComponent implements OnInit {
       time_table_id : this.time_table_id,
     }
     
-      
-    // this.service.createattendence(this.dataSource.data).subscribe((res:JsResponse)=>{
-    //   if(res.code == 200)
-    //   {
-    //     alert("Created Attendence successfully");
-    //   }
-    //   else
-    //   {
-    //     alert(""+res.message);
-    //   }
-    // });
+
+    
+
+
+    
 
     this.srv.addingss(attend).subscribe(data=>{
       this.serRes=data;     
       if(this.serRes.code==200)
+
       {
         alert(this.serRes.message);     
       }
@@ -139,6 +134,7 @@ export class PostattendenceComponent implements OnInit {
         alert(this.serRes.message);          
       }
   })
+  
  }
 
  
