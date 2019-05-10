@@ -62,6 +62,8 @@ import { DatePipe } from '@angular/common';
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
   SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,
+  AttendenceTabBarComponent,AddNoticeComponent,AddeventsComponent,AddHolidaysComponent,PostattendenceComponent,ViewattendenceComponent,
+  MondayComponent,
     AddStudentComponent,StudentListComponent,StudentComponent,FeeTypeComponent, FeeModeComponent, ClassexamComponent,SchoolexamComponent, SubjectexamComponent,ClassFeeDeclarationsComponent],
     imports: [
       CommonModule, AdminRoutingModule,
