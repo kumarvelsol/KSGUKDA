@@ -19,7 +19,7 @@
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
             <input matInput [(ngModel)]="date" name="date" [matDatepicker]="picker" placeholder="Choose a date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            <mat-datepicker #picker ></mat-datepicker>
           </mat-form-field>
           <div class="col-md-12">
             <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>
