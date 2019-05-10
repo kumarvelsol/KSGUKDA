@@ -150,33 +150,31 @@ export class ClassexamComponent implements OnInit {
     this.exam_class_start_date=null;this.exam_class_end_date=null;
     this.buttoncontent="Save";
   }
-
-
-  public editclick(j:number,exam_class_id:number,exam_type:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+  public editclick(j:number,exam_class_id:number,exam_id:string,exam_type:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
-
+    this.class_id = null,this.exam_type =""; this.exam_class_end_date = null; this.exam_class_start_date = null;
     this.buttoncontent="Update";
-      this.exam_class_id = exam_class_id;
-      this.class_id =  class_id;      
-      this.exam_type = exam_type;
-      this.exam_class_start_date = exam_class_start_date;
+    this.exam_class_id = exam_class_id;
+    this.class_id =  class_id;
+    this.exam_id = exam_id;
+    this.exam_type = exam_type;
+    this.exam_class_start_date = exam_class_start_date;
     this.exam_class_end_date = exam_class_end_date;
-   
+    console.log("ExamType",exam_type); console.log("ExamId",exam_id);console.log("EndDate",exam_class_end_date);
+    console.log("Startdate",exam_class_start_date);console.log("Classid",class_id);
   }
-
- 
   public NavigateClick(j:number,class_name:string,exam_id:string,class_id:number,exam_type:string,exam_class_id:number)
   {
     let navigationExtras: NavigationExtras = {
       queryParams: {
-          "clsname":this.class_name = class_name,
-          "examtype":this.exam_type = exam_type,
-          "clsexamid":this.exam_class_id= exam_class_id,
-          "clsid":this.class_id = class_id,
-          "exmid":this.exam_id = exam_id,
+        "clsname":this.class_name = class_name,
+        "examtype":this.exam_type = exam_type,
+        "clsexamid":this.exam_class_id= exam_class_id,
+        "clsid":this.class_id = class_id,
+        "exmid":this.exam_id = exam_id,
       }
-  };
-  console.log(this.class_name);console.log(this.exam_type);
-    this.router.navigate(['/subjectexam'],navigationExtras);
+    };
+    console.log(this.class_name);console.log(this.exam_type);
+    this.router.navigate(['/subjectexam'],navigationExtras); 
   }
 }
