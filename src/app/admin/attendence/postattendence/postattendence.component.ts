@@ -80,8 +80,7 @@ export class PostattendenceComponent implements OnInit {
   public onclearclick()
   {
     this.class_id =null;
-    this.subject_id=null;
-    //this.date=null;
+    this.subject_id=null;    
     this.dataSource = null;
   }
   public getdetails()
@@ -118,12 +117,6 @@ export class PostattendenceComponent implements OnInit {
       time_table_id : this.time_table_id,
     }
     
-
-    
-
-
-    
-
     this.srv.addingss(attend).subscribe(data=>{
       this.serRes=data;     
       if(this.serRes.code==200)
