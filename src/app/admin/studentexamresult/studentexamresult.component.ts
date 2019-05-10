@@ -16,7 +16,7 @@ export class StudentexamresultComponent implements OnInit
   dataSource;
   studentid:number;
   studentmarkslist : Apiresponse; studentmarksdata : Data[];
-  displayedColumns : string[] = ['Subject Name','ExamType','Exam Date','Out of Marks','Marks Gained','Percentage'];
+  displayedColumns : string[] = ['Subject Name','ExamType','Exam Date','OutofMarks','Marks Gained','Percentage'];
   student_roll_no:number; first_name : string; exam_type : string; class_name : string;
   class_id : number; student_id : number; status : string; percentage : string;
   exam_class_start_date = new Date();exam_class_end_date = new Date();

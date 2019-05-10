@@ -50,12 +50,12 @@
           <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
               <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_start_date" name="exam_start_date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker startView="year" [startAt]="startDate" ></mat-datepicker>
+              <mat-datepicker #picker  ></mat-datepicker>
             </mat-form-field>            
             <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
                 <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="exam_end_date" name="exam_end_date"> 
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                <mat-datepicker #picker1 startView="year" [startAt]="startDate"></mat-datepicker>
+                <mat-datepicker #picker1 ></mat-datepicker>
               </mat-form-field>
         <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
       </div>
