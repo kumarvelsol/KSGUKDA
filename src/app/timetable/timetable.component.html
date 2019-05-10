@@ -1,10 +1,6 @@
 <div class="container" >
-    
-  
-
   <div class="row">
-     
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <mat-card class="row example-card parent">
         <div class="block child">
             <form #addingTtables="ngForm" autocomplete="off">
@@ -48,22 +44,13 @@
 
   
   
-
-
-
-
-
   <ng-container *ngIf="show">
 
 <div class="container">
 
-
-    <i class="material-icons" *ngIf="loading"> rotate_90_degrees_ccw </i>
-
-
-  <div class="col-md-10">
+  <div class="col-lg-10">
     <div class="example-container mat-elevation-z1">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z1" >
+        <table mat-table [dataSource]="dataSource"  >
             <!-- Weight Column -->
             <ng-container matColumnDef="session_name">
               <th mat-header-cell *matHeaderCellDef class="textSizes"> Session</th>
@@ -113,7 +100,7 @@
                 </button>
               </td>
             </ng-container>
-         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
              
           </table>
