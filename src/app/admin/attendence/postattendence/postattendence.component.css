@@ -3,9 +3,10 @@ table {
 }
 .example-card{
   /* background-color: #33B5E5; */
-  margin-top: 20px;
+  
   width: 100%;
   margin-left: 0px;
+  
 }
 .mat-form-wrap{
   width: 100%;
