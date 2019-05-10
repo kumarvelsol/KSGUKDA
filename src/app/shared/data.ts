@@ -80,7 +80,7 @@ export interface Data {
     exam_end_date: Date;
     
     exam_subject_type : string ;
-    exam_subject_marks : string;  
+    exam_subject_marks : number;  
     exam_subject_date : string; 
     exam_subject_start_time : string;  
     exam_subject_end_time : string;
@@ -128,7 +128,8 @@ export interface Data {
     student_id: number;
     status: string;
     total_percetage: string;
-
+    percentage : number; 
+    marks : number;
 
     admission_number: string,
     admission_date:string,

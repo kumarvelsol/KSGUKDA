@@ -78,7 +78,7 @@ export class SubjectexamComponent implements OnInit {
       this.subdata = data.Data;
     });
   }
-  public onsubmitclick(exam_subject_start_time:string,exam_subject_end_time:string)
+  public onsubmitclick()
   {
    if(this.buttoncontent == 'Save')
    {
