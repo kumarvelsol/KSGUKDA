@@ -65,7 +65,6 @@ import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
     TimeperiodsComponent,TimeandPeriodComponent,TimetableComponent,
     ClassTabBarComponent,EmployeelistComponent,ClassteacherdetailsComponent,
     MothertongueComponent,TimetableupdateComponent,EmployeedetailsComponent,
-    MarqueeTagComponent,
   SignupRequestFormComponent,LoginFormComponent,ContactAdminComponent,ClassexamresultsComponent,StudentexamresultComponent,MarqueeTagComponent,
   AttendenceTabBarComponent,AddNoticeComponent,AddeventsComponent,AddHolidaysComponent,PostattendenceComponent,ViewattendenceComponent,
   MondayComponent,
