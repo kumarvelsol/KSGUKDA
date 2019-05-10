@@ -118,6 +118,8 @@ export class PostattendenceComponent implements OnInit {
     }
     
 
+    
+
 
     
 
@@ -132,6 +134,7 @@ export class PostattendenceComponent implements OnInit {
         alert(this.serRes.message);          
       }
   })
+  
  }
 
  
