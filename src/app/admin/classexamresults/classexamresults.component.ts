@@ -66,7 +66,7 @@ export class ClassexamresultsComponent implements OnInit {
      this.dataSource = new MatTableDataSource(this.clsexamreslist.Data);
     });
   }
-  public OnChange(j:number,first_name:string,student_id: number,student_roll_no:number,class_name:string,exam_type:string,exam_class_start_date:Date,exam_class_end_date:Date,class_id:number)
+  public OnChange(j:number,first_name:string,student_id: number,student_roll_no:number,class_name:string,exam_type:string,exam_class_start_date:Date,exam_class_end_date:Date,class_id:number,status:string)
   {
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -78,9 +78,10 @@ export class ClassexamresultsComponent implements OnInit {
           "todate" : this.exam_class_end_date = exam_class_end_date,
           "clsid" : this.class_id = class_id,
           "stdid" : this.student_id = student_id,
+          "st" : this.status = status,
       }
     };
-    console.log(this.class_name);console.log(this.student_id);
+    console.log(this.class_name);console.log(this.status);
     this.router.navigate(['/StudentResult'],navigationExtras);
   } 
 }
