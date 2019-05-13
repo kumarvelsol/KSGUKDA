@@ -108,4 +108,11 @@ public RowSelected(row)
   this.blood_group_code = blood_group_code;
   this.buttoncontent = 'Update';
  }
-  }
+ public onclearclick()
+ {
+  this.blood_group_id = "";
+  this.blood_group_name = "";
+  this.blood_group_code = "";
+  this.buttoncontent = 'Save';
+ }
+}

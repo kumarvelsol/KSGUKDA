@@ -44,27 +44,31 @@ export class ClassexamresultsComponent implements OnInit {
   }
   public onsaveclick()
   { 
-    let a : Classexamresults = {
-      institution_id : 1,
-      academic_id : 1,
-      class_name : this.class_name,
-      exam_type :this.exam_type,
-      student_id: this.student_id,
-      student_roll_no: this.student_roll_no,
-      first_name: this.first_name,
-      class_id: this.class_id,
-      status: this.status,
-      total_percetage: this.total_percetage,
-      exam_class_start_date:this.datePipe.transform(this.exam_class_start_date,"yyyy-MM-dd"), 
-      exam_class_end_date: this.datePipe.transform(this.exam_class_end_date,"yyyy-MM-dd"),
-      exam_id: this.exam_id,
+    if(this.exam_id != null)
+    {
+      let a : Classexamresults = {
+        institution_id : 1,
+        academic_id : 1,
+        class_name : this.class_name,
+        exam_type :this.exam_type,
+        student_id: this.student_id,
+        student_roll_no: this.student_roll_no,
+        first_name: this.first_name,
+        class_id: this.class_id,
+        status: this.status,
+        total_percetage: this.total_percetage,
+        exam_class_start_date:this.datePipe.transform(this.exam_class_start_date,"yyyy-MM-dd"), 
+        exam_class_end_date: this.datePipe.transform(this.exam_class_end_date,"yyyy-MM-dd"),
+        exam_id: this.exam_id,
+      }
+      this.service1Service.getexamclslist(a).subscribe((data: Apiresponse) => 
+     {
+       this.clsexamreslist = data;
+       console.log(this.clsexamreslist);
+       this.dataSource = new MatTableDataSource(this.clsexamreslist.Data);
+      });
     }
-    this.service1Service.getexamclslist(a).subscribe((data: Apiresponse) => 
-   {
-     this.clsexamreslist = data;
-     console.log(this.clsexamreslist);
-     this.dataSource = new MatTableDataSource(this.clsexamreslist.Data);
-    });
+    else {}
   }
   public OnChange(j:number,first_name:string,student_id: number,student_roll_no:number,class_name:string,exam_type:string,exam_class_start_date:Date,exam_class_end_date:Date,class_id:number,status:string)
   {

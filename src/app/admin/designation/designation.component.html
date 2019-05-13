@@ -4,29 +4,32 @@
       <mat-card class="row example-card parent">
         <div class="block child">
           <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">Designation Details</p>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
             <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
             <mat-label style="color :gray">Designation Code</mat-label>
             <input style="color :gray" [(ngModel)]="designation_code" type="text" name="designation_code"  matInput>
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray"  >
             <mat-label style="color :gray">Department Id</mat-label>
              <mat-select [(ngModel)] = "deptselected" (change)="callType($event.value)"> 
                 <mat-option>Department</mat-option>
               <mat-option *ngFor="let dname of delist" [value]="dname.departmant_id">{{dname.departmant_name}}</mat-option> 
             </mat-select>
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
             <mat-icon style="color:gray;" matSuffix>code</mat-icon>
             <mat-label style="color :gray">Designation Name</mat-label>
             <input style="color:gray;" matInput [(ngModel)]="designation_name" type="text" name="designation_name">
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap"  style="color:gray;" appearance="outline">
+          <mat-form-field class="col-md-12 mat-form-wrap"  style="color:gray;" >
             <mat-icon style="color:gray;" matSuffix>description</mat-icon>
             <mat-label style="color:gray;">Description</mat-label>
             <input style="color:gray;" matInput [(ngModel)]="designation_description" type="text" name="designation_description">
           </mat-form-field>
           <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+          <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+            <mat-icon>clear_all</mat-icon>
+          </button>
         </div>
       </mat-card>
     </div>

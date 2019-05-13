@@ -40,36 +40,36 @@
       <mat-card class="row example-card parent">
         <div class="block child">
           <p style="margin-top: 20px; color: gray; font-size: 24px;">SubjectExam Details</p>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-              <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
+              <mat-icon  style=color:gray matSuffix>developer_board</mat-icon>
               <mat-label style="color :gray">ClassName</mat-label>
               <input style="color :gray" [(ngModel)]="class_name" type="text" name="class_name"  matInput>
             </mat-form-field>
-            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-                <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
+                <mat-icon  style=color:gray matSuffix>developer_board</mat-icon>
                 <mat-label style="color :gray">ExamType</mat-label>
                 <input style="color :gray" [(ngModel)]="exam_type" type="text" name="exam_type"  matInput>
               </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
               <mat-label style="color :gray">Subject Name</mat-label>
               <mat-select style="color:gray;" [(ngModel)]="subject_id">
                 <mat-option>Exam</mat-option>
                 <mat-option *ngFor="let subject of subdata" [value]="subject.subject_id">{{subject.subject_name}}</mat-option>
               </mat-select>
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
             <mat-label style="color :gray">ExamSubjectType</mat-label>
             <mat-select style="color:gray;" [(ngModel)]="exam_subject_type">
               <mat-option>Exam</mat-option>
               <mat-option *ngFor="let s of sub" [value]="s.exam_subject_type">{{s.stype}}</mat-option>
               </mat-select>
         </mat-form-field>
-            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-                <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
+                <mat-icon  style=color:gray matSuffix>format_list_numbered</mat-icon>
                 <mat-label style="color :gray">SubjectMarks</mat-label>
                 <input style="color :gray" [(ngModel)]="exam_subject_marks" type="text" name="exam_subject_marks"  matInput>
               </mat-form-field>
-            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray"  >
                 <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_subject_date" name="exam_subject_date">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker ></mat-datepicker>
@@ -86,6 +86,9 @@
                   <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                 </mat-form-field>  
           <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+          <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+            <mat-icon>clear_all</mat-icon>
+        </button>
         </div>
       </mat-card>
     </div>

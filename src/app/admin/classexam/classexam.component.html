@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-3">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
                 <mat-label style="color :gray">Class Name</mat-label>
                 <mat-select style="color:gray;" [(ngModel)] = "class_id">
                     <mat-option>Class</mat-option>
@@ -15,14 +15,14 @@
               </mat-form-field>
             </div>
             <div class="col-md-3">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-                <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
+                <mat-icon  style=color:gray matSuffix>developer_board</mat-icon>
                 <mat-label style="color :gray">ExamType</mat-label>
                 <input style="color :gray" [(ngModel)]="exam_type" type="text" name="exam_type"  matInput>
               </mat-form-field>
             </div>
             <div class="col-md-3">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
                 <mat-label style="color :gray">Class Exam StartDate</mat-label>
                 <input style="color :gray" [matDatepicker]="pickerr" [(ngModel)]="exam_class_start_date" name="exam_class_start_date" matInput >
                 <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
@@ -30,7 +30,7 @@
               </mat-form-field>
             </div>
             <div class="col-md-3">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
                 <mat-label style="color :gray">Class Exam EndDate</mat-label>
                 <input style="color :gray" [matDatepicker]="picker" [(ngModel)]="exam_class_end_date" name="exam_class_end_date" matInput >
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -77,9 +77,9 @@
                   <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="NavigateClick(j,element.class_name,element.exam_id,element.class_id,element.exam_type,element.exam_class_id)" routerLink="/subjectexam" routerLinkActive = "active">
                     <mat-icon >open_in_new</mat-icon>
                   </button>
-                  <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
+                  <!-- <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
                     <mat-icon aria-label="Edit">delete</mat-icon>
-                  </button>
+                  </button> -->
                 </td> 
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

@@ -28,9 +28,9 @@
           <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="Edit(j,i.exam_type,i.exam_id)" routerLink="/classexam" routerLinkActive = "active">
             <mat-icon >open_in_new</mat-icon>
           </button>
-          <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
+          <!-- <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(j,i.exam_id,i.exam_type,i.exam_start_date,i.exam_end_date)">
             <mat-icon aria-label="Edit">delete</mat-icon>
-          </button>
+          </button> -->
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -41,23 +41,26 @@
 <div class="col-md-6">
     <mat-card class="row example-card parent">
       <div class="block child">
-        <p style="margin-top: 20px; color: gray; font-size: 24px;">SchoolExam Details</p>
-        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-            <mat-icon  style=color:#0123e4 matSuffix>format_list_numbered</mat-icon>
+        <p style="margin-top: 20px; color: gray; font-size: 24px;">SchoolExams</p>
+        <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
+            <mat-icon  style=color:gray matSuffix>developer_board</mat-icon>
             <mat-label style="color :gray">ExamType</mat-label>
             <input style="color :gray" [(ngModel)]="exam_type" type="text" name="exam_type"  matInput>
           </mat-form-field>
-          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+          <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" >
               <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="exam_start_date" name="exam_start_date">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker  ></mat-datepicker>
             </mat-form-field>            
-            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline" >
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray"  >
                 <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="exam_end_date" name="exam_end_date"> 
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1 ></mat-datepicker>
               </mat-form-field>
         <button mat-raised-button class="btn-style" (click)="onsubmitclick()">{{buttoncontent}}</button>
+        <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+          <mat-icon>clear_all</mat-icon>
+      </button>
       </div>
     </mat-card>
   </div>

@@ -64,6 +64,12 @@ export class AddeventsComponent implements OnInit {
         console.log(data);
         alert("Event Added Succesfully.!");
       }else{ }
+      this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
+   {
+     this.addeventslist = data;
+     console.log(this.addeventslist);
+     this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
+    });
     });
     console.log(a);
    }
@@ -86,6 +92,12 @@ export class AddeventsComponent implements OnInit {
         console.log(data);
         alert("Event Updated Succesfully.!");
       }else{ }
+      this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
+   {
+     this.addeventslist = data;
+     console.log(this.addeventslist);
+     this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
+    });
     });
     console.log(a);
    }

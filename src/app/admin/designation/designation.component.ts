@@ -142,4 +142,12 @@ public RowSelected(row)
   console.log(value);
   this.departmant_name=value;
 }
+public onclearclick(){
+  this.designation_name = "";
+   this.designation_description = "";
+   this.deptselected = null;
+  this.designation_code = "";
+  this.buttoncontent = "Save";
+  //this.designation_id = 0;
+}
 }

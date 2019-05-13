@@ -25,7 +25,7 @@ export class SubjectexamComponent implements OnInit {
     {exam_subject_type: '2', stype: 'Theoritical'}
   ];
   abDatasource; jsRes : JsResponse;
-  displayedColumns: string[] = ['exam_subject_type','exam_subject_marks','exam_subject_date','exam_subject_id','actions'];
+  displayedColumns: string[] = ['exam_subject_id','exam_subject_type','exam_subject_marks','exam_subject_date','actions'];
   startDate = new Date(2019, 0, 1);
   clsdata :  Data[];
   examdata:Data[];
@@ -175,5 +175,17 @@ export class SubjectexamComponent implements OnInit {
       this.exam_id=exam_id;
       this.exam_class_id = exam_class_id;
       this.exam_subject_id=exam_subject_id;
+  }
+  public onclearclick()
+  {
+      this.exam_type = "";
+      this.exam_subject_type = "";
+      this.exam_subject_marks= "";
+      this.exam_subject_date = null;
+      this.exam_subject_start_time = "";
+      this.exam_subject_end_time = "";
+      this.class_name = "";
+      this.subject_id = null;
+      this.buttoncontent = 'Save';
   }
 }

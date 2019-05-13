@@ -1,43 +1,60 @@
 table {
-    width: 100%;
-    margin-top: 20px;
-  }
-  table thead {
-    display: block;
-  }
-  table tbody {
-    height: 200px;
-    display: block;
-    overflow-y: scroll;
-  }
-  .example-card{
-    /* background-color: #33B5E5; */
-    margin-top: 2px;
-  }
-  .mat-form-wrap{
-    width: 100%;
-    margin: 0px;
-  }
-  .btn-style{
-    background-color: #33B5E5;
-    color: white;
-    width: 200px;
-    height: 50px;
-    left: 0px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    font-size: 18px;
-  }
-  .parent{
-    text-align:center;
-    height:500px;
-  }
-  .block {
-    width: 80%;
-  }
-  .child {
-    margin:auto;
-  }
-  .example-container {
-    overflow-y: scroll;display: block;height: 500px;
-  }
+  width: 100%;
+}
+.example-card{
+  /* background-color: #33B5E5; */
+  margin-top: 20px;
+  width: 100%;
+  margin-left: 0px;
+}
+.mat-form-wrap{
+  width: 100%;
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn-style{
+  background-color: #33B5E5;
+  color: white;
+  width : 120px;
+  height: 50px;
+  left: 0px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 18px;
+}
+.clearbtn-style{
+  color: gray;
+  background-color: white;
+  width : 50px;
+  height: 50px;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.parent{
+  text-align:center;
+  height:500px;
+}
+.block {
+  width: 80%;
+}
+.child {
+  margin:auto;
+}
+.example-container {
+  height: 500px;
+  overflow: auto; 
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+p{
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color : darkslategray;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 1px 2px rgba(black,.15);
+}

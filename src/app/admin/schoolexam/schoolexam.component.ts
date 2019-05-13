@@ -148,4 +148,12 @@ export class SchoolexamComponent implements OnInit {
     });
     
   }
+  public onclearclick()
+  {
+    this.buttoncontent = 'Save';
+    this.exam_id = null;
+    this.exam_type = "";
+    this.exam_start_date = null;
+    this.exam_end_date = null;
+  }
 }
