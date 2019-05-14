@@ -160,8 +160,6 @@ export class ClassexamComponent implements OnInit {
     this.exam_type = exam_type;
     this.exam_class_start_date = exam_class_start_date;
     this.exam_class_end_date = exam_class_end_date;
-    console.log("ExamType",exam_type); console.log("ExamId",exam_id);console.log("EndDate",exam_class_end_date);
-    console.log("Startdate",exam_class_start_date);console.log("Classid",class_id);
   }
   public NavigateClick(j:number,class_name:string,exam_id:string,class_id:number,exam_type:string,exam_class_id:number)
   {
@@ -174,7 +172,6 @@ export class ClassexamComponent implements OnInit {
         "exmid":this.exam_id = exam_id,
       }
     };
-    console.log(this.class_name);console.log(this.exam_type);
     this.router.navigate(['/subjectexam'],navigationExtras); 
   }
 }

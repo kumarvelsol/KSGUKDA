@@ -68,7 +68,6 @@ export class SubjectexamComponent implements OnInit {
    this.service1Service.getsubjectexams(passing_institute).subscribe((data: Apiresponse) => 
    {
      this.subexamslist = data;
-     console.log(this.subexamslist);
      this.abDatasource = new MatTableDataSource(this.subexamslist.Data);
     });
   }
@@ -112,10 +111,6 @@ export class SubjectexamComponent implements OnInit {
           this.abDatasource = new MatTableDataSource(this.subexamslist.Data);
         });
       });
-      console.log(this.exam_class_id);
-      console.log(this.class_id);
-      console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
-      console.log(this.exam_subject_type);console.log(this.subject_id);
    }
    else if(this.buttoncontent == 'Update')
    {
@@ -146,12 +141,7 @@ export class SubjectexamComponent implements OnInit {
           console.log(this.subexamslist);
           this.abDatasource = new MatTableDataSource(this.subexamslist.Data);
         });
-    });
-      console.log(this.exam_class_id);
-      console.log(this.class_id);
-      console.log(this.exam_id);console.log(this.exam_subject_date);console.log(this.exam_subject_end_time);console.log(this.exam_subject_marks);console.log(this.exam_subject_start_time);
-      console.log(this.exam_subject_type);console.log(this.subject_id);console.log("Examsubjectid",this.exam_subject_id);
-    this.buttoncontent = 'Save';
+    });this.buttoncontent = 'Save';
    }
    else if(this.exam_subject_type == "" || this.exam_subject_marks == null|| this.exam_subject_date == null)
    {

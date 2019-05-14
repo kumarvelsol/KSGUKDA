@@ -148,6 +148,5 @@ public onclearclick(){
    this.deptselected = null;
   this.designation_code = "";
   this.buttoncontent = "Save";
-  //this.designation_id = 0;
 }
 }
