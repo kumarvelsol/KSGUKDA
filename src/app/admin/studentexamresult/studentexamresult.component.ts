@@ -28,7 +28,7 @@ export class StudentexamresultComponent implements OnInit
   txtsubmarks : any = {}; outofmarks : any = {};
    percent :any = {};
   outofMarks : string; totresult :any = {}; total_percetage : number = 0; tot : number = 0;
-  marksGained : string; total_out_of_marks : number = 0; 
+  marksGained : string; total_out_of_marks : number = 0; exam_id : number;
   Percentages : string; result : any = {}; outmarks : number = 0; totmarks : number = 0;
   total_marks : number; marks :string; 
   constructor(private service1Service: AdminServiceService,private route: ActivatedRoute) {
@@ -42,6 +42,7 @@ export class StudentexamresultComponent implements OnInit
       this.class_id = params["clsid"];
       this.studentid=params["stdid"];
       this.status = params["st"];
+      this.exam_id = params["examid"];
   });
    }
   ngOnInit() {
@@ -111,7 +112,8 @@ export class StudentexamresultComponent implements OnInit
       total_percetage :this.total_percetage,
       marks :this.marks,
       status: this.status,
-      percentage: this.percentage
+      percentage: this.percentage,
+      exam_id : this.exam_id
     }
     if(this.listcount > 0){
       for (let i = 0; i < this.listcount; i++) {

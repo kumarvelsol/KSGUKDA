@@ -13,4 +13,5 @@ export interface Studentexamresult {
     total_out_of_marks :number,
     total_percetage :number,
     marks :string;  
+    exam_id : number;
 }

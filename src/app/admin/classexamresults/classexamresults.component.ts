@@ -70,7 +70,7 @@ export class ClassexamresultsComponent implements OnInit {
     }
     else {}
   }
-  public OnChange(j:number,first_name:string,student_id: number,student_roll_no:number,class_name:string,exam_type:string,exam_class_start_date:Date,exam_class_end_date:Date,class_id:number,status:string)
+  public OnChange(j:number,first_name:string,student_id: number,student_roll_no:number,class_name:string,exam_type:string,exam_class_start_date:Date,exam_class_end_date:Date,class_id:number,status:string,exam_id : number)
   {
     let navigationExtras: NavigationExtras = {
       queryParams: {
@@ -83,6 +83,7 @@ export class ClassexamresultsComponent implements OnInit {
           "clsid" : this.class_id = class_id,
           "stdid" : this.student_id = student_id,
           "st" : this.status = status,
+          "examid" : this.exam_id = exam_id,
       }
     };
     console.log(this.class_name);console.log(this.status);
