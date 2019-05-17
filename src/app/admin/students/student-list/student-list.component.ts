@@ -38,6 +38,7 @@ set string(data:string)
     console.log(value);
     this.service.getclassstudent(1,1,value).subscribe(data=>{
       this.studdata=data;
+      console.log(this.studdata);
       this.dataSource=new MatTableDataSource(this.studdata.Data); 
     });
   }
