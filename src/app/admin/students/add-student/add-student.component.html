@@ -68,10 +68,10 @@
           <div class="row col-md-12">
             <div class="col-md-4 ">
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-                <mat-icon style="color :gray" matSuffix>code</mat-icon>
-                <mat-label style="color :gray">Mother Tongue</mat-label>
-                <input style="color :gray" type="text" [(ngModel)]="mother_tongue" name="mother_tongue" matInput required>
-                <!-- <mat-hint color="primary">Hint</mat-hint> -->
+                <mat-label>Mother Tongue</mat-label>
+                      <mat-select [(ngModel)]="mother_tongue_id">
+                        <mat-option *ngFor="let mt of mothertongue" [value]="mt.mother_tongue_id">{{mt.mother_tongue_name }}</mat-option>
+                      </mat-select>
               </mat-form-field>
             </div>
             <div class="col-md-4">

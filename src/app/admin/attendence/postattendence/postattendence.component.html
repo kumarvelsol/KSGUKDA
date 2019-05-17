@@ -18,7 +18,7 @@
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Subject Name</mat-label>
               <mat-select style="color:gray;" [(ngModel)] = "sub_allocation_id" (selectionChange)="selectSubAllocation($event.value)">
-                <mat-option *ngFor="let sname of subjdata" [value]="sname">{{sname.subject_name}}</mat-option> 
+                <mat-option *ngFor="let sname of subjdata" [value]="sname.sub_allocation_id">{{sname.subject_name}}</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>

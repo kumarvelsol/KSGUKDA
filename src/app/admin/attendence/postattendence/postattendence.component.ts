@@ -61,8 +61,8 @@ export class PostattendenceComponent implements OnInit {
   }
   selectSubAllocation(value)
   {
-    this.sub_allocation_id=value.sub_allocation_id;
-    this.time_table_id=value.time_table_id;
+    this.sub_allocation_id=value;
+    this.time_table_id=value;
   }
   post:any[];
   public onclearclick()
