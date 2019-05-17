@@ -120,9 +120,11 @@ export class StudentexamresultComponent implements OnInit
         if(i == 0){
           this.marks = this.txtsubmarks[i];
           this.percentage = this.percent[i];
+          this.status = 'Pass';
         }else{
           this.marks = this.marks + "," + this.txtsubmarks[i];
           this.percentage = this.percentage + "," + this.percent[i];
+          this.status = 'Pass';
         }
       }
     }
