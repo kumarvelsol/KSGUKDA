@@ -86,6 +86,7 @@ export class ClassexamresultsComponent implements OnInit {
           "examid" : this.exam_id = exam_id,
       }
     };
+    console.log(this.exam_class_start_date);console.log(this.exam_class_end_date);
     console.log(this.class_name);console.log(this.status);
     this.router.navigate(['/StudentResult'],navigationExtras);
   } 
