@@ -243,7 +243,7 @@ public updateaddevents(event_up: Addevents){
     let params = new HttpParams();
      params = params.append('institution_id', institution_id+"");
      params = params.append('academic_id',academic_id+"");
-     return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
+     return this.http.post<Apiresponse>(`${this.Baseurl+"Employeelist"}`,params);
    }
    // Class Wise Exam Results Service Methods
 
