@@ -171,7 +171,7 @@
                 <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                     <mat-icon style="color :gray" matSuffix>code</mat-icon>
                     <mat-label style="color :gray">Mobile Number</mat-label>
-                    <input style="color :gray" type="text" [(ngModel)]="mobile_no" name="mobile_no" matInput required>
+                    <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="mobile_no" name="mobile_no" matInput required>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
             </div>
@@ -179,7 +179,7 @@
                 <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                     <mat-icon style="color :gray" matSuffix>code</mat-icon>
                     <mat-label style="color :gray">Alternative Mobile Number</mat-label>
-                    <input style="color :gray" type="text" [(ngModel)]="alternate_mobile_no" name="alternate_mobile_no" matInput required>
+                    <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="alternate_mobile_no" name="alternate_mobile_no" matInput required>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
             </div>
@@ -230,7 +230,7 @@
               <div class="row col-md-12">
                     <div class="col-md-4 ">
                       <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
-                        <mat-label style="color :gray">Student DOB</mat-label>
+                        <mat-label style="color :gray">Student Joining Date</mat-label>
                         <input style="color :gray" [matDatepicker]="picker2" [(ngModel)]="admission_date" name="admission_date" matInput required>
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
@@ -269,7 +269,7 @@
                                     <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                                       <mat-icon style="color :gray" matSuffix>person</mat-icon>
                                       <mat-label style="color :gray">Father Mobile No</mat-label>
-                                      <input style="color :gray" type="text" [(ngModel)]="father_mobile_no" name="father_mobile_no" matInput required>
+                                      <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="father_mobile_no" name="father_mobile_no" matInput required>
                                       <!-- <mat-hint color="primary">Hint</mat-hint> -->
                                     </mat-form-field>
                                   </div>
@@ -296,7 +296,7 @@
                                         <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                                           <mat-icon style="color :gray" matSuffix>person</mat-icon>
                                           <mat-label style="color :gray">Mother Mobile No</mat-label>
-                                          <input style="color :gray" type="text" [(ngModel)]="mother_mobile_no" name="mother_mobile_no" matInput required>
+                                          <input style="color :gray" type="number" oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="mother_mobile_no" name="mother_mobile_no" matInput required>
                                           <!-- <mat-hint color="primary">Hint</mat-hint> -->
                                         </mat-form-field>
                                       </div>
@@ -319,8 +319,8 @@
                                           </mat-radio-group>
                                         </div>
                           </div>
-                          <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Previous</button>
-                          <button class="btn-style" style="width: 150px" mat-button matStepperNext>Next</button>
+                          <button class="btn-style" style="width: 150px" mat-button matStepperPrevious>Previous</button>&nbsp;&nbsp;
+                          <button class="btn-style" style="width: 150px" mat-button matStepperNext>Next</button>&nbsp;&nbsp;
                           </div>
                     
                           </mat-step>
@@ -340,7 +340,7 @@
                                       <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                                         <mat-icon style="color :gray" matSuffix>person</mat-icon>
                                         <mat-label style="color :gray">Guardian Mobile No</mat-label>
-                                        <input style="color :gray" type="text" [(ngModel)]="guardian_mobile_no" name="guardian_mobile_no" matInput required>
+                                        <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="guardian_mobile_no" name="guardian_mobile_no" matInput required>
                                         <!-- <mat-hint color="primary">Hint</mat-hint> -->
                                       </mat-form-field>
                                     </div>
@@ -359,7 +359,7 @@
                                         <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                                           <mat-icon style="color :gray" matSuffix>code</mat-icon>
                                           <mat-label style="color :gray">Guardian Alternative Mobile No</mat-label>
-                                          <input style="color :gray" type="text" [(ngModel)]="guardian_second_mobile_no" name="guardian_second_mobile_no" matInput required>
+                                          <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="guardian_second_mobile_no" name="guardian_second_mobile_no" matInput required>
                                           <!-- <mat-hint color="primary">Hint</mat-hint> -->
                                         </mat-form-field>
                                       </div>
