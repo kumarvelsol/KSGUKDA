@@ -33,7 +33,7 @@ export class ClassexamComponent implements OnInit {
   exam_class_start_date = new Date();
   exam_class_end_date = new Date();
   class_id:number=null;
-  exam_id:string=null;
+  exam_id:number;
   date:any;
 
   exam_subject_type : string ; 
@@ -47,7 +47,7 @@ export class ClassexamComponent implements OnInit {
     this.gettingclasses();
     this.gettingexams();
     this.exam_class_start_date= null;this.exam_class_end_date=null;
-    this.service.getclassexam(1,1,1).subscribe((data : Apiresponse) =>
+    this.service.getclassexam(1,1,this.exam_id).subscribe((data : Apiresponse) =>
     {
       this.classexamlist=data;
       this.dataSource = new MatTableDataSource(this.classexamlist.Data);
@@ -97,7 +97,7 @@ export class ClassexamComponent implements OnInit {
           {
             alert(""+res.message);
           }
-          this.service.getclassexam(1,1,1).subscribe((data : Apiresponse) =>
+          this.service.getclassexam(1,1,this.exam_id).subscribe((data : Apiresponse) =>
           {
             this.classexamlist=data;
             console.log(this.classexamlist.Data);
@@ -131,7 +131,7 @@ export class ClassexamComponent implements OnInit {
             alert(""+res.message);
           }
           console.log(res);
-          this.service.getclassexam(1,1,1).subscribe((data : Apiresponse) =>
+          this.service.getclassexam(1,1,this.exam_id).subscribe((data : Apiresponse) =>
           {
             this.classexamlist=data;
             console.log(this.classexamlist.Data);
@@ -143,6 +143,8 @@ export class ClassexamComponent implements OnInit {
         this.buttoncontent="Save";
       }
     }
+    // console.log("class_id",this.class_id);console.log("exam_id",this.exam_id);
+    // console.log("exam_class_start_date",this.exam_class_start_date);console.log("exam_class_end_date",this.exam_class_end_date);
   }
   public onclear()
   {
@@ -150,7 +152,7 @@ export class ClassexamComponent implements OnInit {
     this.exam_class_start_date=null;this.exam_class_end_date=null;
     this.buttoncontent="Save";
   }
-  public editclick(j:number,exam_class_id:number,exam_id:string,exam_type:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
+  public editclick(j:number,exam_class_id:number,exam_id:number,exam_type:string,class_id:number,exam_class_start_date:Date,exam_class_end_date:Date)
   {
     this.class_id = null,this.exam_type =""; this.exam_class_end_date = null; this.exam_class_start_date = null;
     this.buttoncontent="Update";
@@ -161,7 +163,7 @@ export class ClassexamComponent implements OnInit {
     this.exam_class_start_date = exam_class_start_date;
     this.exam_class_end_date = exam_class_end_date;
   }
-  public NavigateClick(j:number,class_name:string,exam_id:string,class_id:number,exam_type:string,exam_class_id:number)
+  public NavigateClick(j:number,class_name:string,exam_id:number,class_id:number,exam_type:string,exam_class_id:number)
   {
     let navigationExtras: NavigationExtras = {
       queryParams: {
