@@ -57,6 +57,7 @@ export class PostattendenceComponent implements OnInit {
     this.class_id =value;
     this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>{
       this.subjdata = data.Data;
+      console.log(this.subjdata);
     });
   }
   selectSubAllocation(value)
