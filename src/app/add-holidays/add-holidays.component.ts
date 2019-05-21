@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HolidaysServsService } from '../shared/holidays-servs.service';
 import { NgForm } from '@angular/forms';
 import { Classresponse } from '../class/classresponse';
-import { DatePipe } from '@angular/common';
+//import { DatePipe } from '@angular/common';
 import { AddHolidaymodel } from '../shared/add-holidaymodel';
 import { Data } from 'src/app/class/data';
 @Component({
@@ -17,8 +17,7 @@ export class AddHolidaysComponent implements OnInit {
   public show:boolean = false;
 
   buttoncontent:string="save";
-  date: any;
-  constructor(public service:HolidaysServsService,private datePipe: DatePipe) { }
+  constructor(public service:HolidaysServsService) { }
 
   displayedColumns: string[] = ['date', 'month', 'year','remarks','actions'];
   end:String;
@@ -26,10 +25,6 @@ export class AddHolidaysComponent implements OnInit {
   ss:AddHolidaymodel;
 
   ngOnInit() {
-    
-    this.date = null; 
-    var date = new Date();
-   console.log(this.datePipe.transform(date,"dd-MM-yyyy")); 
     this.resetForm();
     this.displayHolidaysList();
   }
@@ -60,7 +55,6 @@ export class AddHolidaysComponent implements OnInit {
     if(this.buttoncontent=='save')
     {
       this.service.addTperiods(holidays.value).subscribe(data=>{
-        date: this.datePipe.transform(this.date,"dd-MM-yyyy"),
         this.serRes=data;
         if(this.serRes.code==200)
         {
