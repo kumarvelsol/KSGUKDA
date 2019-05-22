@@ -64,8 +64,6 @@ export class ViewattendenceComponent implements OnInit {
   //   this.class_id = null;
   //   this.subject_id = null;
   // }
-
-
   selectOption(value)
   {
     //console.log(value.class_id); 
