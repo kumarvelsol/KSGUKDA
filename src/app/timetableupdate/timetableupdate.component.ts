@@ -37,10 +37,7 @@ export class TimetableupdateComponent implements OnInit {
   this.cls_id=ss;
 
     this.service.getPerticularClassAllocatointoSubjects(1,1,this.cls_id).subscribe(data=>{
-      
       this.subjects=data.Data;
-
-      
     });
 
 
