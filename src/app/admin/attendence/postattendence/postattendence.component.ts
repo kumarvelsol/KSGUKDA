@@ -125,7 +125,6 @@ export class PostattendenceComponent implements OnInit {
       time_table_id : this.time_table_id,
       employee_id : this.employee_id,
       session :this.session,
-      //class_id , sub_allocation_id , Year , Month , Date , time_table_id , Attendence_status , student_id , institution_id , academic_id , employee_id , session
     }
     console.log(attend);
     this.srv.addingss(attend).subscribe(data=>{
