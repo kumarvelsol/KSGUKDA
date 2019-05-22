@@ -34,7 +34,6 @@ export class AddStudentComponent implements OnInit {
     this.getStates();
     console.log(this.datava);
     let myItem = localStorage.getItem('key');
-    console.log(myItem);
     if(myItem == "" || myItem == null)
     {
       this.buttoncontent = "Save Student Details";

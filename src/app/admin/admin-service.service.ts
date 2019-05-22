@@ -32,6 +32,7 @@ import { Addevents } from '../shared/addevents';
 import { Attendencemodel } from '../shared/attendencemodel';
 import { Studentexamresult } from '../shared/studentexamresult';
 import { Classexamresults } from '../shared/classexamresults';
+import { Classresponse } from '../class/classresponse';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -242,7 +243,7 @@ public updateaddevents(event_up: Addevents){
     let params = new HttpParams();
      params = params.append('institution_id', institution_id+"");
      params = params.append('academic_id',academic_id+"");
-     return this.http.post(`${this.Baseurl+"Employeelist"}`,params);
+     return this.http.post<Apiresponse>(`${this.Baseurl+"Employeelist"}`,params);
    }
    // Class Wise Exam Results Service Methods
 
@@ -271,10 +272,27 @@ public updateaddevents(event_up: Addevents){
     params = params.append('student_id',student_id+"");
     return this.http.post(`${this.Baseurl+"changelist"}`, params);
   }
-  public addstudentmarks(cls:Studentexamresult)
+  public addstudentmarks(institution_id:number,academic_id:number,class_id:number,student_id:number,exam_id:number,total_marks:number,total_out_of_marks:number,total_percetage:number,marks:string,status:string,percentage:string,sub_allocation_id:number)
    {
-      return this.http.post(`${this.Baseurl+"addingresult"}`,cls);
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    params = params.append('class_id',class_id+"");
+    params = params.append('student_id',student_id+"");
+    params = params.append('exam_id', exam_id+"");
+    params = params.append('marks',marks+"");
+    params = params.append('total_marks',total_marks+"");
+    params = params.append('total_out_of_marks',total_out_of_marks+"");
+    params = params.append('total_percetage', total_percetage+"");
+    params = params.append('percentage',percentage+"");
+    params = params.append('status',status+"");
+    params = params.append('sub_allocation_id',sub_allocation_id+"");
+      return this.http.post(`${this.Baseurl+"addingresult"}`,params);
    }
+  // public addstudentmarks(stu:Studentexamresult)
+  //  {
+  //     return this.http.post(`${this.Baseurl+"addingresult"}`,stu);
+  //  }
    public createclassexam(cls:Classexammodel)
    {
       return this.http.post(`${this.Baseurl+"addingClassExam"}`,cls);
@@ -565,5 +583,18 @@ public updateaddevents(event_up: Addevents){
     params = params.append('academic_id',academic_id+"");
     params = params.append('institution_id',institution_id+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"FutureNoticeboardlist"}`,params);
+  }
+
+
+
+
+  addingExams(emp:Studentexamresult):Observable<Classresponse>
+  {    
+    emp.institution_id=1;
+    emp.academic_id=1;
+    
+    //emp.sub_allocation_id=1;
+    //emp.class_id=1;
+    return this.http.post<Classresponse> ('http://veledu.edujinni.in/addingresult',emp)
   }
 }

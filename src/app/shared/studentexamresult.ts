@@ -6,12 +6,14 @@ export interface Studentexamresult {
     student_id: number,
     //student_roll_no: number,
     //first_name: string,
-    //class_id: number,
+    class_id: number,
     status: string,
     percentage: string,
     total_marks :number,
     total_out_of_marks :number,
     total_percetage :number,
-    marks :string;  
-    exam_id : number;
+    marks :string,
+    exam_id : number,
+    sub_allocation_id : 1,
+
 }
