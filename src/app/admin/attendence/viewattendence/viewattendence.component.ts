@@ -29,7 +29,7 @@ export class ViewattendenceComponent implements OnInit {
   subjdata : Data[];
   class_id:number;subject_id:number;
   dataSource;
-  displayedColumns: string[] = ["attendence_id", "student_roll_no","first_name","class_name","Attendence_status"];
+  displayedColumns: string[] = ["attendence_id", "student_roll_no","first_name","class_name","Attendence_status","session"];
   first_name : string;
   attendence_id : number;
   constructor(public service:AdminServiceService) { }
@@ -66,7 +66,7 @@ export class ViewattendenceComponent implements OnInit {
   // }
   selectOption(value)
   {
-    //console.log(value.class_id); 
+    //console.log(value.class_id);
     this.class_id=value;   
 
     this.service.getAttendenceList(1,1,this.class_id).subscribe((data : Apiresponse) =>
