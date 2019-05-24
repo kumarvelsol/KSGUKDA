@@ -33,6 +33,7 @@ import { Attendencemodel } from '../shared/attendencemodel';
 import { Studentexamresult } from '../shared/studentexamresult';
 import { Classexamresults } from '../shared/classexamresults';
 import { Classresponse } from '../class/classresponse';
+import { Regularfee } from '../shared/regularfee';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -300,6 +301,26 @@ public updateaddevents(event_up: Addevents){
    public updateclassexam(clsu: Classexammodel){
     return this.http.post(`${this.Baseurl+"updatingClassExam"}`,clsu);
   }
+  public getfeetypes(institution_id:number,academic_id:number)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post(`${this.Baseurl+"feetypesfetch"}`,params);
+   }
+   public getstudentdetails(institution_id:number,academic_id:number,student_id:number)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      params = params.append('student_id',student_id+"");
+      return this.http.post(`${this.Baseurl+"studentandinstitutionfetch"}`,params);
+   }
+  public addingfeetypes(cls:Regularfee)
+   {
+      return this.http.post(`${this.Baseurl+"feetypesadding"}`,cls);
+   }
+
    public getparticularemployee(institution_id : number, academic_id : number,employee_id : string)
    {
       let params = new HttpParams();
