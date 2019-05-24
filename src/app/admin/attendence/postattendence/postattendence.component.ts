@@ -18,6 +18,7 @@ import { Classresponse } from 'src/app/class/classresponse';
 export class PostattendenceComponent implements OnInit {
   
   clsdata :  Data[];
+  empdata : Data[];
   subjdata : Data[];
   RollNo : any = {};
   StudentRollNo : string;
@@ -34,7 +35,7 @@ export class PostattendenceComponent implements OnInit {
   
   class_id  : number; sub_allocation_id:number; date:string;attendence_status:string;student_roll_no:number;time_table_id:number;
   first_name:string; admissionno:number;subject_id:number; remarks:string;checkall:boolean=true; Year :string;Month:string;student_id:number;
-  attdata : Apiresponse;
+  attdata : Apiresponse;employee_id : number;session : string;
   serRes:Classresponse;
   
   
@@ -44,6 +45,7 @@ export class PostattendenceComponent implements OnInit {
   {
     this.buttoncontent = "Save";
     this.gettingclasses(); 
+    this.gettingemployees();
   }
   gettingclasses()
   {
@@ -51,18 +53,32 @@ export class PostattendenceComponent implements OnInit {
       this.clsdata = data.Data;
     });
   }
-  
+  gettingemployees()
+  {
+    this.service.getemployeelist(1,1).subscribe(data=>{
+      this.empdata = data.Data;
+    });
+  }
   selectOption(value) 
   {
     this.class_id =value;
     this.service.getSubjectAllocatedId(1,1,this.class_id).subscribe(data=>{
       this.subjdata = data.Data;
     });
+
   }
   selectSubAllocation(value)
   {
     this.sub_allocation_id=value;
     this.time_table_id=value;
+  }
+  selectempname(value)
+  {
+    this.employee_id = value;
+  }
+  selectsession(value)
+  {
+    this.session = value;
   }
   post:any[];
   public onclearclick()
@@ -70,6 +86,10 @@ export class PostattendenceComponent implements OnInit {
     this.class_id =null;
     this.subject_id=null;    
     this.dataSource = null;
+    this.employee_id = null;
+    this.session = "";
+    this.sub_allocation_id = null;
+    this.date = null;
   }
   public getdetails()
   {
@@ -86,11 +106,11 @@ export class PostattendenceComponent implements OnInit {
             
       this.dataSource=new MatTableDataSource(this.attdata.Data); 
       this.count=this.dataSource.data.length;
+      console.log(this.attdata);
     });
   }
   public onsaveclick()
   {
-       
     let attend : Attendencemodel =
     {
       institution_id : 1,
@@ -101,11 +121,12 @@ export class PostattendenceComponent implements OnInit {
       Month : this.Month=this.datePipe.transform(this.date,"MM"),
       Date : this.date=this.datePipe.transform(this.date,"dd"),
       attendence : this.Attendence,
-      //student_id : this.student_id,
+      student_id : this.student_id,
       time_table_id : this.time_table_id,
+      employee_id : this.employee_id,
+      session :this.session,
     }
-    
-
+    console.log(attend);
     this.srv.addingss(attend).subscribe(data=>{
       this.serRes=data;     
       if(this.serRes.code==200)
@@ -118,11 +139,6 @@ export class PostattendenceComponent implements OnInit {
   })
   
  }
- 
-  
-  
-  
- 
   onSelect(i:number,event,sub_allocation:number,time_tb_id:number) 
   {
     for(let i=0;i<this.count;i++)

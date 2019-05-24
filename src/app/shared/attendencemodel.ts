@@ -6,7 +6,9 @@ export interface Attendencemodel {
     Date  :string;
     time_table_id :number ;
     attendence : string;
-    
+    employee_id : number;
+    session : string;
     institution_id : number;
     academic_id :number;
+    student_id : number;
 }

@@ -34,7 +34,6 @@ export class AddStudentComponent implements OnInit {
     this.getStates();
     console.log(this.datava);
     let myItem = localStorage.getItem('key');
-    console.log(myItem);
     if(myItem == "" || myItem == null)
     {
       this.buttoncontent = "Save Student Details";
@@ -224,6 +223,17 @@ export class AddStudentComponent implements OnInit {
             alert(""+res.message);
           }
           console.log(res);
+          this.admission_number="";this.admission_date="";this.first_name="";this.last_name="";
+          this.birth_place="";this.date_of_birth=null;this.gender="";this.mobile_no="";
+          this.alternate_mobile_no="";this.email="";this.photo="";this.student_roll_no="";
+          this.institution_id="";this.academic_id="";this.blood_group_id="";this.religion_id=null;
+          this.cast_id=null;this.class_id=null;this.nationality="";this.mother_tongue_id=null;
+          this.present_address="";this.perminent_address="";this.state ="";this.city="";
+          this.pin_code="";this.father_name="";this.father_mobile_no ="";this.father_designation="";
+          this.mather_name="";this.mother_mobile_no="";this.mother_designation="";this.guardian_type="";
+          this.guardian_name="";this.guardian_mobile_no="";this.guardian_second_mobile_no="";
+          this.guardian_address="";this.guardian_email="";this.relation="";this.guardian_designation="";
+          this.guardian_state="";this.guardian_city="";this.guardian_pincode="";this.student_id="";
         });
       }
       else
@@ -274,6 +284,17 @@ export class AddStudentComponent implements OnInit {
             alert(""+res.message);
           }
           console.log(res);
+          this.admission_number="";this.admission_date="";this.first_name="";this.last_name="";
+          this.birth_place="";this.date_of_birth=null;this.gender="";this.mobile_no="";
+          this.alternate_mobile_no="";this.email="";this.photo="";this.student_roll_no="";
+          this.institution_id="";this.academic_id="";this.blood_group_id="";this.religion_id=null;
+          this.cast_id=null;this.class_id=null;this.nationality="";this.mother_tongue_id=null;
+          this.present_address="";this.perminent_address="";this.state ="";this.city="";
+          this.pin_code="";this.father_name="";this.father_mobile_no ="";this.father_designation="";
+          this.mather_name="";this.mother_mobile_no="";this.mother_designation="";this.guardian_type="";
+          this.guardian_name="";this.guardian_mobile_no="";this.guardian_second_mobile_no="";
+          this.guardian_address="";this.guardian_email="";this.relation="";this.guardian_designation="";
+          this.guardian_state="";this.guardian_city="";this.guardian_pincode="";this.student_id="";
         });
       } 
     }
