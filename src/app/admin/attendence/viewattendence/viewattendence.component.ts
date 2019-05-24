@@ -66,7 +66,7 @@ export class ViewattendenceComponent implements OnInit {
     console.log(this.dateall.getMonth()+1);
     console.log(this.dateall.getFullYear());
     console.log(this.month1);
-    this.service.getAttendenceList(1,1,this.class_id,this.date,this.month,this.year).subscribe((data : Apiresponse) =>
+    this.service.getAttendenceList(1,1,this.class_id,this.date,this.month1,this.year).subscribe((data : Apiresponse) =>
     {
       this.viewattend=data;
       this.dataSource = new MatTableDataSource(this.viewattend.Data);

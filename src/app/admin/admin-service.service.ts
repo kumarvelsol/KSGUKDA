@@ -590,7 +590,7 @@ public updateaddevents(event_up: Addevents){
   }
 
 
-  public getAttendenceList( institution_id : number, academic_id : number,class_id:number,Date:number,Month:number,Year:number )
+  public getAttendenceList( institution_id : number, academic_id : number,class_id:number,Date:number,Month:string,Year:number )
   {
     let params = new HttpParams();
     params = params.append('class_id', class_id+"");
