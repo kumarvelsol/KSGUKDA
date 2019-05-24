@@ -590,12 +590,15 @@ public updateaddevents(event_up: Addevents){
   }
 
 
-  public getAttendenceList( institution_id : number, academic_id : number,class_id:number )
+  public getAttendenceList( institution_id : number, academic_id : number,class_id:number,Date:number,Month:number,Year:number )
   {
     let params = new HttpParams();
     params = params.append('class_id', class_id+"");
     params = params.append('institution_id',institution_id+"");
     params = params.append('academic_id',academic_id+"");
+    params = params.append('Date',Date+"");
+    params = params.append('Month',Month+"");
+    params = params.append('Year',Year+"");
     return this.http.post<Apiresponse>(`${this.Baseurl+"Attendencelist"}`,params);
   }
   //End of Notice Board

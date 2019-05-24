@@ -33,7 +33,7 @@ export class ViewattendenceComponent implements OnInit {
   first_name : string;
   attendence_id : number;
   dateall:Date;
-  date:number;month:number;year:number;
+  date:number;month:number;year:number;month1:string;
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() 
@@ -59,11 +59,13 @@ export class ViewattendenceComponent implements OnInit {
     console.log(this.dateall);
     this.date = this.dateall.getDate();
     this.month = this.dateall.getMonth()+1;
+    this.month1 = "0" + this.month ;
     this.year = this.dateall.getFullYear();
     console.log(this.dateall.getDate());
     console.log(this.dateall.getMonth()+1);
     console.log(this.dateall.getFullYear());
-    this.service.getAttendenceList(1,1,this.class_id).subscribe((data : Apiresponse) =>
+    console.log(this.month1);
+    this.service.getAttendenceList(1,1,this.class_id,this.date,this.month,this.year).subscribe((data : Apiresponse) =>
     {
       this.viewattend=data;
       this.dataSource = new MatTableDataSource(this.viewattend.Data);
