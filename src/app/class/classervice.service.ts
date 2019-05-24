@@ -96,8 +96,6 @@ day:DayWiseModel;
   }
 
 
-
-
   deleteTPeriods(tperiods:Timeperiodmodel):Observable<Classresponse>
   {
     tperiods.institution_id=1;
