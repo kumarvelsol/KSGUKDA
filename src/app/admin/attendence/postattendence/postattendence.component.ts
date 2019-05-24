@@ -93,7 +93,13 @@ export class PostattendenceComponent implements OnInit {
   }
   public getdetails()
   {
-    this.service.getclassattendencelist(1,1,this.class_id ).subscribe(data=>{
+    if(this.sub_allocation_id == null)
+    {
+
+    }
+    else
+    {
+    this.service.getclassattendencelist(1,1,this.class_id ).subscribe(data=>{  
       this.attdata = data;
       for(let i=0;i>data.Data.length;i++){
         if(i == 0){
@@ -103,11 +109,11 @@ export class PostattendenceComponent implements OnInit {
         }
         this.ganesh = data.Data[i].attendence_id;
       }
-            
       this.dataSource=new MatTableDataSource(this.attdata.Data); 
       this.count=this.dataSource.data.length;
       console.log(this.attdata);
     });
+  }
   }
   public onsaveclick()
   {
@@ -136,6 +142,8 @@ export class PostattendenceComponent implements OnInit {
       else{          
         alert(this.serRes.message);          
       }
+      this.class_id =null;this.subject_id=null;this.dataSource = null;
+      this.employee_id = null;this.session = "";this.sub_allocation_id = null;this.date = null;
   })
   
  }
@@ -163,9 +171,5 @@ export class PostattendenceComponent implements OnInit {
         }
       }
     }
-    
-    // this.sub_allocation=sub_allocation;
-    // this.time_tb_id=time_tb_id;
-  
   }
 }

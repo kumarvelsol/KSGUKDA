@@ -2,7 +2,7 @@
   <div class="row">
     <mat-card class="row example-card parent">
         <div class="row col-md-12">
-          <div class="col-md-3 mat-form-wrap">
+          <div class="col-md-6 mat-form-wrap">
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Class Name</mat-label>
               <mat-select style="color:gray;" (selectionChange)="selectOption($event.value)" [(ngModel)] = "class_id">
@@ -11,11 +11,15 @@
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>
           </div>
-
-          
-          <!-- <button mat-raised-button class="btn-style" >{{buttoncontent}}</button>&nbsp;&nbsp;
-          <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>&nbsp;&nbsp;
-          <button mat-raised-button class="btn-style" >Get Details</button> -->
+          <div class="col-md-6 mat-form-wrap">
+            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
+              <input matInput [(ngModel)]="dateall" name="dateall" [matDatepicker]="picker" placeholder="Choose a date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <button mat-raised-button class="btn-style" (click)="getdetails()">Get Details</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>
         </div>
     </mat-card>
   </div>
