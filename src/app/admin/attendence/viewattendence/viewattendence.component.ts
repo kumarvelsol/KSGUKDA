@@ -67,8 +67,7 @@ export class ViewattendenceComponent implements OnInit {
   selectOption(value)
   {
     //console.log(value.class_id);
-    this.class_id=value;   
-
+    this.class_id=value;
     this.service.getAttendenceList(1,1,this.class_id).subscribe((data : Apiresponse) =>
     {
       this.viewattend=data;
