@@ -47,6 +47,7 @@ export class ViewattendenceComponent implements OnInit {
       this.clsdata = data.Data;
     });
   }
+
   onclearclick()
   {
     this.class_id = null;
@@ -70,6 +71,7 @@ export class ViewattendenceComponent implements OnInit {
       this.viewattend=data;
       this.dataSource = new MatTableDataSource(this.viewattend.Data);
     });
+  
   }
   selectOption(value)
   {
