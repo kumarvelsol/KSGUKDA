@@ -115,7 +115,7 @@ public oncomments(event1 : number)
     }
 });
 }
-  public onSaveClick()   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
+  public onSaveClick(first_name:string,student_id: number,class_name : string,Amount:number,comment:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
   {
     if(this.listcount > 0){
       for (let i = 0; i < this.listcount; i++) {
@@ -147,17 +147,15 @@ public oncomments(event1 : number)
           }else{ }
         });
         console.log(a);
-      //   let navigationExtras: NavigationExtras = {
-      //     queryParams: {
-      //         "clsname":this.class_name = class_name,
-      //         "name":this.first_name= first_name,
-      //         "stdid" : this.student_id = student_id,
-      //         "amount" : this.Amount = Amount,
-      //         "comments" : this.comment = comment,
-      //     }
-      //   };
-      //   this.router.navigate(['/FeePayment'],navigationExtras);
-      // } 
-
-      }
+        let navigationExtras: NavigationExtras = {
+          queryParams: {
+              "clsname":this.class_name = class_name,
+              "name":this.first_name= first_name, 
+              "stdid" : this.student_id = student_id,
+              "amount" : this.Amount = Amount,
+              "comments" : this.comment = comment,
+          }
+        };
+        this.router.navigate(['/FeePayment'],navigationExtras);
+      } 
 }
