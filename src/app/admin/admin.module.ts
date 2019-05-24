@@ -55,6 +55,8 @@ import { DatePipe } from '@angular/common';
 import { ClassexamresultsComponent } from './classexamresults/classexamresults.component';
 import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
+import { RegularfeeComponent } from './regularfee/regularfee.component';
+import { FeepaymentComponent } from './feepayment/feepayment.component';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -71,7 +73,7 @@ import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
     StudentComponent, FeeTypeComponent, FeeModeComponent,
     ClassexamComponent, SchoolexamComponent, ClassteacherdetailsComponent,
     ClassexamresultsComponent, AttendenceTabBarComponent,
-    MarqueeTagComponent, MondayComponent],
+    MarqueeTagComponent, MondayComponent, RegularfeeComponent, FeepaymentComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,

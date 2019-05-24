@@ -103,7 +103,7 @@ export interface Data {
     fee_type_id : number;
     fee_type_code : string;
     fee_name : string;
-
+    feetypess_id : number;
     fee_mode_name : string;
     fee_mode_code : string;
     fee_mode_id : number;
@@ -155,5 +155,7 @@ export interface Data {
     guardian_designation: string
 
     attendence_id:number;
-
+    feee  : string  ,
+    Amount : string, 
+    comment : string ,
 }
