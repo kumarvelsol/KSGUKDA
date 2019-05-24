@@ -1,0 +1,79 @@
+<div class="container card">
+  <div class = "row">
+      <div class="row col-md-12">
+          <div class="col-md-4 mat-form-wrap">
+              <!-- <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">School Name</p>  -->
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">PaymentId</mat-label>
+              <input style="color :gray" [(ngModel)]="first_name"  type="text" name="first_name"  matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+              <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+              <mat-label style="color :gray">Paid On</mat-label>
+              <input style="color :gray" [(ngModel)]="student_roll_no" type="text" name="student_roll_no"  matInput>
+            </mat-form-field>
+          </div>
+        </div>
+  </div>
+    <div class="row">
+      <mat-card class="row example-card parent">
+          <div class="row col-md-12">
+            <div class="col-md-4 mat-form-wrap">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+                <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+                <mat-label style="color :gray">Student Name</mat-label>
+                <input style="color :gray" [(ngModel)]="first_name"  type="text" name="first_name"  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4 mat-form-wrap">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+                <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+                <mat-label style="color :gray">Student Id</mat-label>
+                <input style="color :gray" [(ngModel)]="student_id" type="text" name="student_id"  matInput>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4 mat-form-wrap">
+              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
+                <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
+                <mat-label style="color :gray">Student Class</mat-label>
+                <input style="color :gray" [(ngModel)]="class_name" type="text" name="class_name"  matInput>
+              </mat-form-field>
+            </div>
+          </div>
+          
+      </mat-card>
+    </div>
+
+    <div class="row">
+        <div class="example-container mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="FeeCategory">
+                  <th mat-header-cell *matHeaderCellDef>FeeCategory</th>
+                  <td mat-cell *matCellDef="let i"> {{i.feetypes}} </td>
+                </ng-container>
+            <ng-container matColumnDef="FeeAmount">
+              <th mat-header-cell *matHeaderCellDef>FeeAmount </th>
+              <td mat-cell *matCellDef="let i"> {{i.Amount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Comments">
+              <th mat-header-cell *matHeaderCellDef>Comments</th>
+              <td mat-cell *matCellDef="let i"> {{i.comment}} </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+      </div>
+    </div>
+    <div class = "row">
+      <div> 
+        <button mat-raised-button class="btn-style" (click)="onclearclick()">Back&Edit</button>
+      </div>
+      <div>
+        <button mat-raised-button class="btn-style" (click)="onsaveclick()">Proceed</button>
+      </div>
+    </div>
+  </div>
