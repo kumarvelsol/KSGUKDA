@@ -87,7 +87,8 @@ export class RegularfeeComponent implements OnInit {
       });
      // this.feee[i] = 0;this.Amount[i]=0;
   }
-  public onChange(event: number){
+  public onChange(event: number)
+  {
     console.log(this.words2);
     this.total_amount = 0;
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
@@ -117,9 +118,12 @@ public oncomments(event1 : number)
 }
   public onSaveClick(first_name:string,student_id: number,class_name : string,Amount:number,comment:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
   {
-    if(this.listcount > 0){
-      for (let i = 0; i < this.listcount; i++) {
-        if(i == 0){
+    if(this.listcount > 0)
+    {
+      for (let i = 0; i < this.listcount; i++) 
+      {
+        if(i == 0)
+        {
           this.feee = this.fee;
           this.Amount = this.words2[i];
           this.comment = this.word[i];
@@ -130,7 +134,8 @@ public oncomments(event1 : number)
         }
       }
     } 
-    let a : Regularfee = {
+    let a : Regularfee = 
+    {
       feee  : this.feee  ,
       Amount : this.Amount, 
       comment : this.comment ,

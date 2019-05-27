@@ -57,6 +57,7 @@ import { StudentexamresultComponent } from './studentexamresult/studentexamresul
 import { MarqueeTagComponent } from './marquee-tag/marquee-tag.component';
 import { RegularfeeComponent } from './regularfee/regularfee.component';
 import { FeepaymentComponent } from './feepayment/feepayment.component';
+import { PurchaseFeeComponent } from '../purchase-fee/purchase-fee.component';
 @NgModule({
   declarations: [DashboardComponent, AdminToolbarComponent, InstitutedetailsComponent, 
     DepartmentComponent,ClassesRelatedComponent,BloodgroupComponent,
@@ -73,7 +74,7 @@ import { FeepaymentComponent } from './feepayment/feepayment.component';
     StudentComponent, FeeTypeComponent, FeeModeComponent,
     ClassexamComponent, SchoolexamComponent, ClassteacherdetailsComponent,
     ClassexamresultsComponent, AttendenceTabBarComponent,
-    MarqueeTagComponent, MondayComponent, RegularfeeComponent, FeepaymentComponent],
+    MarqueeTagComponent, MondayComponent, RegularfeeComponent, FeepaymentComponent, PurchaseFeeComponent],
   imports: [
     CommonModule, AdminRoutingModule,
     LayoutModule, MatToolbarModule,
