@@ -29,21 +29,17 @@ export class ViewattendenceComponent implements OnInit {
   subjdata : Data[];
   class_id:number;subject_id:number;
   dataSource;
-  displayedColumns: string[] = ["attendence_id", "student_roll_no","first_name","class_name","Attendence_status"];
+  displayedColumns: string[] = ["attendence_id", "student_roll_no","first_name","class_name","Attendence_status","session"];
   first_name : string;
   attendence_id : number;
+  dateall:Date;
+  date:number;month:number;year:number;month1:string;
   constructor(public service:AdminServiceService) { }
 
   ngOnInit() 
   {
     this.buttoncontent = "Save";
-    // this.service.getattendencelist(1,1).subscribe((data : Apiresponse) =>
-    // {
-    //   this.viewattend=data;
-    //   this.dataSource = new MatTableDataSource(this.viewattend.Data);
-    // });
     this.gettingclasses();
-    //this.gettingsubjects();
   }
   gettingclasses()
   {
@@ -51,30 +47,34 @@ export class ViewattendenceComponent implements OnInit {
       this.clsdata = data.Data;
     });
   }
-  
-  // gettingsubjects()
-  // {
-  //   this.service.subjectlist(1,1).subscribe(data=>{
-  //     this.subjdata = data.Data;
-  //   });
-  // }
 
-  // onclearclick()
-  // {
-  //   this.class_id = null;
-  //   this.subject_id = null;
-  // }
-
-
-  selectOption(value)
+  onclearclick()
   {
-    //console.log(value.class_id); 
-    this.class_id=value.class_id;   
+    this.class_id = null;
+    this.dateall =null;
+    this.dataSource = null;
+  }
 
-    this.service.getAttendenceList(1,1,this.class_id).subscribe((data : Apiresponse) =>
+  getdetails()
+  {
+    console.log(this.dateall);
+    this.date = this.dateall.getDate();
+    this.month = this.dateall.getMonth()+1;
+    this.month1 = "0" + this.month ;
+    this.year = this.dateall.getFullYear();
+    console.log(this.dateall.getDate());
+    console.log(this.dateall.getMonth()+1);
+    console.log(this.dateall.getFullYear());
+    console.log(this.month1);
+    this.service.getAttendenceList(1,1,this.class_id,this.date,this.month1,this.year).subscribe((data : Apiresponse) =>
     {
       this.viewattend=data;
       this.dataSource = new MatTableDataSource(this.viewattend.Data);
     });
+  
+  }
+  selectOption(value)
+  {
+    this.class_id = value;
   }
 }

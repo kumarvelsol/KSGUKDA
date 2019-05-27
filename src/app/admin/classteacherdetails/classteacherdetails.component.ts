@@ -141,20 +141,20 @@ export class ClassteacherdetailsComponent implements OnInit {
   }
   no : number;
   public RowSelected(j: number,id : number,class_id : number, departmant_id: number, employee_id: number)
-   {
-     this.no = id;
-     this.cnameSelected = class_id;
-     this.deptSelected = departmant_id;
-     this.GetDepEmplist(departmant_id);
-     this.empSelected = employee_id;
-     console.log("row clicked",j);
-     console.log(this.cnameSelected);
-     console.log(this.empSelected);
-     console.log(this.deptSelected);
-     console.log(id);
-     this.buttoncontent = 'Update';
-   }
-   public GetDepEmplist(id : number){
+  {
+    this.no = id;
+    this.cnameSelected = class_id;
+    this.deptSelected = departmant_id;
+    this.GetDepEmplist(departmant_id);
+    this.empSelected = employee_id;
+    console.log("row clicked",j);
+    console.log(this.cnameSelected);
+    console.log(this.empSelected);
+    console.log(this.deptSelected);
+    console.log(id);
+    this.buttoncontent = 'Update';
+  }
+  public GetDepEmplist(id : number){
     //Start of Getting Employess based on Department Id
     this.designationservice.getDepEmpList(1,1,id).subscribe(data =>{
       this.empdata = data.Data;

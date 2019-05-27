@@ -18,7 +18,26 @@
             <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
               <mat-label style="color :gray">Subject Name</mat-label>
               <mat-select style="color:gray;" [(ngModel)] = "sub_allocation_id" (selectionChange)="selectSubAllocation($event.value)">
-                <mat-option *ngFor="let sname of subjdata" [value]="sname">{{sname.subject_name}}</mat-option> 
+                <mat-option *ngFor="let sname of subjdata" [value]="sname.sub_allocation_id">{{sname.subject_name}}</mat-option> 
+              </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Employee Name</mat-label>
+              <mat-select style="color:gray;" [(ngModel)] = "employee_id" (selectionChange)="selectempname($event.value)">
+                <mat-option *ngFor="let empname of empdata" [value]="empname.employee_id">{{empname.first_name}}</mat-option> 
+              </mat-select>
+              <!-- <mat-hint color="primary">Hint</mat-hint> -->
+            </mat-form-field>
+          </div>
+          <div class="col-md-4 mat-form-wrap">
+            <mat-form-field class="mat-form-wrap" style="color :gray" appearance="outline">
+              <mat-label style="color :gray">Sessions</mat-label>
+              <mat-select style="color:gray;" [(ngModel)] = "session" name="session" (selectionChange)="selectsession($event.value)">
+                <mat-option value="Fornoon">Fornoon</mat-option> 
+                <mat-option value="Afternoon">Afternoon</mat-option> 
               </mat-select>
               <!-- <mat-hint color="primary">Hint</mat-hint> -->
             </mat-form-field>
@@ -31,8 +50,11 @@
             </mat-form-field>
           </div>
           <button mat-raised-button class="btn-style" (click)="onsaveclick()">{{buttoncontent}}</button>&nbsp;&nbsp;
-          <button mat-raised-button class="btn-style" (click)="onclearclick()">Clear</button>&nbsp;&nbsp;
-          <button mat-raised-button class="btn-style" (click)="getdetails()">Get Details</button>
+          <button mat-raised-button class="btn-style1" (click)="getdetails()">Get Details</button>
+          <button mat-icon-button class="clearbtn-style" (click)="onclearclick()">
+            <mat-icon>clear_all</mat-icon>
+          </button>
+          
         </div>
         </div>
     </mat-card>
@@ -54,13 +76,6 @@
             <input [disabled]="true" [(ngModel)]="sub_allocation_id" type="number" matInput>   
           </ng-container>
           
-          
-
-
-
-          
-          
-          <!-- Code Column -->
           <ng-container matColumnDef="student_roll_no">
             <th mat-header-cell *matHeaderCellDef> Student RollNo</th>
             <td mat-cell *matCellDef="let element"> {{element.student_roll_no}} </td>

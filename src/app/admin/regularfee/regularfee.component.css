@@ -8,7 +8,7 @@ table {
     margin-left: 0px;
   }
   .mat-form-wrap{
-    width: 270px;
+    width: 70%;
     margin: 0px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -16,15 +16,15 @@ table {
   .btn-style{
     background-color: #33B5E5;
     color: white;
-    width : 120px;
+    width : 200px;
     height: 50px;
-    left: 350px;
+    left: 150px;
     margin-bottom: 10px;
     margin-top: 10px;
     font-size: 18px;
   }
   .parent{
-    height:210px;
+    height:110px;
     width: 1140px;
   }
   .block {
@@ -36,9 +36,16 @@ table {
   .example-container {
     margin-left: 0px;
     margin-top: 20px;
-    height:270px;
+    height:70px;
     width: 1150px;
-    overflow: auto;
+    /* overflow: auto; */
+  }
+  .example-containerr {
+    margin-left: 0px;
+    margin-top: 20px;
+    height:370px;
+    width: 1150px;
+    /* overflow: auto; */
   }
   p{
     text-align: center;
@@ -49,3 +56,9 @@ table {
     font-family: "Montserrat", sans-serif;
     text-shadow: 0 1px 2px rgba(black,.15);
   }
+  /* .card
+  {
+    margin-top: 40px;
+    width: 50%;
+    margin-left: 20px;
+  } */

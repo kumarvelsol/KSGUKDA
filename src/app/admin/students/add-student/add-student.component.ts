@@ -18,6 +18,7 @@ export class AddStudentComponent implements OnInit {
   bloodGroupData:Data[];
   casteData:Data[];
   religionData:Data[];
+  mothertongue:Data[];
   stateData:Data[];
   datava:string;
   buttoncontent:string;
@@ -27,12 +28,12 @@ export class AddStudentComponent implements OnInit {
   ngOnInit() {
     this.getClasses();
     this.gettingbloodgroup();
+    this.getMothertongue();
     this.getCaste();
     this.getReligion();
     this.getStates();
     console.log(this.datava);
     let myItem = localStorage.getItem('key');
-    console.log(myItem);
     if(myItem == "" || myItem == null)
     {
       this.buttoncontent = "Save Student Details";
@@ -59,7 +60,7 @@ export class AddStudentComponent implements OnInit {
         this.cast_id = data.Data[0].cast_id;
         this.class_id = data.Data[0].class_id;
         this.nationality = data.Data[0].nationality;
-        this.mother_tongue = data.Data[0].mother_tongue;
+        this.mother_tongue_id = data.Data[0].mother_tongue_id;
         this.present_address=data.Data[0].present_address;
         this.perminent_address=data.Data[0].perminent_address;
         this.state = data.Data[0].state;
@@ -96,6 +97,18 @@ export class AddStudentComponent implements OnInit {
   get string():string
   {
     return this.datava;
+  }
+  getMothertongue()
+  {
+    this.service.getmothertongue(1,1).subscribe((data : Apiresponse) =>{
+      if(data.code==200)
+      {
+      this.mothertongue = data.Data;
+      }
+      else{
+        console.log("Error While Retrieving the response")
+      }
+    });
   }
   getReligion()
   {
@@ -152,7 +165,7 @@ export class AddStudentComponent implements OnInit {
     birth_place:string="";date_of_birth:Date=null;gender:string="";mobile_no:string="";
     alternate_mobile_no:string="";email:string="";photo:string="";student_roll_no:string="";
     institution_id:string="";academic_id:string="";blood_group_id:string="";religion_id:number=null;
-    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue:string="";
+    cast_id:number=null;class_id:number=null;nationality:string="";mother_tongue_id:number=null;
     present_address:string="";perminent_address:string="";state :string="";city:string="";
     pin_code:string="";father_name:string="";father_mobile_no :string="";father_designation:string="";
     mather_name:string="";mother_mobile_no:string="";mother_designation:string="";guardian_type:"";
@@ -199,7 +212,7 @@ export class AddStudentComponent implements OnInit {
           blood_group_id:Number(this.blood_group_id),
           religion_id:Number(this.religion_id),
           cast_id:Number(this.cast_id),
-          mother_tongue_id:Number(this.mother_tongue),
+          mother_tongue_id:Number(this.mother_tongue_id),
           class_id:Number(this.class_id),
         }
         console.log(std);
@@ -210,6 +223,17 @@ export class AddStudentComponent implements OnInit {
             alert(""+res.message);
           }
           console.log(res);
+          this.admission_number="";this.admission_date="";this.first_name="";this.last_name="";
+          this.birth_place="";this.date_of_birth=null;this.gender="";this.mobile_no="";
+          this.alternate_mobile_no="";this.email="";this.photo="";this.student_roll_no="";
+          this.institution_id="";this.academic_id="";this.blood_group_id="";this.religion_id=null;
+          this.cast_id=null;this.class_id=null;this.nationality="";this.mother_tongue_id=null;
+          this.present_address="";this.perminent_address="";this.state ="";this.city="";
+          this.pin_code="";this.father_name="";this.father_mobile_no ="";this.father_designation="";
+          this.mather_name="";this.mother_mobile_no="";this.mother_designation="";this.guardian_type="";
+          this.guardian_name="";this.guardian_mobile_no="";this.guardian_second_mobile_no="";
+          this.guardian_address="";this.guardian_email="";this.relation="";this.guardian_designation="";
+          this.guardian_state="";this.guardian_city="";this.guardian_pincode="";this.student_id="";
         });
       }
       else
@@ -249,7 +273,7 @@ export class AddStudentComponent implements OnInit {
           blood_group_id:Number(this.blood_group_id),
           religion_id:Number(this.religion_id),
           cast_id:Number(this.cast_id),
-          mother_tongue_id:Number(this.mother_tongue),
+          mother_tongue_id:Number(this.mother_tongue_id),
           class_id:Number(this.class_id),
         }
         console.log(std);
@@ -260,6 +284,17 @@ export class AddStudentComponent implements OnInit {
             alert(""+res.message);
           }
           console.log(res);
+          this.admission_number="";this.admission_date="";this.first_name="";this.last_name="";
+          this.birth_place="";this.date_of_birth=null;this.gender="";this.mobile_no="";
+          this.alternate_mobile_no="";this.email="";this.photo="";this.student_roll_no="";
+          this.institution_id="";this.academic_id="";this.blood_group_id="";this.religion_id=null;
+          this.cast_id=null;this.class_id=null;this.nationality="";this.mother_tongue_id=null;
+          this.present_address="";this.perminent_address="";this.state ="";this.city="";
+          this.pin_code="";this.father_name="";this.father_mobile_no ="";this.father_designation="";
+          this.mather_name="";this.mother_mobile_no="";this.mother_designation="";this.guardian_type="";
+          this.guardian_name="";this.guardian_mobile_no="";this.guardian_second_mobile_no="";
+          this.guardian_address="";this.guardian_email="";this.relation="";this.guardian_designation="";
+          this.guardian_state="";this.guardian_city="";this.guardian_pincode="";this.student_id="";
         });
       } 
     }
@@ -268,7 +303,7 @@ export class AddStudentComponent implements OnInit {
      let  validation:boolean =false;
       if(this.first_name==""||this.last_name==""||this.date_of_birth==null||this.birth_place==""
       ||this.admission_number==""||this.admission_date==""||this.blood_group_id==""||this.nationality==""||
-      this.mother_tongue==""||this.religion_id==null||this.cast_id==null||this.class_id==null||this.student_roll_no==""||
+      this.mother_tongue_id==null||this.religion_id==null||this.cast_id==null||this.class_id==null||this.student_roll_no==""||
       this.present_address==""||this.perminent_address==""||this.city==""||this.state==""||this.pin_code==""||
       this.mobile_no==""||this.email==""||this.father_name==""||this.father_mobile_no==""||this.mather_name==""||
       this.mother_mobile_no==""||this.guardian_name==""||this.guardian_mobile_no==""||this.guardian_mobile_no==""||this.guardian_address==""

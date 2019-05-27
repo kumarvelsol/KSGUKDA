@@ -150,7 +150,7 @@ day:DayWiseModel;
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");
     params = params.append('class_id',class_id+"");
-    return this.http.post<Classresponse>('http://veledu.edujinni.in/allocationlist',params);
+    return this.http.post<Classresponse>('http://veledu.edujinni.in/timetableallocation',params);
   }
  
 
