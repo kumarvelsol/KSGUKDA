@@ -33,6 +33,7 @@ import { ClassexamresultsComponent } from './classexamresults/classexamresults.c
 import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 import { RegularfeeComponent } from './regularfee/regularfee.component';
 import { FeepaymentComponent } from './feepayment/feepayment.component';
+import { FeepaymentpreviewComponent } from './feepaymentpreview/feepaymentpreview.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
@@ -67,7 +68,8 @@ const routes: Routes = [
   {path:'Results',component:ClassexamresultsComponent},
   {path:'StudentResult',component:StudentexamresultComponent},
   {path:'RegularFee',component:RegularfeeComponent},
-  {path:'FeePayment',component:FeepaymentComponent}
+  {path:'FeePayment',component:FeepaymentComponent},
+  {path:'FeePaymentPreview',component:FeepaymentpreviewComponent}
 ];
 
 @NgModule({
