@@ -85,7 +85,6 @@ export class RegularfeeComponent implements OnInit {
           this.words2.push();
         }
       });
-     // this.feee[i] = 0;this.Amount[i]=0;
   }
   public onChange(event: number)
   {

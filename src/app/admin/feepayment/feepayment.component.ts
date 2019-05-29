@@ -11,8 +11,10 @@ import { Apiresponse } from 'src/app/shared/apiresponse';
 })
 export class FeepaymentComponent implements OnInit {
   feepaymentlist : Apiresponse; feepaymentdata : Data[]; Amountt : any = {};comment : any = {};
+  institutelist : Apiresponse; institutedata : Data[];
   displayedColumns : string[] = ['FeeCategory','FeeAmount','Comments'];
-  dataSource;class_name: string; first_name:string;student_id:number; 
+  displayedColumnss : string[] = ['Schoolname','Address'];
+  dataSource; dataSourcee; class_name: string; first_name:string;student_id:number; 
   institution_name : string;institution_address : string;words2 = []; word = [];
   constructor(private service1Service: AdminServiceService,private route: ActivatedRoute,private router: Router) { 
     this.route.queryParams.subscribe(params => {
@@ -33,8 +35,9 @@ export class FeepaymentComponent implements OnInit {
       });
       this.service1Service.getstudentdetails(1,1,44).subscribe((data: Apiresponse) => 
       {
-        this.institution_name = data.Data[0].institution_name;
-        this.institution_address = data.Data[0].institution_address;
+        this.institutelist = data;
+        console.log(this.institutelist);
+        this.dataSourcee = new MatTableDataSource(this.institutelist.Data);
       });
       this.words2 = this.Amountt; this.word = this.comment;
       console.log("words2",this.words2);console.log("word",this.word);
