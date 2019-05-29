@@ -26,7 +26,6 @@ export class FeepaymentpreviewComponent implements OnInit {
       this.Amounttt = params["amountt"];
       this.commentt = params["commentss"];
   });
-  console.log("feeamount",this.Amounttt);
 }
   ngOnInit() {
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
@@ -80,7 +79,7 @@ export class FeepaymentpreviewComponent implements OnInit {
       feee  : this.feee,
       Amount : this.Amount, 
       comment : this.comment ,
-      institution_id : 1 ,
+      institution_id : 1,
       academic_id : 1,
       student_id : this.student_id
     } 

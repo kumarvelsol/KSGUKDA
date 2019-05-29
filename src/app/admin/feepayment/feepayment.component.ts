@@ -24,7 +24,6 @@ export class FeepaymentComponent implements OnInit {
       this.Amountt = params["amount"];
       this.comment = params["comments"];
   });
-  console.log("feeamount",this.Amountt);
 }
   ngOnInit() {
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
@@ -40,7 +39,6 @@ export class FeepaymentComponent implements OnInit {
         this.dataSourcee = new MatTableDataSource(this.institutelist.Data);
       });
       this.words2 = this.Amountt; this.word = this.comment;
-      console.log("words2",this.words2);console.log("word",this.word);
   }
   public onproceedclick(class_name:string,first_name:string,student_id:number,words2:string,word:string)
   {
