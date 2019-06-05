@@ -67,7 +67,6 @@ export class RegularfeeComponent implements OnInit {
         this.student_id = data.Data[0].student_id;
         this.first_name = data.Data[0].first_name;
         this.class_name = data.Data[0].class_name;
-        console.log(data);
       });
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
       {
@@ -85,9 +84,9 @@ export class RegularfeeComponent implements OnInit {
           this.words2.push();
         }
       });
-     // this.feee[i] = 0;this.Amount[i]=0;
   }
-  public onChange(event: number){
+  public onChange(event: number)
+  {
     console.log(this.words2);
     this.total_amount = 0;
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
@@ -97,10 +96,7 @@ export class RegularfeeComponent implements OnInit {
       {
       this.tot = this.words2[i];
       this.total_amount+= +this.words2[i];
-      console.log("total_amount",this.total_amount);
       this.Amount[i] = this.total_amount;
-      console.log(this.Amount[i]);
-      console.log(this.tot);
     }
   });
 }
@@ -115,47 +111,17 @@ public oncomments(event1 : number)
     }
 });
 }
-  public onSaveClick(first_name:string,student_id: number,class_name : string,Amount:number,comment:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
+  public onSaveClick(first_name:string,student_id: number,class_name : string,words2:number,word:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
   {
-    if(this.listcount > 0){
-      for (let i = 0; i < this.listcount; i++) {
-        if(i == 0){
-          this.feee = this.fee;
-          this.Amount = this.words2[i];
-          this.comment = this.word[i];
-        }else{
-          this.feee = this.fee;
-          this.Amount = this.Amount + "," + this.words2[i];
-          this.comment = this.comment+","+ this.word[i];
-        }
-      }
-    } 
-    let a : Regularfee = {
-      feee  : this.feee  ,
-      Amount : this.Amount, 
-      comment : this.comment ,
-      institution_id : 1 ,
-      academic_id : 1,
-      student_id : this.student_id
-    } 
-    this.service1Service.addingfeetypes(a).subscribe((data : JsResponse) => {
-          this.jsRes = data;
-          if(this.jsRes.code==200)
-          {
-            console.log(data);
-            alert("Fee Added Succesfully.!");
-          }else{ }
-        });
-        console.log(a);
         let navigationExtras: NavigationExtras = {
           queryParams: {
               "clsname":this.class_name = class_name,
               "name":this.first_name= first_name, 
               "stdid" : this.student_id = student_id,
-              "amount" : this.Amount = Amount,
-              "comments" : this.comment = comment,
+              "amount" : this.Amount = words2,
+              "comments" : this.comment = word,
           }
         };
         this.router.navigate(['/FeePayment'],navigationExtras);
-      } 
+  } 
 }

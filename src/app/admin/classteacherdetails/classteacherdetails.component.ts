@@ -154,7 +154,7 @@ export class ClassteacherdetailsComponent implements OnInit {
     console.log(id);
     this.buttoncontent = 'Update';
   }
-   public GetDepEmplist(id : number){
+  public GetDepEmplist(id : number){
     //Start of Getting Employess based on Department Id
     this.designationservice.getDepEmpList(1,1,id).subscribe(data =>{
       this.empdata = data.Data;

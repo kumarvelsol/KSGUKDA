@@ -11,13 +11,13 @@
                     <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                       <mat-label style="color: gray;">Institute Code</mat-label>
                       <input matInput    name="institution_code" #institution_code="ngModel" [ngModel]="signupService.signUpModelRef.institution_code" required>
-                      <mat-icon style="color: gray;" matSuffix>call</mat-icon>
+                      <mat-icon style="color: gray;" matSuffix>code</mat-icon>
                       <!-- <mat-hint color="primary">Hint</mat-hint> -->
                     </mat-form-field>
                   </div>
                 <div *ngIf="institution_code.invalid && (institution_code.dirty || institution_code.touched)"class="alert alert-danger">
                   <div *ngIf="institution_code.errors.required">
-                      className is required.
+                      institution code is required.
   
                   </div>
                 </div>
@@ -27,12 +27,12 @@
                       <input matInput    name="institution_password" #institution_password="ngModel" [ngModel]="signupService.signUpModelRef.institution_password" required>
                       <mat-icon style="color: gray;" matSuffix>code</mat-icon>
                       <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
-                    </mat-form-field>                    
+                    </mat-form-field>                       
                   </div>
 
                 <div *ngIf="institution_password.invalid && (institution_password.dirty || institution_password.touched)" class="alert alert-danger">
                   <div *ngIf="institution_password.errors.required">
-                      className is required.
+                    institution password is required.
                   </div>
                 </div>
                 
@@ -43,9 +43,7 @@
                             <button type="submit" [disabled]="!addingClass.form.valid" [ngClass] = "{'my-color': !addingClass.valid} "     class="btn btn-lg btn-block btn-info"> Login </button>
                               </div>                          
                       </div>
-                      </div>
-                
-  
+                      </div>              
             </form>
           </div>
         </mat-card>
