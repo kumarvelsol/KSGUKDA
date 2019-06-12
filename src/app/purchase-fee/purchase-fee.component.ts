@@ -93,7 +93,8 @@ export class PurchaseFeeComponent implements OnInit
             this.feee = this.fee;
             this.Amount = this.words2[i];
             this.comment = this.word[i];
-          }else{
+          }else
+          {
             this.feee = this.fee;
             this.Amount = this.Amount + "," + this.words2[i];
             this.comment = this.comment+","+ this.word[i];
