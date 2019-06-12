@@ -37,7 +37,6 @@ export class SignupRequestFormComponent implements OnInit
         institution_code :''
         }
   }
-
   onSubmit(signupRequest:NgForm)
   {
     if(signupRequest.value.institution_email == null || signupRequest.value.institution_name == null || 
