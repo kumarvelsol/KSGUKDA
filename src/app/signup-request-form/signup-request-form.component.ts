@@ -41,7 +41,8 @@ export class SignupRequestFormComponent implements OnInit
   {
     if(signupRequest.value.institution_email == null || signupRequest.value.institution_name == null || 
       signupRequest.value.institution_address == null ||
-       signupRequest.value.institution_phone_no == '' || signupRequest.value.institution_mobile_no == '' ||
+       signupRequest.value.institution_phone_no == '' || 
+       signupRequest.value.institution_mobile_no == '' ||
         signupRequest.value.contact_person_mobile_no == '' )
     {
       alert("please enter all values");
