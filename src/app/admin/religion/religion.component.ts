@@ -31,7 +31,8 @@ export class ReligionComponent implements OnInit {
   religion_name:string='';
   id:number;
   buttoncontent:string="Add";
-  public onclick(){
+  public onclick()
+  {
     if(this.religion_name == '' )
     {alert("Please enter Valid Data") }
     else
