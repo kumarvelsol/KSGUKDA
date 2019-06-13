@@ -61,10 +61,11 @@ export class AddHolidaysComponent implements OnInit {
     {
       this.service.addTperiods(holidays.value).subscribe(data=>{
         this.serRes=data;
+        
         if(this.serRes.code==200)
         {
           alert(this.serRes.message);    
-                      
+                      this.displayHolidaysList();
         }
         else{        
           alert(this.serRes.message);

@@ -5,7 +5,6 @@ import { Data } from '../class/data';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 import { Ttablemodel } from '../ttablemodel';
 import { Classresponse } from '../class/classresponse';
-
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { Router } from '@angular/router';
@@ -79,7 +78,7 @@ export class TimetableComponent implements OnInit {
   selectOption(value) 
   {     
       //code for selecting the selected value from dropdown 
-      this.transfereService.setData(value);        
+      this.transfereService.setData(value);                
   }
 
     

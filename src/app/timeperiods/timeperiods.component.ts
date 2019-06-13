@@ -30,7 +30,6 @@ export class TimeperiodsComponent implements OnInit {
     //this.callingGetPeriods();
     this.service.get_products(1,1).subscribe(res=>{          
     this.data=res.Data;      
-    
   });
   }
   callingGetPeriods()
@@ -154,7 +153,11 @@ export class TimeperiodsComponent implements OnInit {
     this.cis_id=value;
     console.log(value);
     //getted from binding
-    
+
+    this.service.tperiods.session_name='';
+    this.service.tperiods.from_time='';
+    this.service.tperiods.to_time='';
+    this.buttoncontent= "Add";
   }
 
 
