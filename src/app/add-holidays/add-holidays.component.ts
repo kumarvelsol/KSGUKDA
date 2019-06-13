@@ -16,6 +16,7 @@ export class AddHolidaysComponent implements OnInit {
   dataSource
   public show:boolean = false;
 
+
   buttoncontent:string="save";
   constructor(public service:HolidaysServsService) { }
 
