@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminServiceService } from '../admin-service.service';
-import { ActivatedRoute, Data, NavigationExtras, Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material';
 import { Apiresponse } from 'src/app/shared/apiresponse';
+import { Data, ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { MatTableDataSource } from '@angular/material';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-feepayment',
-  templateUrl: './feepayment.component.html',
-  styleUrls: ['./feepayment.component.css']
+  selector: 'app-purchasefeeconfirmation',
+  templateUrl: './purchasefeeconfirmation.component.html',
+  styleUrls: ['./purchasefeeconfirmation.component.css']
 })
-export class FeepaymentComponent implements OnInit {
+export class PurchasefeeconfirmationComponent implements OnInit {
   feepaymentlist : Apiresponse; feepaymentdata : Data[]; Amountt : any = {};comment : any = {};
   institutelist : Apiresponse; institutedata : Data[];
   displayedColumns : string[] = ['FeeCategory','FeeAmount','Comments'];
@@ -19,7 +19,7 @@ export class FeepaymentComponent implements OnInit {
   institution_name : string;institution_address : string;words2 = []; word = [];
   today= new Date();
   jstoday = '';sid:number;
-  constructor(private service1Service: AdminServiceService,private route: ActivatedRoute,private router: Router) { 
+  constructor(private service1Service: AdminServiceService,private route: ActivatedRoute,private router: Router) {
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
     this.route.queryParams.subscribe(params => {
       this.class_name = params["clsname"];
@@ -31,7 +31,7 @@ export class FeepaymentComponent implements OnInit {
   });
 }
   ngOnInit() {
-    this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
+    this.service1Service.purchasefeefetch(1,1).subscribe((data: Apiresponse) => 
       {
         this.feepaymentlist = data;
         console.log(this.feepaymentlist);
@@ -39,8 +39,8 @@ export class FeepaymentComponent implements OnInit {
       });
       this.service1Service.getstudentdetails(1,1,this.sid).subscribe((data: Apiresponse) => 
       {
-       this.institution_name = data.Data[0].institution_name;
-       this.institution_address = data.Data[0].institution_address;
+        this.institution_name = data.Data[0].institution_name;
+        this.institution_address = data.Data[0].institution_address;
       });
       this.words2 = this.Amountt; this.word = this.comment;
   }
@@ -56,6 +56,6 @@ export class FeepaymentComponent implements OnInit {
           "idd" : this.sid = sid,
       }
     };
-    this.router.navigate(['/FeePaymentPreview'],navigationExtras);
+    this.router.navigate(['/PurchaseFeePaymentPreview'],navigationExtras);
   }
 }
