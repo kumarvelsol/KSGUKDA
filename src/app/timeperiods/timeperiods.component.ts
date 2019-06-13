@@ -30,7 +30,6 @@ export class TimeperiodsComponent implements OnInit {
     //this.callingGetPeriods();
     this.service.get_products(1,1).subscribe(res=>{          
     this.data=res.Data;      
-    
   });
   }
   callingGetPeriods()
@@ -58,7 +57,14 @@ export class TimeperiodsComponent implements OnInit {
   {
     //console.log(addingTperiod.value);
 
-    if(addingTperiod.value.time_period_id==null)
+
+    if(addingTperiod.value.class_id==null || addingTperiod.value.session_name== null
+      || addingTperiod.value.from_time=='' || addingTperiod.value.to_time =='')
+      {
+        alert("please insert valid values");
+      }
+
+    else if(addingTperiod.value.time_period_id==null)
     {
       this.service.addTperiods(addingTperiod.value).subscribe(data=>{
         this.serRes=data;
@@ -95,9 +101,7 @@ export class TimeperiodsComponent implements OnInit {
 
 
   updateClasses(addingClass : NgForm)
-  {
-
-    
+  {    
     this.service.updateTPeriods(addingClass.value).subscribe(data=>{
       this.serRes=data;
       if(this.serRes.code==200)
@@ -118,23 +122,23 @@ export class TimeperiodsComponent implements OnInit {
 
 
  
-  deletes(ddingTperiod : Timeperiodmodel)
-  {
-    //console.log(ddingTperiod);
-    this.service.deleteTPeriods(ddingTperiod).subscribe(data=>{
-      this.serRes=data;
-      if(this.serRes.code==200)
-      {
-        alert(this.serRes.message);
-        this.resetForm();
-      }
-      else
-      {
-        alert(this.serRes.message);
+  // deletes(ddingTperiod : Timeperiodmodel)
+  // {
+  //   //console.log(ddingTperiod);
+  //   this.service.deleteTPeriods(ddingTperiod).subscribe(data=>{
+  //     this.serRes=data;
+  //     if(this.serRes.code==200)
+  //     {
+  //       alert(this.serRes.message);
+  //       this.resetForm();
+  //     }
+  //     else
+  //     {
+  //       alert(this.serRes.message);
         
-      }
-  })
-  }
+  //     }
+  // })
+  // }
 
 
 
@@ -149,7 +153,11 @@ export class TimeperiodsComponent implements OnInit {
     this.cis_id=value;
     console.log(value);
     //getted from binding
-    
+
+    this.service.tperiods.session_name='';
+    this.service.tperiods.from_time='';
+    this.service.tperiods.to_time='';
+    this.buttoncontent= "Add";
   }
 
 

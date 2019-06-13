@@ -51,7 +51,11 @@ export class ClassesRelatedComponent implements OnInit {
   onSubmit(addingClass:NgForm)
   {
 
-    if(addingClass.value.class_id==null)
+    if(addingClass.value.class_name == "" || addingClass.value.class_code == "")
+    {
+      alert("please enter valid details");
+    }
+    else if(addingClass.value.class_id==null)
     {
        this.servs.validateLogin(addingClass.value).subscribe(data=>{
       this.serRes=data;
@@ -61,9 +65,9 @@ export class ClassesRelatedComponent implements OnInit {
         this.callingClasses();
         
       }
-      else{        
-        alert(this.serRes.message);
-        
+      else
+      {        
+        alert(this.serRes.message);        
       }
   })
 }

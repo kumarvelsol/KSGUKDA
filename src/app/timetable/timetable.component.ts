@@ -5,7 +5,6 @@ import { Data } from '../class/data';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material';
 import { Ttablemodel } from '../ttablemodel';
 import { Classresponse } from '../class/classresponse';
-
 import { TimeperiodsComponent } from '../timeperiods/timeperiods.component';
 import { TimetableupdateComponent } from '../timetableupdate/timetableupdate.component';
 import { Router } from '@angular/router';
@@ -58,8 +57,8 @@ export class TimetableComponent implements OnInit {
           timetable_status:null,
           to_time:null,
           subject_id:null,
-    employee_id:null,
-    time_table_id:null
+          employee_id:null,
+          time_table_id:null
         }
   }
 
@@ -79,7 +78,7 @@ export class TimetableComponent implements OnInit {
   selectOption(value) 
   {     
       //code for selecting the selected value from dropdown 
-      this.transfereService.setData(value);        
+      this.transfereService.setData(value);                
   }
 
     
@@ -149,7 +148,7 @@ export class TimetableComponent implements OnInit {
       this.show = !this.show;
       this.show=true;
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
+      this.service.getDayWiseList(1,1,this.class_id,5).subscribe(data=>{      
         this.data=data.Data;
         this.dataSource=this.data;
       });
@@ -159,7 +158,7 @@ export class TimetableComponent implements OnInit {
       this.show = !this.show;
       this.show=true; // two lines of code for displaying the layout depending on button clickings
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
+      this.service.getDayWiseList(1,1,this.class_id,6).subscribe(data=>{      
         this.data=data.Data;
         this.dataSource=this.data;
       });

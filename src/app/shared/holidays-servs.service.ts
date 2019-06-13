@@ -28,6 +28,14 @@ export class HolidaysServsService {
   }
 
 
+
+  addHolidays(emp:AddHolidaymodel):Observable<Classresponse>
+  {    
+    // emp.institution_id=1;
+    // emp.academic_id=1;    
+    return this.http.post<Classresponse> ('http://veledu.edujinni.in/dates',emp)
+  }
+
   getHolidays(institution_id : number, academic_id : number){
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
