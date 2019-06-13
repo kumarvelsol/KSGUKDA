@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Apiresponse } from 'src/app/shared/apiresponse';
-import { Data, ActivatedRoute } from '@angular/router';
-import { AdminServiceService } from '../admin-service.service';
 import { MatTableDataSource } from '@angular/material';
-import { Regularfee } from 'src/app/shared/regularfee';
+import { Apiresponse } from 'src/app/shared/apiresponse';
+import { ActivatedRoute, Data } from '@angular/router';
+import { AdminServiceService } from '../admin-service.service';
 import { JsResponse } from 'src/app/shared/jsresponse';
+import { purchaseFees } from 'src/app/purchase-fee/purchase-fee.component';
 import { formatDate } from '@angular/common';
 
 @Component({
-  selector: 'app-feepaymentpreview',
-  templateUrl: './feepaymentpreview.component.html',
-  styleUrls: ['./feepaymentpreview.component.css']
+  selector: 'app-purchasefeepaymentpreview',
+  templateUrl: './purchasefeepaymentpreview.component.html',
+  styleUrls: ['./purchasefeepaymentpreview.component.css']
 })
-export class FeepaymentpreviewComponent implements OnInit {
+export class PurchasefeepaymentpreviewComponent implements OnInit {
   words2 = []; word = [];listcount : number;jsRes : JsResponse;
   feee : any = {}; feelist : Apiresponse;
   feepaymentlist : Apiresponse; feepaymentdata : Data[]; Amounttt : any = {};commentt : any = {}; a1 = []; b1 = [];
@@ -20,7 +20,7 @@ export class FeepaymentpreviewComponent implements OnInit {
   dataSource;class_name: string; first_name:string;student_id:number; 
   institution_name : string;institution_address : string;fee : string;
   today= new Date();
-  jstoday = '';sid:number;
+  jstoday = '';sidd :number;
   constructor(private service1Service: AdminServiceService,private route: ActivatedRoute) { 
     this.jstoday = formatDate(this.today, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530');
     this.route.queryParams.subscribe(params => {
@@ -29,22 +29,23 @@ export class FeepaymentpreviewComponent implements OnInit {
       this.student_id=params["stdidd"];
       this.Amounttt = params["amountt"];
       this.commentt = params["commentss"];
-      this.sid = params["idd"];
+      this.sidd = params["idd"];
   });
-}
+  }
+
   ngOnInit() {
-    this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
+    this.service1Service.purchasefeefetch(1,1).subscribe((data: Apiresponse) => 
       {
         this.feepaymentlist = data;
         console.log(this.feepaymentlist);
         this.dataSource = new MatTableDataSource(this.feepaymentlist.Data);
       });
-      this.service1Service.getstudentdetails(1,1,this.sid).subscribe((data: Apiresponse) => 
+      this.service1Service.getstudentdetails(1,1,this.sidd).subscribe((data: Apiresponse) => 
       {
         this.institution_name = data.Data[0].institution_name;
         this.institution_address = data.Data[0].institution_address;
       });
-      this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
+      this.service1Service.purchasefeefetch(1,1).subscribe((data: Apiresponse) => 
       {
         this.feelist = data;
         console.log(this.feelist);
@@ -53,9 +54,9 @@ export class FeepaymentpreviewComponent implements OnInit {
         for (let i = 0; i < data.Data.length; i++) 
         {
           if(i == 0){   
-            this.fee = data.Data[i].feetypess_id+"";
+            this.fee = data.Data[i].purchase_feetypess_id+"";
           }else{
-            this.fee = this.fee + "," + data.Data[i].feetypess_id; 
+            this.fee = this.fee + "," + data.Data[i].purchase_feetypess_id; 
           }
           this.words2.push();
         }
@@ -79,22 +80,22 @@ export class FeepaymentpreviewComponent implements OnInit {
         }
       }
     } 
-    let a : Regularfee = 
-    {
-      feee  : this.feee,
-      Amount : this.Amount, 
-      comment : this.comment ,
-      institution_id : 1,
-      academic_id : 1,
-      student_id : this.student_id
+    let a : purchaseFees = 
+      {
+        purchasefee  : this.feee  , 
+        Amount : this.Amount, 
+        comments : this.comment ,
+        institution_id : 1 ,
+        academic_id : 1,
+        student_id : this.student_id,
     } 
-    this.service1Service.addingfeetypes(a).subscribe((data : JsResponse) => 
+    this.service1Service.purchasefeeadding(a).subscribe((data : JsResponse) => 
     {
           this.jsRes = data;
           if(this.jsRes.code==200)
           {
             console.log(data);
-            alert("Fee Added Succesfully.!");
+            alert("PurchaseFee Added Succesfully.!");
           }else{ }
     });
     console.log(a);
