@@ -58,8 +58,8 @@ export class TimetableComponent implements OnInit {
           timetable_status:null,
           to_time:null,
           subject_id:null,
-    employee_id:null,
-    time_table_id:null
+          employee_id:null,
+          time_table_id:null
         }
   }
 

@@ -1,13 +1,20 @@
 <div class="container">
 
-    <div class="row">
+    <div class="row example-card">
       <div class="col-md-6">
         <mat-card class="row example-card parent">
           <div class="block child">
             <form #addingClass="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingClass)">
-                <p style="margin-top: 20px;">Login Details</p>
+                               
+                  <div class="main">
+                    <p align="center"> Login Details </p>
+                  </div>
+                
 
-                <div class="col-md-6 mat-form-wrap">
+
+
+
+                <div class="col-md-12 mat-form-wrap">
                     <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                       <mat-label style="color: gray;">Institute Code</mat-label>
                       <input matInput    name="institution_code" #institution_code="ngModel" [ngModel]="signupService.signUpModelRef.institution_code" required>
@@ -21,7 +28,7 @@
   
                   </div>
                 </div>
-                <div class="col-md-6 mat-form-wrap">
+                <div class="col-md-12 mat-form-wrap">
                     <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                       <mat-label style="color: gray;">Institution Password</mat-label>
                       <input matInput    name="institution_password" #institution_password="ngModel" [ngModel]="signupService.signUpModelRef.institution_password" required>
@@ -40,7 +47,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <div>
-                            <button type="submit" [disabled]="!addingClass.form.valid" [ngClass] = "{'my-color': !addingClass.valid} "     class="btn btn-lg btn-block btn-info"> Login </button>
+                            <button type="submit"      class="btn btn-lg btn-block btn-info"> Login </button>
                               </div>                          
                       </div>
                       </div>              

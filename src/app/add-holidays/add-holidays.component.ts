@@ -92,7 +92,8 @@ export class AddHolidaysComponent implements OnInit {
   {
 
     this.buttoncontent="update";
-    this.show = !this.show;
+    //this.show = !this.show;
+    this.show = true;
     this.service.addHoliday.startdate=country.date;
     this.service.addHoliday.enddate=country.date;
     this.service.addHoliday.remarks=country.remarks;

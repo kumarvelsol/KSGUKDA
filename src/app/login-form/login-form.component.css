@@ -1,0 +1,14 @@
+.example-card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.mat-form-wrap :hover{
+    color: #33B5E5;
+}
+
+.mat-form-wrap{
+    width: 100%;
+    margin: 0px;
+}

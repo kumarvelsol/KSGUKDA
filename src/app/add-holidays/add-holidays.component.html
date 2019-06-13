@@ -22,14 +22,14 @@
 
               <div class="col-sm-6">
               <mat-form-field class="mat-form-wrap" style="color: gray;">
-                <input matInput   [matDatepicker]="picker"  name="startdate" #startdate="ngModel" [ngModel]="service.addHoliday.startdate" required>
+                <input matInput placeholder="from date"   [matDatepicker]="picker"  name="startdate" #startdate="ngModel" [ngModel]="service.addHoliday.startdate" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker ngDefaultControl ></mat-datepicker>
               </mat-form-field>
               </div>
               <div *ngIf="startdate.invalid && (startdate.dirty || startdate.touched)"class="alert alert-danger">
                 <div *ngIf="startdate.errors.required">
-                    className is required.
+                    from date is required.
                 </div>
 
               </div> 
@@ -37,14 +37,14 @@
 
               <div class="col-sm-6">
                 <mat-form-field class="mat-form-wrap" style="color: gray;">
-                  <input matInput   [matDatepicker]="socker"  name="enddate" #enddate="ngModel" [ngModel]="service.addHoliday.enddate" required>
+                  <input  placeholder="to date" matInput   [matDatepicker]="socker"  name="enddate" #enddate="ngModel" [ngModel]="service.addHoliday.enddate" required>
                   <mat-datepicker-toggle matSuffix [for]="socker"></mat-datepicker-toggle>
                   <mat-datepicker #socker ngDefaultControl ></mat-datepicker>
                 </mat-form-field>
                 </div>
                 <div *ngIf="enddate.invalid && (enddate.dirty || enddate.touched)"class="alert alert-danger">
                   <div *ngIf="enddate.errors.required">
-                      className is required.
+                      todate is required.
                   </div>
   
                 </div> 
