@@ -2,6 +2,18 @@
 <div class="container card">
     <div class = "row">
         <div class="row col-md-12">
+            <div class="col-md-6 mat-form-wrap">
+                <p style="margin-top: 20px;height: 20px;margin-left:200px;font-weight: bold;font-size:1.5em;width:100%;">{{institution_name}}</p>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-6 mat-form-wrap">
+                <p style="height: 20px;margin-left:200px; font-weight: bold;font-size:1.2em;width:100%;">{{institution_address}}</p>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div class="row col-md-12">
             <div class="col-md-4 mat-form-wrap">
                 <!-- <p style="margin-top: 20px; margin-left: 15px; color: gray; font-size: 24px;">School Name</p>  -->
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
@@ -10,13 +22,7 @@
                 <input style="color :gray" [(ngModel)]="first_name"  type="text" name="first_name"  matInput>
               </mat-form-field>
             </div>
-            <div class="col-md-4 mat-form-wrap">
-              <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-                <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-                <mat-label style="color :gray">Paid On</mat-label>
-                <input style="color :gray" [(ngModel)]="student_roll_no" type="text" name="student_roll_no"  matInput>
-              </mat-form-field>
-            </div>
+            <p style="margin-top: 20px;height: 20px;margin-left:290px;">Paid On: {{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p>
           </div>
     </div>
       <div class="row">
@@ -70,27 +76,15 @@
       <div class="row">
           <mat-card class="row example-card parent">
               <div class="row col-md-12">
-                <div class="col-md-4 mat-form-wrap">
-                  <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-                    <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-                    <mat-label style="color :gray">Received By</mat-label>
-                    <input style="color :gray" [(ngModel)]="first_name"  type="text" name="first_name"  matInput>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-4 mat-form-wrap">
-                  <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-                    <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-                    <mat-label style="color :gray">Stamp</mat-label>
-                    <input style="color :gray" [(ngModel)]="student_id" type="text" name="student_id"  matInput>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-4 mat-form-wrap">
-                  <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray">
-                    <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>
-                    <mat-label style="color :gray">Payment Reciever Signature</mat-label>
-                    <input style="color :gray" [(ngModel)]="class_name" type="text" name="class_name"  matInput>
-                  </mat-form-field>
-                </div>
+                  <div class="main">
+                      <p style="margin-top: 15px;height: 20px;margin-left:30px;">Received By</p>
+                    </div>
+                    <div class="main">
+                        <p style="margin-top: 15px;height: 20px;margin-left:330px;">Stamp</p>
+                      </div>
+                      <div class="main">
+                          <p style="margin-top: 15px;height: 20px;margin-left:250px;">Payment Reciever Signature</p>
+                        </div>
               </div>
           </mat-card>
         </div>

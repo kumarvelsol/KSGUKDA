@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material';
 import { Data } from '../shared/data';
 import { Apiresponse } from '../shared/apiresponse';
 import { JsResponse } from '../shared/jsresponse';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-purchase-fee',
@@ -17,14 +18,14 @@ export class PurchaseFeeComponent implements OnInit
   regularfeelist : Apiresponse; regularfeedata : Data[];
   dataSource 
   jsRes : JsResponse;tot : number = 0; total_amount : number;  listcount : number;
-  commentdata : string;
+  commentdata : string; sid :number;
   
   feee : any = {};
   Amount : any = {};
   comment : any = {};
-  feetypess_id : number; fee : string;
-
-  constructor(private adminService: AdminServiceService) { }
+  feetypess_id : number; fee : string; totamount : number;
+  student_id : number;first_name : string; class_name : string;
+  constructor(private adminService: AdminServiceService,private router: Router) { }
 
   displayedColumns: string[] = ['purchase_feetypes'];
 
@@ -47,13 +48,25 @@ export class PurchaseFeeComponent implements OnInit
         }
       });
   }
-
+  public onSearch(event2: number)
+  {
+    this.adminService.getstudentdetails(1,1,this.sid).subscribe((data: Apiresponse) => 
+    {
+      this.student_id = data.Data[0].student_id;
+      this.first_name = data.Data[0].first_name;
+      this.class_name = data.Data[0].class_name;
+    });
+}
   onChange(event: number)
   {
-
-    //console.log(this.words2);
+    this.total_amount = 0;
+      for (let i = 0; i < this.listcount; i++) 
+      {
+      this.tot = this.words2[i];
+      this.total_amount+= +this.words2[i];
+      this.Amount[i] = this.total_amount;
+    }
   }
-
   oncomments(event1 : number)
   {
 
@@ -66,16 +79,20 @@ export class PurchaseFeeComponent implements OnInit
 
 
 
-  onSaveClick( Amount :string )
+  onSaveClick(first_name:string,student_id: number,class_name : string,words2:number,word:string,sid:number)
   {
 
-    if(this.words2[0].length==0)
-    {
-      console.log("enter amount first");
-    }else
-    {
-      this.performDataLogics();
-    }     
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+          "clsname":this.class_name = class_name,
+          "name":this.first_name= first_name, 
+          "stdid" : this.student_id = student_id,
+          "amount" : this.Amount = words2,
+          "comments" : this.comment = word,
+          "id" : this.sid = sid,
+      }
+    };
+    this.router.navigate(['/PurchaseFeePayment'],navigationExtras);
   }
   onclearclick()
   {

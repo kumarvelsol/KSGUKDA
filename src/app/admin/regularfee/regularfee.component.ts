@@ -25,7 +25,7 @@ export class RegularfeeComponent implements OnInit {
   words2 = []; word = [];
   regularfeelist : Apiresponse; regularfeedata : Data[];
   dataSource ;jsRes : JsResponse;tot : number = 0; total_amount : number; 
-  commentdata : string;
+  commentdata : string; sid : number;
   displayedColumns : string[] = ['feetypes'];
   month: Months[] = [
     {mid: '1', name: 'January'},
@@ -57,17 +57,12 @@ export class RegularfeeComponent implements OnInit {
     let a : Regularfee = {
       feee  : this.feee  ,
       Amount : this.Amount, 
-      comment : this.comment ,
+      comment : this.comment,
       institution_id : 1 ,
       academic_id : 1,
       student_id : this.student_id
     }
-    this.service1Service.getstudentdetails(1,1,44).subscribe((data: Apiresponse) => 
-      {
-        this.student_id = data.Data[0].student_id;
-        this.first_name = data.Data[0].first_name;
-        this.class_name = data.Data[0].class_name;
-      });
+    
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
       {
         this.regularfeelist = data;
@@ -85,33 +80,35 @@ export class RegularfeeComponent implements OnInit {
         }
       });
   }
+  public onSearch(event2: number)
+  {
+   // this.sid = sid;
+    this.service1Service.getstudentdetails(1,1,this.sid).subscribe((data: Apiresponse) => 
+      {
+        this.student_id = data.Data[0].student_id;
+        this.first_name = data.Data[0].first_name;
+        this.class_name = data.Data[0].class_name;
+      });
+}
   public onChange(event: number)
   {
     console.log(this.words2);
     this.total_amount = 0;
-    this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
-      this.dataSource = new MatTableDataSource(data.Data);
-      this.listcount = data.Data.length;
       for (let i = 0; i < this.listcount; i++) 
       {
       this.tot = this.words2[i];
       this.total_amount+= +this.words2[i];
       this.Amount[i] = this.total_amount;
     }
-  });
 }
 public oncomments(event1 : number)
 {
-  this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
-    this.dataSource = new MatTableDataSource(data.Data);
-    this.listcount = data.Data.length;
     for (let i = 0; i < this.listcount; i++) 
     {
     this.commentdata = this.word[i];
     }
-});
 }
-  public onSaveClick(first_name:string,student_id: number,class_name : string,words2:number,word:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
+  public onSaveClick(first_name:string,student_id: number,class_name : string,words2:number,word:string,sid:number)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
   {
         let navigationExtras: NavigationExtras = {
           queryParams: {
@@ -120,6 +117,7 @@ public oncomments(event1 : number)
               "stdid" : this.student_id = student_id,
               "amount" : this.Amount = words2,
               "comments" : this.comment = word,
+              "id":this.sid = sid,
           }
         };
         this.router.navigate(['/FeePayment'],navigationExtras);
