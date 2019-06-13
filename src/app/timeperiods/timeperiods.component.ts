@@ -58,7 +58,14 @@ export class TimeperiodsComponent implements OnInit {
   {
     //console.log(addingTperiod.value);
 
-    if(addingTperiod.value.time_period_id==null)
+
+    if(addingTperiod.value.class_id==null || addingTperiod.value.session_name== null
+      || addingTperiod.value.from_time=='' || addingTperiod.value.to_time =='')
+      {
+        alert("please insert valid values");
+      }
+
+    else if(addingTperiod.value.time_period_id==null)
     {
       this.service.addTperiods(addingTperiod.value).subscribe(data=>{
         this.serRes=data;
@@ -95,9 +102,7 @@ export class TimeperiodsComponent implements OnInit {
 
 
   updateClasses(addingClass : NgForm)
-  {
-
-    
+  {    
     this.service.updateTPeriods(addingClass.value).subscribe(data=>{
       this.serRes=data;
       if(this.serRes.code==200)
