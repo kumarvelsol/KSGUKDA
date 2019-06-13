@@ -149,7 +149,7 @@ export class TimetableComponent implements OnInit {
       this.show = !this.show;
       this.show=true;
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
+      this.service.getDayWiseList(1,1,this.class_id,5).subscribe(data=>{      
         this.data=data.Data;
         this.dataSource=this.data;
       });
@@ -159,7 +159,7 @@ export class TimetableComponent implements OnInit {
       this.show = !this.show;
       this.show=true; // two lines of code for displaying the layout depending on button clickings
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
+      this.service.getDayWiseList(1,1,this.class_id,6).subscribe(data=>{      
         this.data=data.Data;
         this.dataSource=this.data;
       });
