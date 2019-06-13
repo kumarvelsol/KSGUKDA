@@ -52,8 +52,7 @@ export class AddHolidaysComponent implements OnInit {
   }
   
   onSubmit(holidays:NgForm)
-  { 
-    
+  {     
     if(holidays.value.startdate == null || holidays.value.enddate == null)
     {
       alert("please insert valid data");
@@ -85,11 +84,9 @@ export class AddHolidaysComponent implements OnInit {
           this.displayHolidaysList();
         }
         else{        
-          alert(this.serRes.message);
-          
+          alert(this.serRes.message);          
         }
-    })
-     
+    })     
     }
     
 
