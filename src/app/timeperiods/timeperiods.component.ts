@@ -118,23 +118,23 @@ export class TimeperiodsComponent implements OnInit {
 
 
  
-  deletes(ddingTperiod : Timeperiodmodel)
-  {
-    //console.log(ddingTperiod);
-    this.service.deleteTPeriods(ddingTperiod).subscribe(data=>{
-      this.serRes=data;
-      if(this.serRes.code==200)
-      {
-        alert(this.serRes.message);
-        this.resetForm();
-      }
-      else
-      {
-        alert(this.serRes.message);
+  // deletes(ddingTperiod : Timeperiodmodel)
+  // {
+  //   //console.log(ddingTperiod);
+  //   this.service.deleteTPeriods(ddingTperiod).subscribe(data=>{
+  //     this.serRes=data;
+  //     if(this.serRes.code==200)
+  //     {
+  //       alert(this.serRes.message);
+  //       this.resetForm();
+  //     }
+  //     else
+  //     {
+  //       alert(this.serRes.message);
         
-      }
-  })
-  }
+  //     }
+  // })
+  // }
 
 
 

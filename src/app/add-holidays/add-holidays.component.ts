@@ -51,8 +51,13 @@ export class AddHolidaysComponent implements OnInit {
   }
   
   onSubmit(holidays:NgForm)
-  {           
-    if(this.buttoncontent=='save')
+  { 
+    
+    if(holidays.value.startdate == null || holidays.value.enddate == null)
+    {
+      alert("please insert valid data");
+    }
+    else if(this.buttoncontent=='save')
     {
       this.service.addTperiods(holidays.value).subscribe(data=>{
         this.serRes=data;

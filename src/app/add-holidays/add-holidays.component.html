@@ -1,17 +1,11 @@
 <div class="container">
 
-
-  
-
-  
-
-
   <div class="row">
     <div class="col-md-6">
       <mat-card class="row example-card parent">
         <div class="block child">
           <form #addingHolidays="ngForm" autocomplete="off" (ngSubmit)="onSubmit(addingHolidays)">
-              <p style="margin-top: 20px;">Add Holidays</p>
+              <p align="center" style="margin-top: 20px;">Add Holidays</p>
 
 
 
@@ -76,7 +70,7 @@
               <div class="col-sm-6">
                   <div class="mat-form-wrap">
                       <div>
-                          <button type="submit" [disabled]="!addingHolidays.form.valid" [ngClass] = "{'my-color': !addingHolidays.valid} "     class="btn btn-lg btn-block btn-info">{{ buttoncontent }}</button>
+                          <button type="submit"     class="btn btn-lg btn-block btn-info">{{ buttoncontent }}</button>
                             </div>                          
                     </div>
                     </div>      

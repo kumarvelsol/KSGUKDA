@@ -39,14 +39,13 @@ export class SignupRequestFormComponent implements OnInit
   }
   onSubmit(signupRequest:NgForm)
   {
-    if(signupRequest.value.institution_email == null || signupRequest.value.institution_name == null || 
-      signupRequest.value.institution_address == null ||
-       signupRequest.value.institution_phone_no == '' || 
-       signupRequest.value.institution_mobile_no == '' ||
-        signupRequest.value.contact_person_mobile_no == '' )
+    if(signupRequest.value.institution_email == '' || signupRequest.value.institution_name == '' || 
+      signupRequest.value.institution_address == '' ||
+       signupRequest.value.institution_phone_no == null || 
+       signupRequest.value.institution_mobile_no == null ||
+        signupRequest.value.contact_person_mobile_no == null )
     {
-      alert("please enter all values");
-      
+      alert("please enter all values");      
     }
     else
     {
