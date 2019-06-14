@@ -42,7 +42,6 @@ export class HolidaysServsService {
     params = params.append('academic_id',academic_id+"");
     
     return this.http.post<Classresponse>('http://veledu.edujinni.in/holidaylist',params);
-
   }
 
 

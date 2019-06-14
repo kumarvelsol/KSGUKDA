@@ -89,13 +89,23 @@ export class TimetableComponent implements OnInit {
       this.loading=true;
       this.class_id=this.transfereService.getData();
       
-      this.show = !this.show;
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else{
+        
+        this.show = !this.show;
       this.show=true;
       this.service.getDayWiseList(1,1,this.class_id,1).subscribe(data=>{
         this.loading=false;        
         this.data=data.Data;
         this.dataSource=this.data;
       });
+      }
+
+
+      
     }
 
     populate(ff:Ttablemodel)
@@ -113,55 +123,106 @@ export class TimetableComponent implements OnInit {
 
     Tuesday()
     {
-      this.show = !this.show;
-      this.show=true;
+      
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,2).subscribe(data=>{      
-        this.data=data.Data;
-        this.dataSource=this.data;
-      });
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else
+      {
+        this.show = !this.show;
+      this.show=true;
+        this.service.getDayWiseList(1,1,this.class_id,2).subscribe(data=>{      
+          this.data=data.Data;
+          this.dataSource=this.data;
+        });
+      }
+     
     }
     Wednesday()
     {
-      this.show = !this.show;
-      this.show=true;
+      
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,3).subscribe(data=>{      
-        this.data=data.Data;
-        this.dataSource=this.data;
-      });
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else
+      {
+        this.show = !this.show;
+      this.show=true;
+        this.service.getDayWiseList(1,1,this.class_id,3).subscribe(data=>{      
+          this.data=data.Data;
+          this.dataSource=this.data;
+        });
+      }
+
+
+     
     }
 
     Thursday()
     {
-      this.show = !this.show;
-      this.show=true;
+      
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
-        this.data=data.Data;
-        this.dataSource=this.data;
-      });
+
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else
+      {
+        this.show = !this.show;
+      this.show=true;
+        this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
+          this.data=data.Data;
+          this.dataSource=this.data;
+        });
+      }
+
+
+      
     }
 
     Friday()
     {
-      this.show = !this.show;
-      this.show=true;
+  
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,5).subscribe(data=>{      
-        this.data=data.Data;
-        this.dataSource=this.data;
-      });
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else
+      {
+        this.show = !this.show;
+        this.show=true;
+        this.service.getDayWiseList(1,1,this.class_id,5).subscribe(data=>{      
+          this.data=data.Data;
+          this.dataSource=this.data;
+        });
+      }
+     
     }
     Saturday()
     {
-      this.show = !this.show;
-      this.show=true; // two lines of code for displaying the layout depending on button clickings
+       
       this.class_id=this.transfereService.getData();
-      this.service.getDayWiseList(1,1,this.class_id,6).subscribe(data=>{      
-        this.data=data.Data;
-        this.dataSource=this.data;
-      });
+      
+
+      if(this.class_id==null)
+      {
+        alert("please select perticular class");
+      }else
+      {
+        this.show = !this.show;
+      this.show=true;// two lines of code for displaying the layout depending on button clickings
+
+        this.service.getDayWiseList(1,1,this.class_id,6).subscribe(data=>{      
+          this.data=data.Data;
+          this.dataSource=this.data;
+        });
+      }
     }
 
     
