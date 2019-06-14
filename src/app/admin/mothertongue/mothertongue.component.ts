@@ -31,7 +31,7 @@ export class MothertongueComponent implements OnInit {
   buttoncontent:string="Add";
   public onclick(){
     if(this.mother_tongue_name == '' )
-    {alert("Please enter Valid Data") }
+    {alert("Please enter valid details") }
     else
     {
     if(this.buttoncontent == "Add")
