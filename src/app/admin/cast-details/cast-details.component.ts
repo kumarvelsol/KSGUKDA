@@ -35,7 +35,7 @@ export class CastDetailsComponent implements OnInit {
 
   public onclick(){
      if(this.cast_name == '' )
-    {alert("Please enter Valid Data") }
+    {alert("Please enter valid details") }
     else
     {
     if(this.buttoncontent == "Add")

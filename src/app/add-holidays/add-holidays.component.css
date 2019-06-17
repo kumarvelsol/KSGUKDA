@@ -15,3 +15,14 @@ table {
   align-content: center
   
 }
+.tableRows
+{
+    color:whitesmoke;
+    background-color:lightskyblue;
+    width: 150px;
+}
+.textSizes
+{
+    font-size: 100%;
+    color: navy;
+}
