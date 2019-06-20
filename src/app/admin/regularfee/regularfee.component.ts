@@ -25,7 +25,7 @@ export class RegularfeeComponent implements OnInit {
   words2 = []; word = [];
   regularfeelist : Apiresponse; regularfeedata : Data[];
   dataSource ;jsRes : JsResponse;tot : number = 0; total_amount : number; 
-  commentdata : string; sid : number;
+  commentdata : string; sid : number; total : number;
   displayedColumns : string[] = ['feetypes'];
   month: Months[] = [
     {mid: '1', name: 'January'},
@@ -71,6 +71,7 @@ export class RegularfeeComponent implements OnInit {
         this.listcount = data.Data.length;
         for (let i = 0; i < data.Data.length; i++) 
         {
+          this.words2[i] = 0;
           if(i == 0){   
             this.fee = data.Data[i].feetypess_id+"";
           }else{
@@ -99,7 +100,9 @@ export class RegularfeeComponent implements OnInit {
       this.tot = this.words2[i];
       this.total_amount+= +this.words2[i];
       this.Amount[i] = this.total_amount;
-    }
+      this.total = this.Amount[i];
+      }
+      this.total_amount = this.total;
 }
 public oncomments(event1 : number)
 {

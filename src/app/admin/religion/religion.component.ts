@@ -34,7 +34,7 @@ export class ReligionComponent implements OnInit {
   public onclick()
   {
     if(this.religion_name == '' )
-    {alert("Please enter Valid Data") }
+    {alert("Please enter valid details") }
     else
     {
     

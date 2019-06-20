@@ -39,6 +39,7 @@ export class PurchaseFeeComponent implements OnInit
         this.listcount = data.Data.length;
         for (let i = 0; i < data.Data.length; i++) 
         {
+          this.words2[i] = 0;
           if(i == 0){   
             this.fee = data.Data[i].purchase_feetypess_id+"";
           }else{
