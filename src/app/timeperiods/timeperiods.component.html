@@ -19,7 +19,7 @@
                   <mat-form-field class="col-md-12" style="color: gray;" >
                     <mat-label style="color: gray;">Session Name</mat-label>
                     <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
-                    <input matInput    name="session_name" #session_name="ngModel" [ngModel]="service.tperiods.session_name" required>
+                    <input (keypress)="omit_special_char($event)"  matInput  type="text"  name="session_name" #session_name="ngModel" [ngModel]="service.tperiods.session_name" required>
                     <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                   </mat-form-field>                
                 <div *ngIf="session_name.invalid && (session_name.dirty || session_name.touched)"class="alert alert-danger">            

@@ -15,8 +15,8 @@ import { TransfereServiceService } from '../transfere-service.service';
   templateUrl: './timetable.component.html',
   styleUrls: ['./timetable.component.css']
 })
-export class TimetableComponent implements OnInit {
-
+export class TimetableComponent implements OnInit 
+{
   tt:Ttablemodel
   data:Data[];
   serRes:Classresponse;
@@ -174,7 +174,7 @@ export class TimetableComponent implements OnInit {
       }else
       {
         this.show = !this.show;
-      this.show=true;
+        this.show=true;
         this.service.getDayWiseList(1,1,this.class_id,4).subscribe(data=>{      
           this.data=data.Data;
           this.dataSource=this.data;
@@ -216,12 +216,13 @@ export class TimetableComponent implements OnInit {
       }else
       {
         this.show = !this.show;
-      this.show=true;// two lines of code for displaying the layout depending on button clickings
+        this.show=true;// two lines of code for displaying the layout depending on button clickings
 
         this.service.getDayWiseList(1,1,this.class_id,6).subscribe(data=>{      
           this.data=data.Data;
           this.dataSource=this.data;
         });
+        
       }
     }
 
