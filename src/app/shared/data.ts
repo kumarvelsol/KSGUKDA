@@ -158,4 +158,6 @@ export interface Data {
     feee  : string  ,
     Amount : string, 
     comment : string ,
+
+    purchase_feetypess_id : number;
 }

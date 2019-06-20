@@ -25,7 +25,7 @@ export class RegularfeeComponent implements OnInit {
   words2 = []; word = [];
   regularfeelist : Apiresponse; regularfeedata : Data[];
   dataSource ;jsRes : JsResponse;tot : number = 0; total_amount : number; 
-  commentdata : string;
+  commentdata : string; sid : number; total : number;
   displayedColumns : string[] = ['feetypes'];
   month: Months[] = [
     {mid: '1', name: 'January'},
@@ -57,18 +57,12 @@ export class RegularfeeComponent implements OnInit {
     let a : Regularfee = {
       feee  : this.feee  ,
       Amount : this.Amount, 
-      comment : this.comment ,
+      comment : this.comment,
       institution_id : 1 ,
       academic_id : 1,
       student_id : this.student_id
     }
-    this.service1Service.getstudentdetails(1,1,44).subscribe((data: Apiresponse) => 
-      {
-        this.student_id = data.Data[0].student_id;
-        this.first_name = data.Data[0].first_name;
-        this.class_name = data.Data[0].class_name;
-        console.log(data);
-      });
+    
     this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse) => 
       {
         this.regularfeelist = data;
@@ -77,6 +71,7 @@ export class RegularfeeComponent implements OnInit {
         this.listcount = data.Data.length;
         for (let i = 0; i < data.Data.length; i++) 
         {
+          this.words2[i] = 0;
           if(i == 0){   
             this.fee = data.Data[i].feetypess_id+"";
           }else{
@@ -85,77 +80,49 @@ export class RegularfeeComponent implements OnInit {
           this.words2.push();
         }
       });
-     // this.feee[i] = 0;this.Amount[i]=0;
   }
-  public onChange(event: number){
+  public onSearch(event2: number)
+  {
+   // this.sid = sid;
+    this.service1Service.getstudentdetails(1,1,this.sid).subscribe((data: Apiresponse) => 
+      {
+        this.student_id = data.Data[0].student_id;
+        this.first_name = data.Data[0].first_name;
+        this.class_name = data.Data[0].class_name;
+      });
+}
+  public onChange(event: number)
+  {
     console.log(this.words2);
     this.total_amount = 0;
-    this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
-      this.dataSource = new MatTableDataSource(data.Data);
-      this.listcount = data.Data.length;
       for (let i = 0; i < this.listcount; i++) 
       {
       this.tot = this.words2[i];
       this.total_amount+= +this.words2[i];
-      console.log("total_amount",this.total_amount);
       this.Amount[i] = this.total_amount;
-      console.log(this.Amount[i]);
-      console.log(this.tot);
-    }
-  });
+      this.total = this.Amount[i];
+      }
+      this.total_amount = this.total;
 }
 public oncomments(event1 : number)
 {
-  this.service1Service.getfeetypes(1,1).subscribe((data: Apiresponse)=>{
-    this.dataSource = new MatTableDataSource(data.Data);
-    this.listcount = data.Data.length;
     for (let i = 0; i < this.listcount; i++) 
     {
     this.commentdata = this.word[i];
     }
-});
 }
-  public onSaveClick(first_name:string,student_id: number,class_name : string,Amount:number,comment:string)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
+  public onSaveClick(first_name:string,student_id: number,class_name : string,words2:number,word:string,sid:number)   //j:number,first_name:string,student_id: number,class_name : string,Amount:number,comment:string
   {
-    if(this.listcount > 0){
-      for (let i = 0; i < this.listcount; i++) {
-        if(i == 0){
-          this.feee = this.fee;
-          this.Amount = this.words2[i];
-          this.comment = this.word[i];
-        }else{
-          this.feee = this.fee;
-          this.Amount = this.Amount + "," + this.words2[i];
-          this.comment = this.comment+","+ this.word[i];
-        }
-      }
-    } 
-    let a : Regularfee = {
-      feee  : this.feee  ,
-      Amount : this.Amount, 
-      comment : this.comment ,
-      institution_id : 1 ,
-      academic_id : 1,
-      student_id : this.student_id
-    } 
-    this.service1Service.addingfeetypes(a).subscribe((data : JsResponse) => {
-          this.jsRes = data;
-          if(this.jsRes.code==200)
-          {
-            console.log(data);
-            alert("Fee Added Succesfully.!");
-          }else{ }
-        });
-        console.log(a);
         let navigationExtras: NavigationExtras = {
           queryParams: {
               "clsname":this.class_name = class_name,
               "name":this.first_name= first_name, 
               "stdid" : this.student_id = student_id,
-              "amount" : this.Amount = Amount,
-              "comments" : this.comment = comment,
+              "amount" : this.Amount = words2,
+              "comments" : this.comment = word,
+              "id":this.sid = sid,
           }
         };
         this.router.navigate(['/FeePayment'],navigationExtras);
-      } 
+  } 
 }

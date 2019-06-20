@@ -10,9 +10,8 @@ import { ContactAdminComponent } from '../contact-admin/contact-admin.component'
   templateUrl: './signup-request-form.component.html',
   styleUrls: ['./signup-request-form.component.css']
 })
-export class SignupRequestFormComponent implements OnInit {
-
-
+export class SignupRequestFormComponent implements OnInit 
+{
   serRes:Classresponse;
   constructor(public signupService:SignupServceService , public dialog: MatDialog) { }
 
@@ -38,27 +37,34 @@ export class SignupRequestFormComponent implements OnInit {
         institution_code :''
         }
   }
-
   onSubmit(signupRequest:NgForm)
   {
-
+    if(signupRequest.value.institution_email == '' || signupRequest.value.institution_name == '' || 
+      signupRequest.value.institution_address == '' ||
+       signupRequest.value.institution_phone_no == null || 
+       signupRequest.value.institution_mobile_no == null ||
+        signupRequest.value.contact_person_mobile_no == null )
+    {
+      alert("please enter all values");      
+    }
+    else
+    {
+      this.signupService.addSignUp(signupRequest.value).subscribe(data=>{
+        this.serRes=data;
+        if(this.serRes.code==200)
+        {
+          //console.log(signupRequest.value);
+          //alert(this.serRes.message);
+  
+          this.dialog.open(ContactAdminComponent);
+        }
+        else
+        {        
+          alert(this.serRes.message);    
+        }
+      })
+    }
     
-
-    this.signupService.addSignUp(signupRequest.value).subscribe(data=>{
-      this.serRes=data;
-      if(this.serRes.code==200)
-      {
-        //console.log(signupRequest.value);
-        //alert(this.serRes.message);
-
-        this.dialog.open(ContactAdminComponent);
-      }
-      else
-      {        
-        alert(this.serRes.message);        
-      }
-    })
     
   }
-
 }

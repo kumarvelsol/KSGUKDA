@@ -34,6 +34,10 @@ export class CastDetailsComponent implements OnInit {
   buttoncontent:string="Add";
 
   public onclick(){
+     if(this.cast_name == '' )
+    {alert("Please enter valid details") }
+    else
+    {
     if(this.buttoncontent == "Add")
     {
       let cast: Cast = {
@@ -72,6 +76,10 @@ export class CastDetailsComponent implements OnInit {
         }
       });
     }
+  }
+
+
+  
   }
   num : number;
   public startEdit(i:number,cast_id: number, cast_name: string,) {

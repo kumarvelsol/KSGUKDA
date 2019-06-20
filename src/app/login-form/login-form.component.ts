@@ -39,18 +39,24 @@ export class LoginFormComponent implements OnInit {
   onSubmit(ss:NgForm)
   {
 
-    console.log(ss.value);
-
-    this.signupService.loginAdmin(ss.value.institution_code,ss.value.institution_password).subscribe(data=>{
-      this.serRes=data;
-      if(this.serRes.code==200)
-      {        
-        alert(this.serRes.message);
-      }
-      else
-      {        
-        alert(this.serRes.message);        
-      }
-    })
+    if(ss.value.institution_code ==  "" || ss.value.institution_password == "")
+    {
+      alert("please enter valid details");
+    }else
+    {
+      this.signupService.loginAdmin(ss.value.institution_code,ss.value.institution_password).subscribe(data=>{
+        this.serRes=data;
+        if(this.serRes.code==200)
+        {        
+          alert(this.serRes.message);
+        }
+        else
+        {        
+          alert(this.serRes.message);        
+        }
+      })
+    }
+  
+    
   }
 }

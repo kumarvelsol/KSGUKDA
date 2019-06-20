@@ -17,7 +17,7 @@
                      </div>            
 
                   <mat-form-field class="col-md-12" style="color: gray;" >
-                    <mat-label style="color: gray;">Section Name</mat-label>
+                    <mat-label style="color: gray;">Session Name</mat-label>
                     <mat-icon style="color :gray" matSuffix>developer_board</mat-icon>          
                     <input matInput    name="session_name" #session_name="ngModel" [ngModel]="service.tperiods.session_name" required>
                     <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
@@ -56,7 +56,9 @@
             <div class="col-sm-12">
               <div class="form-group">
                   <div>
-                      <button mat-raised-button  [disabled]="!addingTperiod.form.valid" [ngClass] = "{'my-color': !addingTperiod.valid} "     class="btn btn-lg btn-block btn-info"> {{buttoncontent}}</button>
+                      <button mat-raised-button       class="btn btn-lg btn-block btn-info"> {{buttoncontent}}</button>
+
+                      <!-- [disabled]="!addingTperiod.form.valid" [ngClass] = "{'my-color': !addingTperiod.valid} " -->
                   </div>                          
               </div>
             </div>
@@ -127,9 +129,10 @@
                       <mat-icon aria-label="Edit">edit</mat-icon>
                     </button>
 
-                    <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(element)">
+                    <!-- <button mat-icon-button style="color:gray;margin-right: 10px;" (click)="deletes(element)">
                       <mat-icon aria-label="Edit">delete</mat-icon>
-                    </button>
+                    </button> -->
+
                   </td>
                 </ng-container>
              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

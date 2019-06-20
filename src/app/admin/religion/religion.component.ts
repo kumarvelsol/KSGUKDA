@@ -31,7 +31,12 @@ export class ReligionComponent implements OnInit {
   religion_name:string='';
   id:number;
   buttoncontent:string="Add";
-  public onclick(){
+  public onclick()
+  {
+    if(this.religion_name == '' )
+    {alert("Please enter valid details") }
+    else
+    {
     
       if(this.buttoncontent == "Add")
       {
@@ -72,6 +77,7 @@ export class ReligionComponent implements OnInit {
           
         });
       }
+    }
       
   }
    num : number;

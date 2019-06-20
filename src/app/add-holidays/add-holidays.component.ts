@@ -16,6 +16,7 @@ export class AddHolidaysComponent implements OnInit {
   dataSource
   public show:boolean = false;
 
+
   buttoncontent:string="save";
   constructor(public service:HolidaysServsService) { }
 
@@ -51,15 +52,20 @@ export class AddHolidaysComponent implements OnInit {
   }
   
   onSubmit(holidays:NgForm)
-  {           
-    if(this.buttoncontent=='save')
+  {     
+    if(holidays.value.startdate == null || holidays.value.enddate == null)
+    {
+      alert("please insert valid data");
+    }
+    else if(this.buttoncontent=='save')
     {
       this.service.addTperiods(holidays.value).subscribe(data=>{
         this.serRes=data;
+        
         if(this.serRes.code==200)
         {
           alert(this.serRes.message);    
-                      
+                      this.displayHolidaysList();
         }
         else{        
           alert(this.serRes.message);
@@ -78,11 +84,9 @@ export class AddHolidaysComponent implements OnInit {
           this.displayHolidaysList();
         }
         else{        
-          alert(this.serRes.message);
-          
+          alert(this.serRes.message);          
         }
-    })
-     
+    })     
     }
     
 
@@ -92,7 +96,8 @@ export class AddHolidaysComponent implements OnInit {
   {
 
     this.buttoncontent="update";
-    this.show = !this.show;
+    //this.show = !this.show;
+    this.show = true;
     this.service.addHoliday.startdate=country.date;
     this.service.addHoliday.enddate=country.date;
     this.service.addHoliday.remarks=country.remarks;

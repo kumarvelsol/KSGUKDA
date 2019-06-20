@@ -1,16 +1,16 @@
 <div class="container card">
-  <div class = "row">
-      <div class="row col-md-12">
-          <div class="col-md-6 mat-form-wrap">
-              <p style="margin-top: 20px;height: 20px;margin-left:200px;font-weight: bold;font-size:1.5em;width:100%;">{{institution_name}}</p>
-          </div>
-      </div>
-      <div class="row col-md-12">
-          <div class="col-md-6 mat-form-wrap">
-              <p style="height: 20px;margin-left:200px; font-weight: bold;font-size:1.2em;width:100%;">{{institution_address}}</p>
-          </div>
-      </div>
-  </div>
+    <div class = "row">
+        <div class="row col-md-12">
+            <div class="col-md-6 mat-form-wrap">
+                <p style="margin-top: 20px;height: 20px;margin-left:200px;font-weight: bold;font-size:1.5em;width:100%;">{{institution_name}}</p>
+            </div>
+        </div>
+        <div class="row col-md-12">
+            <div class="col-md-6 mat-form-wrap">
+                <p style="height: 20px;margin-left:200px; font-weight: bold;font-size:1.2em;width:100%;">{{institution_address}}</p>
+            </div>
+        </div>
+    </div>
   <div class = "row">
      <div class="row col-md-12">
           <div class="col-md-4 mat-form-wrap">
@@ -21,7 +21,6 @@
             </mat-form-field>
           </div>
           <p style="margin-top: 20px;height: 20px;margin-left:290px;">Paid On: {{today | date:'dd-MM-yyyy hh:mm:ss a':'+0530'}}</p> 
-          <!-- <p>Paid On: {{jstoday}}</p>   -->
         </div>
   </div>
     <div class="row">
@@ -58,7 +57,7 @@
           <table mat-table [dataSource]="dataSource">
               <ng-container matColumnDef="FeeCategory">
                   <th mat-header-cell *matHeaderCellDef>FeeCategory</th>
-                  <td mat-cell *matCellDef="let i"> {{i.feetypes}} </td>
+                  <td mat-cell *matCellDef="let i"> {{i.purchase_feetypes}} </td>
                 </ng-container>
             <ng-container matColumnDef="FeeAmount">
               <th mat-header-cell *matHeaderCellDef>FeeAmount </th>

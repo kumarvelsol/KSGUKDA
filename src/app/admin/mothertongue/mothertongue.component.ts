@@ -30,6 +30,10 @@ export class MothertongueComponent implements OnInit {
   id:number;
   buttoncontent:string="Add";
   public onclick(){
+    if(this.mother_tongue_name == '' )
+    {alert("Please enter valid details") }
+    else
+    {
     if(this.buttoncontent == "Add")
     {
       let mothertongue: Mother_Tongue = {
@@ -68,6 +72,7 @@ export class MothertongueComponent implements OnInit {
         }
       });
     }
+  }
   }
   
  num : number;

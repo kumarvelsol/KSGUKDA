@@ -34,6 +34,7 @@ import { Studentexamresult } from '../shared/studentexamresult';
 import { Classexamresults } from '../shared/classexamresults';
 import { Classresponse } from '../class/classresponse';
 import { Regularfee } from '../shared/regularfee';
+import { purchaseFees } from '../purchase-fee/purchase-fee.component';
 export interface Parsing{
   institution_id : number,
   academic_id : number,
@@ -611,6 +612,20 @@ public updateaddevents(event_up: Addevents){
 
 
 
+
+
+  public purchasefeefetch(institution_id:number,academic_id:number)
+   {
+      let params = new HttpParams();
+      params = params.append('institution_id', institution_id+"");
+      params = params.append('academic_id',academic_id+"");
+      return this.http.post(`${this.Baseurl+"purchasefeefetch"}`,params);
+   }
+
+  public purchasefeeadding(cls:purchaseFees)
+   {
+      return this.http.post(`${this.Baseurl+"purchasefeeadding"}`,cls);
+   }
 
   addingExams(emp:Studentexamresult):Observable<Classresponse>
   {    

@@ -33,6 +33,10 @@ import { ClassexamresultsComponent } from './classexamresults/classexamresults.c
 import { StudentexamresultComponent } from './studentexamresult/studentexamresult.component';
 import { RegularfeeComponent } from './regularfee/regularfee.component';
 import { FeepaymentComponent } from './feepayment/feepayment.component';
+import { FeepaymentpreviewComponent } from './feepaymentpreview/feepaymentpreview.component';
+import { PurchaseFeeComponent } from '../purchase-fee/purchase-fee.component';
+import { PurchasefeeconfirmationComponent } from './purchasefeeconfirmation/purchasefeeconfirmation.component';
+import { PurchasefeepaymentpreviewComponent } from './purchasefeepaymentpreview/purchasefeepaymentpreview.component';
 
 // import { ClassteacherdetailsComponent } from './classteacherdetails/classteacherdetails.component';
 
@@ -67,7 +71,11 @@ const routes: Routes = [
   {path:'Results',component:ClassexamresultsComponent},
   {path:'StudentResult',component:StudentexamresultComponent},
   {path:'RegularFee',component:RegularfeeComponent},
-  {path:'FeePayment',component:FeepaymentComponent}
+  {path:'FeePayment',component:FeepaymentComponent},
+  {path:'FeePaymentPreview',component:FeepaymentpreviewComponent},
+  {path:'PurchaseFee',component:PurchaseFeeComponent},
+  {path:'PurchaseFeePayment',component:PurchasefeeconfirmationComponent},
+  {path:'PurchaseFeePaymentPreview',component:PurchasefeepaymentpreviewComponent}
 ];
 
 @NgModule({
