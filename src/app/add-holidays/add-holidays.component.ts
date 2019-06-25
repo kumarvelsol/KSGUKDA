@@ -34,6 +34,7 @@ export class AddHolidaysComponent implements OnInit {
     this.service.getHolidays(1,1).subscribe(res=>{          
       this.data=res.Data;      
       this.dataSource = this.data;
+    
   });
 
   }
@@ -80,7 +81,8 @@ export class AddHolidaysComponent implements OnInit {
         if(this.serRes.code==200)
         {
           
-          alert(this.serRes.message);                
+          alert(this.serRes.message); 
+          console.log(holidays.value);               
           this.displayHolidaysList();
         }
         else{        
@@ -95,13 +97,14 @@ export class AddHolidaysComponent implements OnInit {
   populateForm(country:updateholidays)
   {
 
+    console.log(country);
     this.buttoncontent="update";
     //this.show = !this.show;
     this.show = true;
     this.service.addHoliday.startdate=country.date;
     this.service.addHoliday.enddate=country.date;
     this.service.addHoliday.remarks=country.remarks;
-    console.log(this.service.addHoliday);
+    //console.log(this.service.addHoliday);
   }
 
   
