@@ -36,7 +36,8 @@ export class HolidaysServsService {
     return this.http.post<Classresponse> ('http://veledu.edujinni.in/dates',emp)
   }
 
-  getHolidays(institution_id : number, academic_id : number){
+  getHolidays(institution_id : number, academic_id : number)
+  {
     let params = new HttpParams();
     params = params.append('institution_id', institution_id+"");
     params = params.append('academic_id',academic_id+"");
@@ -48,7 +49,7 @@ export class HolidaysServsService {
   updateHolidays(ss:updateholidays){
     ss.institution_id=1;
     ss.academic_id=1; 
-    ss.holiday=1;
+    //ss.holiday=1;
     return this.http.post<Classresponse>('http://veledu.edujinni.in/updateholiday',ss);
 
   }

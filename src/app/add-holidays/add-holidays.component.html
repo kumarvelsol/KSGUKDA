@@ -14,8 +14,8 @@
 
 
 
-              <div class="col-sm-6">
-              <mat-form-field class="mat-form-wrap" style="color: gray;">
+              <div >
+              <mat-form-field class="col-lg-12" style="color: gray;">
                 <input matInput placeholder="from date"   [matDatepicker]="picker"  name="startdate" #startdate="ngModel" [ngModel]="service.addHoliday.startdate" required>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker ngDefaultControl ></mat-datepicker>
@@ -29,8 +29,8 @@
               </div> 
 
 
-              <div class="col-sm-6">
-                <mat-form-field class="mat-form-wrap" style="color: gray;">
+              <div >
+                <mat-form-field class="col-lg-12" style="color: gray;">
                   <input  placeholder="to date" matInput   [matDatepicker]="socker"  name="enddate" #enddate="ngModel" [ngModel]="service.addHoliday.enddate" required>
                   <mat-datepicker-toggle matSuffix [for]="socker"></mat-datepicker-toggle>
                   <mat-datepicker #socker ngDefaultControl ></mat-datepicker>
@@ -53,7 +53,7 @@
 
                   <ng-container *ngIf="show">
 
-                      <mat-form-field class="mat-form-wrap" style="color: gray;">
+                      <mat-form-field class="col-md-12" style="color: gray;">
                           <mat-label style="color: gray;"> Remarks </mat-label>
                           <mat-icon style="color :gray" matSuffix>code</mat-icon>          
                           <input matInput   name="remarks" #remarks="ngModel" [ngModel]="service.addHoliday.remarks" >
