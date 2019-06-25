@@ -14,7 +14,6 @@ export interface Months {
   styleUrls: ['./viewattendence.component.css']
 })
 export class ViewattendenceComponent implements OnInit {
-
   buttoncontent:string="";
   viewattend : Apiresponse;
   months: Months[] = [
@@ -35,7 +34,6 @@ export class ViewattendenceComponent implements OnInit {
   dateall:Date;
   date:number;month:number;year:number;month1:string;
   constructor(public service:AdminServiceService) { }
-
   ngOnInit() 
   {
     this.buttoncontent = "Save";
@@ -47,14 +45,12 @@ export class ViewattendenceComponent implements OnInit {
       this.clsdata = data.Data;
     });
   }
-
   onclearclick()
   {
     this.class_id = null;
     this.dateall =null;
     this.dataSource = null;
   }
-
   getdetails()
   {
     console.log(this.dateall);
@@ -71,7 +67,6 @@ export class ViewattendenceComponent implements OnInit {
       this.viewattend=data;
       this.dataSource = new MatTableDataSource(this.viewattend.Data);
     });
-  
   }
   selectOption(value)
   {
