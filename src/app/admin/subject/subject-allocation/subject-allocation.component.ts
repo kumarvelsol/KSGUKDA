@@ -7,7 +7,6 @@ import { SubjectAllocationList } from 'src/app/shared/SubjectAllocationModels/su
 import { MatTableDataSource } from '@angular/material';
 import { SubjectAllocationUpdate } from 'src/app/shared/SubjectAllocationModels/subjectallocation_update';
 import { Data } from 'src/app/shared/data';
-
 @Component({
   selector: 'app-subject-allocation',
   templateUrl: './subject-allocation.component.html',
@@ -55,7 +54,6 @@ export class SubjectAllocationComponent implements OnInit {
     // End of Getting Department 
   }
   //End of Getting all Data For Drop Downs
-
   //Start of Getting Subject Allocation List
   public GettingSubjectAllocationList(){
     this.service.getSubjectAllocationList(1,1).subscribe((data : SubjectAllocationList) =>{

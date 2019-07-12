@@ -34,52 +34,48 @@ export class CastDetailsComponent implements OnInit {
   buttoncontent:string="Add";
 
   public onclick(){
-     if(this.cast_name == '' )
+    if(this.cast_name == '' )
     {alert("Please enter valid details") }
     else
     {
-    if(this.buttoncontent == "Add")
-    {
-      let cast: Cast = {
-        cast_name:this.cast_name,
-        institution_id : 1,
-        academic_id : 1
-      }
-      this.service.createcast(cast).subscribe((data : JsResponse)=>{
-        this.jsRes = data;
-        if(this.jsRes.code==200)
-        {
-          alert(" Cast Added successfully");
-          console.log("success");
-        }else{
+      if(this.buttoncontent == "Add")
+      {
+        let cast: Cast = {
+          cast_name:this.cast_name,
+          institution_id : 1,
+          academic_id : 1
         }
-      });
-      // this.service.getcast().subscribe((data: Datum[]) => {this.dataum = data;});
-      this.id = null;this.cast_name = null; 
-    }
-    else if(this.buttoncontent == "Update")
-    {
-      let cast: Cast = {
-        academic_id : 1,
-        institution_id : 1,
-        cast_name : this.cast_name,
-        
+        this.service.createcast(cast).subscribe((data : JsResponse)=>{
+          this.jsRes = data;
+          if(this.jsRes.code==200)
+          {
+            alert(" Cast Added successfully");
+            console.log("success");
+          }else{
+          }
+        });
+        // this.service.getcast().subscribe((data: Datum[]) => {this.dataum = data;});
+        this.id = null;this.cast_name = null; 
       }
-      this.service.updatecast(this.num,1,1,this.cast_name).subscribe((data : JsResponse) => {
-        //this.respons=data;
-        this.jsRes = data;
-        if(this.jsRes.code==200)
-        {
-          alert("Cast update Succesfully.!");
-          console.log("success");
-        }else{
+      else if(this.buttoncontent == "Update")
+      {
+        let cast: Cast = {
+          academic_id : 1,
+          institution_id : 1,
+          cast_name : this.cast_name,
         }
-      });
+        this.service.updatecast(this.num,1,1,this.cast_name).subscribe((data : JsResponse) => {
+          //this.respons=data;
+          this.jsRes = data;
+          if(this.jsRes.code==200)
+          {
+            alert("Cast update Succesfully.!");
+            console.log("success");
+          }else{
+          }
+        });
+      }
     }
-  }
-
-
-  
   }
   num : number;
   public startEdit(i:number,cast_id: number, cast_name: string,) {
