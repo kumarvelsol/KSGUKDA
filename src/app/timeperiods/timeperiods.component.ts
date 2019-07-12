@@ -143,7 +143,6 @@ export class TimeperiodsComponent implements OnInit {
 
   selectOption(value) 
   {
-
     this.service.getTperiods(1,1,value).subscribe(data=>{
       this.serRes=data;
       this.dataSource=this.serRes.Data;          

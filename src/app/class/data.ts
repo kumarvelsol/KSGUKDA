@@ -6,4 +6,5 @@ export interface Data
     class_id : number;
     time_table_id:number;
     time_period_id:number;
+    date:string;
 }

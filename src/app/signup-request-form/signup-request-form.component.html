@@ -17,7 +17,8 @@
                 <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                   <mat-label style="color: gray;">Institute Name</mat-label>
 
-                  <input  (keypress)="omit_special_char($event)" matInput    name="institution_name" #institution_name="ngModel" [ngModel]="signupService.signUpModelRef.institution_name" required>
+                  <input  onkeypress="return (event.charCode > 64 && 
+                  event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" matInput    name="institution_name" #institution_name="ngModel" [ngModel]="signupService.signUpModelRef.institution_name" required>
                   <mat-icon style="color: gray;" matSuffix>business</mat-icon>
                   <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                 </mat-form-field>
@@ -81,7 +82,8 @@
                         <mat-form-field class="mat-form-wrap" style="color: gray;" appearance="outline">
                           <mat-label style="color: gray;">Contact Person Name</mat-label>
                           
-                          <input  (keypress)="omit_special_char($event)"  matInput    name="contact_person_name" #contact_person_name="ngModel" [ngModel]="signupService.signUpModelRef.contact_person_name" required>
+                          <input      onkeypress="return (event.charCode > 64 && 
+                          event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" matInput    name="contact_person_name" #contact_person_name="ngModel" [ngModel]="signupService.signUpModelRef.contact_person_name" required>
                           <mat-icon style="color: gray;" matSuffix>add_location</mat-icon>
                           <!-- <mat-hint style="color: gray;">Hint</mat-hint> -->
                         </mat-form-field>
