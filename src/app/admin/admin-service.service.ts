@@ -10,17 +10,17 @@ import { Cast } from 'src/app/shared/CastModels/cast';
 import { PassingInstitute } from './cast-details/cast-details.component';
 import { Religion } from 'src/app/shared/ReligionModels/religion';
 import { User } from '../shared/user';
-import { Academicdetails} from '../shared/academicdetails';
+import { Academicdetails } from '../shared/academicdetails';
 import { Designation } from '../shared/designation';
-import { Bloodgroup} from '../shared/bloodgroup';
+import { Bloodgroup } from '../shared/bloodgroup';
 import { SubjectInsert } from '../shared/SubjectModels/subjectinsert';
 import { SubjectUpdate } from '../shared/SubjectModels/subjectupdate';
 import { Employeemodel } from '../shared/employeemodel';
 import { Classexammodel } from '../shared/classexammodel';
 import { SubjectAllocationInsert } from '../shared/SubjectAllocationModels/subjectallocation_insert';
 import { Student } from '../shared/student';
-import {Apiresponse} from '../shared/apiresponse';
-import {Mother_Tongue} from 'src/app/shared/Mother_tongue/mother_tongue';
+import { Apiresponse } from '../shared/apiresponse';
+import { Mother_Tongue } from 'src/app/shared/Mother_tongue/mother_tongue';
 import { TeacherData } from './classteacherdetails/classteacherdetails.component';
 import { SubjectAllocationUpdate } from '../shared/SubjectAllocationModels/subjectallocation_update';
 import { SubjectAllocationList } from '../shared/SubjectAllocationModels/subjectallocationlist';
@@ -52,45 +52,43 @@ export class AdminServiceService {
   refer : DepartmentDetails;
   constructor(private http:HttpClient) { }
   //Start of Department related Service Methods
-    getdepartment(institution_id : number, academic_id : number){
-      let params = new HttpParams();
-      params = params.append('institution_id', institution_id+"");
-      params = params.append('academic_id',academic_id+"");
-      return this.http.post<Apiresponse>(this.Baseurl+"departmentlist",params);
-    }
-    createdepartment (department : Department){
-      return this.http.post(`${this.Baseurl+"department"}`,department);
-    }
-    updatedepartment (depart_details : DepartmentDetails){
-      return this.http.post(`${this.Baseurl+"departmentupdate"}`,depart_details);
-    }
+  getdepartment(institution_id : number, academic_id : number){
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    params = params.append('academic_id',academic_id+"");
+    return this.http.post<Apiresponse>(this.Baseurl+"departmentlist",params);
+  }
+  createdepartment (department : Department){
+    return this.http.post(`${this.Baseurl+"department"}`,department);
+  }
+  updatedepartment (depart_details : DepartmentDetails){
+    return this.http.post(`${this.Baseurl+"departmentupdate"}`,depart_details);
+  }
   //End of Department related Service Methods
 
   //Start of Institute related Service Methods
-    getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
-      let params = new HttpParams();
-      params = params.append('institution_id', institution_id+"");
-      return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
-    }
-    createinstitute (institute : InstituteInsert){
-      return this.http.post(`${this.Baseurl+"Institution"}`,institute);
-    }
-    updateinstitute (insti_up : InstituteUpdate){
-      return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
-    }
+  getinstitute (institution_id : number){//institution_id inst_Id : ParseInstituteId
+    let params = new HttpParams();
+    params = params.append('institution_id', institution_id+"");
+    return this.http.post<Apiresponse>(`${this.Baseurl+"Institutionlist"}`,params);
+  }
+  createinstitute (institute : InstituteInsert){
+    return this.http.post(`${this.Baseurl+"Institution"}`,institute);
+  }
+  updateinstitute (insti_up : InstituteUpdate){
+    return this.http.post(`${this.Baseurl+"Institutionupdate"}`,insti_up);
+  }
   //End of Institute related Service Methods
-
-  casturllist='http://veledu.edujinni.in/getCastDetails';
-  casturlinsert='  http://veledu.edujinni.in/addingCast';
-  casturlupdate=' http://veledu.edujinni.in/UpdatingCast';
-  religionurllist='http://veledu.edujinni.in/getReligionDetails';
-  religionurlinsert='http://veledu.edujinni.in/addingReligion';
-  religionurlupdate='http://veledu.edujinni.in/updateReligion';
-  mothertongueurllist='http://veledu.edujinni.in/getmothertongueDetails';
-  mothertongueurlinsert='http://veledu.edujinni.in/addmothertongue';
+  casturllist = 'http://veledu.edujinni.in/getCastDetails';
+  casturlinsert = 'http://veledu.edujinni.in/addingCast';
+  casturlupdate = 'http://veledu.edujinni.in/UpdatingCast';
+  religionurllist = 'http://veledu.edujinni.in/getReligionDetails';
+  religionurlinsert = 'http://veledu.edujinni.in/addingReligion';
+  religionurlupdate = 'http://veledu.edujinni.in/updateReligion';
+  mothertongueurllist = 'http://veledu.edujinni.in/getmothertongueDetails';
+  mothertongueurlinsert = 'http://veledu.edujinni.in/addmothertongue';
   mothertongueurlupdate = 'http://veledu.edujinni.in/Updatingmothertongue';
   //refer:Cast
-  
   getcast (institution_id : number)
   {
     let params = new HttpParams();
