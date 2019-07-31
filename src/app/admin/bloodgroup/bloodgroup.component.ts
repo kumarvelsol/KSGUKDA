@@ -42,57 +42,62 @@ export class BloodgroupComponent implements OnInit {
   }
  public onsubmitclick()
  {
-   if(this.buttoncontent == 'Save')
-   {
-    let a:Bloodgroup = {
-      blood_group_id : this.blood_group_id,
-      blood_group_name :this.blood_group_name,
-      blood_group_code :this.blood_group_code,
-      institution_id :1,
-      academic_id : 1
-      }
-      this.service1Service.createbloodgroup(a).subscribe((data : JsResponse) => {
-        this.jsRes = data;
-        if(this.jsRes.code==200)
-        {
-          alert("BloodGroup Added Succesfully.!");
-          console.log("success");
-        }else{ }
-        this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+  if(this.blood_group_name == '' || this.blood_group_code == '')
+    {alert("Please enter Valid Data") }
+  else
+  {
+      if(this.buttoncontent == 'Save')
       {
-        this.bloodgrouplist = data;
-        console.log(this.bloodgrouplist);
-        this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
-      });
-      });
-      this.blood_group_name ='';this.blood_group_code =null;
-  }
-   else if(this.buttoncontent == 'Update')
-   {
-    let a:Bloodgroup = {
-      blood_group_id : this.blood_group_id,
-      blood_group_name :this.blood_group_name,
-      blood_group_code :this.blood_group_code,
-      institution_id :1,
-      academic_id : 1
+        let a:Bloodgroup = {
+          blood_group_id : this.blood_group_id,
+          blood_group_name :this.blood_group_name,
+          blood_group_code :this.blood_group_code,
+          institution_id :1,
+          academic_id : 1
+          }
+          this.service1Service.createbloodgroup(a).subscribe((data : JsResponse) => {
+            this.jsRes = data;
+            if(this.jsRes.code==200)
+            {
+              alert("BloodGroup Added Succesfully.!");
+              console.log("success");
+            }else{ }
+            this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+          {
+            this.bloodgrouplist = data;
+            console.log(this.bloodgrouplist);
+            this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
+          });
+          });
+          this.blood_group_name ='';this.blood_group_code =null;
       }
-      this.service1Service.updatebloodgroup(a).subscribe((data : JsResponse) => {
-        this.jsRes = data;
-        if(this.jsRes.code==200)
-        {
-          alert("BloodGroup Updated Succesfully.!");
-        }else{ }
-        this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+      else if(this.buttoncontent == 'Update')
       {
-        this.bloodgrouplist = data;
-        console.log(this.bloodgrouplist);
-        this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
-      });
-      });
-      this.buttoncontent = 'Save';
+        let a:Bloodgroup = {
+          blood_group_id : this.blood_group_id,
+          blood_group_name :this.blood_group_name,
+          blood_group_code :this.blood_group_code,
+          institution_id :1,
+          academic_id : 1
+          }
+          this.service1Service.updatebloodgroup(a).subscribe((data : JsResponse) => {
+            this.jsRes = data;
+            if(this.jsRes.code==200)
+            {
+              alert("BloodGroup Updated Succesfully.!");
+            }else{ }
+            this.service1Service.getbloodgroup(a).subscribe((data: Apiresponse) => 
+          {
+            this.bloodgrouplist = data;
+            console.log(this.bloodgrouplist);
+            this.abDataSource = new MatTableDataSource(this.bloodgrouplist.Data);
+          });
+          });
+          this.buttoncontent = 'Save';
+      }
+      this.blood_group_name =''; this.blood_group_code =null;
+    }
   }
-  this.blood_group_name =''; this.blood_group_code =null;
-}
 public RowSelected(row)
  {
    this.blood_group_id = row.blood_group_id;

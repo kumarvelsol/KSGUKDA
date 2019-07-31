@@ -57,7 +57,7 @@ const routes: Routes = [
   {path:'employeelist',component:EmployeelistComponent},
   {path:'signUp',component:SignupRequestFormComponent},
   {path:'login',component:LoginFormComponent},
-  {path:'classexam',component:ClassexamComponent},
+  // {path:'classexam',component:ClassexamComponent},
   {path:'FeeType',component:FeeTypeComponent},
   {path:'FeeMode',component:FeeModeComponent},
   {path:'schoolexam',component:SchoolexamComponent},

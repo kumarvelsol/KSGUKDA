@@ -7,6 +7,7 @@ import { AdminServiceService } from '../admin-service.service';
 import { Studentexamresult } from 'src/app/shared/studentexamresult';
 import { JsResponse } from 'src/app/shared/jsresponse';
 import { Classresponse } from 'src/app/class/classresponse';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-studentexamresult',
@@ -21,10 +22,10 @@ export class StudentexamresultComponent implements OnInit
 
   studentid:number;
   studentmarkslist : Apiresponse; studentmarksdata : Data[];
-  displayedColumns : string[] = ['SubjectName','ExamType','ExamDate','OutofMarks','MarksGained','Percentage'];
+  displayedColumns : string[] = ['SubjectName','ExamDate','OutofMarks','MarksGained','Percentage']; //'ExamType',
   student_roll_no:number; first_name : string; exam_type : string; class_name : string;
   class_id : number; student_id : number; status : string; percentage : string;
-  exam_class_start_date = new Date();exam_class_end_date = new Date();
+  exam_class_start_date : string;exam_class_end_date : string;
   listcount : number;
   subjectName : string;
   examType : string; 
@@ -35,7 +36,7 @@ export class StudentexamresultComponent implements OnInit
   marksGained : string; total_out_of_marks : number = 0; exam_id : number; sub_allocation_id :1;
   Percentages : string; result : any = {}; outmarks : number = 0; totmarks : number = 0;academic_id : 1
   total_marks : number; marks :string; 
-  constructor(private service1Service: AdminServiceService,private route: ActivatedRoute) {
+  constructor(private service1Service: AdminServiceService,private datePipe: DatePipe,private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       this.class_name = params["clsname"];
       this.exam_type = params["examtype"];
@@ -51,7 +52,8 @@ export class StudentexamresultComponent implements OnInit
   console.log(this.exam_class_start_date);
    }
   ngOnInit() {
-
+    this.exam_class_start_date = this.datePipe.transform(new Date(), 'MM/dd/yy');
+    this.exam_class_end_date = this.datePipe.transform(new Date(), 'MM/dd/yy');
     this.service1Service.getstudentmarks(1,1,this.class_id,this.studentid).subscribe((data: Apiresponse)=>{
       this.dataSource = new MatTableDataSource(data.Data);
       this.listcount = data.Data.length;

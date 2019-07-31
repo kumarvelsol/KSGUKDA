@@ -45,64 +45,71 @@ export class AddeventsComponent implements OnInit {
   }
   public onsubmitclick()
   {
-   if(this.buttoncontent == 'Save')
-   {
-    let a: Addevents = {
-      event_name:this.event_name,
-      discription:this.discription,
-      from_date : this.datePipe.transform(this.from_date,"yyyy-MM-dd"),
-      to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
-      event_organizer : this.event_organizer,
-      institution_id : 1,
-      academic_id : 1,
-      event_id : this.event_id
+    if(this.event_name == "" || this.from_date == null || this.to_date == null)
+    {
+        alert("Please enter Valid Data");
     }
-    this.service1Service.createaddevents(a).subscribe((data : JsResponse) => {
-      this.jsRes = data;
-      if(this.jsRes.code==200)
+    else
+    {
+      if(this.buttoncontent == 'Save')
       {
-        console.log(data);
-        alert("Event Added Succesfully.!");
-      }else{ }
-      this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
-   {
-     this.addeventslist = data;
-     console.log(this.addeventslist);
-     this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
-    });
-    });
-    console.log(a);
-   }
-   else if(this.buttoncontent == 'Update')
-   {
-    let a: Addevents = {
-      event_name:this.event_name,
-      discription:this.discription,
-      from_date : this.datePipe.transform(this.from_date,"yyyy-MM-dd"),
-      to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
-      event_organizer : this.event_organizer,
-      institution_id : 1,
-      academic_id : 1,
-      event_id : this.event_id
+        let a: Addevents = {
+          event_name:this.event_name,
+          discription:this.discription,
+          from_date : this.datePipe.transform(this.from_date,"yyyy-MM-dd"),
+          to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
+          event_organizer : this.event_organizer,
+          institution_id : 1,
+          academic_id : 1,
+          event_id : this.event_id
+        }
+        this.service1Service.createaddevents(a).subscribe((data : JsResponse) => {
+          this.jsRes = data;
+          if(this.jsRes.code==200)
+          {
+            console.log(data);
+            alert("Event Added Succesfully.!");
+          }else{ }
+          this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
+      {
+        this.addeventslist = data;
+        console.log(this.addeventslist);
+        this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
+        });
+        });
+        console.log(a);
+      }
+      else if(this.buttoncontent == 'Update')
+      {
+        let a: Addevents = {
+          event_name:this.event_name,
+          discription:this.discription,
+          from_date : this.datePipe.transform(this.from_date,"yyyy-MM-dd"),
+          to_date  :this.datePipe.transform(this.to_date,"yyyy-MM-dd"),
+          event_organizer : this.event_organizer,
+          institution_id : 1,
+          academic_id : 1,
+          event_id : this.event_id
+        }
+        this.service1Service.updateaddevents(a).subscribe((data : JsResponse) => {
+          this.jsRes = data;
+          if(this.jsRes.code==200)
+          {
+            console.log(data);
+            alert("Event Updated Succesfully.!");
+          }else{ }
+          this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
+      {
+        this.addeventslist = data;
+        console.log(this.addeventslist);
+        this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
+        });
+        });
+        console.log(a);
+      }
+      this.event_name = ""; this.discription = ""; this.from_date = null; this.to_date = null; this.event_organizer = "";
+      }
     }
-    this.service1Service.updateaddevents(a).subscribe((data : JsResponse) => {
-      this.jsRes = data;
-      if(this.jsRes.code==200)
-      {
-        console.log(data);
-        alert("Event Updated Succesfully.!");
-      }else{ }
-      this.service1Service.getaddevents(a).subscribe((data: Apiresponse) => 
-   {
-     this.addeventslist = data;
-     console.log(this.addeventslist);
-     this.abDatasource = new MatTableDataSource(this.addeventslist.Data);
-    });
-    });
-    console.log(a);
-   }
-   this.event_name = ""; this.discription = ""; this.from_date = null; this.to_date = null; this.event_organizer = "";
-  }
   public RowSelected(j:number,event_id:number,event_name:string,discription:string,from_date:Date,to_date:Date,event_organizer:string)
   {
     this.buttoncontent = 'Update';
