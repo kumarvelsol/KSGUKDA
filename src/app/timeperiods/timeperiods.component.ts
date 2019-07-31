@@ -24,6 +24,7 @@ export class TimeperiodsComponent implements OnInit {
   data:Data[];
 
   displayedColumns: string[] = ['class_name','session_name', 'from_time', 'to_time','actions'];
+  
   ngOnInit()
   { 
     this.resetForm();
@@ -32,6 +33,7 @@ export class TimeperiodsComponent implements OnInit {
     this.data=res.Data;      
   });
   }
+
   callingGetPeriods()
   {
     
@@ -55,9 +57,6 @@ export class TimeperiodsComponent implements OnInit {
 
   onSubmit(addingTperiod:NgForm)
   {
-    //console.log(addingTperiod.value);
-
-
     if(addingTperiod.value.class_id==null || addingTperiod.value.session_name== null
       || addingTperiod.value.from_time=='' || addingTperiod.value.to_time =='')
       {
@@ -144,7 +143,6 @@ export class TimeperiodsComponent implements OnInit {
 
   selectOption(value) 
   {
-
     this.service.getTperiods(1,1,value).subscribe(data=>{
       this.serRes=data;
       this.dataSource=this.serRes.Data;          
@@ -160,5 +158,12 @@ export class TimeperiodsComponent implements OnInit {
     this.buttoncontent= "Add";
   }
 
+
+  omit_special_char(event)
+  {   
+     var k;  
+     k = event.charCode;  //         k = event.keyCode;  (Both can be used)
+     return((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57)); 
+  }
 
 }

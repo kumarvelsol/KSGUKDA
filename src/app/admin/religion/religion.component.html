@@ -6,7 +6,9 @@
           <p style="margin-top: 20px; margin-left: 15px; color: #012; font-size: 24px;">Religion Details</p>
           <mat-form-field class="col-md-12 mat-form-wrap"  style=color:#012 appearance="outline">
             <mat-label  style=color:#012>Religion_Name</mat-label>
-            <input  style=color:#012 matInput [(ngModel)]="religion_name" type="text" name="religion_name">
+
+            <input     onkeypress="return (event.charCode > 64 &&
+            event.charCode < 91 ) || (event.charCode > 96 && event.charCode < 123)" style=color:#012 matInput name="religion_name" [(ngModel)]="religion_name" type="text" required>
             <mat-icon  style=color:#012 matSuffix>person</mat-icon>
             <!-- <mat-hint color="primary">Hint</mat-hint> -->
           </mat-form-field>

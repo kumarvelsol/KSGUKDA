@@ -175,7 +175,23 @@ export class AddStudentComponent implements OnInit {
 
     public onAddStudentClick()
     {
-      if(this.buttoncontent == "Save Student Details")
+      if(this.admission_number==""||this.admission_date==""||this.first_name==""||this.last_name==""||
+      this.date_of_birth==null||this.gender==""||this.mobile_no==""||
+      this.email==""||this.student_roll_no==""||
+      this.blood_group_id==""||this.religion_id==null||
+      this.cast_id==null||this.class_id==null||this.nationality==""||this.mother_tongue_id==null||
+      this.present_address==""||this.perminent_address==""||this.state==""||this.city==""||
+      this.pin_code==""||this.father_name==""||this.father_mobile_no==""||this.father_designation==""||
+      this.mather_name==""||this.mother_mobile_no==""||this.mother_designation==""||this.guardian_type==""||
+      this.guardian_name==""||this.guardian_mobile_no==""||
+      this.guardian_address==""||this.guardian_email==""||this.relation==""||this.guardian_designation==""||
+      this.guardian_state==""||this.guardian_city==""||this.guardian_pincode==""||this.student_id=="")
+      {
+        alert("Please fill all fields");
+      }
+      else
+      {
+        if(this.buttoncontent == "Save Student Details")
       {
         let std:Student={
           academic_id:1,
@@ -297,6 +313,7 @@ export class AddStudentComponent implements OnInit {
           this.guardian_state="";this.guardian_city="";this.guardian_pincode="";this.student_id="";
         });
       } 
+      }
     }
     private checkValidations() :any
     {

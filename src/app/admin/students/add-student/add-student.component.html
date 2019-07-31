@@ -30,7 +30,7 @@
               <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                 <mat-icon style="color :gray" matSuffix>person</mat-icon>
                 <mat-label style="color :gray">Birth Place</mat-label>
-                <input style="color :gray" type="text" [(ngModel)]="birth_place" name="birth_place" matInput required>
+                <input style="color :gray" type="text" [(ngModel)]="birth_place" name="birth_place" matInput>
                 <!-- <mat-hint color="primary">Hint</mat-hint> -->
               </mat-form-field>
             </div>
@@ -179,7 +179,7 @@
                 <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                     <mat-icon style="color :gray" matSuffix>code</mat-icon>
                     <mat-label style="color :gray">Alternative Mobile Number</mat-label>
-                    <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="alternate_mobile_no" name="alternate_mobile_no" matInput required>
+                    <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="alternate_mobile_no" name="alternate_mobile_no" matInput>
                     <!-- <mat-hint color="primary">Hint</mat-hint> -->
                   </mat-form-field>
             </div>
@@ -359,7 +359,7 @@
                                         <mat-form-field class="col-md-12 mat-form-wrap" style="color :gray" appearance="outline">
                                           <mat-icon style="color :gray" matSuffix>code</mat-icon>
                                           <mat-label style="color :gray">Guardian Alternative Mobile No</mat-label>
-                                          <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="guardian_second_mobile_no" name="guardian_second_mobile_no" matInput required>
+                                          <input style="color :gray" type="number"oninput="typescript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" [(ngModel)]="guardian_second_mobile_no" name="guardian_second_mobile_no" matInput>
                                           <!-- <mat-hint color="primary">Hint</mat-hint> -->
                                         </mat-form-field>
                                       </div>
